@@ -11,7 +11,7 @@ import model.Database;
  *
  * @author pentre
  */
-public class Controller {
+public class Controller implements UserController {
     
     public static Database database;
     

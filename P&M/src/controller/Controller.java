@@ -11,7 +11,7 @@ import model.Database;
  *
  * @author pentre
  */
-public class Controller implements BranchController {
+public class Controller {
     
     public static Database database;
     

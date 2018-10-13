@@ -55,6 +55,11 @@ public class createBranch extends javax.swing.JFrame {
         jLabel4.setText("Gerente:");
 
         jTextField1.setColumns(6);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jTextField2.setColumns(6);
 
@@ -62,6 +67,11 @@ public class createBranch extends javax.swing.JFrame {
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
+            }
+        });
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
             }
         });
 
@@ -154,6 +164,12 @@ public class createBranch extends javax.swing.JFrame {
         String city = jTextField1.getText();
         String address = jTextField2.getText();
         String managerId = jTextField4.getText();
+        
+        if(name.equals("") || city.equals("") || address.equals("") || managerId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Se deben llenar todos los campos", "Branch", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
         String message = controller_.createBranch(name, city, address, managerId);
         JOptionPane.showMessageDialog(null, message, "Branch", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -169,6 +185,22 @@ public class createBranch extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments

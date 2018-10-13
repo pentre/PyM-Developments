@@ -58,6 +58,11 @@ public class Branch {
     
     public String Store(Database database) {
         try {
+            Employee employee = new Employee("","","",0,"");
+            if(employee.getCharge() != "Gerente") {
+                return "No existe este empleado";
+            }
+            
             PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?)");
             stmt.setString(1, name_);
             stmt.setString(2, city_);

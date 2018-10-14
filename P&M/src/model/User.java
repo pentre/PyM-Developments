@@ -60,14 +60,14 @@ public class User {
     
     public String login(Database conn) {              
         try{
-            String query = "SELECT user_type FROM login WHERE username = ? AND pass = ? AND active = true";
+            String query = "SELECT type FROM login WHERE username = ? AND pass = ? AND active = true";
             PreparedStatement statement = conn.getStatement(query);
             statement.setString(1, username_);
             statement.setString(2, password_);
             
             ResultSet result = statement.executeQuery();
             if (result.next()){                
-                return result.getString("user_type");                
+                return result.getString("type");                
             }
             return "Error: Usuario o contraseña incorrecta";
         } catch (SQLException e){   

@@ -107,11 +107,11 @@ public class Employee {
         PreparedStatement stmt;
         try {
             if ("Gerente".equals(charge_)){
-                stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND charge != Gerente");
+                stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false AND charge != Gerente");
                 stmt.setString(1, id);
             }
             
-            stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ?");
+            stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false");
             stmt.setString(1, id);
             
             int result = stmt.executeUpdate();

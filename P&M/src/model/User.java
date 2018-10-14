@@ -17,11 +17,13 @@ public class User {
     private String username_;
     private String password_;
     private String type_;
+    private boolean active_;
     
-    public User(String username, String password, String type){
+    public User(String username, String password, String type, boolean active){
         username_ = username;
         password_ = password;
         type_ = type;            
+        active_ = active;
     }
 
     public String getUsername() {
@@ -36,6 +38,10 @@ public class User {
         return type_;
     }
 
+    public boolean isActive_() {
+        return active_;
+    }      
+
     public void setUsername(String username) {
         username_ = username;
     }
@@ -47,10 +53,14 @@ public class User {
     public void setType(String type) {
         type_ = type;
     }    
+
+    public void setActive_(boolean active_) {
+        this.active_ = active_;
+    }    
     
     public String login(Database conn) {              
         try{
-            String query = "SELECT user_type FROM login WHERE username = ? AND pass = ?";
+            String query = "SELECT user_type FROM login WHERE username = ? AND pass = ? AND active = true";
             PreparedStatement statement = conn.getStatement(query);
             statement.setString(1, username_);
             statement.setString(2, password_);

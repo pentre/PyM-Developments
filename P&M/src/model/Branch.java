@@ -70,8 +70,8 @@ public class Branch {
         try {
             Employee employee = new Employee("","","",0,"");
             employee.Search(database, managerId_);
-            if(employee.getCharge() != "Gerente") {
-                return "No existe este empleado";
+            if(employee.getCharge().equals("Gerente")) {
+                return "No se encontró un gerente con esta id";
             }
             
             PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?, ?)");

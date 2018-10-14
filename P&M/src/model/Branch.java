@@ -66,11 +66,11 @@ public class Branch {
         active_ = active;
     }
     
-    public String Store(Database database) {
+    public String store(Database database) {
         try {
             Employee employee = new Employee("","","",0,"");
-            employee.Search(database, managerId_);
-            if(employee.getCharge().equals("Gerente")) {
+            employee.search(database, managerId_);
+            if(!employee.getCharge().equals("Gerente") || !employee.isActive()) {
                 return "No se encontró un gerente con esta id";
             }
             
@@ -86,9 +86,6 @@ public class Branch {
             }
             
             return "Error: Error al adicionar sede";
-        } catch(SQLException e) {
-            e.printStackTrace();
-            return "Error: Esta sede ya existe";
         } catch(Exception e) {
             e.printStackTrace();
             return "Error: Error al adicionar sede";

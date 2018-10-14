@@ -15,6 +15,6 @@ public interface BranchController {
     default public String createBranch(String name, String city, String address, String managerId) {
         Branch branch = new Branch(name, city, address, managerId);
         
-        return branch.Store(Controller.database);
+        return branch.store(Controller.database);
     }
 }

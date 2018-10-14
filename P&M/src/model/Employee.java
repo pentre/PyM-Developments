@@ -76,7 +76,7 @@ public class Employee {
         active_ = active;
     }
     
-    public boolean Search(Database database, String id) {
+    public boolean search(Database database, String id) {
         try {
             PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ?");
             stmt.setString(1, id);

@@ -102,4 +102,35 @@ public class Employee {
             return false;
         }
     }
+    
+    public String createManager(Database database, String password){
+        try{
+            PreparedStatement stmtManager = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?)");
+            PreparedStatement stmtUser = database.getStatement("INSERT INTO login VALUES(?, ?, ?, true)");
+            
+            stmtManager.setString(1,id_);
+            stmtManager.setString(2,name_);
+            stmtManager.setString(3,charge_);
+            stmtManager.setFloat(4,salary_);
+            stmtManager.setString(5,phoneNumber_);
+            
+            stmtUser.setString(1,id_);
+            stmtUser.setString(2,password);
+            stmtUser.setString(3,charge_);
+            
+            ResultSet resultManager = stmtManager.executeQuery();
+            ResultSet resultUser = stmtUser.executeQuery();
+            
+            return "El gerente fue adicionado exitosamente,\nEl usuario es su cedula.";
+            
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+            return "Error: error al crear el gerente.";
+        }catch(Exception e){
+            e.printStackTrace();
+            return "Error: error al crear el gerente.";
+        }
+    }
+    
 }

@@ -6,7 +6,7 @@
 package view;
 
 import javax.swing.JOptionPane;
-import controller.UserController;
+import controller.Controller;
 
 /**
  *
@@ -14,12 +14,12 @@ import controller.UserController;
  */
 
 public class Login extends javax.swing.JFrame {
-
+    Controller controller;
     /**
      * Creates new form Login
      */
     public Login() {
-         
+         controller = new Controller();
         initComponents();
     }
 
@@ -125,7 +125,7 @@ public class Login extends javax.swing.JFrame {
         String user = this.user_input_field.getText();
         String password = new String(this.password_input_field.getPassword());
         
-        String message = userController.login(user, password);
+        String message = controller.login(user, password);
         JOptionPane.showMessageDialog(this, message);
     }//GEN-LAST:event_login_buttonActionPerformed
 
@@ -162,9 +162,8 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
-    }
+    }   
     
-    UserController userController;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background_panel;

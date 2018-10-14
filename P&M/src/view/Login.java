@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JOptionPane;
 import controller.Controller;
+import java.lang.String;
 
 /**
  *
@@ -111,8 +112,40 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_user_input_fieldActionPerformed
 
-    private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        // TODO add your handling code here:
+    private void selectMenu(String type){
+        switch(type){
+            case "admin":
+                Admin_Menu admin = new Admin_Menu(this.controller);
+                admin.setTitle("Administrador - Menú Principal");
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+                this.dispose();
+                break;
+                
+            case "manager":
+                Manager_Menu manager = new Manager_Menu(this.controller);
+                manager.setLocationRelativeTo(null);
+                manager.setVisible(true);
+                this.dispose();
+                break;
+                
+            case "seller":
+                Seller_Menu seller = new Seller_Menu(this.controller);
+                seller.setLocationRelativeTo(null);
+                seller.setVisible(true);
+                this.dispose();
+                break;
+                
+            case "foreman":
+                Foreman_Menu foreman = new Foreman_Menu(this.controller);
+                foreman.setLocationRelativeTo(null);
+                foreman.setVisible(true);
+                this.dispose();
+                break;
+        }
+    }
+   
+    private void validateInput(){
         if(this.user_input_field.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor ingrese un usuario");
             return;
@@ -121,17 +154,25 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor ingrese una contraseña");
             return;
         }
+    }
+    
+    private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
 
+        validateInput();
+        
         String user = this.user_input_field.getText();
         String password = new String(this.password_input_field.getPassword());
         
         String message = controller.login(user, password);
-        JOptionPane.showMessageDialog(this, message);
+
+        if(message.contains("Error")){
+            JOptionPane.showMessageDialog(this, message);
+            return;
+        }
+        
+        selectMenu(message);  
     }//GEN-LAST:event_login_buttonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

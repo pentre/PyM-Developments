@@ -103,25 +103,25 @@ public class Employee {
         }
     }
     
-    public String createManager(Database database, String password){
+    public String createEmployee(Database database, String password){
         try{
-            PreparedStatement stmtManager = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?)");
+            PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?)");
             PreparedStatement stmtUser = database.getStatement("INSERT INTO login VALUES(?, ?, ?, true)");
             
-            stmtManager.setString(1,id_);
-            stmtManager.setString(2,name_);
-            stmtManager.setString(3,charge_);
-            stmtManager.setFloat(4,salary_);
-            stmtManager.setString(5,phoneNumber_);
+            stmtEmployee.setString(1,id_);
+            stmtEmployee.setString(2,name_);
+            stmtEmployee.setString(3,charge_);
+            stmtEmployee.setFloat(4,salary_);
+            stmtEmployee.setString(5,phoneNumber_);
             
             stmtUser.setString(1,id_);
             stmtUser.setString(2,password);
             stmtUser.setString(3,charge_);
             
-            ResultSet resultManager = stmtManager.executeQuery();
+            ResultSet resultManager = stmtEmployee.executeQuery();
             ResultSet resultUser = stmtUser.executeQuery();
             
-            return "El gerente fue adicionado exitosamente,\nEl usuario es su cedula.";
+            return "El empleado fue adicionado exitosamente,\nEl usuario es su cedula.";
             
             
         }catch(SQLException e){

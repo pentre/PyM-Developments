@@ -11,8 +11,8 @@ import model.Employee;
  * @author lalil
  */
 public interface EmployeeController {
-    default public String createManager(String id, String name, float salary, String phoneNumber, String password){
-        Employee employee = new Employee(id,name,"manager",salary,phoneNumber);
-        return employee.createManager(Controller.database, password);
+    default public String create(String id, String name,String charge, float salary, String phoneNumber, String password){
+        Employee employee = new Employee(id,name,charge,salary,phoneNumber);
+        return employee.createEmployee(Controller.database, password);
     }
 }

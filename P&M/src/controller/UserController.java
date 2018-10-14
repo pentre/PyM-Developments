@@ -15,9 +15,5 @@ public interface UserController {
         User user = new User(username, password, "", true);
         return user.login(Controller.database);
     }
-    
-    default public String createManager(String id, String name, float salary, String phoneNumber, String password){
-        Employee employee = new Employee(id,name,"manager",salary,phoneNumber);
-        return employee.createManager(Controller.database, password);
-    }
+   
 }

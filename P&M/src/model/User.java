@@ -7,7 +7,6 @@ package model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  *
@@ -38,7 +37,7 @@ public class User {
         return type_;
     }
 
-    public boolean isActive_() {
+    public boolean isActive() {
         return active_;
     }      
 
@@ -54,8 +53,8 @@ public class User {
         type_ = type;
     }    
 
-    public void setActive_(boolean active_) {
-        this.active_ = active_;
+    public void setActive(boolean active) {
+        active_ = active;
     }    
     
     public String login(Database conn) {              
@@ -69,13 +68,10 @@ public class User {
             if (result.next()){                
                 return result.getString("type");                
             }
-            return "Error: Usuario o contraseña incorrecta";
-        } catch (SQLException e){   
-            System.out.println(e.getMessage());
-            return "Error: Internal Server Error";
+            return "Error: Usuario o contraseña incorrecta";        
         } catch (Exception e){
             System.out.println(e.getMessage());
-            return "Error: Internal Server Error";
+            return "Error: Error interno del servidor";
         }          
     }    
 }

@@ -6,15 +6,16 @@
 package view;
 
 import controller.*;
+
 /**
  *
  * @author jose
  */
-public class Seller_Menu extends javax.swing.JFrame {
-    Controller seller_controller;
+public class ForemanMenu extends javax.swing.JFrame {
+    private Controller controller_;
     
-    public Seller_Menu(Controller controller) {
-        this.seller_controller = controller;
+    public ForemanMenu(Controller controller) {
+        controller_ = controller;
         initComponents();
     }
 
@@ -32,23 +33,23 @@ public class Seller_Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Vendedor");
+        jLabel1.setText("Jefe de Taller");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
+                .addContainerGap(155, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(173, 173, 173))
+                .addGap(152, 152, 152))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(141, 141, 141)
                 .addComponent(jLabel1)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

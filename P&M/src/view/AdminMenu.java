@@ -11,11 +11,11 @@ import controller.*;
  *
  * @author jose
  */
-public class Admin_Menu extends javax.swing.JFrame {
-    Controller admin_controller;
+public class AdminMenu extends javax.swing.JFrame {
+    private Controller controller_;
  
-    public Admin_Menu(Controller controller) {
-        this.admin_controller = controller;
+    public AdminMenu(Controller controller) {
+        controller_ = controller;
         initComponents();
     }
 

@@ -6,16 +6,17 @@
 package view;
 
 import controller.*;
-
 /**
  *
  * @author jose
  */
-public class Foreman_Menu extends javax.swing.JFrame {
-    Controller foreman_controller;
-    
-    public Foreman_Menu(Controller controller) {
-        this.foreman_controller = controller;
+public class ManagerMenu extends javax.swing.JFrame {
+    private Controller controller_;
+    /**
+     * Creates new form Manager_Menu
+     */
+    public ManagerMenu(Controller controller) {
+        controller_ = controller;
         initComponents();
     }
 
@@ -33,23 +34,23 @@ public class Foreman_Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Jefe de Taller");
+        jLabel1.setText("Gerente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(169, 169, 169)
                 .addComponent(jLabel1)
-                .addGap(152, 152, 152))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
+                .addGap(137, 137, 137)
                 .addComponent(jLabel1)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

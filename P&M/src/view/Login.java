@@ -15,12 +15,12 @@ import java.lang.String;
  */
 
 public class Login extends javax.swing.JFrame {
-    Controller controller;
+    private Controller controller_;
     /**
      * Creates new form Login
      */
     public Login() {
-         controller = new Controller();
+        controller_ = new Controller();
         initComponents();
     }
 
@@ -115,7 +115,7 @@ public class Login extends javax.swing.JFrame {
     private void selectMenu(String type){
         switch(type){
             case "admin":
-                Admin_Menu admin = new Admin_Menu(this.controller);
+                AdminMenu admin = new AdminMenu(controller_);
                 admin.setTitle("Administrador - Menú Principal");
                 admin.setLocationRelativeTo(null);
                 admin.setVisible(true);
@@ -123,21 +123,21 @@ public class Login extends javax.swing.JFrame {
                 break;
                 
             case "manager":
-                Manager_Menu manager = new Manager_Menu(this.controller);
+                ManagerMenu manager = new ManagerMenu(controller_);
                 manager.setLocationRelativeTo(null);
                 manager.setVisible(true);
                 this.dispose();
                 break;
                 
             case "seller":
-                Seller_Menu seller = new Seller_Menu(this.controller);
+                SellerMenu seller = new SellerMenu(controller_);
                 seller.setLocationRelativeTo(null);
                 seller.setVisible(true);
                 this.dispose();
                 break;
                 
             case "foreman":
-                Foreman_Menu foreman = new Foreman_Menu(this.controller);
+                ForemanMenu foreman = new ForemanMenu(controller_);
                 foreman.setLocationRelativeTo(null);
                 foreman.setVisible(true);
                 this.dispose();
@@ -163,7 +163,7 @@ public class Login extends javax.swing.JFrame {
         String user = this.user_input_field.getText();
         String password = new String(this.password_input_field.getPassword());
         
-        String message = controller.login(user, password);
+        String message = controller_.login(user, password);
 
         if(message.contains("Error")){
             JOptionPane.showMessageDialog(this, message);

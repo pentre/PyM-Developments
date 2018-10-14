@@ -23,6 +23,7 @@ public class Branch {
         city_ = city;
         address_ = address;
         managerId_ = managerId;
+        active_ = true;
     }
 
     public String getName() {
@@ -73,11 +74,12 @@ public class Branch {
                 return "No existe este empleado";
             }
             
-            PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?)");
+            PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?, ?)");
             stmt.setString(1, name_);
             stmt.setString(2, city_);
             stmt.setString(3, address_);
             stmt.setString(4, managerId_);
+            stmt.setBoolean(5, active_);
             
             if(stmt.executeUpdate()==1){
                 return "Sede adicionada exitosamente";

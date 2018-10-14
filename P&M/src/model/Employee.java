@@ -25,6 +25,7 @@ public class Employee {
         charge_ = charge;
         salary_ = salary;
         phoneNumber_ = phoneNumber;
+        active_ = true;
     }
 
     public String getId() {
@@ -90,6 +91,7 @@ public class Employee {
             charge_ = rs.getString("charge");;
             salary_ = rs.getFloat("salary");
             phoneNumber_ = rs.getString("phone_number");;
+            active_ = rs.getBoolean("active");
             
             return true;
         } catch(SQLException e) {

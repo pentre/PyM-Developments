@@ -35,7 +35,6 @@ public class Login extends javax.swing.JFrame {
         background_panel = new javax.swing.JPanel();
         user_input_field = new javax.swing.JTextField();
         password_input_field = new javax.swing.JPasswordField();
-        userType_comboBox = new javax.swing.JComboBox<>();
         user_label = new javax.swing.JLabel();
         password_label = new javax.swing.JLabel();
         login_button = new javax.swing.JButton();
@@ -47,8 +46,6 @@ public class Login extends javax.swing.JFrame {
                 user_input_fieldActionPerformed(evt);
             }
         });
-
-        userType_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Gerente", "Vendedor", "Jefe de Taller" }));
 
         user_label.setText("Usuario");
 
@@ -66,19 +63,14 @@ public class Login extends javax.swing.JFrame {
         background_panelLayout.setHorizontalGroup(
             background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background_panelLayout.createSequentialGroup()
-                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(background_panelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(userType_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(background_panelLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(user_label)
-                            .addComponent(password_label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(user_input_field)
-                            .addComponent(password_input_field, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
+                .addGap(51, 51, 51)
+                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user_label)
+                    .addComponent(password_label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(user_input_field)
+                    .addComponent(password_input_field, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addGap(64, 64, 64))
             .addGroup(background_panelLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
@@ -96,9 +88,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password_label)
                     .addComponent(password_input_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(userType_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(login_button)
                 .addGap(32, 32, 32))
         );
@@ -181,7 +171,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton login_button;
     private javax.swing.JPasswordField password_input_field;
     private javax.swing.JLabel password_label;
-    private javax.swing.JComboBox<String> userType_comboBox;
     private javax.swing.JTextField user_input_field;
     private javax.swing.JLabel user_label;
     // End of variables declaration//GEN-END:variables

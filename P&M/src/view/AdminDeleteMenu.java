@@ -5,16 +5,20 @@
  */
 package view;
 
+import controller.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jose
  */
 public class AdminDeleteMenu extends javax.swing.JFrame {
-
+    private Controller controller_;
     /**
      * Creates new form AdminDeleteMenu
      */
-    public AdminDeleteMenu() {
+    public AdminDeleteMenu(Controller controller) {
+        controller_ = controller;
         initComponents();
     }
 
@@ -27,25 +31,75 @@ public class AdminDeleteMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backgroundPanel = new javax.swing.JPanel();
+        idLabel = new javax.swing.JLabel();
+        idInputField = new javax.swing.JTextField();
+        deleteButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        idLabel.setText("ID:");
+
+        deleteButton.setText("Eliminar");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
+        backgroundPanel.setLayout(backgroundPanelLayout);
+        backgroundPanelLayout.setHorizontalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(idLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteButton)
+                .addGap(84, 84, 84))
+        );
+        backgroundPanelLayout.setVerticalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(deleteButton)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        
+        if(this.idInputField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
+        }
+        
+        String id = this.idInputField.getText();
+        String message = this.controller_.delete("Administrador", id);
+        
+        JOptionPane.showMessageDialog(this, message);
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -60,24 +114,27 @@ public class AdminDeleteMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminDeleteMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminDeleteMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminDeleteMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminDeleteMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminDeleteMenu().setVisible(true);
+                new AdminDeleteMenu(new Controller()).setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField idInputField;
+    private javax.swing.JLabel idLabel;
     // End of variables declaration//GEN-END:variables
 }

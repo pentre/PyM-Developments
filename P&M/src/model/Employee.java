@@ -87,10 +87,10 @@ public class Employee {
             }
             
             id_ = rs.getString("id");
-            name_ = rs.getString("name");;
-            charge_ = rs.getString("charge");;
+            name_ = rs.getString("name");
+            charge_ = rs.getString("charge");
             salary_ = rs.getFloat("salary");
-            phoneNumber_ = rs.getString("phone_number");;
+            phoneNumber_ = rs.getString("phone_number");
             active_ = rs.getBoolean("active");
             
             return true;
@@ -102,4 +102,37 @@ public class Employee {
             return false;
         }
     }
+    
+    public String deleteEmployee(Database database, String id){
+        PreparedStatement stmt;
+        try {
+            if ("Gerente".equals(charge_)){
+                stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND charge != Gerente");
+                stmt.setString(1, id);
+            }
+            
+            stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ?");
+            stmt.setString(1, id);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result > 1) {
+                return "Advertencia: Más de un usuario ha sido eliminado";
+            }
+            
+            if(result == 0) {
+                return "Error: Usuario no encontrado";
+            }
+            
+        }  catch(SQLException e) {
+            e.printStackTrace();
+            return "Error: Error del servidor";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Error: Error al eliminar usuario";
+        }
+        
+        return "Usuario eliminado correctamente";
+    }
+        
 }

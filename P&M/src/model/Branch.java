@@ -16,6 +16,7 @@ public class Branch {
     private String city_;
     private String address_;
     private String managerId_;
+    private boolean active_;
     
     public Branch(String name, String city, String address, String managerId) {
         name_ = name;
@@ -39,6 +40,10 @@ public class Branch {
     public String getManagerId() {
         return managerId_;
     }
+    
+    public boolean isActive() {
+        return active_;
+    }
 
     public void setName(String name) {
         name_ = name;
@@ -56,9 +61,14 @@ public class Branch {
         managerId_ = managerId;
     }
     
+    public void setActive(boolean active) {
+        active_ = active;
+    }
+    
     public String Store(Database database) {
         try {
             Employee employee = new Employee("","","",0,"");
+            employee.Search(database, managerId_);
             if(employee.getCharge() != "Gerente") {
                 return "No existe este empleado";
             }

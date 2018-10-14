@@ -17,6 +17,7 @@ public class Employee {
     private String charge_;
     private float salary_;
     private String phoneNumber_;
+    private boolean active_;
     
     public Employee(String id, String name, String charge, float salary, String phoneNumber) {
         id_ = id;
@@ -45,6 +46,10 @@ public class Employee {
     public String getPhoneNumber() {
         return phoneNumber_;
     }
+    
+    public boolean isActive() {
+        return active_;
+    }
 
     public void setId(String id) {
         id_ = id;
@@ -64,6 +69,10 @@ public class Employee {
 
     public void setPhoneNumber(String phoneNumber) {
         phoneNumber_ = phoneNumber;
+    }
+    
+    public void setActive(boolean active) {
+        active_ = active;
     }
     
     public boolean Search(Database database, String id) {

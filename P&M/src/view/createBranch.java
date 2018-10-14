@@ -19,8 +19,8 @@ public class createBranch extends javax.swing.JFrame {
     /**
      * Creates new form createBranch
      */
-    public createBranch() {
-        controller_ = new Controller();
+    public createBranch(Controller controller) {
+        controller_ = controller;
         initComponents();
     }
 
@@ -232,7 +232,7 @@ public class createBranch extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createBranch().setVisible(true);
+                new createBranch(new Controller()).setVisible(true);
             }
         });
     }

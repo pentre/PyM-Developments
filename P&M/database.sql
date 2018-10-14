@@ -78,7 +78,7 @@ CREATE TABLE furniture_sold
     furniture_id VARCHAR(20) NOT NULL,
     quantity VARCHAR(20) NOT NULL,
 
-    PRIMARY KEY (sale_id, furniture_id, quantity),
+    PRIMARY KEY (sale_id, furniture_id),
     FOREIGN KEY (sale_id) REFERENCES sale (sale_id),
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
@@ -97,7 +97,7 @@ DROP TABLE IF EXISTS commission CASCADE;
 CREATE TABLE commission
 (    
     order_id VARCHAR(20) PRIMARY KEY NOT NULL,
-    state BOOLEAN NOT NULL,
+    status BOOLEAN NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
   
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)

@@ -7,7 +7,7 @@ package view;
 
 import controller.Controller;
 import javax.swing.JOptionPane;
-
+import java.util.HashMap;
 /**
  *
  * @author lalil
@@ -186,16 +186,20 @@ public class ModifyManager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
         }
         String id = this.jTextField1.getText();
-        String[] infoEmployee = controller_.getInfo(id);
-        if (!(infoEmployee[0] == "0")){
+        
+        HashMap <String, String>infoEmployee = new HashMap <> ();
+        infoEmployee = controller_.getInfo(id);
+        
+        //String[] infoEmployee = controller_.getInfo(id);
+        if (!(infoEmployee.get("name").equals("0"))){
             this.jTextField2.setEnabled(true);
             this.jTextField3.setEnabled(true);
             this.jTextField4.setEnabled(true);
             this.jButton2.setEnabled(true);
-            this.jTextField2.setText(infoEmployee[0]);
-            this.jLabel6.setText(infoEmployee[1]);
-            this.jTextField3.setText(infoEmployee[2]);
-            this.jTextField4.setText(infoEmployee[3]); 
+            this.jTextField2.setText(infoEmployee.get("name"));
+            this.jLabel6.setText(infoEmployee.get("charge"));
+            this.jTextField3.setText(infoEmployee.get("salary"));
+            this.jTextField4.setText(infoEmployee.get("phoneNumber")); 
         }
         else{
             JOptionPane.showMessageDialog(this,"No existe empleado con esa id");

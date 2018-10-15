@@ -128,29 +128,7 @@ public class Employee {
     
     }
     
-    
-    
-    public String[] getInfoEmployee(Database database, String id){
-        String[] listEmployee = {"0","0","0","0"};
-        try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ? AND active=true");
-            stmt.setString(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
-                listEmployee[0] = rs.getString("name");
-                listEmployee[1] = rs.getString("charge");
-                listEmployee[2] = Float.toString(rs.getFloat("salary"));
-                listEmployee[3] = rs.getString("phone_number");
-            }
-            return listEmployee;
-        } catch(SQLException e) {
-            e.printStackTrace();
-            return listEmployee;
-        } catch(Exception e) {
-            e.printStackTrace();
-            return listEmployee;
-        }
-    }
+
     
     
     public String deleteEmployee(Database database, String id){

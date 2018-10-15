@@ -82,7 +82,7 @@ public class Employee {
             stmt.setString(1, id);
             
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
+            if(!rs.next()) {
                 return false;
             }
             
@@ -102,6 +102,58 @@ public class Employee {
             return false;
         }
     }
+    
+    public String updateInfoEmployee(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? , salary = ? , phone_number = ? WHERE id = ? AND active = true");
+            stmt.setString(1,name_);
+            stmt.setFloat(2,salary_);
+            stmt.setString(3,phoneNumber_);
+            stmt.setString(4, id_);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: Usuario no encontrado";
+            }
+            
+            return "Usuario modifcado correctamente";
+
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return "error al modificar usuario";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "error al modificar usuario";
+        }
+    
+    }
+    
+    
+    
+    public String[] getInfoEmployee(Database database, String id){
+        String[] listEmployee = {"0","0","0","0"};
+        try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ? AND active=true");
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                System.out.println(rs.getString("name"));
+                listEmployee[0] = rs.getString("name");
+                listEmployee[1] = rs.getString("charge");
+                listEmployee[2] = Float.toString(rs.getFloat("salary"));
+                listEmployee[3] = rs.getString("phone_number");
+            }
+            return listEmployee;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return listEmployee;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return listEmployee;
+        }
+    }
+    
     
     public String deleteEmployee(Database database, String id){
         PreparedStatement stmt;

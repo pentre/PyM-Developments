@@ -16,4 +16,14 @@ public interface EmployeeController {
         Employee employee = new Employee("", "", employeeType, 0, "");
         return employee.deleteEmployee(Controller.database, idTarget);
     }
+       
+       default public String[] getInfo(String id){
+           Employee employee = new Employee("", "", "", 0, "");
+           return employee.getInfoEmployee(Controller.database,id);
+       }
+       
+       default public String update(String id, String name, String charge, Float salary, String phoneNumber){
+           Employee employee = new Employee(id,name,charge,salary,phoneNumber);
+           return employee.updateInfoEmployee(Controller.database);
+       }
 }

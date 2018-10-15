@@ -40,6 +40,12 @@ public class AdminDeleteMenu extends javax.swing.JFrame {
 
         idLabel.setText("ID:");
 
+        idInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idInputFieldKeyTyped(evt);
+            }
+        });
+
         deleteButton.setText("Eliminar");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,10 +101,19 @@ public class AdminDeleteMenu extends javax.swing.JFrame {
         }
         
         String id = this.idInputField.getText();
+
+        //"Adminstrador" is sent to verify the user's charge that is going to delete an employee
         String message = this.controller_.delete("Administrador", id);
         
         JOptionPane.showMessageDialog(this, message);
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void idInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idInputFieldKeyTyped
+        char inputChar = evt.getKeyChar();
+        if(!(Character.isDigit(inputChar))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_idInputFieldKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;

@@ -109,10 +109,10 @@ public class Employee {
             if ("Gerente".equals(charge_)){
                 stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false AND charge != Gerente");
                 stmt.setString(1, id);
+            }else{
+                stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false");
+                stmt.setString(1, id);
             }
-            
-            stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false");
-            stmt.setString(1, id);
             
             int result = stmt.executeUpdate();
             

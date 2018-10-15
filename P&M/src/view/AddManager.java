@@ -38,73 +38,73 @@ public class AddManager extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        IdField = new javax.swing.JTextField();
-        NameField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        SalaryField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        PhoneNumberField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        IdLabel = new javax.swing.JLabel();
+        IdInputField = new javax.swing.JTextField();
+        NameInputField = new javax.swing.JTextField();
+        NameLabel = new javax.swing.JLabel();
+        SalaryInputField = new javax.swing.JTextField();
+        SalaryLabel = new javax.swing.JLabel();
+        PhoneNumberInputField = new javax.swing.JTextField();
+        PhoneNumberLabel = new javax.swing.JLabel();
         AddManagerButton = new javax.swing.JButton();
         MessageLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        PasswordField = new javax.swing.JPasswordField();
+        PasswordLabel = new javax.swing.JLabel();
+        PasswordInputField = new javax.swing.JPasswordField();
         CloseLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("ID");
+        IdLabel.setText("ID");
 
-        IdField.addActionListener(new java.awt.event.ActionListener() {
+        IdInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IdFieldActionPerformed(evt);
+                IdInputFieldActionPerformed(evt);
             }
         });
-        IdField.addKeyListener(new java.awt.event.KeyAdapter() {
+        IdInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                IdFieldKeyTyped(evt);
+                IdInputFieldKeyTyped(evt);
             }
         });
 
-        NameField.addActionListener(new java.awt.event.ActionListener() {
+        NameInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NameFieldActionPerformed(evt);
+                NameInputFieldActionPerformed(evt);
             }
         });
-        NameField.addKeyListener(new java.awt.event.KeyAdapter() {
+        NameInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                NameFieldKeyTyped(evt);
+                NameInputFieldKeyTyped(evt);
             }
         });
 
-        jLabel2.setText("Nombre");
+        NameLabel.setText("Nombre");
 
-        SalaryField.addActionListener(new java.awt.event.ActionListener() {
+        SalaryInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalaryFieldActionPerformed(evt);
+                SalaryInputFieldActionPerformed(evt);
             }
         });
-        SalaryField.addKeyListener(new java.awt.event.KeyAdapter() {
+        SalaryInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                SalaryFieldKeyTyped(evt);
+                SalaryInputFieldKeyTyped(evt);
             }
         });
 
-        jLabel4.setText("Salario");
+        SalaryLabel.setText("Salario");
 
-        PhoneNumberField.addActionListener(new java.awt.event.ActionListener() {
+        PhoneNumberInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PhoneNumberFieldActionPerformed(evt);
+                PhoneNumberInputFieldActionPerformed(evt);
             }
         });
-        PhoneNumberField.addKeyListener(new java.awt.event.KeyAdapter() {
+        PhoneNumberInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                PhoneNumberFieldKeyTyped(evt);
+                PhoneNumberInputFieldKeyTyped(evt);
             }
         });
 
-        jLabel5.setText("Telefono");
+        PhoneNumberLabel.setText("Telefono");
 
         AddManagerButton.setText("Agregar");
         AddManagerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class AddManager extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Contraseña");
+        PasswordLabel.setText("Contraseña");
 
         CloseLabel.setText("X");
         CloseLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,21 +131,21 @@ public class AddManager extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(SalaryField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
+                            .addComponent(IdInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameLabel)
+                            .addComponent(NameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SalaryLabel)
+                            .addComponent(SalaryInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhoneNumberLabel)
                             .addComponent(AddManagerButton)
                             .addComponent(MessageLabel)
-                            .addComponent(jLabel6)
+                            .addComponent(PasswordLabel)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                                .addComponent(PhoneNumberField, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addComponent(PasswordInputField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                                .addComponent(PhoneNumberInputField, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(59, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(IdLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CloseLabel))))
         );
@@ -155,26 +155,26 @@ public class AddManager extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
+                        .addComponent(IdLabel))
                     .addComponent(CloseLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IdInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(NameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(SalaryLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SalaryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SalaryInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(PhoneNumberLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PhoneNumberInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(PasswordLabel)
                 .addGap(1, 1, 1)
-                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MessageLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -202,30 +202,31 @@ public class AddManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void IdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdFieldActionPerformed
+    private void IdInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IdFieldActionPerformed
+    }//GEN-LAST:event_IdInputFieldActionPerformed
 
-    private void NameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameFieldActionPerformed
+    private void NameInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NameFieldActionPerformed
+    }//GEN-LAST:event_NameInputFieldActionPerformed
 
-    private void SalaryFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalaryFieldActionPerformed
+    private void SalaryInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalaryInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SalaryFieldActionPerformed
+    }//GEN-LAST:event_SalaryInputFieldActionPerformed
 
-    private void PhoneNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberFieldActionPerformed
+    private void PhoneNumberInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PhoneNumberFieldActionPerformed
+    }//GEN-LAST:event_PhoneNumberInputFieldActionPerformed
 
     private void AddManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddManagerButtonActionPerformed
-        String id = this.IdField.getText();
-        String name = this.NameField.getText();
-        float salary = Float.parseFloat(this.SalaryField.getText());
-        String phoneNumber = this.PhoneNumberField.getText();
-        String password = new String(this.PasswordField.getPassword());
+        String id = this.IdInputField.getText();
+        String name = this.NameInputField.getText();
+        float salary = Float.parseFloat(this.SalaryInputField.getText());
+        String phoneNumber = this.PhoneNumberInputField.getText();
+        String password = new String(this.PasswordInputField.getPassword());
 
-        String message = controller_.create(id, name, "gerente", salary, phoneNumber, password);
+        String message = controller_.storeEmployee(id, name, "Gerente", salary, phoneNumber);
+        message += controller_.storeUser(id,password,"Gerente");
 
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 
@@ -235,26 +236,26 @@ public class AddManager extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CloseLabelMouseClicked
 
-    private void IdFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdFieldKeyTyped
+    private void IdInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdInputFieldKeyTyped
         validateNumber(evt);
-    }//GEN-LAST:event_IdFieldKeyTyped
+    }//GEN-LAST:event_IdInputFieldKeyTyped
 
-    private void NameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameFieldKeyTyped
+    private void NameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameInputFieldKeyTyped
         validateCharacters(evt);
-     }//GEN-LAST:event_NameFieldKeyTyped
+     }//GEN-LAST:event_NameInputFieldKeyTyped
 
-    private void SalaryFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalaryFieldKeyTyped
+    private void SalaryInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalaryInputFieldKeyTyped
         validateNumber(evt);
-    }//GEN-LAST:event_SalaryFieldKeyTyped
+    }//GEN-LAST:event_SalaryInputFieldKeyTyped
 
-    private void PhoneNumberFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneNumberFieldKeyTyped
+    private void PhoneNumberInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneNumberInputFieldKeyTyped
         validateNumber(evt);
-    }//GEN-LAST:event_PhoneNumberFieldKeyTyped
+    }//GEN-LAST:event_PhoneNumberInputFieldKeyTyped
     
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
-        char c = evt.getKeyChar();
-        if ((c > 64 && c < 123) && (c != KeyEvent.VK_BACKSPACE)) {
+        char inputChar = evt.getKeyChar();
+        if(!(Character.isDigit(inputChar))){
             evt.consume();
         }
     }
@@ -262,7 +263,7 @@ public class AddManager extends javax.swing.JFrame {
     //This function validates that all type kets are characters
     private void validateCharacters(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
-        if ((c > 47 && c < 58) && (c != KeyEvent.VK_BACKSPACE)) {
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
         }
     }
@@ -270,17 +271,17 @@ public class AddManager extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddManagerButton;
     private javax.swing.JLabel CloseLabel;
-    private javax.swing.JTextField IdField;
+    private javax.swing.JTextField IdInputField;
+    private javax.swing.JLabel IdLabel;
     private javax.swing.JLabel MessageLabel;
-    private javax.swing.JTextField NameField;
-    private javax.swing.JPasswordField PasswordField;
-    private javax.swing.JTextField PhoneNumberField;
-    private javax.swing.JTextField SalaryField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField NameInputField;
+    private javax.swing.JLabel NameLabel;
+    private javax.swing.JPasswordField PasswordInputField;
+    private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JTextField PhoneNumberInputField;
+    private javax.swing.JLabel PhoneNumberLabel;
+    private javax.swing.JTextField SalaryInputField;
+    private javax.swing.JLabel SalaryLabel;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

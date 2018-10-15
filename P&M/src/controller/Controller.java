@@ -14,9 +14,7 @@ import model.Database;
 
 
 public class Controller implements BranchController, UserController, EmployeeController{
-
-  public static Database database;
-    
+  public static Database database; 
     public Controller(){
         database = new Database();
     }

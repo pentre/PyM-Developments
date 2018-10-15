@@ -5,7 +5,6 @@
  */
 package controller;
 import model.User;
-import model.Employee;
 /**
  *
  * @author sofia
@@ -15,5 +14,9 @@ public interface UserController {
         User user = new User(username, password, "", true);
         return user.login(Controller.database);
     }
-   
+    
+    default public String storeUser(String username, String password, String type){
+        User user = new User(username,password,type,true);
+        return user.store(Controller.database);
+    }
 }

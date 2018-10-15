@@ -73,5 +73,46 @@ public class User {
             System.out.println(e.getMessage());
             return "Error: Error interno del servidor";
         }          
-    }    
+    }
+
+    public boolean search(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("SELECT * FROM login WHERE username = ?");
+            stmt.setString(1, username_);
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+            return true;
+        }catch(Exception e){
+             e.printStackTrace();
+             return false;
+        }
+    }
+    
+    
+    public String store(Database database){
+        try{
+            if(this.search(database)){
+                return "Ya existe un usuario con esta cédula.\n";
+            }
+            
+            PreparedStatement stmt = database.getStatement("INSERT INTO login VALUES(?, ?, ?, ?)");
+            
+            stmt.setString(1,username_);
+            stmt.setString(2,password_);
+            stmt.setString(3,type_);
+            stmt.setBoolean(4,active_);     
+
+            if(stmt.executeUpdate()==1){
+                return "El usuario fue adicionado exitosamente.\nEl usuario es su cédula.";
+            }
+            
+            return "Error: error al crear usuario.";
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            return "Error: error al crear el usuario.";
+        }
+    }
 }

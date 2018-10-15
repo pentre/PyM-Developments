@@ -103,15 +103,14 @@ public class Employee {
         }
     }
     
-    public String createEmployee(Database database, String password){
+    public String store(Database database){
         try{
             
             if(this.search(database,this.getId())){
-                return "Un usuario con esta cedula ya existe.";
+                return "Ya existe un empleado con esta cédula.\n";
             }
             
             PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
-            PreparedStatement stmtUser = database.getStatement("INSERT INTO login VALUES(?, ?, ?, ?)");
             
             stmtEmployee.setString(1,id_);
             stmtEmployee.setString(2,name_);
@@ -120,16 +119,11 @@ public class Employee {
             stmtEmployee.setString(5,phoneNumber_);
             stmtEmployee.setBoolean(6, active_);
             
-            stmtUser.setString(1,id_);
-            stmtUser.setString(2,password);
-            stmtUser.setString(3,charge_);
-            stmtUser.setBoolean(4,active_);
-
-            if((stmtEmployee.executeUpdate()==1) && (stmtUser.executeUpdate()==1)){
-                return "El empleado fue adicionado exitosamente,\nEl usuario es su cedula.";
+            if(stmtEmployee.executeUpdate()==1){
+                return "El empleado fue adicionado exitosamente,\n";
             }
             
-            return "error al crear empleado.";
+            return "Error: error al crear empleado.";
             
         }catch(SQLException e){
             e.printStackTrace();

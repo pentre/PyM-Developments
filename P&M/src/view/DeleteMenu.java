@@ -6,17 +6,21 @@
 package view;
 
 import controller.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jose
  */
-public class ManagerMenu extends javax.swing.JFrame {
+public class DeleteMenu extends javax.swing.JFrame {
     private Controller controller_;
+    private String user_;
     /**
-     * Creates new form Manager_Menu
+     * Creates new form AdminDeleteMenu
      */
-    public ManagerMenu(Controller controller) {
+    public DeleteMenu(Controller controller, String userType) {
         controller_ = controller;
+        user_ = userType;
         initComponents();
     }
 
@@ -30,12 +34,19 @@ public class ManagerMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         backgroundPanel = new javax.swing.JPanel();
-        userLabel = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        idInputField = new javax.swing.JTextField();
         deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        userLabel.setText("Gerente");
+        idLabel.setText("ID:");
+
+        idInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idInputFieldKeyTyped(evt);
+            }
+        });
 
         deleteButton.setText("Eliminar");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -49,23 +60,26 @@ public class ManagerMenu extends javax.swing.JFrame {
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(userLabel))
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(deleteButton)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(idLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteButton)
+                .addGap(84, 84, 84))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(userLabel)
-                .addGap(36, 36, 36)
+                .addGap(66, 66, 66)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(deleteButton)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -83,15 +97,30 @@ public class ManagerMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DeleteMenu deleteMenu = new DeleteMenu(controller_, "Gerente");
-        deleteMenu.setLocationRelativeTo(null);
-        deleteMenu.setVisible(true);
+        
+        if(this.idInputField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
+        }
+        
+        String id = this.idInputField.getText();
+
+        //user_ is sent to verify the user's charge that is going to delete an employee
+        String message = this.controller_.delete(user_, id);
+        
+        JOptionPane.showMessageDialog(this, message);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
+    private void idInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idInputFieldKeyTyped
+        char inputChar = evt.getKeyChar();
+        if(!(Character.isDigit(inputChar))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_idInputFieldKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JLabel userLabel;
+    private javax.swing.JTextField idInputField;
+    private javax.swing.JLabel idLabel;
     // End of variables declaration//GEN-END:variables
 }

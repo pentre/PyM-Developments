@@ -91,4 +91,30 @@ public class Branch {
             return "Error: Error al adicionar sede";
         }
     }
+    
+    public boolean search(Database database, String name) {
+        try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM branch WHERE name = ? AND active = true");
+            stmt.setString(1, name);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+            
+            name_ = rs.getString("name");
+            city_ = rs.getString("city");
+            address_ = rs.getString("address");
+            managerId_ = rs.getString("manager_id");
+            active_ = rs.getBoolean("active");
+            
+            return true;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

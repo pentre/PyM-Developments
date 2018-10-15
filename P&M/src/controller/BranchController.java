@@ -6,7 +6,7 @@
 package controller;
 
 import model.Branch;
-
+import java.util.HashMap;
 /**
  *
  * @author pentre
@@ -17,4 +17,18 @@ public interface BranchController {
         
         return branch.store(Controller.database);
     }
+    
+    
+    default public HashMap <String, String> getBranchInfo(String name){
+           Branch branch = new Branch("", "", "", "0");
+           branch.search(Controller.database, name);
+           
+           HashMap <String, String>listBranch = new HashMap <> ();
+           
+           listBranch.put("city", branch.getCity());
+           listBranch.put("address", branch.getAddress());
+           listBranch.put("managerId", branch.getManagerId());
+           
+           return listBranch;
+       }
 }

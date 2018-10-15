@@ -14,7 +14,7 @@ public interface EmployeeController {
     default public String create(String id, String name,String charge, float salary, String phoneNumber, String password){
         Employee employee = new Employee(id,name,charge,salary,phoneNumber);
         return employee.createEmployee(Controller.database, password);
-
+    }
        default public String delete(String employeeType, String idTarget){
         Employee employee = new Employee("", "", employeeType, 0, "");
         return employee.deleteEmployee(Controller.database, idTarget);

@@ -117,4 +117,31 @@ public class Branch {
             return false;
         }
     }
+    
+       public String updateInfoBranch(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("UPDATE branch SET city = ? , address = ? , manager_Id = ? WHERE name = ? AND active = true");
+            
+            stmt.setString(1,city_);
+            stmt.setString(2,address_);
+            stmt.setString(3, managerId_);
+            stmt.setString(4, name_);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: Sede no encontrado";
+            }
+            
+            return "La sede fue modifcada correctamente";
+
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return "error al modificar usuario";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "error al modificar usuario";
+        }
+    
+    }
 }

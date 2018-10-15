@@ -169,17 +169,16 @@ public class ModifyBranch extends javax.swing.JFrame {
         
         infoBranch = controller_.getBranchInfo(nameBranch);
         
-        if (!(infoBranch.get("city").equals(""))){
-            enabled();
-            this.cityTextField.setText(infoBranch.get("name"));
-            this.addressTextField.setText(infoBranch.get("address"));
-            this.idManagerTextField.setText(infoBranch.get("managerId"));
-        }
-        else{
+        if (infoBranch.isEmpty()){
             JOptionPane.showMessageDialog(this,"No existe una sede con ese nombre");
             disabled();
+            return;
         }
         
+        enabled();
+        this.cityTextField.setText(infoBranch.get("name"));
+        this.addressTextField.setText(infoBranch.get("address"));
+        this.idManagerTextField.setText(infoBranch.get("managerId"));
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     private void cityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityTextFieldKeyTyped
@@ -200,8 +199,16 @@ public class ModifyBranch extends javax.swing.JFrame {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
+        String name = this.nameBranchTextField.getText();
+        String city = this.cityTextField.getText();
+        String address = this.addressTextField.getText();
+        String managerId = this.idManagerTextField.getText();
         
+        String message = controller_.updateBranch(name, city, address, managerId);
         
+        JOptionPane.showMessageDialog(this, message);
+        
+        disabled();
     }//GEN-LAST:event_updateButtonActionPerformed
 
     /**

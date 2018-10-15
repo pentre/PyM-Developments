@@ -20,15 +20,22 @@ public interface BranchController {
     
     
     default public HashMap <String, String> getBranchInfo(String name){
-           Branch branch = new Branch("", "", "", "");
-           branch.search(Controller.database, name);
+        Branch branch = new Branch("", "", "", "");
+        
+        HashMap <String, String>listBranch = new HashMap <> ();
            
-           HashMap <String, String>listBranch = new HashMap <> ();
-           
-           listBranch.put("city", branch.getCity());
-           listBranch.put("address", branch.getAddress());
-           listBranch.put("managerId", branch.getManagerId());
-           
-           return listBranch;
-       }
+        if(branch.search(Controller.database, name)){
+               
+            listBranch.put("city", branch.getCity());
+            listBranch.put("address", branch.getAddress());
+            listBranch.put("managerId", branch.getManagerId());
+        }
+        return listBranch;
+    }
+    
+    default public String updateBranch(String name, String city, String address, String managerId){
+        Branch branch = new Branch(name, city, address, managerId);
+        return branch.updateInfoBranch(Controller.database);
+    }
+    
 }

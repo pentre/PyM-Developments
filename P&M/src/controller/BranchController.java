@@ -35,7 +35,7 @@ public interface BranchController {
     
     default public String updateBranch(String name, String city, String address, String managerId){
         Branch branch = new Branch(name, city, address, managerId);
-        return branch.updateInfoBranch(Controller.database);
+        return branch.updateInfo(Controller.database);
     }
     
 }

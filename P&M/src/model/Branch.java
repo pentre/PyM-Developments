@@ -118,7 +118,7 @@ public class Branch {
         }
     }
     
-       public String updateInfoBranch(Database database){
+       public String updateInfo(Database database){
         try{
             PreparedStatement stmt = database.getStatement("UPDATE branch SET city = ? , address = ? , manager_Id = ? WHERE name = ? AND active = true");
             

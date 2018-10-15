@@ -267,17 +267,6 @@ public class AddManager extends javax.swing.JFrame {
         }
     }
     
-    
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddManager(new Controller()).setVisible(true);
-            }
-        });
-    }
-    
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddManagerButton;
     private javax.swing.JLabel CloseLabel;

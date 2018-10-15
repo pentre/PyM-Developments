@@ -212,6 +212,22 @@ public class ModifyManager extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String id = this.jTextField1.getText();
+        String name = this.jTextField2.getText();
+        String charge = this.jLabel6.getText();
+        Float salary = Float.valueOf(this.jTextField3.getText());
+        String phoneNumber = this.jTextField4.getText();
+        String message = controller_.update(id, name, charge, salary, phoneNumber);
+        JOptionPane.showMessageDialog(this, message);
+        this.jButton2.setEnabled(false);
+        this.jTextField2.setEnabled(false);
+        this.jTextField3.setEnabled(false);
+        this.jTextField4.setEnabled(false);
+        this.jTextField2.setText("");
+        this.jLabel6.setText(".");
+        this.jTextField3.setText("");
+        this.jTextField4.setText("");
+        this.jTextField1.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped

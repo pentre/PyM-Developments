@@ -138,7 +138,6 @@ public class Employee {
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
-                System.out.println(rs.getString("name"));
                 listEmployee[0] = rs.getString("name");
                 listEmployee[1] = rs.getString("charge");
                 listEmployee[2] = Float.toString(rs.getFloat("salary"));

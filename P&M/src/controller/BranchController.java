@@ -20,7 +20,7 @@ public interface BranchController {
     
     
     default public HashMap <String, String> getBranchInfo(String name){
-           Branch branch = new Branch("", "", "", "0");
+           Branch branch = new Branch("", "", "", "");
            branch.search(Controller.database, name);
            
            HashMap <String, String>listBranch = new HashMap <> ();

@@ -82,7 +82,7 @@ public class Employee {
             stmt.setString(1, id);
             
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
+            if(!rs.next()) {
                 return false;
             }
             
@@ -105,6 +105,11 @@ public class Employee {
     
     public String createEmployee(Database database, String password){
         try{
+            
+            if(this.search(database,this.getId())){
+                return "Un usuario con esta cedula ya existe.";
+            }
+            
             PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
             PreparedStatement stmtUser = database.getStatement("INSERT INTO login VALUES(?, ?, ?, ?)");
             
@@ -124,15 +129,14 @@ public class Employee {
                 return "El empleado fue adicionado exitosamente,\nEl usuario es su cedula.";
             }
             
-            return "error!";
-            
+            return "error al crear empleado.";
             
         }catch(SQLException e){
             e.printStackTrace();
-            return "Error: error al crear el gerente.";
+            return "Error: error al crear el empleado.";
         }catch(Exception e){
             e.printStackTrace();
-            return "Error: error al crear el gerente.";
+            return "Error: error al crear el empleado.";
         }
     }
     

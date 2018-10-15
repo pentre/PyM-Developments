@@ -12,13 +12,15 @@ import javax.swing.JOptionPane;
  *
  * @author jose
  */
-public class AdminDeleteMenu extends javax.swing.JFrame {
+public class DeleteMenu extends javax.swing.JFrame {
     private Controller controller_;
+    private String user_;
     /**
      * Creates new form AdminDeleteMenu
      */
-    public AdminDeleteMenu(Controller controller) {
+    public DeleteMenu(Controller controller, String userType) {
         controller_ = controller;
+        user_ = userType;
         initComponents();
     }
 
@@ -102,8 +104,8 @@ public class AdminDeleteMenu extends javax.swing.JFrame {
         
         String id = this.idInputField.getText();
 
-        //"Adminstrador" is sent to verify the user's charge that is going to delete an employee
-        String message = this.controller_.delete("Administrador", id);
+        //user_ is sent to verify the user's charge that is going to delete an employee
+        String message = this.controller_.delete(user_, id);
         
         JOptionPane.showMessageDialog(this, message);
     }//GEN-LAST:event_deleteButtonActionPerformed

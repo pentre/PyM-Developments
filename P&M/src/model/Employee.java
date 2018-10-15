@@ -107,7 +107,7 @@ public class Employee {
         PreparedStatement stmt;
         try {
             if ("Gerente".equals(charge_)){
-                stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false AND charge != Gerente");
+                stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false AND charge != 'Gerente'");
                 stmt.setString(1, id);
             }else{
                 stmt = database.getStatement("UPDATE employee SET active = false WHERE id = ? AND active != false");
@@ -116,13 +116,11 @@ public class Employee {
             
             int result = stmt.executeUpdate();
             
-            if(result > 1) {
-                return "Advertencia: Más de un usuario ha sido eliminado";
-            }
-            
             if(result == 0) {
                 return "Error: Usuario no encontrado";
             }
+            
+            return "Usuario eliminado correctamente";
             
         }  catch(SQLException e) {
             e.printStackTrace();
@@ -131,8 +129,6 @@ public class Employee {
             e.printStackTrace();
             return "Error: Error al eliminar usuario";
         }
-        
-        return "Usuario eliminado correctamente";
     }
         
 }

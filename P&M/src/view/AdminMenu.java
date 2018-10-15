@@ -83,7 +83,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
 
-        AdminDeleteMenu deleteMenu = new AdminDeleteMenu(controller_);
+        DeleteMenu deleteMenu = new DeleteMenu(controller_, "Administrador");
         deleteMenu.setLocationRelativeTo(null);
         deleteMenu.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed

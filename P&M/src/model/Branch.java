@@ -137,10 +137,10 @@ public class Branch {
 
         }catch(SQLException e) {
             e.printStackTrace();
-            return "error al modificar usuario";
+            return "Error: Error al modificar sede";
         } catch(Exception e) {
             e.printStackTrace();
-            return "error al modificar usuario";
+            return "Error: Error al modificar sede";
         }
     
     }

@@ -82,7 +82,7 @@ public class Employee {
             stmt.setString(1, id);
             
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
+            if(!rs.next()) {
                 return false;
             }
             
@@ -103,6 +103,35 @@ public class Employee {
         }
     }
     
+    public String store(Database database){
+        try{   
+            PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
+            
+            stmtEmployee.setString(1,id_);
+            stmtEmployee.setString(2,name_);
+            stmtEmployee.setString(3,charge_);
+            stmtEmployee.setFloat(4,salary_);
+            stmtEmployee.setString(5,phoneNumber_);
+            stmtEmployee.setBoolean(6, active_);
+            
+            if(stmtEmployee.executeUpdate()==1){
+                return "El empleado fue adicionado exitosamente.";
+            }
+            
+            return "Error: error al crear empleado.";
+            
+        }catch(SQLException e){
+            if (e.getSQLState().equals("23505")){
+                return "Ya existe un empleado con esta cédula.";
+            }
+            return "Error: error al crear el empleado.";
+        }catch(Exception e){
+            e.printStackTrace();
+            return "Error: error al crear el empleado.";
+        }
+    }
+    
+
     public String deleteEmployee(Database database, String id){
         PreparedStatement stmt;
         try {
@@ -131,4 +160,5 @@ public class Employee {
         }
     }
         
+
 }

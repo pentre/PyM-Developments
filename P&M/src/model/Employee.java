@@ -104,33 +104,32 @@ public class Employee {
         }
     }
     
-    public HashMap<String,String>[] multiSearch(Database database) {
+    public HashMap<String,String>[] multipleSearch(Database database) {
         try {
-            String query = "Select * FROM employee WHERE active = true";
-            
-            // CAMBIAR INYECCION DE CODIGO
+            String query = "SELECT * FROM employee WHERE active = true";
+                      
             if(!"".equals(id_)) {
-                query += String.format("AND id = '%s'", id_);
+                query += String.format(" AND id = '%s'", id_);
             }
             if(!"".equals(name_)) {
-                query += String.format("AND name = '%s'", name_);
+                query += String.format(" AND name = '%s'", name_);
             }
             if(!"".equals(charge_)) {
-                query += String.format("AND charge = '%s'", charge_);
+                query += String.format(" AND charge = '%s'", charge_);
             }
             
-            PreparedStatement stmt = database.getStatement(query);
+            PreparedStatement stmt = database.getStatement(query.replace(";",""));
             
             ResultSet rs = stmt.executeQuery();
             if(!rs.last()) {
                 return null;
             }
             
-            HashMap<String,String>[] results = new HashMap<String,String>[rs.getRow()];
+            HashMap<String,String>[] results = new HashMap[rs.getRow()];
             rs.beforeFirst();
             
             for(int i = 0; rs.next(); i++) {
-                HashMap<String,String> result = new HashMap<String,String>();
+                HashMap<String,String> result = new HashMap<>();
                 result.put("id", rs.getString("id"));
                 result.put("name", rs.getString("name"));
                 result.put("charge", rs.getString("charge"));

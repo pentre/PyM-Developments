@@ -18,9 +18,9 @@ public interface EmployeeController {
         return employee.deleteEmployee(Controller.database, idTarget);
     }
        
-    default public HashMap<String,String>[] multiSearch(String id, String name, String charge) {
+    default public HashMap<String,String>[] multipleSearch(String id, String name, String charge) {
        Employee employee = new Employee(id, name, charge, 0, "");
-       return employee.multiSearch(Controller.database);
+       return employee.multipleSearch(Controller.database);
     }
        
 }

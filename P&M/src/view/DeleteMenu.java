@@ -42,6 +42,11 @@ public class DeleteMenu extends javax.swing.JFrame {
 
         idLabel.setText("ID:");
 
+        idInputField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idInputFieldActionPerformed(evt);
+            }
+        });
         idInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 idInputFieldKeyTyped(evt);
@@ -116,6 +121,10 @@ public class DeleteMenu extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_idInputFieldKeyTyped
+
+    private void idInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idInputFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;

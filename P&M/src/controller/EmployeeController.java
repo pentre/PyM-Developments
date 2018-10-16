@@ -11,10 +11,11 @@ import java.util.HashMap;
 
 /**
  *
- * @author jose
+ * @author lalil
  */
 
 public interface EmployeeController {
+  
     default public String deleteEmployee(String employeeType, String TargetID){
         Employee employee = new Employee("", "", employeeType, 0, "");
         return employee.deleteEmployee(Controller.database, TargetID);
@@ -45,5 +46,10 @@ public interface EmployeeController {
         }
         
         return employee.update(Controller.database);
+    }
+  
+    default public String createEmployee(String id, String name,String charge, float salary, String phoneNumber){
+        Employee employee = new Employee(id,name,charge,salary,phoneNumber);
+        return employee.store(Controller.database);
     }
 }

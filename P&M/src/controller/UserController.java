@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
+
 import model.User;
 /**
  *
@@ -14,9 +15,14 @@ public interface UserController {
         User user = new User(username, password, "", true);
         return user.login(Controller.database);
     }
-    
+
     default public String updateUser(String username, String type){
         User user = new User(username, "" ,type ,true);
         return user.update(Controller.database);
+    }
+  
+    default public String createUser(String username, String password, String type){
+        User user = new User(username,password,type,true);
+        return user.store(Controller.database);
     }
 }

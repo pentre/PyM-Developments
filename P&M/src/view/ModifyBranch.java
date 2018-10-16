@@ -32,138 +32,177 @@ public class ModifyBranch extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nameBranchLabel = new javax.swing.JLabel();
-        nameBranchTextField = new javax.swing.JTextField();
-        cityLabel = new javax.swing.JLabel();
-        addressLabel = new javax.swing.JLabel();
-        idManagerLabel = new javax.swing.JLabel();
-        updateButton = new javax.swing.JButton();
-        modifyButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        BranchNameLabel = new javax.swing.JLabel();
+        BranchNameInputField = new javax.swing.JTextField();
+        LoadButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        CityLabel = new javax.swing.JLabel();
+        AddressLabel = new javax.swing.JLabel();
+        OnChargeManagerIdLabel = new javax.swing.JLabel();
+        UpdateButton = new javax.swing.JButton();
         addressTextField = new javax.swing.JTextField();
-        cityTextField = new javax.swing.JTextField();
-        idManagerTextField = new javax.swing.JTextField();
+        CityInputField = new javax.swing.JTextField();
+        OnChargeManagerInputField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nameBranchLabel.setText("Nombre de la sede:");
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        cityLabel.setText("Ciudad:");
+        BranchNameLabel.setText("Nombre de la sede:");
 
-        addressLabel.setText("Dirección:");
-
-        idManagerLabel.setText("Id del gerente responsable:");
-
-        updateButton.setText("Actualizar");
-        updateButton.setEnabled(false);
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
+        LoadButton.setText("Modificar");
+        LoadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
+                LoadButtonActionPerformed(evt);
             }
         });
 
-        modifyButton.setText("Modificar");
-        modifyButton.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BranchNameInputField)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LoadButton)
+                            .addComponent(BranchNameLabel))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BranchNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BranchNameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LoadButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        CityLabel.setText("Ciudad:");
+
+        AddressLabel.setText("Dirección:");
+
+        OnChargeManagerIdLabel.setText("Id del gerente responsable:");
+
+        UpdateButton.setText("Actualizar");
+        UpdateButton.setEnabled(false);
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modifyButtonActionPerformed(evt);
+                UpdateButtonActionPerformed(evt);
             }
         });
 
         addressTextField.setEnabled(false);
 
-        cityTextField.setEnabled(false);
-        cityTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        CityInputField.setEnabled(false);
+        CityInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cityTextFieldKeyTyped(evt);
+                CityInputFieldKeyTyped(evt);
             }
         });
 
-        idManagerTextField.setEnabled(false);
-        idManagerTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        OnChargeManagerInputField.setEnabled(false);
+        OnChargeManagerInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                idManagerTextFieldKeyTyped(evt);
+                OnChargeManagerInputFieldKeyTyped(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(CityLabel)
+                        .addComponent(AddressLabel)
+                        .addComponent(OnChargeManagerIdLabel)
+                        .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addComponent(CityInputField)
+                        .addComponent(OnChargeManagerInputField))
+                    .addComponent(UpdateButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CityLabel)
+                .addGap(3, 3, 3)
+                .addComponent(CityInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddressLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(OnChargeManagerIdLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OnChargeManagerInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpdateButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(idManagerLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(idManagerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameBranchLabel)
-                            .addComponent(addressLabel)
-                            .addComponent(cityLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nameBranchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(addressTextField)
-                            .addComponent(cityTextField))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updateButton)
-                    .addComponent(modifyButton))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameBranchLabel)
-                    .addComponent(nameBranchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modifyButton))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cityLabel)
-                    .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLabel)
-                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idManagerLabel)
-                    .addComponent(idManagerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(updateButton)
-                .addGap(41, 41, 41))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void enabled(){
-        this.cityTextField.setEnabled(true);
+        this.CityInputField.setEnabled(true);
         this.addressTextField.setEnabled(true);
-        this.idManagerTextField.setEnabled(true);
-        this.updateButton.setEnabled(true);
+        this.OnChargeManagerInputField.setEnabled(true);
+        this.UpdateButton.setEnabled(true);
     }
     
     private void disabled(){
-        this.cityTextField.setEnabled(false);
-        this.cityTextField.setText("");
+        this.CityInputField.setEnabled(false);
+        this.CityInputField.setText("");
         this.addressTextField.setEnabled(false);
         this.addressTextField.setText("");
-        this.idManagerTextField.setEnabled(false);
-        this.idManagerTextField.setText("");
-        this.updateButton.setEnabled(false);
+        this.OnChargeManagerInputField.setEnabled(false);
+        this.OnChargeManagerInputField.setText("");
+        this.UpdateButton.setEnabled(false);
     }
     
-    private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
+    private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadButtonActionPerformed
         // TODO add your handling code here:
-        if(this.nameBranchLabel.getText().isEmpty()){
+        if(this.BranchNameLabel.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insertar un nombre de sede");
             return;
         }
         
-        String nameBranch = this.nameBranchTextField.getText();
+        String nameBranch = this.BranchNameInputField.getText();
         
         HashMap <String, String>infoBranch = new HashMap <> ();
         
@@ -176,40 +215,40 @@ public class ModifyBranch extends javax.swing.JFrame {
         }
         
         enabled();
-        this.cityTextField.setText(infoBranch.get("name"));
+        this.CityInputField.setText(infoBranch.get("name"));
         this.addressTextField.setText(infoBranch.get("address"));
-        this.idManagerTextField.setText(infoBranch.get("managerId"));
-    }//GEN-LAST:event_modifyButtonActionPerformed
+        this.OnChargeManagerInputField.setText(infoBranch.get("managerId"));
+    }//GEN-LAST:event_LoadButtonActionPerformed
 
-    private void cityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityTextFieldKeyTyped
+    private void CityInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CityInputFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
         if (!Character.isLetter(inputChar) && !Character.isWhitespace(inputChar)) {
             evt.consume();
         }
-    }//GEN-LAST:event_cityTextFieldKeyTyped
+    }//GEN-LAST:event_CityInputFieldKeyTyped
 
-    private void idManagerTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idManagerTextFieldKeyTyped
+    private void OnChargeManagerInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OnChargeManagerInputFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
         if(!(Character.isDigit(inputChar))){
             evt.consume();
         }
-    }//GEN-LAST:event_idManagerTextFieldKeyTyped
+    }//GEN-LAST:event_OnChargeManagerInputFieldKeyTyped
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
-        String name = this.nameBranchTextField.getText();
-        String city = this.cityTextField.getText();
+        String name = this.BranchNameInputField.getText();
+        String city = this.CityInputField.getText();
         String address = this.addressTextField.getText();
-        String managerId = this.idManagerTextField.getText();
+        String managerId = this.OnChargeManagerInputField.getText();
         
         String message = controller_.updateBranch(name, city, address, managerId);
         
         JOptionPane.showMessageDialog(this, message);
         
         disabled();
-    }//GEN-LAST:event_updateButtonActionPerformed
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,15 +286,17 @@ public class ModifyBranch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel AddressLabel;
+    private javax.swing.JTextField BranchNameInputField;
+    private javax.swing.JLabel BranchNameLabel;
+    private javax.swing.JTextField CityInputField;
+    private javax.swing.JLabel CityLabel;
+    private javax.swing.JButton LoadButton;
+    private javax.swing.JLabel OnChargeManagerIdLabel;
+    private javax.swing.JTextField OnChargeManagerInputField;
+    private javax.swing.JButton UpdateButton;
     private javax.swing.JTextField addressTextField;
-    private javax.swing.JLabel cityLabel;
-    private javax.swing.JTextField cityTextField;
-    private javax.swing.JLabel idManagerLabel;
-    private javax.swing.JTextField idManagerTextField;
-    private javax.swing.JButton modifyButton;
-    private javax.swing.JLabel nameBranchLabel;
-    private javax.swing.JTextField nameBranchTextField;
-    private javax.swing.JButton updateButton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

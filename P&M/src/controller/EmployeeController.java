@@ -6,6 +6,7 @@
 package controller;
 
 import model.Employee;
+import java.util.HashMap;
 
 /**
  *
@@ -16,4 +17,10 @@ public interface EmployeeController {
         Employee employee = new Employee("", "", employeeType, 0, "");
         return employee.deleteEmployee(Controller.database, idTarget);
     }
+       
+    default public HashMap<String,String>[] multiSearch(String id, String name, String charge) {
+       Employee employee = new Employee(id, name, charge, 0, "");
+       return employee.multiSearch(Controller.database);
+    }
+       
 }

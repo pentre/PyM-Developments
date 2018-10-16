@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.*;
+import java.util.HashMap;
 
 /**
  *
@@ -103,6 +104,51 @@ public class Employee {
         }
     }
     
+    public HashMap<String,String>[] multiSearch(Database database) {
+        try {
+            String query = "Select * FROM employee WHERE active = true";
+            
+            // CAMBIAR INYECCION DE CODIGO
+            if(!"".equals(id_)) {
+                query += String.format("AND id = '%s'", id_);
+            }
+            if(!"".equals(name_)) {
+                query += String.format("AND name = '%s'", name_);
+            }
+            if(!"".equals(charge_)) {
+                query += String.format("AND charge = '%s'", charge_);
+            }
+            
+            PreparedStatement stmt = database.getStatement(query);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.last()) {
+                return null;
+            }
+            
+            HashMap<String,String>[] results = new HashMap<String,String>[rs.getRow()];
+            rs.beforeFirst();
+            
+            for(int i = 0; rs.next(); i++) {
+                HashMap<String,String> result = new HashMap<String,String>();
+                result.put("id", rs.getString("id"));
+                result.put("name", rs.getString("name"));
+                result.put("charge", rs.getString("charge"));
+                result.put("salary", rs.getString("salary"));
+                result.put("phone_number", rs.getString("phone_number"));
+                results[i] = result;
+            }
+            
+            return results;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
     public String deleteEmployee(Database database, String id){
         PreparedStatement stmt;
         try {
@@ -130,5 +176,5 @@ public class Employee {
             return "Error: Error al eliminar usuario";
         }
     }
-        
+    
 }

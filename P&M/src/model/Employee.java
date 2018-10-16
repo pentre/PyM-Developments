@@ -123,7 +123,7 @@ public class Employee {
                 return "Error: empleado no encontrado";
             }
             
-            return "empleado modificado correctamente";
+            return "Empleado modificado correctamente";
 
         }catch(SQLException e) {
             e.printStackTrace();

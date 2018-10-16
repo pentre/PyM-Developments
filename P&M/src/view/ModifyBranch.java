@@ -14,7 +14,9 @@ import javax.swing.JOptionPane;
  * @author Granada
  */
 public class ModifyBranch extends javax.swing.JFrame {
+
     private Controller controller_;
+
     /**
      * Creates new form ModifyBranch
      */
@@ -35,7 +37,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         BranchNameLabel = new javax.swing.JLabel();
         BranchNameInputField = new javax.swing.JTextField();
-        LoadButton = new javax.swing.JButton();
+        LoadBranchInfoButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         CityLabel = new javax.swing.JLabel();
         AddressLabel = new javax.swing.JLabel();
@@ -51,10 +53,16 @@ public class ModifyBranch extends javax.swing.JFrame {
 
         BranchNameLabel.setText("Nombre de la sede:");
 
-        LoadButton.setText("Modificar");
-        LoadButton.addActionListener(new java.awt.event.ActionListener() {
+        BranchNameInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BranchNameInputFieldKeyTyped(evt);
+            }
+        });
+
+        LoadBranchInfoButton.setText("Cargar datos");
+        LoadBranchInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoadButtonActionPerformed(evt);
+                LoadBranchInfoButtonActionPerformed(evt);
             }
         });
 
@@ -68,7 +76,7 @@ public class ModifyBranch extends javax.swing.JFrame {
                     .addComponent(BranchNameInputField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LoadButton)
+                            .addComponent(LoadBranchInfoButton)
                             .addComponent(BranchNameLabel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -81,7 +89,7 @@ public class ModifyBranch extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BranchNameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LoadButton)
+                .addComponent(LoadBranchInfoButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -178,14 +186,18 @@ public class ModifyBranch extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enabled(){
+    private void enabled() {
         this.CityInputField.setEnabled(true);
         this.addressTextField.setEnabled(true);
         this.OnChargeManagerInputField.setEnabled(true);
         this.UpdateButton.setEnabled(true);
+        
+        //These components are disabled to prevent changes on the branch name once the branch info is loaded
+        this.BranchNameInputField.setEnabled(false);
+        this.LoadBranchInfoButton.setEnabled(false);
     }
-    
-    private void disabled(){
+
+    private void disabled() {
         this.CityInputField.setEnabled(false);
         this.CityInputField.setText("");
         this.addressTextField.setEnabled(false);
@@ -193,47 +205,45 @@ public class ModifyBranch extends javax.swing.JFrame {
         this.OnChargeManagerInputField.setEnabled(false);
         this.OnChargeManagerInputField.setText("");
         this.UpdateButton.setEnabled(false);
+        
+        //These components are activated again once the update is succesful in order to make another operation
+        this.BranchNameInputField.setEnabled(true);
+        this.LoadBranchInfoButton.setEnabled(true);
     }
-    
-    private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadButtonActionPerformed
+
+    private void LoadBranchInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadBranchInfoButtonActionPerformed
         // TODO add your handling code here:
-        if(this.BranchNameLabel.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insertar un nombre de sede");
+        if (this.BranchNameInputField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor insertar un nombre de sede", "Advertencia", JOptionPane.WARNING_MESSAGE);
             return;
+
+        } else {
+
+            String branchName = this.BranchNameInputField.getText();
+
+            HashMap<String, String> branchInfo = new HashMap<>();
+
+            branchInfo = controller_.getBranchInfo(branchName);
+
+            if (branchInfo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No existe una sede con ese nombre");
+                disabled();
+                return;
+            }
+
+            enabled();
+            this.CityInputField.setText(branchInfo.get("city"));
+            this.addressTextField.setText(branchInfo.get("address"));
+            this.OnChargeManagerInputField.setText(branchInfo.get("managerId"));
         }
-        
-        String nameBranch = this.BranchNameInputField.getText();
-        
-        HashMap <String, String>infoBranch = new HashMap <> ();
-        
-        infoBranch = controller_.getBranchInfo(nameBranch);
-        
-        if (infoBranch.isEmpty()){
-            JOptionPane.showMessageDialog(this,"No existe una sede con ese nombre");
-            disabled();
-            return;
-        }
-        
-        enabled();
-        this.CityInputField.setText(infoBranch.get("name"));
-        this.addressTextField.setText(infoBranch.get("address"));
-        this.OnChargeManagerInputField.setText(infoBranch.get("managerId"));
-    }//GEN-LAST:event_LoadButtonActionPerformed
+    }//GEN-LAST:event_LoadBranchInfoButtonActionPerformed
 
     private void CityInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CityInputFieldKeyTyped
-        // TODO add your handling code here:
-        char inputChar = evt.getKeyChar();
-        if (!Character.isLetter(inputChar) && !Character.isWhitespace(inputChar)) {
-            evt.consume();
-        }
+        validateCharacters(evt);
     }//GEN-LAST:event_CityInputFieldKeyTyped
 
     private void OnChargeManagerInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OnChargeManagerInputFieldKeyTyped
-        // TODO add your handling code here:
-        char inputChar = evt.getKeyChar();
-        if(!(Character.isDigit(inputChar))){
-            evt.consume();
-        }
+        validateNumbers(evt);
     }//GEN-LAST:event_OnChargeManagerInputFieldKeyTyped
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
@@ -242,13 +252,31 @@ public class ModifyBranch extends javax.swing.JFrame {
         String city = this.CityInputField.getText();
         String address = this.addressTextField.getText();
         String managerId = this.OnChargeManagerInputField.getText();
-        
+
         String message = controller_.updateBranch(name, city, address, managerId);
-        
+
         JOptionPane.showMessageDialog(this, message);
-        
+
         disabled();
     }//GEN-LAST:event_UpdateButtonActionPerformed
+
+    private void BranchNameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BranchNameInputFieldKeyTyped
+        validateCharacters(evt);
+    }//GEN-LAST:event_BranchNameInputFieldKeyTyped
+
+    private void validateNumbers(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }
+
+    private void validateCharacters(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if ((!Character.isLetter(c)) && (!Character.isWhitespace(c))) {
+            evt.consume();
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -291,7 +319,7 @@ public class ModifyBranch extends javax.swing.JFrame {
     private javax.swing.JLabel BranchNameLabel;
     private javax.swing.JTextField CityInputField;
     private javax.swing.JLabel CityLabel;
-    private javax.swing.JButton LoadButton;
+    private javax.swing.JButton LoadBranchInfoButton;
     private javax.swing.JLabel OnChargeManagerIdLabel;
     private javax.swing.JTextField OnChargeManagerInputField;
     private javax.swing.JButton UpdateButton;

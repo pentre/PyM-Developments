@@ -56,6 +56,11 @@ public class SearchEmployees extends javax.swing.JFrame {
 
         idTextField.setColumns(5);
         idTextField.setToolTipText("");
+        idTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idTextFieldKeyTyped(evt);
+            }
+        });
 
         searchButton.setText("Buscar");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +72,11 @@ public class SearchEmployees extends javax.swing.JFrame {
         nameLabel.setText("Nombre:");
 
         nameTextField.setColumns(5);
+        nameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameTextFieldKeyTyped(evt);
+            }
+        });
 
         branchTextField.setColumns(5);
 
@@ -210,6 +220,20 @@ public class SearchEmployees extends javax.swing.JFrame {
         }
         dataTable.setModel(model);
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_idTextFieldKeyTyped
+
+    private void nameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nameTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

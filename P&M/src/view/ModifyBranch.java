@@ -34,131 +34,131 @@ public class ModifyBranch extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TopPanel = new javax.swing.JPanel();
-        BranchNameLabel = new javax.swing.JLabel();
-        BranchNameInputField = new javax.swing.JTextField();
-        LoadBranchInfoButton = new javax.swing.JButton();
-        BottomPanel = new javax.swing.JPanel();
-        CityLabel = new javax.swing.JLabel();
-        AddressLabel = new javax.swing.JLabel();
-        OnChargeManagerIdLabel = new javax.swing.JLabel();
-        UpdateButton = new javax.swing.JButton();
-        AddressTextField = new javax.swing.JTextField();
-        CityInputField = new javax.swing.JTextField();
-        OnChargeManagerInputField = new javax.swing.JTextField();
+        topPanel = new javax.swing.JPanel();
+        branchNameLabel = new javax.swing.JLabel();
+        branchNameInputField = new javax.swing.JTextField();
+        loadBranchInfoButton = new javax.swing.JButton();
+        bottomPanel = new javax.swing.JPanel();
+        cityLabel = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
+        onChargeManagerIdLabel = new javax.swing.JLabel();
+        updateButton = new javax.swing.JButton();
+        addressTextField = new javax.swing.JTextField();
+        cityInputField = new javax.swing.JTextField();
+        onChargeManagerInputField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TopPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        topPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        BranchNameLabel.setText("Nombre de la sede:");
+        branchNameLabel.setText("Nombre de la sede:");
 
-        BranchNameInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+        branchNameInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                BranchNameInputFieldKeyTyped(evt);
+                branchNameInputFieldKeyTyped(evt);
             }
         });
 
-        LoadBranchInfoButton.setText("Cargar datos");
-        LoadBranchInfoButton.addActionListener(new java.awt.event.ActionListener() {
+        loadBranchInfoButton.setText("Cargar datos");
+        loadBranchInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoadBranchInfoButtonActionPerformed(evt);
+                loadBranchInfoButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
-        TopPanel.setLayout(TopPanelLayout);
-        TopPanelLayout.setHorizontalGroup(
-            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
+        topPanel.setLayout(topPanelLayout);
+        topPanelLayout.setHorizontalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BranchNameInputField)
-                    .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LoadBranchInfoButton)
-                            .addComponent(BranchNameLabel))
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(branchNameInputField)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loadBranchInfoButton)
+                            .addComponent(branchNameLabel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        TopPanelLayout.setVerticalGroup(
-            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopPanelLayout.createSequentialGroup()
+        topPanelLayout.setVerticalGroup(
+            topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BranchNameLabel)
+                .addComponent(branchNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BranchNameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(branchNameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LoadBranchInfoButton)
+                .addComponent(loadBranchInfoButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        BottomPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        bottomPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        CityLabel.setText("Ciudad:");
+        cityLabel.setText("Ciudad:");
 
-        AddressLabel.setText("Dirección:");
+        addressLabel.setText("Dirección:");
 
-        OnChargeManagerIdLabel.setText("Id del gerente responsable:");
+        onChargeManagerIdLabel.setText("Id del gerente responsable:");
 
-        UpdateButton.setText("Actualizar");
-        UpdateButton.setEnabled(false);
-        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setText("Actualizar");
+        updateButton.setEnabled(false);
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateButtonActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
 
-        AddressTextField.setEnabled(false);
+        addressTextField.setEnabled(false);
 
-        CityInputField.setEnabled(false);
-        CityInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+        cityInputField.setEnabled(false);
+        cityInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                CityInputFieldKeyTyped(evt);
+                cityInputFieldKeyTyped(evt);
             }
         });
 
-        OnChargeManagerInputField.setEnabled(false);
-        OnChargeManagerInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+        onChargeManagerInputField.setEnabled(false);
+        onChargeManagerInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                OnChargeManagerInputFieldKeyTyped(evt);
+                onChargeManagerInputFieldKeyTyped(evt);
             }
         });
 
-        javax.swing.GroupLayout BottomPanelLayout = new javax.swing.GroupLayout(BottomPanel);
-        BottomPanel.setLayout(BottomPanelLayout);
-        BottomPanelLayout.setHorizontalGroup(
-            BottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BottomPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
+        bottomPanel.setLayout(bottomPanelLayout);
+        bottomPanelLayout.setHorizontalGroup(
+            bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(CityLabel)
-                        .addComponent(AddressLabel)
-                        .addComponent(OnChargeManagerIdLabel)
-                        .addComponent(AddressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addComponent(CityInputField)
-                        .addComponent(OnChargeManagerInputField))
-                    .addComponent(UpdateButton))
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cityLabel)
+                        .addComponent(addressLabel)
+                        .addComponent(onChargeManagerIdLabel)
+                        .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addComponent(cityInputField)
+                        .addComponent(onChargeManagerInputField))
+                    .addComponent(updateButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        BottomPanelLayout.setVerticalGroup(
-            BottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BottomPanelLayout.createSequentialGroup()
+        bottomPanelLayout.setVerticalGroup(
+            bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(CityLabel)
+                .addComponent(cityLabel)
                 .addGap(3, 3, 3)
-                .addComponent(CityInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cityInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddressLabel)
+                .addComponent(addressLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(OnChargeManagerIdLabel)
+                .addComponent(onChargeManagerIdLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OnChargeManagerInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(onChargeManagerInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UpdateButton)
+                .addComponent(updateButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -169,17 +169,17 @@ public class ModifyBranch extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BottomPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bottomPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(topPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BottomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bottomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -187,39 +187,39 @@ public class ModifyBranch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enabled() {
-        this.CityInputField.setEnabled(true);
-        this.AddressTextField.setEnabled(true);
-        this.OnChargeManagerInputField.setEnabled(true);
-        this.UpdateButton.setEnabled(true);
+        this.cityInputField.setEnabled(true);
+        this.addressTextField.setEnabled(true);
+        this.onChargeManagerInputField.setEnabled(true);
+        this.updateButton.setEnabled(true);
 
         //These components are disabled to prevent changes on the branch name once the branch info is loaded
-        this.BranchNameInputField.setEnabled(false);
-        this.LoadBranchInfoButton.setEnabled(false);
+        this.branchNameInputField.setEnabled(false);
+        this.loadBranchInfoButton.setEnabled(false);
     }
 
     private void disabled() {
-        this.CityInputField.setEnabled(false);
-        this.CityInputField.setText("");
-        this.AddressTextField.setEnabled(false);
-        this.AddressTextField.setText("");
-        this.OnChargeManagerInputField.setEnabled(false);
-        this.OnChargeManagerInputField.setText("");
-        this.UpdateButton.setEnabled(false);
+        this.cityInputField.setEnabled(false);
+        this.cityInputField.setText("");
+        this.addressTextField.setEnabled(false);
+        this.addressTextField.setText("");
+        this.onChargeManagerInputField.setEnabled(false);
+        this.onChargeManagerInputField.setText("");
+        this.updateButton.setEnabled(false);
 
         //These components are activated again once the update is succesful in order to make another operation
-        this.BranchNameInputField.setEnabled(true);
-        this.LoadBranchInfoButton.setEnabled(true);
+        this.branchNameInputField.setEnabled(true);
+        this.loadBranchInfoButton.setEnabled(true);
     }
 
-    private void LoadBranchInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadBranchInfoButtonActionPerformed
+    private void loadBranchInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBranchInfoButtonActionPerformed
         // TODO add your handling code here:
-        if (this.BranchNameInputField.getText().isEmpty()) {
+        if (this.branchNameInputField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor insertar un nombre de sede", "Advertencia", JOptionPane.WARNING_MESSAGE);
             return;
 
         }
 
-        String branchName = this.BranchNameInputField.getText();
+        String branchName = this.branchNameInputField.getText();
 
         HashMap<String, String> branchInfo = new HashMap<>();
 
@@ -232,37 +232,37 @@ public class ModifyBranch extends javax.swing.JFrame {
         }
 
         enabled();
-        this.CityInputField.setText(branchInfo.get("city"));
-        this.AddressTextField.setText(branchInfo.get("address"));
-        this.OnChargeManagerInputField.setText(branchInfo.get("managerId"));
+        this.cityInputField.setText(branchInfo.get("city"));
+        this.addressTextField.setText(branchInfo.get("address"));
+        this.onChargeManagerInputField.setText(branchInfo.get("managerId"));
 
-    }//GEN-LAST:event_LoadBranchInfoButtonActionPerformed
+    }//GEN-LAST:event_loadBranchInfoButtonActionPerformed
 
-    private void CityInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CityInputFieldKeyTyped
+    private void cityInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityInputFieldKeyTyped
         validateCharacters(evt);
-    }//GEN-LAST:event_CityInputFieldKeyTyped
+    }//GEN-LAST:event_cityInputFieldKeyTyped
 
-    private void OnChargeManagerInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OnChargeManagerInputFieldKeyTyped
+    private void onChargeManagerInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_onChargeManagerInputFieldKeyTyped
         validateNumbers(evt);
-    }//GEN-LAST:event_OnChargeManagerInputFieldKeyTyped
+    }//GEN-LAST:event_onChargeManagerInputFieldKeyTyped
 
-    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        String name = this.BranchNameInputField.getText();
-        String city = this.CityInputField.getText();
-        String address = this.AddressTextField.getText();
-        String managerId = this.OnChargeManagerInputField.getText();
+        String name = this.branchNameInputField.getText();
+        String city = this.cityInputField.getText();
+        String address = this.addressTextField.getText();
+        String managerId = this.onChargeManagerInputField.getText();
 
         String message = controller_.updateBranch(name, city, address, managerId);
 
         JOptionPane.showMessageDialog(this, message);
 
         disabled();
-    }//GEN-LAST:event_UpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButtonActionPerformed
 
-    private void BranchNameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BranchNameInputFieldKeyTyped
+    private void branchNameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchNameInputFieldKeyTyped
         validateCharacters(evt);
-    }//GEN-LAST:event_BranchNameInputFieldKeyTyped
+    }//GEN-LAST:event_branchNameInputFieldKeyTyped
 
     private void validateNumbers(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -283,17 +283,17 @@ public class ModifyBranch extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AddressLabel;
-    private javax.swing.JTextField AddressTextField;
-    private javax.swing.JPanel BottomPanel;
-    private javax.swing.JTextField BranchNameInputField;
-    private javax.swing.JLabel BranchNameLabel;
-    private javax.swing.JTextField CityInputField;
-    private javax.swing.JLabel CityLabel;
-    private javax.swing.JButton LoadBranchInfoButton;
-    private javax.swing.JLabel OnChargeManagerIdLabel;
-    private javax.swing.JTextField OnChargeManagerInputField;
-    private javax.swing.JPanel TopPanel;
-    private javax.swing.JButton UpdateButton;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JTextField addressTextField;
+    private javax.swing.JPanel bottomPanel;
+    private javax.swing.JTextField branchNameInputField;
+    private javax.swing.JLabel branchNameLabel;
+    private javax.swing.JTextField cityInputField;
+    private javax.swing.JLabel cityLabel;
+    private javax.swing.JButton loadBranchInfoButton;
+    private javax.swing.JLabel onChargeManagerIdLabel;
+    private javax.swing.JTextField onChargeManagerInputField;
+    private javax.swing.JPanel topPanel;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -212,7 +212,6 @@ public class ModifyManager extends javax.swing.JFrame {
         this.updateButton.setEnabled(false);
         this.cancelButton.setEnabled(false);
         this.idInputField.setEnabled(false);
-        this.nameInputField.setEnabled(false);
         this.chargeComboBox.setEnabled(false);
         this.salaryInputField.setEnabled(false);
         this.phoneNumberInputField.setEnabled(false);
@@ -271,6 +270,7 @@ public class ModifyManager extends javax.swing.JFrame {
         String message = controller_.updateEmployeeUser(id, name, charge, salary, phoneNumber, userType_);
         JOptionPane.showMessageDialog(this, message);
         disable();
+        this.idInputField.setEditable(true);
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void idInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idInputFieldKeyTyped
@@ -324,6 +324,7 @@ public class ModifyManager extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
         disable();
+        this.idInputField.setEditable(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

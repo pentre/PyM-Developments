@@ -32,7 +32,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         backgroundPanel = new javax.swing.JPanel();
         userLabel = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
-        AddButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,35 +44,24 @@ public class ManagerMenu extends javax.swing.JFrame {
             }
         });
 
-        AddButton.setText("Adicionar");
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(AddButton)
-                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(backgroundPanelLayout.createSequentialGroup()
-                            .addGap(169, 169, 169)
-                            .addComponent(userLabel))
-                        .addGroup(backgroundPanelLayout.createSequentialGroup()
-                            .addGap(151, 151, 151)
-                            .addComponent(deleteButton))))
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(userLabel))
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(deleteButton)))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(AddButton)
-                .addGap(44, 44, 44)
+                .addGap(137, 137, 137)
                 .addComponent(userLabel)
                 .addGap(34, 34, 34)
                 .addComponent(deleteButton)
@@ -100,16 +88,8 @@ public class ManagerMenu extends javax.swing.JFrame {
         deleteMenu.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        // TODO add your handling code here:
-        ModifyManager modifyManager = new ModifyManager(controller_,"Gerente");
-        modifyManager.setLocationRelativeTo(null);
-        modifyManager.setVisible(true);
-    }//GEN-LAST:event_AddButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddButton;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel userLabel;

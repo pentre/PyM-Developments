@@ -105,7 +105,7 @@ public class DeleteMenu extends javax.swing.JFrame {
         String id = this.idInputField.getText();
 
         //user_ is sent to verify the user's charge that is going to delete an employee
-        String message = this.controller_.delete(user_, id);
+        String message = this.controller_.deleteEmployee(user_, id);
         
         JOptionPane.showMessageDialog(this, message);
     }//GEN-LAST:event_deleteButtonActionPerformed

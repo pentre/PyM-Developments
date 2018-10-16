@@ -54,18 +54,18 @@ public class ManagerMenu extends javax.swing.JFrame {
                         .addGap(169, 169, 169)
                         .addComponent(userLabel))
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
+                        .addGap(151, 151, 151)
                         .addComponent(deleteButton)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGap(137, 137, 137)
                 .addComponent(userLabel)
-                .addGap(36, 36, 36)
+                .addGap(34, 34, 34)
                 .addComponent(deleteButton)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

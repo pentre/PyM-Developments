@@ -18,7 +18,6 @@ public class Employee {
     private float salary_;
     private String phoneNumber_;
     private boolean active_;
-    
     public Employee(String id, String name, String charge, float salary, String phoneNumber) {
         id_ = id;
         name_ = name;
@@ -78,7 +77,7 @@ public class Employee {
     
     public boolean search(Database database, String id) {
         try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ?");
+            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ? AND active=true");
             stmt.setString(1, id);
             
             ResultSet rs = stmt.executeQuery();
@@ -103,6 +102,32 @@ public class Employee {
         }
     }
     
+    public String update(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND active = true");
+
+            stmt.setString(1,name_);
+            stmt.setString(2,charge_);
+            stmt.setFloat(3,salary_);
+            stmt.setString(4,phoneNumber_);
+            stmt.setString(5, id_);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: empleado no encontrado";
+            } 
+            return "Empleado modificado correctamente";
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return "Error: error al modificar empleado";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Error: error al modificar empleado";
+        }
+    
+    }
+  
     public String store(Database database){
         try{   
             PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
@@ -131,7 +156,6 @@ public class Employee {
         }
     }
     
-
     public String deleteEmployee(Database database, String id){
         PreparedStatement stmt;
         try {

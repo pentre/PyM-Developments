@@ -74,6 +74,28 @@ public class User {
             System.out.println(e.getMessage());
             return "Error: Error interno del servidor";
         }          
+
+    }  
+    
+    public String update(Database database){
+        try{             
+            PreparedStatement stmt = database.getStatement("UPDATE login SET type = ? WHERE username = ?");
+            stmt.setString(1, type_);
+            stmt.setString(2, username_);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: usuario no encontrado";
+            }
+            return "Empleado modificado correctamente";            
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return "Error: error al modificar usuario";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Error: error al modificar usuario";
+
     }
 
     public boolean search(Database database){

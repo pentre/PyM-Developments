@@ -27,39 +27,42 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="PhoneNumberLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="PhoneNumberInputField" min="-2" pref="119" max="-2" attributes="0"/>
+                      <Component id="phoneNumberInputField" min="-2" pref="119" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="SalaryLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="salaryLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="23" max="32767" attributes="0"/>
-                          <Component id="SalaryInputField" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Component id="salaryInputField" min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="NameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ChargeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="IdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="chargeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="idLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="NameInputField" pref="119" max="32767" attributes="0"/>
-                              <Component id="IdInputField" max="32767" attributes="0"/>
-                              <Component id="ChargeComboBox" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nameInputField" pref="119" max="32767" attributes="0"/>
+                              <Component id="idInputField" max="32767" attributes="0"/>
+                              <Component id="chargeComboBox" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="ModifyButton" min="-2" max="-2" attributes="0"/>
+              <Component id="modifyButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="13" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="UpdateButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,113 +71,115 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="IdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="IdInputField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ModifyButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idInputField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="modifyButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="NameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="NameInputField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameInputField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ChargeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ChargeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="chargeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="chargeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="SalaryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SalaryInputField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="salaryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="salaryInputField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="PhoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="PhoneNumberInputField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="phoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="phoneNumberInputField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="88" max="32767" attributes="0"/>
-              <Component id="UpdateButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <Component id="updateButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="IdLabel">
+    <Component class="javax.swing.JLabel" name="idLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Id:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="IdInputField">
+    <Component class="javax.swing.JTextField" name="idInputField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdInputFieldActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="IdInputFieldKeyTyped"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idInputFieldActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="idInputFieldKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ModifyButton">
+    <Component class="javax.swing.JButton" name="modifyButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="NameLabel">
+    <Component class="javax.swing.JLabel" name="nameLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ChargeLabel">
+    <Component class="javax.swing.JLabel" name="chargeLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cargo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="SalaryLabel">
+    <Component class="javax.swing.JLabel" name="salaryLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="PhoneNumberLabel">
+    <Component class="javax.swing.JLabel" name="phoneNumberLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="NameInputField">
+    <Component class="javax.swing.JTextField" name="nameInputField">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameInputFieldActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="NameInputFieldKeyTyped"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameInputFieldActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nameInputFieldKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="SalaryInputField">
+    <Component class="javax.swing.JTextField" name="salaryInputField">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SalaryInputFieldKeyTyped"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="salaryInputFieldKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="PhoneNumberInputField">
+    <Component class="javax.swing.JTextField" name="phoneNumberInputField">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PhoneNumberInputFieldActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PhoneNumberInputFieldKeyTyped"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneNumberInputFieldActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNumberInputFieldKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="UpdateButton">
+    <Component class="javax.swing.JButton" name="updateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="ChargeComboBox">
+    <Component class="javax.swing.JComboBox" name="chargeComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -185,11 +190,20 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChargeComboBoxActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chargeComboBoxActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="cancelButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -104,7 +104,7 @@ public class Employee {
     
     public String update(Database database){
         try{
-            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ?");
+            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND active = true");
 
             stmt.setString(1,name_);
             stmt.setString(2,charge_);

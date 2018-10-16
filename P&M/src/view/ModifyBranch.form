@@ -26,8 +26,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel2" max="32767" attributes="0"/>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="BottomPanel" max="32767" attributes="0"/>
+                  <Component id="TopPanel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -37,16 +37,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="BottomPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="TopPanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -111,7 +111,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="BottomPanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -132,7 +132,7 @@
                           <Component id="CityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="AddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="OnChargeManagerIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="addressTextField" alignment="0" pref="166" max="32767" attributes="0"/>
+                          <Component id="AddressTextField" alignment="0" pref="166" max="32767" attributes="0"/>
                           <Component id="CityInputField" alignment="0" max="32767" attributes="0"/>
                           <Component id="OnChargeManagerInputField" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -152,7 +152,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="AddressLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="addressTextField" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddressTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="OnChargeManagerIdLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -189,7 +189,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="addressTextField">
+        <Component class="javax.swing.JTextField" name="AddressTextField">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>

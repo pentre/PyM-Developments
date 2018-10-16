@@ -224,10 +224,9 @@ public class ModifyManager extends javax.swing.JFrame {
         }
         String id = this.IdInputField.getText();
         
-        HashMap <String, String>infoEmployee = new HashMap <> ();
-        infoEmployee = controller_.getInfo(id);
+        HashMap <String, String>infoEmployee = controller_.getEmployeeInfo(id);
         
-        //String[] infoEmployee = controller_.getInfo(id);
+        
         if (infoEmployee.isEmpty()){
             JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
             disable();
@@ -249,7 +248,7 @@ public class ModifyManager extends javax.swing.JFrame {
         String charge =  this.ChargeComboBox.getSelectedItem().toString();
         Float salary = Float.valueOf(this.SalaryInputField.getText());
         String phoneNumber = this.PhoneNumberInputField.getText();
-        String message = controller_.update(id, name, charge, salary, phoneNumber, userType_);
+        String message = controller_.updateEmployee(id, name, charge, salary, phoneNumber, userType_);
         JOptionPane.showMessageDialog(this, message);
         disable();
     }//GEN-LAST:event_UpdateButtonActionPerformed
@@ -301,12 +300,9 @@ public class ModifyManager extends javax.swing.JFrame {
     private void ChargeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ChargeComboBoxActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-
-
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ChargeComboBox;
     private javax.swing.JLabel ChargeLabel;

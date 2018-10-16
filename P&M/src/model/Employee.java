@@ -102,22 +102,28 @@ public class Employee {
         }
     }
     
-    public String update(Database database, String charge, String userType){
+    public String update(Database database){
         try{
-            PreparedStatement stmt;
-            if (userType.equals("Gerente") && charge.equals("Gerente")){
-                return "Error: Un gerente no puede modificar un gerente.";
-            }
-            stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND charge = ?");
-
-            stmt.setString(1,name_);
-            stmt.setString(2,charge_);
-            stmt.setFloat(3,salary_);
-            stmt.setString(4,phoneNumber_);
-            stmt.setString(5, id_);            
-            stmt.setString(6, charge);
+            PreparedStatement stmtEmployee;
             
-            int result = stmt.executeUpdate();
+            stmtEmployee = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ?");
+
+            stmtEmployee.setString(1,name_);
+            stmtEmployee.setString(2,charge_);
+            stmtEmployee.setFloat(3,salary_);
+            stmtEmployee.setString(4,phoneNumber_);
+            stmtEmployee.setString(5, id_);
+            
+            
+            PreparedStatement stmtLogin;
+            
+            stmtLogin = database.getStatement("UPDATE login SET type = ? WHERE username = ?");
+            
+            stmtLogin.setString(1, charge_);
+            stmtLogin.setString(1, id_);
+            
+            
+            int result = stmtEmployee.executeUpdate();
             
             if(result == 0) {
                 return "Error: empleado no encontrado";

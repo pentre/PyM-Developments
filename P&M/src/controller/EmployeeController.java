@@ -20,7 +20,7 @@ public interface EmployeeController {
         return employee.deleteEmployee(Controller.database, idTarget);
     }
        
-    default public HashMap <String, String> getInfo(String id){
+    default public HashMap <String, String> getEmployeeInfo (String id){
         Employee employee = new Employee("", "", "", 0, "");
         HashMap <String, String>listEmployee = new HashMap <> ();
         
@@ -36,10 +36,14 @@ public interface EmployeeController {
         return listEmployee;
     }
        
-    default public String update(String id, String name, String charge, Float salary, String phoneNumber, String userType){
+    default public String updateEmployee(String id, String name, String charge, Float salary, String phoneNumber, String userType){
         Employee employee = new Employee(id,name,charge,salary,phoneNumber);
-        HashMap <String, String>listEmployee = new HashMap <> ();
-        listEmployee = getInfo(id);
-        return employee.update(Controller.database, listEmployee.get("charge"),userType);
+        HashMap <String, String>listEmployee = getEmployeeInfo (id);
+        
+        if (userType.equals("Gerente") && listEmployee.get("charge").equals("Gerente")){
+                return "Error: Un gerente no puede modificar un gerente.";
+        }
+        
+        return employee.update(Controller.database);
     }
 }

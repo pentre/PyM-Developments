@@ -5,8 +5,11 @@
  */
 package model;
 
+import java.util.List;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -104,8 +107,8 @@ public class Employee {
         }
     }
     
-    public HashMap<String,String>[] multipleSearch(Database database) {
-        try {
+    public List<Map<String, String>> multipleSearch(Database database) {
+        try {            
             String query = "SELECT * FROM employee WHERE active = true";
                       
             if(!"".equals(id_)) {
@@ -114,29 +117,30 @@ public class Employee {
             if(!"".equals(name_)) {
                 query += String.format(" AND name = '%s'", name_);
             }
-            if(!"".equals(charge_)) {
+            if("".equals(charge_)) {
+                query += String.format(" AND charge != 'admin'");
+            }else{                
                 query += String.format(" AND charge = '%s'", charge_);
             }
             
             PreparedStatement stmt = database.getStatement(query.replace(";",""));
             
             ResultSet rs = stmt.executeQuery();
-            if(!rs.last()) {
+            if(!rs.next()) {
                 return null;
             }
             
-            HashMap<String,String>[] results = new HashMap[rs.getRow()];
-            rs.beforeFirst();
-            
-            for(int i = 0; rs.next(); i++) {
+            List<Map<String, String>> results = new ArrayList<>();  
+         
+            do{
                 HashMap<String,String> result = new HashMap<>();
                 result.put("id", rs.getString("id"));
                 result.put("name", rs.getString("name"));
                 result.put("charge", rs.getString("charge"));
                 result.put("salary", rs.getString("salary"));
                 result.put("phone_number", rs.getString("phone_number"));
-                results[i] = result;
-            }
+                results.add(result);
+            }while(rs.next());           
             
             return results;
         } catch(SQLException e) {

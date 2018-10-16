@@ -6,9 +6,8 @@
 package view;
 
 import controller.Controller;
-import java.util.HashMap;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -189,24 +188,23 @@ public class SearchEmployees extends javax.swing.JFrame {
             charge = "";
         }
         
-        HashMap<String,String>[] results = controller_.multiSearch(id, name, charge);
+        List<Map<String, String>> results = controller_.multipleSearch(id, name, charge);
         
         if(results == null) {
             JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);
             return;
-        }
-        
+        }        
 
-        Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teladséfono" };
+        Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono" };
         DefaultTableModel model = new DefaultTableModel(columnNames,0);
-        for(HashMap<String, String> result : results) {
+        for(int i=0; i<results.size(); i++) {
             Object[] row = {
-                result.get("id"),
-                result.get("name"),
-                "Sede",//result.get("branch"),
-                result.get("Charge"),
-                result.get("Salary"),
-                result.get("phone_number")
+                results.get(i).get("id"),
+                results.get(i).get("name"),
+                "Sede",
+                results.get(i).get("charge"),
+                results.get(i).get("salary"),
+                results.get(i).get("phone_number")
             };
             model.addRow(row);
         }

@@ -12,11 +12,11 @@ import model.Employee;
  * @author lalil
  */
 public interface EmployeeController {
-    default public String storeEmployee(String id, String name,String charge, float salary, String phoneNumber){
+    default public String createEmployee(String id, String name,String charge, float salary, String phoneNumber){
         Employee employee = new Employee(id,name,charge,salary,phoneNumber);
         return employee.store(Controller.database);
     }
-    default public String delete(String employeeType, String idTarget){
+    default public String deleteEmployee(String employeeType, String idTarget){
         Employee employee = new Employee("", "", employeeType, 0, "");
         return employee.deleteEmployee(Controller.database, idTarget);
     }

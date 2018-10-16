@@ -225,7 +225,7 @@ public class AddManager extends javax.swing.JFrame {
         String phoneNumber = this.PhoneNumberInputField.getText();
         String password = new String(this.PasswordInputField.getPassword());
 
-        String message = controller_.storeEmployee(id, name, "Gerente", salary, phoneNumber);
+        String message = controller_.createEmployee(id, name, "Gerente", salary, phoneNumber);
         message += controller_.storeUser(id,password,"Gerente");
 
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);

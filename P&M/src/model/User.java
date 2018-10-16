@@ -83,6 +83,12 @@ public class User {
             if(!rs.next()) {
                 return false;
             }
+            
+            username_ = rs.getString("username");
+            password_ = rs.getString("pass");
+            type_ = rs.getString("type");
+            active_ = rs.getBoolean("active");
+            
             return true;
         }catch(Exception e){
              e.printStackTrace();
@@ -105,7 +111,7 @@ public class User {
             stmt.setBoolean(4,active_);     
 
             if(stmt.executeUpdate()==1){
-                return "El usuario fue adicionado exitosamente.\nEl usuario es su cédula.";
+                return " El usuario es su cédula.";
             }
             
             return "Error: error al crear usuario.";

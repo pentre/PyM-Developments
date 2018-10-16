@@ -107,7 +107,7 @@ public class Employee {
         try{
             
             if(this.search(database,this.getId())){
-                return "Ya existe un empleado con esta cédula.\n";
+                return "Ya existe un empleado con esta cédula.";
             }
             
             PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
@@ -120,7 +120,7 @@ public class Employee {
             stmtEmployee.setBoolean(6, active_);
             
             if(stmtEmployee.executeUpdate()==1){
-                return "El empleado fue adicionado exitosamente,\n";
+                return "El empleado fue adicionado exitosamente.";
             }
             
             return "Error: error al crear empleado.";

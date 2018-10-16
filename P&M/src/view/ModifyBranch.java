@@ -191,7 +191,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         this.addressTextField.setEnabled(true);
         this.OnChargeManagerInputField.setEnabled(true);
         this.UpdateButton.setEnabled(true);
-        
+
         //These components are disabled to prevent changes on the branch name once the branch info is loaded
         this.BranchNameInputField.setEnabled(false);
         this.LoadBranchInfoButton.setEnabled(false);
@@ -205,7 +205,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         this.OnChargeManagerInputField.setEnabled(false);
         this.OnChargeManagerInputField.setText("");
         this.UpdateButton.setEnabled(false);
-        
+
         //These components are activated again once the update is succesful in order to make another operation
         this.BranchNameInputField.setEnabled(true);
         this.LoadBranchInfoButton.setEnabled(true);
@@ -281,37 +281,6 @@ public class ModifyBranch extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModifyBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModifyBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModifyBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModifyBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModifyBranch(new Controller()).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressLabel;

@@ -126,11 +126,11 @@ public class Employee {
                 return null;
             }
             
-            HashMap<String,String>[] results = new HashMap<String,String>[rs.getRow()];
+            HashMap<String,String>[] results = new HashMap[rs.getRow()];
             rs.beforeFirst();
             
             for(int i = 0; rs.next(); i++) {
-                HashMap<String,String> result = new HashMap<String,String>();
+                HashMap<String,String> result = new HashMap<>();
                 result.put("id", rs.getString("id"));
                 result.put("name", rs.getString("name"));
                 result.put("charge", rs.getString("charge"));

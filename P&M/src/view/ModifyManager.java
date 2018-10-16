@@ -14,12 +14,20 @@ import java.util.HashMap;
  */
 public class ModifyManager extends javax.swing.JFrame {
     private Controller controller_;
+    private String userType_;
     /**
      * Creates new form ModifyManager
      */
-    public ModifyManager(Controller controller) {
+    public ModifyManager(Controller controller,String userType) {
         controller_ = controller;
+        userType_ = userType;
+        
         initComponents();
+        if(userType.equals("Administrador")){
+            this.ChargeComboBox.addItem("Gerente");
+        }
+        
+        
     }
 
     /**
@@ -31,89 +39,95 @@ public class ModifyManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        IdLabel = new javax.swing.JLabel();
+        IdInputField = new javax.swing.JTextField();
+        ModifyButton = new javax.swing.JButton();
+        NameLabel = new javax.swing.JLabel();
+        ChargeLabel = new javax.swing.JLabel();
+        SalaryLabel = new javax.swing.JLabel();
+        PhoneNumberLabel = new javax.swing.JLabel();
+        NameInputField = new javax.swing.JTextField();
+        SalaryInputField = new javax.swing.JTextField();
+        PhoneNumberInputField = new javax.swing.JTextField();
+        UpdateButton = new javax.swing.JButton();
+        ChargeComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Id Gerente:");
+        IdLabel.setText("Id:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        IdInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                IdInputFieldActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        IdInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                IdInputFieldKeyTyped(evt);
             }
         });
 
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ModifyButton.setText("Modificar");
+        ModifyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ModifyButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Nombre:");
+        NameLabel.setText("Nombre:");
 
-        jLabel3.setText("Cargo:");
+        ChargeLabel.setText("Cargo:");
 
-        jLabel4.setText("Salario:");
+        SalaryLabel.setText("Salario:");
 
-        jLabel5.setText("Telefono:");
+        PhoneNumberLabel.setText("Telefono:");
 
-        jTextField2.setEnabled(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        NameInputField.setEnabled(false);
+        NameInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                NameInputFieldActionPerformed(evt);
             }
         });
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        NameInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField2KeyTyped(evt);
+                NameInputFieldKeyTyped(evt);
             }
         });
 
-        jTextField3.setEnabled(false);
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        SalaryInputField.setEnabled(false);
+        SalaryInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                SalaryInputFieldKeyTyped(evt);
             }
         });
 
-        jTextField4.setEnabled(false);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        PhoneNumberInputField.setEnabled(false);
+        PhoneNumberInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                PhoneNumberInputFieldActionPerformed(evt);
             }
         });
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        PhoneNumberInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField4KeyTyped(evt);
+                PhoneNumberInputFieldKeyTyped(evt);
             }
         });
 
-        jButton2.setText("Actualizar");
-        jButton2.setEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        UpdateButton.setText("Actualizar");
+        UpdateButton.setEnabled(false);
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                UpdateButtonActionPerformed(evt);
             }
         });
 
-        jLabel6.setText(".");
+        ChargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jefe de Taller", "Vendedor" }));
+        ChargeComboBox.setEnabled(false);
+        ChargeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChargeComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,31 +135,32 @@ public class ModifyManager extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                        .addComponent(PhoneNumberLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PhoneNumberInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(SalaryLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                            .addComponent(SalaryInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(NameLabel)
+                                .addComponent(ChargeLabel)
+                                .addComponent(IdLabel))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(NameInputField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                .addComponent(IdInputField)
+                                .addComponent(ChargeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(19, 19, 19)
+                .addComponent(ModifyButton)
                 .addContainerGap(13, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(UpdateButton)
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -153,130 +168,139 @@ public class ModifyManager extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(IdLabel)
+                    .addComponent(IdInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ModifyButton))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(NameLabel)
+                    .addComponent(NameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6))
-                .addGap(40, 40, 40)
+                    .addComponent(ChargeLabel)
+                    .addComponent(ChargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SalaryLabel)
+                    .addComponent(SalaryInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PhoneNumberLabel)
+                    .addComponent(PhoneNumberInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(UpdateButton)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void disable(){
+        this.UpdateButton.setEnabled(false);
+        this.NameInputField.setEnabled(false);
+        this.ChargeComboBox.setEnabled(false);
+        this.SalaryInputField.setEnabled(false);
+        this.PhoneNumberInputField.setEnabled(false);
+        this.NameInputField.setText("");
+        this.SalaryInputField.setText("");
+        this.PhoneNumberInputField.setText("");
+        this.IdInputField.setText("");    
+    }
+    
+    public void enable(){
+        this.NameInputField.setEnabled(true);
+        this.ChargeComboBox.setEnabled(true);
+        this.SalaryInputField.setEnabled(true);
+        this.PhoneNumberInputField.setEnabled(true);
+        this.UpdateButton.setEnabled(true); 
+
+    }
+    
+    private void ModifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyButtonActionPerformed
         // TODO add your handling code here:
-        if(this.jTextField1.getText().isEmpty()){
+        if(this.IdInputField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
+            return;
         }
-        String id = this.jTextField1.getText();
+        String id = this.IdInputField.getText();
         
         HashMap <String, String>infoEmployee = new HashMap <> ();
         infoEmployee = controller_.getInfo(id);
         
         //String[] infoEmployee = controller_.getInfo(id);
-        if (!(infoEmployee.get("name").equals("0"))){
-            this.jTextField2.setEnabled(true);
-            this.jTextField3.setEnabled(true);
-            this.jTextField4.setEnabled(true);
-            this.jButton2.setEnabled(true);
-            this.jTextField2.setText(infoEmployee.get("name"));
-            this.jLabel6.setText(infoEmployee.get("charge"));
-            this.jTextField3.setText(infoEmployee.get("salary"));
-            this.jTextField4.setText(infoEmployee.get("phoneNumber")); 
-        }
-        else{
+        if (infoEmployee.isEmpty()){
             JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
-            this.jButton2.setEnabled(false);
-            this.jTextField2.setEnabled(false);
-            this.jTextField3.setEnabled(false);
-            this.jTextField4.setEnabled(false);
-            this.jTextField2.setText("");
-            this.jLabel6.setText(".");
-            this.jTextField3.setText("");
-            this.jTextField4.setText("");
+            disable();
+            return;
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        enable();
+        this.NameInputField.setText(infoEmployee.get("name"));
+        this.ChargeComboBox.setSelectedItem(infoEmployee.get("charge"));
+        this.SalaryInputField.setText(infoEmployee.get("salary"));  
+        this.PhoneNumberInputField.setText(infoEmployee.get("phoneNumber"));
+        
+        
+    }//GEN-LAST:event_ModifyButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
-        String id = this.jTextField1.getText();
-        String name = this.jTextField2.getText();
-        String charge = this.jLabel6.getText();
-        Float salary = Float.valueOf(this.jTextField3.getText());
-        String phoneNumber = this.jTextField4.getText();
-        String message = controller_.update(id, name, charge, salary, phoneNumber);
+        String id = this.IdInputField.getText();
+        String name = this.NameInputField.getText();
+        String charge =  this.ChargeComboBox.getSelectedItem().toString();
+        Float salary = Float.valueOf(this.SalaryInputField.getText());
+        String phoneNumber = this.PhoneNumberInputField.getText();
+        String message = controller_.update(id, name, charge, salary, phoneNumber, userType_);
         JOptionPane.showMessageDialog(this, message);
-        this.jButton2.setEnabled(false);
-        this.jTextField2.setEnabled(false);
-        this.jTextField3.setEnabled(false);
-        this.jTextField4.setEnabled(false);
-        this.jTextField2.setText("");
-        this.jLabel6.setText(".");
-        this.jTextField3.setText("");
-        this.jTextField4.setText("");
-        this.jTextField1.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+        disable();
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void IdInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdInputFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
         if(!(Character.isDigit(inputChar))){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_IdInputFieldKeyTyped
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void SalaryInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalaryInputFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
         if(!(Character.isDigit(inputChar))){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField3KeyTyped
+    }//GEN-LAST:event_SalaryInputFieldKeyTyped
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void NameInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_NameInputFieldActionPerformed
 
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+    private void NameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameInputFieldKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_NameInputFieldKeyTyped
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void PhoneNumberInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_PhoneNumberInputFieldActionPerformed
 
-    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+    private void PhoneNumberInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneNumberInputFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
         if(!(Character.isDigit(inputChar))){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField4KeyTyped
+    }//GEN-LAST:event_PhoneNumberInputFieldKeyTyped
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void IdInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_IdInputFieldActionPerformed
+
+    private void ChargeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChargeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChargeComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,17 +308,17 @@ public class ModifyManager extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JComboBox<String> ChargeComboBox;
+    private javax.swing.JLabel ChargeLabel;
+    private javax.swing.JTextField IdInputField;
+    private javax.swing.JLabel IdLabel;
+    private javax.swing.JButton ModifyButton;
+    private javax.swing.JTextField NameInputField;
+    private javax.swing.JLabel NameLabel;
+    private javax.swing.JTextField PhoneNumberInputField;
+    private javax.swing.JLabel PhoneNumberLabel;
+    private javax.swing.JTextField SalaryInputField;
+    private javax.swing.JLabel SalaryLabel;
+    private javax.swing.JButton UpdateButton;
     // End of variables declaration//GEN-END:variables
 }

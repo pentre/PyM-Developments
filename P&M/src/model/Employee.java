@@ -77,7 +77,7 @@ public class Employee {
     
     public boolean search(Database database, String id) {
         try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ?");
+            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ? AND active=true");
             stmt.setString(1, id);
             
             ResultSet rs = stmt.executeQuery();
@@ -102,28 +102,35 @@ public class Employee {
         }
     }
     
-    public String updateInfoEmployee(Database database){
+    public String update(Database database, String charge, String userType){
         try{
-            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? , salary = ? , phone_number = ? WHERE id = ? AND active = true");
+            PreparedStatement stmt;
+            if (userType.equals("Gerente") && charge.equals("Gerente")){
+                return "Error: Un gerente no puede modificar un gerente.";
+            }
+            stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND charge = ?");
+
             stmt.setString(1,name_);
-            stmt.setFloat(2,salary_);
-            stmt.setString(3,phoneNumber_);
-            stmt.setString(4, id_);
+            stmt.setString(2,charge_);
+            stmt.setFloat(3,salary_);
+            stmt.setString(4,phoneNumber_);
+            stmt.setString(5, id_);            
+            stmt.setString(6, charge);
             
             int result = stmt.executeUpdate();
             
             if(result == 0) {
-                return "Error: Usuario no encontrado";
+                return "Error: empleado no encontrado";
             }
             
-            return "Usuario modifcado correctamente";
+            return "empleado modificado correctamente";
 
         }catch(SQLException e) {
             e.printStackTrace();
-            return "error al modificar usuario";
+            return "Error: error al modificar empleado";
         } catch(Exception e) {
             e.printStackTrace();
-            return "error al modificar usuario";
+            return "Error: error al modificar empleado";
         }
     
     }

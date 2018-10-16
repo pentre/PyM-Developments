@@ -16,8 +16,8 @@ public interface EmployeeController {
         Employee employee = new Employee(id,name,charge,salary,phoneNumber);
         return employee.store(Controller.database);
     }
-    default public String deleteEmployee(String employeeType, String idTarget){
+    default public String deleteEmployee(String employeeType, String TargetID){
         Employee employee = new Employee("", "", employeeType, 0, "");
-        return employee.deleteEmployee(Controller.database, idTarget);
+        return employee.deleteEmployee(Controller.database, TargetID);
     }
 }

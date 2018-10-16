@@ -7,6 +7,7 @@ package model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -99,10 +100,6 @@ public class User {
     
     public String store(Database database){
         try{
-            if(this.search(database)){
-                return "Ya existe un usuario con esta cédula.\n";
-            }
-            
             PreparedStatement stmt = database.getStatement("INSERT INTO login VALUES(?, ?, ?, ?)");
             
             stmt.setString(1,username_);
@@ -111,11 +108,16 @@ public class User {
             stmt.setBoolean(4,active_);     
 
             if(stmt.executeUpdate()==1){
-                return " El usuario es su cédula.";
+                return " El usuario es su cedula.";
             }
             
             return "Error: error al crear usuario.";
             
+        }catch(SQLException e){
+            if (e.getSQLState().equals("23505")){
+                return "Ya existe un usuario con esta cédula. ";
+            }
+            return "Error: error al crear el usuario.";
         }catch(Exception e){
             e.printStackTrace();
             return "Error: error al crear el usuario.";

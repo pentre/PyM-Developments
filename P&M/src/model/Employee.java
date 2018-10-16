@@ -104,12 +104,7 @@ public class Employee {
     }
     
     public String store(Database database){
-        try{
-            
-            if(this.search(database,this.getId())){
-                return "Ya existe un empleado con esta cédula.";
-            }
-            
+        try{   
             PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
             
             stmtEmployee.setString(1,id_);
@@ -126,7 +121,9 @@ public class Employee {
             return "Error: error al crear empleado.";
             
         }catch(SQLException e){
-            e.printStackTrace();
+            if (e.getSQLState().equals("23505")){
+                return "Ya existe un empleado con esta cédula.";
+            }
             return "Error: error al crear el empleado.";
         }catch(Exception e){
             e.printStackTrace();

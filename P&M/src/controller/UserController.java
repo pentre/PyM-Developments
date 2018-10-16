@@ -16,7 +16,7 @@ public interface UserController {
         return user.login(Controller.database);
     }
     
-    default public String storeUser(String username, String password, String type){
+    default public String createUser(String username, String password, String type){
         User user = new User(username,password,type,true);
         return user.store(Controller.database);
     }

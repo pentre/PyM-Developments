@@ -31,7 +31,6 @@ public class AdminMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
-        AddButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,13 +40,6 @@ public class AdminMenu extends javax.swing.JFrame {
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
-            }
-        });
-
-        AddButton.setText("Adicionar");
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonActionPerformed(evt);
             }
         });
 
@@ -64,17 +56,11 @@ public class AdminMenu extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addComponent(deleteButton)))
                 .addContainerGap(155, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(AddButton)
-                .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(AddButton)
-                .addGap(37, 37, 37)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel1)
                 .addGap(31, 31, 31)
                 .addComponent(deleteButton)
@@ -102,15 +88,7 @@ public class AdminMenu extends javax.swing.JFrame {
         deleteMenu.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        // TODO add your handling code here:
-        AddManager addManager = new AddManager(controller_);
-        addManager.setLocationRelativeTo(null);
-        addManager.setVisible(true);
-    }//GEN-LAST:event_AddButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

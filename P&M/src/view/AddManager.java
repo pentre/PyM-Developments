@@ -219,6 +219,12 @@ public class AddManager extends javax.swing.JFrame {
     }//GEN-LAST:event_PhoneNumberInputFieldActionPerformed
 
     private void AddManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddManagerButtonActionPerformed
+
+        if(this.IdInputField.getText().isEmpty() || this.NameInputField.getText().isEmpty() || this.SalaryInputField.getText().isEmpty() || this.PhoneNumberInputField.getText().isEmpty() ||  new String(this.PasswordInputField.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor ingrese todos los datos.");
+            return;
+        }
+
         String id = this.IdInputField.getText();
         String name = this.NameInputField.getText();
         float salary = Float.parseFloat(this.SalaryInputField.getText());
@@ -226,7 +232,7 @@ public class AddManager extends javax.swing.JFrame {
         String password = new String(this.PasswordInputField.getPassword());
 
         String message = controller_.createEmployee(id, name, "Gerente", salary, phoneNumber);
-        message += controller_.storeUser(id,password,"Gerente");
+        message += controller_.createUser(id,password,"Gerente");
 
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 

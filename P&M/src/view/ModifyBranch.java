@@ -261,7 +261,7 @@ public class ModifyBranch extends javax.swing.JFrame {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void branchNameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchNameInputFieldKeyTyped
-        validateCharacters(evt);
+        validateCharactersAndNumbers(evt);
     }//GEN-LAST:event_branchNameInputFieldKeyTyped
 
     private void validateNumbers(java.awt.event.KeyEvent evt) {
@@ -274,6 +274,13 @@ public class ModifyBranch extends javax.swing.JFrame {
     private void validateCharacters(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
         if ((!Character.isLetter(c)) && (!Character.isWhitespace(c))) {
+            evt.consume();
+        }
+    }
+    
+    private void validateCharactersAndNumbers(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if ((!Character.isLetter(c)) && (!Character.isDigit(c)) && (!Character.isWhitespace(c))) {
             evt.consume();
         }
     }

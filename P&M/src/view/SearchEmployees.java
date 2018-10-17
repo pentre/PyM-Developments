@@ -200,7 +200,7 @@ public class SearchEmployees extends javax.swing.JFrame {
         
         List<Map<String, String>> results = controller_.multipleSearch(id, name, charge);
         
-        if(results == null) {
+        if(results.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);
             return;
         }        

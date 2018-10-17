@@ -107,20 +107,32 @@ public class Employee {
         }
     }
     
-    public List<Map<String, String>> multipleSearch(Database database) {
+    public List<Map<String, String>> multipleSearch(Database database, String active) {
         try {            
-            String query = "SELECT * FROM employee WHERE active = true";
+            String query = "SELECT * FROM employee WHERE";
                       
             if(!"".equals(id_)) {
-                query += String.format(" AND id = '%s'", id_);
+                query += String.format(" id = '%s' AND", id_);
             }
             if(!"".equals(name_)) {
-                query += String.format(" AND name = '%s'", name_);
-            }
+                query += String.format(" name = '%s' AND", name_);
+            }            
             if("".equals(charge_)) {
-                query += String.format(" AND charge != 'admin'");
+                query += String.format(" charge != 'admin' AND");
             }else{                
-                query += String.format(" AND charge = '%s'", charge_);
+                query += String.format(" charge = '%s' AND", charge_);
+            }           
+            
+            switch (active) {
+                case "Activo":
+                    query += String.format(" active = true");
+                    break;
+                case "Inactivo":
+                    query += String.format(" active = false");
+                    break;
+                default:
+                    query += String.format(" (active = true OR active = false)");
+                    break;
             }
             
             PreparedStatement stmt = database.getStatement(query.replace(";",""));
@@ -136,6 +148,12 @@ public class Employee {
                 result.put("charge", rs.getString("charge"));
                 result.put("salary", rs.getString("salary"));
                 result.put("phone_number", rs.getString("phone_number"));
+                if (rs.getBoolean("active")){
+                    result.put("active", "Activo");
+                } else{
+                    result.put("active", "Inactivo");
+                }
+                
                 results.add(result);
             }
             

@@ -46,6 +46,8 @@ public class SearchEmployees extends javax.swing.JFrame {
         chargeLabel = new javax.swing.JLabel();
         branchLabel = new javax.swing.JLabel();
         chargeComboBox = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        activeComboBox = new javax.swing.JComboBox<>();
         dataPanel = new javax.swing.JPanel();
         dataScrollPane = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
@@ -80,12 +82,16 @@ public class SearchEmployees extends javax.swing.JFrame {
 
         branchTextField.setColumns(5);
 
-        chargeLabel.setText("Cargo");
+        chargeLabel.setText("Cargo:");
 
         branchLabel.setText("Sede:");
 
         chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Gerente", "Vendedor", "Jefe de Taller" }));
         chargeComboBox.setToolTipText("");
+
+        jLabel1.setText("Estado:");
+
+        activeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Ambos" }));
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
@@ -101,48 +107,54 @@ public class SearchEmployees extends javax.swing.JFrame {
                     .addComponent(idTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                     .addComponent(branchTextField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLabel)
                     .addComponent(chargeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chargeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nameTextField))
-                .addGap(40, 40, 40)
+                    .addComponent(nameTextField)
+                    .addComponent(chargeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(activeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(searchButton)
-                .addGap(342, 342, 342))
+                .addGap(153, 153, 153))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(11, 11, 11)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLabel)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(activeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton))
                 .addGap(24, 24, 24)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chargeLabel)
                     .addComponent(branchLabel)
-                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         dataScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, ""}
             },
             new String [] {
-                "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono"
+                "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -193,20 +205,23 @@ public class SearchEmployees extends javax.swing.JFrame {
         String name = nameTextField.getText();
         String branch = branchTextField.getText();
         String charge =  chargeComboBox.getSelectedItem().toString();
+        String active =  activeComboBox.getSelectedItem().toString();
         
         if(charge.equals("Todos")) {
             charge = "";
         }
         
-        List<Map<String, String>> results = controller_.searchEmployees(id, name, charge);
+        List<Map<String, String>> results = controller_.searchEmployees(id, name, charge, active);
+        
+        Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono", "Estado" };
+        DefaultTableModel model = new DefaultTableModel(columnNames,0);
         
         if(results.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);
+            dataTable.setModel(model);
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);            
             return;
         }        
-
-        Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono" };
-        DefaultTableModel model = new DefaultTableModel(columnNames,0);
+        
         for(int i=0; i<results.size(); i++) {
             Object[] row = {
                 results.get(i).get("id"),
@@ -214,7 +229,8 @@ public class SearchEmployees extends javax.swing.JFrame {
                 "Sede",
                 results.get(i).get("charge"),
                 results.get(i).get("salary"),
-                results.get(i).get("phone_number")
+                results.get(i).get("phone_number"),
+                results.get(i).get("active")                  
             };
             model.addRow(row);
         }
@@ -271,6 +287,7 @@ public class SearchEmployees extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> activeComboBox;
     private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;
     private javax.swing.JComboBox<String> chargeComboBox;
@@ -280,6 +297,7 @@ public class SearchEmployees extends javax.swing.JFrame {
     private javax.swing.JTable dataTable;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JButton searchButton;

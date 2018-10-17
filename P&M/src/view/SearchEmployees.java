@@ -84,7 +84,7 @@ public class SearchEmployees extends javax.swing.JFrame {
 
         branchLabel.setText("Sede:");
 
-        chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indefinido", "Gerente", "Vendedor", "Jefe de Taller" }));
+        chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Gerente", "Vendedor", "Jefe de Taller" }));
         chargeComboBox.setToolTipText("");
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
@@ -194,11 +194,11 @@ public class SearchEmployees extends javax.swing.JFrame {
         String branch = branchTextField.getText();
         String charge =  chargeComboBox.getSelectedItem().toString();
         
-        if(charge.equals("Indefinido")) {
+        if(charge.equals("Todos")) {
             charge = "";
         }
         
-        List<Map<String, String>> results = controller_.multipleSearch(id, name, charge);
+        List<Map<String, String>> results = controller_.searchEmployees(id, name, charge);
         
         if(results == null) {
             JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);

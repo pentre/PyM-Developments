@@ -19,9 +19,8 @@ public interface EmployeeController {
         return employee.deleteEmployee(Controller.database, idTarget);
     }
        
-    default public List<Map<String, String>> multipleSearch(String id, String name, String charge) {
+    default public List<Map<String, String>> searchEmployees(String id, String name, String charge) {
        Employee employee = new Employee(id, name, charge, 0, "");
        return employee.multipleSearch(Controller.database);
-    }
-       
+    }       
 }

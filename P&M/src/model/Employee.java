@@ -178,6 +178,5 @@ public class Employee {
             e.printStackTrace();
             return "Error: Error al eliminar usuario";
         }
-    }
-    
+    }    
 }

@@ -17,8 +17,14 @@ import java.util.HashMap;
 public interface BranchController {
 
     default public String createBranch(String name, String city, String address, String managerId) {
+        
+        Employee employee = new Employee("", "", "", 0, "");
+        employee.search(Controller.database, managerId);
+        if (!employee.getCharge().equals("Gerente") || !employee.isActive()) {
+            return "No se encontró un gerente con esta id";
+        }
+        
         Branch branch = new Branch(name, city, address, managerId);
-
         return branch.store(Controller.database);
     }
 

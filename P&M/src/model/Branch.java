@@ -69,12 +69,6 @@ public class Branch {
 
     public String store(Database database) {
         try {
-            Employee employee = new Employee("", "", "", 0, "");
-            employee.search(database, managerId_);
-            if (!employee.getCharge().equals("Gerente") || !employee.isActive()) {
-                return "No se encontró un gerente con esta id";
-            }
-
             PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?, ?)");
             stmt.setString(1, name_);
             stmt.setString(2, city_);

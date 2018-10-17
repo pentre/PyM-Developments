@@ -126,13 +126,10 @@ public class Employee {
             PreparedStatement stmt = database.getStatement(query.replace(";",""));
             
             ResultSet rs = stmt.executeQuery();
-            if(!rs.next()) {
-                return null;
-            }
             
             List<Map<String, String>> results = new ArrayList<>();  
          
-            do{
+            while(rs.next()) {
                 HashMap<String,String> result = new HashMap<>();
                 result.put("id", rs.getString("id"));
                 result.put("name", rs.getString("name"));
@@ -140,7 +137,7 @@ public class Employee {
                 result.put("salary", rs.getString("salary"));
                 result.put("phone_number", rs.getString("phone_number"));
                 results.add(result);
-            }while(rs.next());           
+            }
             
             return results;
         } catch(SQLException e) {

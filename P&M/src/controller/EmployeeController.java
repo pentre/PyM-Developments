@@ -8,7 +8,6 @@ package controller;
 import model.Employee;
 import java.util.List;
 import java.util.Map;
-
 import java.util.HashMap;
 
 /**
@@ -23,9 +22,9 @@ public interface EmployeeController {
         return employee.deleteEmployee(Controller.database, TargetID);
     }
        
-    default public HashMap <String, String> getEmployeeInfo (String id){
+    default public Map <String, String> getEmployeeInfo (String id){
         Employee employee = new Employee("", "", "", 0, "");
-        HashMap <String, String>listEmployee = new HashMap <> ();
+        Map <String, String>listEmployee = new HashMap<>();
         
         if(!employee.search(Controller.database, id)){
             return listEmployee;
@@ -41,7 +40,7 @@ public interface EmployeeController {
        
     default public String updateEmployee(String id, String name, String charge, Float salary, String phoneNumber, String userType){
         Employee employee = new Employee(id,name,charge,salary,phoneNumber);
-        HashMap <String, String>listEmployee = getEmployeeInfo (id);
+        Map <String, String>listEmployee = getEmployeeInfo (id);
         
         if (userType.equals("Gerente") && listEmployee.get("charge").equals("Gerente")){
                 return "Error: Un gerente no puede modificar un gerente.";

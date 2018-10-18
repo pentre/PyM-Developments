@@ -6,8 +6,8 @@
 package view;
 
 import controller.*;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
+import java.util.Map;
 
 /**
  *
@@ -221,9 +221,7 @@ public class ModifyBranch extends javax.swing.JFrame {
 
         String branchName = this.branchNameInputField.getText();
 
-        HashMap<String, String> branchInfo = new HashMap<>();
-
-        branchInfo = controller_.getBranchInfo(branchName);
+        Map<String, String> branchInfo = controller_.getBranchInfo(branchName);
 
         if (branchInfo.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No existe una sede con ese nombre");

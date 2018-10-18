@@ -7,7 +7,7 @@ package view;
 
 import controller.Controller;
 import javax.swing.JOptionPane;
-import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author lalil
@@ -242,7 +242,7 @@ public class ModifyManager extends javax.swing.JFrame {
         }
         String id = this.idInputField.getText();
         
-        HashMap <String, String>infoEmployee = controller_.getEmployeeInfo(id);
+        Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
         
         
         if (infoEmployee.isEmpty()){
@@ -267,7 +267,7 @@ public class ModifyManager extends javax.swing.JFrame {
         String charge =  this.chargeComboBox.getSelectedItem().toString();
         Float salary = Float.valueOf(this.salaryInputField.getText());
         String phoneNumber = this.phoneNumberInputField.getText();
-        String message = controller_.updateEmployeeUser(id, name, charge, salary, phoneNumber, userType_);
+        String message = controller_.updateEmployee(id, name, charge, salary, phoneNumber, userType_);
         JOptionPane.showMessageDialog(this, message);
         disable();
         this.idInputField.setEditable(true);

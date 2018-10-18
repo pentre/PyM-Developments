@@ -20,14 +20,4 @@ public class Controller implements BranchController, UserController, EmployeeCon
         database = new Database();
     }
     
-    public String updateEmployeeUser(String id, String name, String charge, Float salary, String phoneNumber, String userType){
-        String messageEmployee = updateEmployee(id,name,charge,salary,phoneNumber,userType); 
-
-        if (messageEmployee.equals("Empleado modificado correctamente")){
-            updateUser(id,charge);
-            return "Modificacion exitosa.";
-        }
-        return "Error: error al actualizar empleado y usuario.";
-    }
-    
 }

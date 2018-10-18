@@ -5,7 +5,11 @@
  */
 package model;
 
+import java.util.List;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -102,6 +106,67 @@ public class Employee {
         }
     }
     
+
+    public List<Map<String, String>> multipleSearch(Database database, String active) {
+        try {            
+            String query = "SELECT * FROM employee WHERE";
+                      
+            if(!"".equals(id_)) {
+                query += String.format(" id = '%s' AND", id_);
+            }
+            if(!"".equals(name_)) {
+                query += String.format(" name = '%s' AND", name_);
+            }            
+            if("".equals(charge_)) {
+                query += String.format(" charge != 'admin' AND");
+            }else{                
+                query += String.format(" charge = '%s' AND", charge_);
+            }           
+            
+            switch (active) {
+                case "Activo":
+                    query += String.format(" active = true");
+                    break;
+                case "Inactivo":
+                    query += String.format(" active = false");
+                    break;
+                default:
+                    query += String.format(" (active = true OR active = false)");
+                    break;
+            }
+            
+            PreparedStatement stmt = database.getStatement(query.replace(";",""));
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();  
+         
+            while(rs.next()) {
+                HashMap<String,String> result = new HashMap<>();
+                result.put("id", rs.getString("id"));
+                result.put("name", rs.getString("name"));
+                result.put("charge", rs.getString("charge"));
+                result.put("salary", rs.getString("salary"));
+                result.put("phone_number", rs.getString("phone_number"));
+                if (rs.getBoolean("active")){
+                    result.put("active", "Activo");
+                } else{
+                    result.put("active", "Inactivo");
+                }
+                
+                results.add(result);
+            }
+            
+            return results;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public String update(Database database){
         try{
             PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND active = true");
@@ -182,7 +247,5 @@ public class Employee {
             e.printStackTrace();
             return "Error: Error al eliminar usuario";
         }
-    }
-        
-
+    }   
 }

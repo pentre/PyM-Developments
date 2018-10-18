@@ -96,6 +96,7 @@ public class User {
             e.printStackTrace();
             return "Error: error al modificar usuario";
 
+        }
     }
 
     public boolean search(Database database){

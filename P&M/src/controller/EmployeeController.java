@@ -6,6 +6,8 @@
 package controller;
 
 import model.Employee;
+import java.util.List;
+import java.util.Map;
 
 import java.util.HashMap;
 
@@ -52,4 +54,9 @@ public interface EmployeeController {
         Employee employee = new Employee(id,name,charge,salary,phoneNumber);
         return employee.store(Controller.database);
     }
+       
+    default public List<Map<String, String>> searchEmployees(String id, String name, String charge, String active) {
+       Employee employee = new Employee(id, name, charge, 0, "");
+       return employee.multipleSearch(Controller.database, active);
+    }       
 }

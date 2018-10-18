@@ -7,6 +7,7 @@ package model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -73,5 +74,76 @@ public class User {
             System.out.println(e.getMessage());
             return "Error: Error interno del servidor";
         }          
-    }    
+
+    }  
+    
+    public String update(Database database){
+        try{             
+            PreparedStatement stmt = database.getStatement("UPDATE login SET type = ? WHERE username = ?");
+            stmt.setString(1, type_);
+            stmt.setString(2, username_);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: usuario no encontrado";
+            }
+            return "Empleado modificado correctamente";            
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return "Error: error al modificar usuario";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Error: error al modificar usuario";
+
+        }
+    }
+
+    public boolean search(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("SELECT * FROM login WHERE username = ?");
+            stmt.setString(1, username_);
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+            
+            username_ = rs.getString("username");
+            password_ = rs.getString("pass");
+            type_ = rs.getString("type");
+            active_ = rs.getBoolean("active");
+            
+            return true;
+        }catch(Exception e){
+             e.printStackTrace();
+             return false;
+        }
+    }
+    
+    
+    public String store(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("INSERT INTO login VALUES(?, ?, ?, ?)");
+            
+            stmt.setString(1,username_);
+            stmt.setString(2,password_);
+            stmt.setString(3,type_);
+            stmt.setBoolean(4,active_);     
+
+            if(stmt.executeUpdate()==1){
+                return " El usuario es su cedula.";
+            }
+            
+            return "Error: error al crear usuario.";
+            
+        }catch(SQLException e){
+            if (e.getSQLState().equals("23505")){
+                return "Ya existe un usuario con esta cédula. ";
+            }
+            return "Error: error al crear el usuario.";
+        }catch(Exception e){
+            e.printStackTrace();
+            return "Error: error al crear el usuario.";
+        }
+    }
 }

@@ -22,7 +22,6 @@ public class Employee {
     private float salary_;
     private String phoneNumber_;
     private boolean active_;
-    
     public Employee(String id, String name, String charge, float salary, String phoneNumber) {
         id_ = id;
         name_ = name;
@@ -82,11 +81,11 @@ public class Employee {
     
     public boolean search(Database database, String id) {
         try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ?");
+            PreparedStatement stmt = database.getStatement("SELECT * FROM employee WHERE id = ? AND active=true");
             stmt.setString(1, id);
             
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
+            if(!rs.next()) {
                 return false;
             }
             
@@ -107,6 +106,7 @@ public class Employee {
         }
     }
     
+
     public List<Map<String, String>> multipleSearch(Database database, String active) {
         try {            
             String query = "SELECT * FROM employee WHERE";
@@ -166,6 +166,60 @@ public class Employee {
             return null;
         }
     }
+
+    public String update(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND active = true");
+
+            stmt.setString(1,name_);
+            stmt.setString(2,charge_);
+            stmt.setFloat(3,salary_);
+            stmt.setString(4,phoneNumber_);
+            stmt.setString(5, id_);
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: empleado no encontrado";
+            } 
+            return "Empleado modificado correctamente";
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return "Error: error al modificar empleado";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Error: error al modificar empleado";
+        }
+    
+    }
+  
+    public String store(Database database){
+        try{   
+            PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
+            
+            stmtEmployee.setString(1,id_);
+            stmtEmployee.setString(2,name_);
+            stmtEmployee.setString(3,charge_);
+            stmtEmployee.setFloat(4,salary_);
+            stmtEmployee.setString(5,phoneNumber_);
+            stmtEmployee.setBoolean(6, active_);
+            
+            if(stmtEmployee.executeUpdate()==1){
+                return "El empleado fue adicionado exitosamente.";
+            }
+            
+            return "Error: error al crear empleado.";
+            
+        }catch(SQLException e){
+            if (e.getSQLState().equals("23505")){
+                return "Ya existe un empleado con esta cédula.";
+            }
+            return "Error: error al crear el empleado.";
+        }catch(Exception e){
+            e.printStackTrace();
+            return "Error: error al crear el empleado.";
+        }
+    }
     
     public String deleteEmployee(Database database, String id){
         PreparedStatement stmt;
@@ -193,5 +247,5 @@ public class Employee {
             e.printStackTrace();
             return "Error: Error al eliminar usuario";
         }
-    }    
+    }   
 }

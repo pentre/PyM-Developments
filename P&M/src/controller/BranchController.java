@@ -7,6 +7,7 @@ package controller;
 
 import model.Branch;
 import model.Employee;
+import java.util.Map;
 import java.util.HashMap;
 
 
@@ -28,10 +29,10 @@ public interface BranchController {
         return branch.store(Controller.database);
     }
 
-    default public HashMap<String, String> getBranchInfo(String name) {
+    default public Map<String, String> getBranchInfo(String name) {
         Branch branch = new Branch("", "", "", "");
 
-        HashMap<String, String> listBranch = new HashMap<>();
+        Map<String, String> listBranch = new HashMap<>();
 
         if (branch.search(Controller.database, name)) {
             listBranch.put("city", branch.getCity());

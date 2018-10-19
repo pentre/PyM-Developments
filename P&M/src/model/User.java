@@ -69,34 +69,12 @@ public class User {
             if (result.next()){                
                 return result.getString("type");                
             }
-            return "Error: Usuario o contraseña incorrecta";        
+            return "Error: usuario o contraseña incorrecta";        
         } catch (Exception e){
             System.out.println(e.getMessage());
-            return "Error: Error interno del servidor";
+            return "Error: un problema en el servidor impidió el proceso";
         }          
 
-    }  
-    
-    public String update(Database database){
-        try{             
-            PreparedStatement stmt = database.getStatement("UPDATE login SET type = ? WHERE username = ?");
-            stmt.setString(1, type_);
-            stmt.setString(2, username_);
-            
-            int result = stmt.executeUpdate();
-            
-            if(result == 0) {
-                return "Error: usuario no encontrado";
-            }
-            return "Empleado modificado correctamente";            
-        }catch(SQLException e) {
-            e.printStackTrace();
-            return "Error: error al modificar usuario";
-        } catch(Exception e) {
-            e.printStackTrace();
-            return "Error: error al modificar usuario";
-
-        }
     }
 
     public boolean search(Database database){
@@ -134,16 +112,15 @@ public class User {
                 return " El usuario es su cedula.";
             }
             
-            return "Error: error al crear usuario.";
-            
+            return "Error: el usuario no pudo ser adicionado";
         }catch(SQLException e){
             if (e.getSQLState().equals("23505")){
                 return "Ya existe un usuario con esta cédula. ";
             }
-            return "Error: error al crear el usuario.";
+            return "Error: el usuario no pudo ser adicionado";
         }catch(Exception e){
             e.printStackTrace();
-            return "Error: error al crear el usuario.";
+            return "Error: el usuario no pudo ser adicionado";
         }
     }
 }

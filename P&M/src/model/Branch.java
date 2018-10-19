@@ -80,10 +80,10 @@ public class Branch {
                 return "Sede adicionada exitosamente";
             }
 
-            return "Error: Error al adicionar sede";
+            return "Error: la sede no pudo ser adicionada";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error: Error al adicionar sede";
+            return "Error: la sede no pudo ser adicionada";
         }
     }
 
@@ -125,17 +125,17 @@ public class Branch {
             int result = stmt.executeUpdate();
 
             if (result == 0) {
-                return "Error: Sede no encontrada";
+                return "Error: sede no encontrada";
             }
 
             return "La sede fue modifcada correctamente";
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return "Error: No es posible modificar la sede";
+            return "Error: no fue posible modificar la sede";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error: No es posible modificar la sede";
+            return "Error: no fue posible modificar la sede";
         }
 
     }

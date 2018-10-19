@@ -142,7 +142,7 @@ public class Employee {
             List<Map<String, String>> results = new ArrayList<>();  
          
             while(rs.next()) {
-                HashMap<String,String> result = new HashMap<>();
+                Map<String,String> result = new HashMap<>();
                 result.put("id", rs.getString("id"));
                 result.put("name", rs.getString("name"));
                 result.put("charge", rs.getString("charge"));
@@ -185,10 +185,10 @@ public class Employee {
             return "Empleado modificado correctamente";
         }catch(SQLException e) {
             e.printStackTrace();
-            return "Error: error al modificar empleado";
+            return "Error: no fue posible modificar el empleado";
         } catch(Exception e) {
             e.printStackTrace();
-            return "Error: error al modificar empleado";
+            return "Error: no fue posible modificar el empleado";
         }
     
     }
@@ -208,16 +208,16 @@ public class Employee {
                 return "El empleado fue adicionado exitosamente.";
             }
             
-            return "Error: error al crear empleado.";
+            return "Error: el empleado no pudo ser adicionado";
             
         }catch(SQLException e){
             if (e.getSQLState().equals("23505")){
                 return "Ya existe un empleado con esta cédula.";
             }
-            return "Error: error al crear el empleado.";
+            return "Error: el empleado no pudo ser adicionado";
         }catch(Exception e){
             e.printStackTrace();
-            return "Error: error al crear el empleado.";
+            return "Error: el empleado no pudo ser adicionado";
         }
     }
     
@@ -235,17 +235,17 @@ public class Employee {
             int result = stmt.executeUpdate();
             
             if(result == 0) {
-                return "Error: Usuario no encontrado";
+                return "Error: usuario no encontrado";
             }
             
             return "Usuario eliminado correctamente";
             
         }  catch(SQLException e) {
             e.printStackTrace();
-            return "Error: Error del servidor";
+            return "Error: un problema en el servidor impidió el proceso";
         } catch(Exception e) {
             e.printStackTrace();
-            return "Error: Error al eliminar usuario";
+            return "Error: el empleado no pudo ser eliminado";
         }
     }   
 }

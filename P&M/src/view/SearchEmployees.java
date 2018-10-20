@@ -81,6 +81,11 @@ public class SearchEmployees extends javax.swing.JFrame {
         });
 
         branchTextField.setColumns(5);
+        branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                branchTextFieldKeyTyped(evt);
+            }
+        });
 
         chargeLabel.setText("Cargo:");
 
@@ -211,7 +216,7 @@ public class SearchEmployees extends javax.swing.JFrame {
             charge = "";
         }
         
-        List<Map<String, String>> results = controller_.searchEmployees(id, name, charge, active);
+        List<Map<String, String>> results = controller_.searchEmployees(id, name, branch, charge, active);
         
         Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono", "Estado" };
         DefaultTableModel model = new DefaultTableModel(columnNames,0);
@@ -226,7 +231,7 @@ public class SearchEmployees extends javax.swing.JFrame {
             Object[] row = {
                 results.get(i).get("id"),
                 results.get(i).get("name"),
-                "Sede",
+                results.get(i).get("branch"),
                 results.get(i).get("charge"),
                 results.get(i).get("salary"),
                 results.get(i).get("phone_number"),
@@ -250,6 +255,14 @@ public class SearchEmployees extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_nameTextFieldKeyTyped
+
+    private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c) && !Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_branchTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

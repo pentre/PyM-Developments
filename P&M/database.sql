@@ -2,9 +2,7 @@ DROP TABLE IF EXISTS login CASCADE;
 CREATE TABLE login
 (
     username VARCHAR(20) PRIMARY KEY NOT NULL,
-    pass VARCHAR(20) NOT NULL,
-    type VARCHAR(20) NOT NULL,
-    active BOOLEAN NOT NULL
+    pass VARCHAR(20) NOT NULL
 );
 
 DROP TABLE IF EXISTS employee CASCADE;
@@ -12,10 +10,13 @@ CREATE TABLE employee
 (
     id VARCHAR(20) PRIMARY KEY NOT NULL,
     name VARCHAR(20) NOT NULL,
+    branch VARCHAR(20) NOT NULL,
     charge VARCHAR(20) NOT NULL,
     salary FLOAT(20) NOT NULL,
     phone_number VARCHAR(10) NOT NULL,
-    active BOOLEAN NOT NULL
+    active BOOLEAN NOT NULL,
+
+    FOREIGN KEY (branch) REFERENCES branch (name)
 );
 
 DROP TABLE IF EXISTS branch CASCADE;
@@ -103,8 +104,7 @@ CREATE TABLE commission
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 
-INSERT INTO login VALUES('admin', '123', 'admin', true);
-INSERT INTO login VALUES('manager', '123', 'manager', true);
-INSERT INTO login VALUES('seller', '123', 'seller', true);
-INSERT INTO login VALUES('foreman', '123', 'foreman', true);
-
+INSERT INTO login VALUES('admin', '123');
+INSERT INTO login VALUES('manager', '123');
+INSERT INTO login VALUES('seller', '123');
+INSERT INTO login VALUES('foreman', '123');

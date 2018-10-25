@@ -69,7 +69,7 @@
                               <Component id="loadBranchInfoButton" min="-2" max="-2" attributes="0"/>
                               <Component id="branchNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -131,10 +131,8 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="onChargeManagerIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="addressTextField" alignment="0" pref="166" max="32767" attributes="0"/>
                           <Component id="cityInputField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="onChargeManagerInputField" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="updateButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -153,10 +151,6 @@
                   <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="addressTextField" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="onChargeManagerIdLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="onChargeManagerInputField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -173,11 +167,6 @@
         <Component class="javax.swing.JLabel" name="addressLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="onChargeManagerIdLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Id del gerente responsable:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="updateButton">
@@ -200,14 +189,6 @@
           </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cityInputFieldKeyTyped"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="onChargeManagerInputField">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="onChargeManagerInputFieldKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>

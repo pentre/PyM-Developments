@@ -18,13 +18,16 @@ import java.util.Map;
 public class Employee {
     private String id_;
     private String name_;
+    private String branch_;
     private String charge_;
     private float salary_;
     private String phoneNumber_;
     private boolean active_;
-    public Employee(String id, String name, String charge, float salary, String phoneNumber) {
+    
+    public Employee(String id, String name, String branch, String charge, float salary, String phoneNumber) {
         id_ = id;
         name_ = name;
+        branch_ = branch;
         charge_ = charge;
         salary_ = salary;
         phoneNumber_ = phoneNumber;
@@ -37,6 +40,10 @@ public class Employee {
 
     public String getName() {
         return name_;
+    }
+    
+    public String getBranch() {
+        return branch_;
     }
 
     public String getCharge() {
@@ -61,6 +68,10 @@ public class Employee {
 
     public void setName(String name) {
         name_ = name;
+    }
+    
+    public void setBranch(String branch) {
+        branch_ = branch;
     }
 
     public void setCharge(String charge) {
@@ -91,6 +102,7 @@ public class Employee {
             
             id_ = rs.getString("id");
             name_ = rs.getString("name");
+            branch_ = rs.getString("branch");
             charge_ = rs.getString("charge");
             salary_ = rs.getFloat("salary");
             phoneNumber_ = rs.getString("phone_number");
@@ -116,12 +128,15 @@ public class Employee {
             }
             if(!"".equals(name_)) {
                 query += String.format(" name = '%s' AND", name_);
-            }            
+            }
+            if(!"".equals(branch_)) {
+                query += String.format(" branch = '%s' AND", branch_);
+            }
             if("".equals(charge_)) {
                 query += String.format(" charge != 'admin' AND");
             }else{                
                 query += String.format(" charge = '%s' AND", charge_);
-            }           
+            }
             
             switch (active) {
                 case "Activo":
@@ -145,6 +160,7 @@ public class Employee {
                 Map<String,String> result = new HashMap<>();
                 result.put("id", rs.getString("id"));
                 result.put("name", rs.getString("name"));
+                result.put("branch", rs.getString("branch"));
                 result.put("charge", rs.getString("charge"));
                 result.put("salary", rs.getString("salary"));
                 result.put("phone_number", rs.getString("phone_number"));
@@ -169,13 +185,14 @@ public class Employee {
 
     public String update(Database database){
         try{
-            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ? ,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND active = true");
+            PreparedStatement stmt = database.getStatement("UPDATE employee SET name = ?, branch = ?,charge = ?, salary = ? , phone_number = ? WHERE id = ? AND active = true");
 
             stmt.setString(1,name_);
-            stmt.setString(2,charge_);
-            stmt.setFloat(3,salary_);
-            stmt.setString(4,phoneNumber_);
-            stmt.setString(5, id_);
+            stmt.setString(2, branch_);
+            stmt.setString(3,charge_);
+            stmt.setFloat(4,salary_);
+            stmt.setString(5,phoneNumber_);
+            stmt.setString(6, id_);
             
             int result = stmt.executeUpdate();
             
@@ -190,26 +207,25 @@ public class Employee {
             e.printStackTrace();
             return "Error: no fue posible modificar el empleado";
         }
-    
     }
-  
+
     public String store(Database database){
         try{   
-            PreparedStatement stmtEmployee = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?)");
+            PreparedStatement stmt = database.getStatement("INSERT INTO employee VALUES(?, ?, ?, ?, ?, ?, ?)");
             
-            stmtEmployee.setString(1,id_);
-            stmtEmployee.setString(2,name_);
-            stmtEmployee.setString(3,charge_);
-            stmtEmployee.setFloat(4,salary_);
-            stmtEmployee.setString(5,phoneNumber_);
-            stmtEmployee.setBoolean(6, active_);
+            stmt.setString(1,id_);
+            stmt.setString(2,name_);
+            stmt.setString(3, branch_);
+            stmt.setString(4,charge_);
+            stmt.setFloat(5,salary_);
+            stmt.setString(6,phoneNumber_);
+            stmt.setBoolean(7, active_);
             
-            if(stmtEmployee.executeUpdate()==1){
+            if(stmt.executeUpdate()==1){
                 return "El empleado fue adicionado exitosamente.";
             }
             
             return "Error: el empleado no pudo ser adicionado";
-            
         }catch(SQLException e){
             if (e.getSQLState().equals("23505")){
                 return "Ya existe un empleado con esta cédula.";
@@ -239,7 +255,6 @@ public class Employee {
             }
             
             return "Usuario eliminado correctamente";
-            
         }  catch(SQLException e) {
             e.printStackTrace();
             return "Error: un problema en el servidor impidió el proceso";
@@ -247,5 +262,28 @@ public class Employee {
             e.printStackTrace();
             return "Error: el empleado no pudo ser eliminado";
         }
-    }   
+    }
+    
+    public boolean isInBranch(Database database) {
+        try{   
+            PreparedStatement stmt = database.getStatement("SELECT  COUNT(*) FROM employee WHERE id != ? branch = ? AND charge = ? AND active = true");
+            
+            stmt.setString(1, id_);
+            stmt.setString(2, branch_);
+            stmt.setString(3, charge_);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.getInt(1) == 0) {
+                return false;
+            }
+            
+            return true;
+        }catch(SQLException e){
+            return false;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

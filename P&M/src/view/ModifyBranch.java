@@ -6,8 +6,8 @@
 package view;
 
 import controller.*;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
+import java.util.Map;
 
 /**
  *
@@ -41,11 +41,9 @@ public class ModifyBranch extends javax.swing.JFrame {
         bottomPanel = new javax.swing.JPanel();
         cityLabel = new javax.swing.JLabel();
         addressLabel = new javax.swing.JLabel();
-        onChargeManagerIdLabel = new javax.swing.JLabel();
         updateButton = new javax.swing.JButton();
         addressTextField = new javax.swing.JTextField();
         cityInputField = new javax.swing.JTextField();
-        onChargeManagerInputField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +76,7 @@ public class ModifyBranch extends javax.swing.JFrame {
                         .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(loadBranchInfoButton)
                             .addComponent(branchNameLabel))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 57, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         topPanelLayout.setVerticalGroup(
@@ -99,8 +97,6 @@ public class ModifyBranch extends javax.swing.JFrame {
 
         addressLabel.setText("Dirección:");
 
-        onChargeManagerIdLabel.setText("Id del gerente responsable:");
-
         updateButton.setText("Actualizar");
         updateButton.setEnabled(false);
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -118,13 +114,6 @@ public class ModifyBranch extends javax.swing.JFrame {
             }
         });
 
-        onChargeManagerInputField.setEnabled(false);
-        onChargeManagerInputField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                onChargeManagerInputFieldKeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
@@ -135,10 +124,8 @@ public class ModifyBranch extends javax.swing.JFrame {
                     .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(cityLabel)
                         .addComponent(addressLabel)
-                        .addComponent(onChargeManagerIdLabel)
                         .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addComponent(cityInputField)
-                        .addComponent(onChargeManagerInputField))
+                        .addComponent(cityInputField))
                     .addComponent(updateButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -153,10 +140,6 @@ public class ModifyBranch extends javax.swing.JFrame {
                 .addComponent(addressLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(onChargeManagerIdLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(onChargeManagerInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(updateButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -187,43 +170,38 @@ public class ModifyBranch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enabled() {
-        this.cityInputField.setEnabled(true);
-        this.addressTextField.setEnabled(true);
-        this.onChargeManagerInputField.setEnabled(true);
-        this.updateButton.setEnabled(true);
+        cityInputField.setEnabled(true);
+        addressTextField.setEnabled(true);
+        updateButton.setEnabled(true);
 
         //These components are disabled to prevent changes on the branch name once the branch info is loaded
-        this.branchNameInputField.setEnabled(false);
-        this.loadBranchInfoButton.setEnabled(false);
+        branchNameInputField.setEnabled(false);
+        loadBranchInfoButton.setEnabled(false);
     }
 
     private void disabled() {
-        this.cityInputField.setEnabled(false);
-        this.cityInputField.setText("");
-        this.addressTextField.setEnabled(false);
-        this.addressTextField.setText("");
-        this.onChargeManagerInputField.setEnabled(false);
-        this.onChargeManagerInputField.setText("");
-        this.updateButton.setEnabled(false);
+        cityInputField.setEnabled(false);
+        cityInputField.setText("");
+        addressTextField.setEnabled(false);
+        addressTextField.setText("");
+        updateButton.setEnabled(false);
 
         //These components are activated again once the update is succesful in order to make another operation
-        this.branchNameInputField.setEnabled(true);
-        this.loadBranchInfoButton.setEnabled(true);
+        branchNameInputField.setEnabled(true);
+        loadBranchInfoButton.setEnabled(true);
     }
 
     private void loadBranchInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBranchInfoButtonActionPerformed
         // TODO add your handling code here:
-        if (this.branchNameInputField.getText().isEmpty()) {
+        if (branchNameInputField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor insertar un nombre de sede", "Advertencia", JOptionPane.WARNING_MESSAGE);
             return;
 
         }
 
-        String branchName = this.branchNameInputField.getText();
+        String branchName = branchNameInputField.getText();
 
-        HashMap<String, String> branchInfo = new HashMap<>();
-
-        branchInfo = controller_.getBranchInfo(branchName);
+        Map<String, String> branchInfo = controller_.getBranchInfo(branchName);
 
         if (branchInfo.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No existe una sede con ese nombre");
@@ -232,28 +210,21 @@ public class ModifyBranch extends javax.swing.JFrame {
         }
 
         enabled();
-        this.cityInputField.setText(branchInfo.get("city"));
-        this.addressTextField.setText(branchInfo.get("address"));
-        this.onChargeManagerInputField.setText(branchInfo.get("managerId"));
-
+        cityInputField.setText(branchInfo.get("city"));
+        addressTextField.setText(branchInfo.get("address"));
     }//GEN-LAST:event_loadBranchInfoButtonActionPerformed
 
     private void cityInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityInputFieldKeyTyped
         validateCharacters(evt);
     }//GEN-LAST:event_cityInputFieldKeyTyped
 
-    private void onChargeManagerInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_onChargeManagerInputFieldKeyTyped
-        validateNumbers(evt);
-    }//GEN-LAST:event_onChargeManagerInputFieldKeyTyped
-
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
         String name = this.branchNameInputField.getText();
         String city = this.cityInputField.getText();
         String address = this.addressTextField.getText();
-        String managerId = this.onChargeManagerInputField.getText();
 
-        String message = controller_.updateBranch(name, city, address, managerId);
+        String message = controller_.updateBranch(name, city, address);
 
         JOptionPane.showMessageDialog(this, message);
 
@@ -263,13 +234,6 @@ public class ModifyBranch extends javax.swing.JFrame {
     private void branchNameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchNameInputFieldKeyTyped
         validateCharactersAndNumbers(evt);
     }//GEN-LAST:event_branchNameInputFieldKeyTyped
-
-    private void validateNumbers(java.awt.event.KeyEvent evt) {
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) {
-            evt.consume();
-        }
-    }
 
     private void validateCharacters(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -329,8 +293,6 @@ public class ModifyBranch extends javax.swing.JFrame {
     private javax.swing.JTextField cityInputField;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JButton loadBranchInfoButton;
-    private javax.swing.JLabel onChargeManagerIdLabel;
-    private javax.swing.JTextField onChargeManagerInputField;
     private javax.swing.JPanel topPanel;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

@@ -34,28 +34,28 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         background_panel = new javax.swing.JPanel();
-        user_input_field = new javax.swing.JTextField();
-        password_input_field = new javax.swing.JPasswordField();
-        user_label = new javax.swing.JLabel();
-        password_label = new javax.swing.JLabel();
-        login_button = new javax.swing.JButton();
+        userTextField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        userLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        loginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        user_input_field.addActionListener(new java.awt.event.ActionListener() {
+        userTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                user_input_fieldActionPerformed(evt);
+                userTextFieldActionPerformed(evt);
             }
         });
 
-        user_label.setText("Usuario");
+        userLabel.setText("Usuario");
 
-        password_label.setText("Contraseña");
+        passwordLabel.setText("Contraseña");
 
-        login_button.setText("Iniciar Sesión");
-        login_button.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setText("Iniciar Sesión");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_buttonActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
@@ -66,16 +66,16 @@ public class Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background_panelLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(user_label)
-                    .addComponent(password_label))
+                    .addComponent(userLabel)
+                    .addComponent(passwordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(user_input_field)
-                    .addComponent(password_input_field, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                    .addComponent(userTextField)
+                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addGap(64, 64, 64))
             .addGroup(background_panelLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addComponent(login_button)
+                .addComponent(loginButton)
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         background_panelLayout.setVerticalGroup(
@@ -83,14 +83,14 @@ public class Login extends javax.swing.JFrame {
             .addGroup(background_panelLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(user_label)
-                    .addComponent(user_input_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userLabel)
+                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password_label)
-                    .addComponent(password_input_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(login_button)
+                .addComponent(loginButton)
                 .addGap(32, 32, 32))
         );
 
@@ -108,9 +108,9 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void user_input_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_input_fieldActionPerformed
+    private void userTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_user_input_fieldActionPerformed
+    }//GEN-LAST:event_userTextFieldActionPerformed
 
     private void selectMenu(String type){
         switch(type){
@@ -146,22 +146,21 @@ public class Login extends javax.swing.JFrame {
     }
    
     private void validateInput(){
-        if(this.user_input_field.getText().isEmpty()){
+        if(userTextField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor ingrese un usuario");
             return;
         }
-        if(this.password_input_field.getPassword().length == 0){
+        if(passwordField.getPassword().length == 0){
             JOptionPane.showMessageDialog(this, "Por favor ingrese una contraseña");
             return;
         }
     }
     
-    private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         validateInput();
         
-        String user = this.user_input_field.getText();
-        String password = new String(this.password_input_field.getPassword());
+        String user = userTextField.getText();
+        String password = new String(passwordField.getPassword());
         
         String message = controller_.login(user, password);
 
@@ -171,7 +170,7 @@ public class Login extends javax.swing.JFrame {
         }
         
         selectMenu(message);  
-    }//GEN-LAST:event_login_buttonActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -208,10 +207,10 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background_panel;
-    private javax.swing.JButton login_button;
-    private javax.swing.JPasswordField password_input_field;
-    private javax.swing.JLabel password_label;
-    private javax.swing.JTextField user_input_field;
-    private javax.swing.JLabel user_label;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JTextField userTextField;
     // End of variables declaration//GEN-END:variables
 }

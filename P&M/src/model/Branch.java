@@ -16,14 +16,12 @@ public class Branch {
     private String name_;
     private String city_;
     private String address_;
-    private String managerId_;
     private boolean active_;
 
-    public Branch(String name, String city, String address, String managerId) {
+    public Branch(String name, String city, String address) {
         name_ = name;
         city_ = city;
         address_ = address;
-        managerId_ = managerId;
         active_ = true;
     }
 
@@ -37,10 +35,6 @@ public class Branch {
 
     public String getAddress() {
         return address_;
-    }
-
-    public String getManagerId() {
-        return managerId_;
     }
 
     public boolean isActive() {
@@ -59,31 +53,26 @@ public class Branch {
         address_ = address;
     }
 
-    public void setManagerId(String managerId) {
-        managerId_ = managerId;
-    }
-
     public void setActive(boolean active) {
         active_ = active;
     }
 
     public String store(Database database) {
         try {
-            PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement stmt = database.getStatement("INSERT INTO branch VALUES (?, ?, ?, ?)");
             stmt.setString(1, name_);
             stmt.setString(2, city_);
             stmt.setString(3, address_);
-            stmt.setString(4, managerId_);
             stmt.setBoolean(5, active_);
 
             if (stmt.executeUpdate() == 1) {
                 return "Sede adicionada exitosamente";
             }
 
-            return "Error: Error al adicionar sede";
+            return "Error: la sede no pudo ser adicionada";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error: Error al adicionar sede";
+            return "Error: la sede no pudo ser adicionada";
         }
     }
 
@@ -100,7 +89,6 @@ public class Branch {
             name_ = rs.getString("name");
             city_ = rs.getString("city");
             address_ = rs.getString("address");
-            managerId_ = rs.getString("manager_id");
             active_ = rs.getBoolean("active");
 
             return true;
@@ -115,28 +103,25 @@ public class Branch {
 
     public String updateInfo(Database database) {
         try {
-            PreparedStatement stmt = database.getStatement("UPDATE branch SET city = ? , address = ? , manager_Id = ? WHERE name = ? AND active = true");
+            PreparedStatement stmt = database.getStatement("UPDATE branch SET city = ? , address = ? WHERE name = ? AND active = true");
 
             stmt.setString(1, city_);
             stmt.setString(2, address_);
-            stmt.setString(3, managerId_);
             stmt.setString(4, name_);
 
             int result = stmt.executeUpdate();
 
             if (result == 0) {
-                return "Error: Sede no encontrada";
+                return "Error: sede no encontrada";
             }
 
             return "La sede fue modifcada correctamente";
-
         } catch (SQLException e) {
             e.printStackTrace();
-            return "Error: No es posible modificar la sede";
+            return "Error: no fue posible modificar la sede";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error: No es posible modificar la sede";
+            return "Error: no fue posible modificar la sede";
         }
-
     }
 }

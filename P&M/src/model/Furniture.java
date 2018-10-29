@@ -69,10 +69,10 @@ public class Furniture {
     public void setColor(String color) {
         this.color = color;
     }
-    
+
     public String store(Database database) {
         try {
-            
+
             PreparedStatement stmt = database.getStatement("INSERT INTO furniture VALUES(?, ?, ?, ?, ?)");
             stmt.setString(1, this.id);
             stmt.setFloat(2, this.price);
@@ -80,14 +80,14 @@ public class Furniture {
             stmt.setFloat(4, this.weight);
             stmt.setString(5, this.color);
 
-            if (stmt.executeUpdate() == 1){
+            if (stmt.executeUpdate() == 1) {
                 System.out.println("ingreso al if");
                 return "El mueble ha sido agregado con exito";
             }
-            
+
             System.out.println("No ingreso al if");
             return "Error: El mueble no pudo ser adicionado";
-            
+
         } catch (SQLException e) {
             if (e.getSQLState().equals("23505")) {
                 return "Error: ya existe un mueble con el ID ingresado";
@@ -96,4 +96,3 @@ public class Furniture {
         return "asda";
     }
 }
-

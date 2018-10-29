@@ -42,8 +42,8 @@ CREATE TABLE transaction
     FOREIGN KEY (employee_id) REFERENCES employee (id)
 );
 
-DROP TABLE IF EXISTS catalog CASCADE;
-CREATE TABLE catalog
+DROP TABLE IF EXISTS furniture CASCADE;
+CREATE TABLE furniture
 (
     furniture_id VARCHAR(20) PRIMARY KEY NOT NULL,
     price FLOAT(20) NOT NULL,

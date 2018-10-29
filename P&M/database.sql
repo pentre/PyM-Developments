@@ -1,10 +1,3 @@
-DROP TABLE IF EXISTS login CASCADE;
-CREATE TABLE login
-(
-    username VARCHAR(20) PRIMARY KEY NOT NULL,
-    pass VARCHAR(20) NOT NULL
-);
-
 DROP TABLE IF EXISTS employee CASCADE;
 CREATE TABLE employee 
 (
@@ -19,16 +12,20 @@ CREATE TABLE employee
     FOREIGN KEY (branch) REFERENCES branch (name)
 );
 
+DROP TABLE IF EXISTS login CASCADE;
+CREATE TABLE login
+(
+    username VARCHAR(20) PRIMARY KEY NOT NULL,
+    pass VARCHAR(20) NOT NULL
+);
+
 DROP TABLE IF EXISTS branch CASCADE;
 CREATE TABLE branch 
 (
     name VARCHAR(20) PRIMARY KEY NOT NULL,
     city VARCHAR(20) NOT NULL,
-    address VARCHAR(30) NOT NULL,
-    manager_id VARCHAR(20) NOT NULL,
-    active BOOLEAN NOT NULL,
-    
-    FOREIGN KEY (manager_id) REFERENCES employee (id)
+    address VARCHAR(30) NOT NULL,    
+    active BOOLEAN NOT NULL  
 );
 
 DROP TABLE IF EXISTS transaction CASCADE;
@@ -42,13 +39,14 @@ CREATE TABLE transaction
     FOREIGN KEY (employee_id) REFERENCES employee (id)
 );
 
+DROP TABLE IF EXISTS catalog CASCADE;
 DROP TABLE IF EXISTS furniture CASCADE;
 CREATE TABLE furniture
 (
     furniture_id VARCHAR(20) PRIMARY KEY NOT NULL,
     price FLOAT(20) NOT NULL,
     material VARCHAR(20) NOT NULL,
-    weight VARCHAR(20) NOT NULL,
+    weight FLOAT(20) NOT NULL,
     color VARCHAR(20) NOT NULL
 );
 
@@ -58,7 +56,7 @@ CREATE TABLE quote
     id VARCHAR(20) PRIMARY KEY NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
 
-    FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
+    FOREIGN KEY (furniture_id) REFERENCES furniture (furniture_id)
 );
 
 DROP TABLE IF EXISTS sale CASCADE;
@@ -81,7 +79,7 @@ CREATE TABLE furniture_sold
 
     PRIMARY KEY (sale_id, furniture_id),
     FOREIGN KEY (sale_id) REFERENCES sale (sale_id),
-    FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
+    FOREIGN KEY (furniture_id) REFERENCES furniture (furniture_id)
 );
 
 DROP TABLE IF EXISTS inventory CASCADE;
@@ -91,7 +89,7 @@ CREATE TABLE inventory
     quantity VARCHAR(20) NOT NULL,
 
     PRIMARY KEY (furniture_id, quantity),    
-    FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
+    FOREIGN KEY (furniture_id) REFERENCES furniture (furniture_id)
 );
 
 DROP TABLE IF EXISTS commission CASCADE;
@@ -101,10 +99,8 @@ CREATE TABLE commission
     status BOOLEAN NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
   
-    FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
+    FOREIGN KEY (furniture_id) REFERENCES furniture (furniture_id)
 );
 
+INSERT INTO employee VALUES('admin', 'soph', 'Cra 84A #14-115', 'admin', 1234567, '12345678', true);
 INSERT INTO login VALUES('admin', '123');
-INSERT INTO login VALUES('manager', '123');
-INSERT INTO login VALUES('seller', '123');
-INSERT INTO login VALUES('foreman', '123');

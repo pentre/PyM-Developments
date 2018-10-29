@@ -6,18 +6,27 @@
 package controller;
 
 import model.User;
+import model.Employee;
 /**
  *
  * @author sofia
  */
 public interface UserController {    
     default public String login(String username, String password){
-        User user = new User(username, password, "", true);
-        return user.login(Controller.database);
+        User user = new User(username, password);
+        if (!user.validate(Controller.database)){            
+            return "Error: usuario o contraseña incorrecta";
+        }
+        
+        Employee employee = new Employee(username, "", "", "", 0, "");
+        if (!employee.search(Controller.database, username)){
+            return "Error: usuario inactivo en el sistema";
+        }
+        return employee.getCharge();
     }
   
-    default public String createUser(String username, String password, String type){
-        User user = new User(username,password,type,true);
+    default public String createUser(String username, String password){
+        User user = new User(username,password);
         return user.store(Controller.database);
     }
 }

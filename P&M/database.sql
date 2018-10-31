@@ -55,7 +55,7 @@ CREATE TABLE catalog
 DROP TABLE IF EXISTS quote CASCADE;
 CREATE TABLE quote 
 (
-    id VARCHAR(20) PRIMARY KEY SERIAL NOT NULL,
+    id SERIAL PRIMARY KEY NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
     quantity VARCHAR(20) NOT NULL,
     client_id VARCHAR(20) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE quote
     date DATE NOT NULL,
     branch VARCHAR NOT NULL,
     
-    FOREIGN KEY (branch) REFERENCES branch (name)
+    FOREIGN KEY (branch) REFERENCES branch (name),
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE inventory
 DROP TABLE IF EXISTS commission CASCADE;
 CREATE TABLE commission
 (    
-    order_id VARCHAR(20) PRIMARY KEY SERIAL NOT NULL,
+    order_id SERIAL PRIMARY KEY NOT NULL,
     status BOOLEAN NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
     quantity VARCHAR(20) NOT NULL,
@@ -115,3 +115,7 @@ INSERT INTO login VALUES('admin', '123');
 INSERT INTO login VALUES('manager', '123');
 INSERT INTO login VALUES('seller', '123');
 INSERT INTO login VALUES('foreman', '123');
+INSERT INTO employee VALUES('1','sofia','principal','manager',9999,'234567',true);
+INSERT INTO branch VALUES('principal','cali','direccion','1',true);
+INSERT INTO catalog VALUES('1',100,'madera',12,'azul');
+insert into catalog values('2',50,'acero',2,'verde');

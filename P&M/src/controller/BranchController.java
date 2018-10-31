@@ -38,4 +38,8 @@ public interface BranchController {
         return branch.updateInfo(Controller.database);
     }
 
+    default public boolean searchBranch(String name){
+        Branch branch = new Branch("","","");
+        return branch.search(Controller.database,name);
+    }
 }

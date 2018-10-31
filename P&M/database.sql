@@ -55,9 +55,15 @@ CREATE TABLE catalog
 DROP TABLE IF EXISTS quote CASCADE;
 CREATE TABLE quote 
 (
-    id VARCHAR(20) PRIMARY KEY NOT NULL,
+    id VARCHAR(20) PRIMARY KEY SERIAL NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
-
+    quantity VARCHAR(20) NOT NULL,
+    client_id VARCHAR(20) NOT NULL,
+    client_phone VARCHAR(20) NOT NULL,
+    date DATE NOT NULL,
+    branch VARCHAR NOT NULL,
+    
+    FOREIGN KEY (branch) REFERENCES branch (name)
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 
@@ -97,9 +103,10 @@ CREATE TABLE inventory
 DROP TABLE IF EXISTS commission CASCADE;
 CREATE TABLE commission
 (    
-    order_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    order_id VARCHAR(20) PRIMARY KEY SERIAL NOT NULL,
     status BOOLEAN NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
+    quantity VARCHAR(20) NOT NULL,
   
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );

@@ -5,24 +5,22 @@
  */
 package controller;
 
-import model.Furniture;
 
+import model.Commission;
+import model.Quote;
 /**
  *
  * @author lalil
  */
 public interface QuoteController {
-    default String calculateQuote(String id, int quantity){
-        Furniture furniture = new Furniture("",0,"",0,"");
-        if (!furniture.search(Controller.database,id)){
-            return "Error: el mueble ingresado no existe.";
+    default String createQuoteCommission(String idClient,String phoneClient,String idFurniture,int quantity, String branch, java.util.Date date){
+        Quote quote = new Quote(idFurniture,quantity,idClient,phoneClient,branch,date);
+        String message = quote.store(Controller.database);
+        if( !message.equals("La cotización fue adicionada exitosamente. ")){
+            return message;
         }
-        furniture.getInfo(Controller.database, id);
-        
-        Float result = furniture.getPrice()*quantity;
-        return String.valueOf(result);
-    }
-    default String createQuote(){
-        return "";
+        Commission commission = new Commission(idFurniture,quantity,false);
+        message += commission.store(Controller.database);
+        return message;
     }
 }

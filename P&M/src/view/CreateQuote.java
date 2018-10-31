@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JOptionPane;
 import controller.Controller;
+import java.util.Date;
 /**
  *
  * @author lalil
@@ -110,6 +111,11 @@ public class CreateQuote extends javax.swing.JFrame {
 
         cancelButton.setText("Cancelar");
         cancelButton.setEnabled(false);
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         calculateButton.setText("Calcular");
         calculateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +246,10 @@ public class CreateQuote extends javax.swing.JFrame {
         String idFurniture = idFurnitureTextField.getText();
         int quantity = Integer.parseInt(quantityTextField.getText());
         String branch = branchTextField.getText();
-        
+        Date now = new Date();
+        String message = controller_.createQuoteCommission(idClient,phoneClient,idFurniture,quantity,branch,now);
+        JOptionPane.showMessageDialog(this, message);
+        clean();
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
@@ -249,9 +258,14 @@ public class CreateQuote extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor ingrese todos los datos.");
             return;
         }
+        String branch = branchTextField.getText();
         String idFurniture = idFurnitureTextField.getText();
+        if ( !controller_.searchBranch(branch)){
+            JOptionPane.showMessageDialog(this, "La sede ingresada no existe.");
+            return;            
+        }
         int quantity = Integer.parseInt(quantityTextField.getText());
-        String message = controller_.calculateQuote(idFurniture,quantity);
+        String message = controller_.FurniturePrice(idFurniture,quantity);
         if (message.equals("Error: el mueble ingresado no existe.")){
             JOptionPane.showMessageDialog(this, message);
             return;            
@@ -259,7 +273,15 @@ public class CreateQuote extends javax.swing.JFrame {
         totalValueLabel.setText(message);
         createButton.setEnabled(true);
         cancelButton.setEnabled(true);
+        idFurnitureTextField.setEditable(false);
+        branchTextField.setEditable(false);
     }//GEN-LAST:event_calculateButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+        clean();
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,6 +333,16 @@ public class CreateQuote extends javax.swing.JFrame {
         }
     }
 
+    private void clean(){
+        idClientTextField.setText("");
+        phoneNumberTextField.setText("");
+        idFurnitureTextField.setText("");
+        idFurnitureTextField.setEditable(true);
+        quantityTextField.setText("");
+        branchTextField.setText("");
+        branchTextField.setEditable(true);
+        totalValueLabel.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;

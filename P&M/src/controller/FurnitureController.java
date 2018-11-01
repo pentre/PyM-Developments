@@ -11,8 +11,8 @@ import model.Furniture;
  */
 public interface FurnitureController {
     
-    default public String createFurniture(String id, float price, String material, float weight, String color){
-        Furniture furniture = new Furniture(id, price, material, weight, color);
+    default public String createFurniture(float price, String material, float weight, String color){
+        Furniture furniture = new Furniture(price, material, weight, color);
         return furniture.store(Controller.database);
     }
 }

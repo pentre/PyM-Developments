@@ -34,7 +34,6 @@ public class AddFurniture extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        idLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         colorLabel = new javax.swing.JLabel();
         materialLabel = new javax.swing.JLabel();
@@ -44,11 +43,8 @@ public class AddFurniture extends javax.swing.JFrame {
         weightTextField = new javax.swing.JTextField();
         colorTextField = new javax.swing.JTextField();
         AddFurnitureButton = new javax.swing.JButton();
-        idTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        idLabel.setText("ID");
 
         priceLabel.setText("Precio");
 
@@ -109,12 +105,6 @@ public class AddFurniture extends javax.swing.JFrame {
             }
         });
 
-        idTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                idTextFieldKeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,42 +120,36 @@ public class AddFurniture extends javax.swing.JFrame {
                             .addComponent(weightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(colorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(AddFurnitureButton))
-                        .addGap(0, 10, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(idTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                            .addComponent(idLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(priceLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(priceTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(priceTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(materialLabel, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(idLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addComponent(priceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(priceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(materialLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(materialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(weightLabel)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(weightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(colorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(colorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(AddFurnitureButton)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,23 +205,18 @@ public class AddFurniture extends javax.swing.JFrame {
     }//GEN-LAST:event_colorTextFieldKeyTyped
 
     private void AddFurnitureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFurnitureButtonActionPerformed
-        if (idTextField.getText().isEmpty() || priceTextField.getText().isEmpty() || materialTextField.getText().isEmpty() || weightTextField.getText().isEmpty() || colorTextField.getText().isEmpty()) {
+        if (priceTextField.getText().isEmpty() || materialTextField.getText().isEmpty() || weightTextField.getText().isEmpty() || colorTextField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Verifique que todos los campos esten llenos", "Advertencia", JOptionPane.WARNING_MESSAGE);
         } else {
-            String id = this.idTextField.getText();
             float price = Float.parseFloat(this.priceTextField.getText());
             String material = this.materialTextField.getText();
             float weight = Float.parseFloat(this.weightTextField.getText());
             String color = this.colorTextField.getText();
 
-            String mensaje = controller.createFurniture(id, price, material, weight, color);
+            String mensaje = controller.createFurniture(price, material, weight, color);
             JOptionPane.showMessageDialog(this, mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_AddFurnitureButtonActionPerformed
-
-    private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
-        validateNumbers(evt);
-    }//GEN-LAST:event_idTextFieldKeyTyped
     private void validateNumbers(java.awt.event.KeyEvent evt) {
         char inputChar = evt.getKeyChar();
         if (!(Character.isDigit(inputChar))) {
@@ -291,8 +270,6 @@ public class AddFurniture extends javax.swing.JFrame {
     private javax.swing.JButton AddFurnitureButton;
     private javax.swing.JLabel colorLabel;
     private javax.swing.JTextField colorTextField;
-    private javax.swing.JLabel idLabel;
-    private javax.swing.JTextField idTextField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel materialLabel;
     private javax.swing.JTextField materialTextField;

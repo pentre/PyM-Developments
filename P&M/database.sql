@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS catalog CASCADE;
 DROP TABLE IF EXISTS furniture CASCADE;
 CREATE TABLE furniture
 (
-    furniture_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    furniture_id SERIAL PRIMARY KEY NOT NULL,
     price FLOAT(20) NOT NULL,
     material VARCHAR(20) NOT NULL,
     weight FLOAT(20) NOT NULL,
@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS quote CASCADE;
 CREATE TABLE quote 
 (
     id VARCHAR(20) PRIMARY KEY NOT NULL,
-    furniture_id VARCHAR(20) NOT NULL,
+    furniture_id INTEGER NOT NULL,
 
     FOREIGN KEY (furniture_id) REFERENCES furniture (furniture_id)
 );
@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS furniture_sold CASCADE;
 CREATE TABLE furniture_sold
 (
     sale_id VARCHAR(20) NOT NULL,
-    furniture_id VARCHAR(20) NOT NULL,
+    furniture_id INTEGER NOT NULL,
     quantity VARCHAR(20) NOT NULL,
 
     PRIMARY KEY (sale_id, furniture_id),
@@ -85,7 +85,7 @@ CREATE TABLE furniture_sold
 DROP TABLE IF EXISTS inventory CASCADE;
 CREATE TABLE inventory
 (    
-    furniture_id VARCHAR(20) NOT NULL,
+    furniture_id INTEGER NOT NULL,
     quantity VARCHAR(20) NOT NULL,
 
     PRIMARY KEY (furniture_id, quantity),    
@@ -97,7 +97,7 @@ CREATE TABLE commission
 (    
     order_id VARCHAR(20) PRIMARY KEY NOT NULL,
     status BOOLEAN NOT NULL,
-    furniture_id VARCHAR(20) NOT NULL,
+    furniture_id INTEGER NOT NULL,
   
     FOREIGN KEY (furniture_id) REFERENCES furniture (furniture_id)
 );

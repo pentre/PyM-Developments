@@ -16,83 +16,79 @@ import java.util.logging.Logger;
  */
 public class Furniture {
 
-    private String id;
-    private float price;
-    private String material;
-    private float weight;
-    private String color;
+    private String id_;
+    private float price_;
+    private String material_;
+    private float weight_;
+    private String color_;
 
-    public Furniture(String id, float price, String material, float weight, String color) {
-        this.id = id;
-        this.price = price;
-        this.material = material;
-        this.weight = weight;
-        this.color = color;
+    public Furniture(float price, String material, float weight, String color) {
+        price_ = price;
+        material_ = material;
+        weight_ = weight;
+        color_ = color;
     }
 
     public String getId() {
-        return id;
+        return id_;
     }
 
     public float getPrice() {
-        return price;
+        return price_;
     }
 
     public String getMaterial() {
-        return material;
+        return material_;
     }
 
     public float getWeight() {
-        return weight;
+        return weight_;
     }
 
     public String getColor() {
-        return color;
+        return color_;
     }
 
     public void setId(String id) {
-        this.id = id;
+        id_ = id;
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        price_ = price;
     }
 
     public void setMaterial(String material) {
-        this.material = material;
+        material_ = material;
     }
 
     public void setWeight(float weight) {
-        this.weight = weight;
+        weight_ = weight;
     }
 
     public void setColor(String color) {
-        this.color = color;
+        color_ = color;
     }
 
     public String store(Database database) {
         try {
 
-            PreparedStatement stmt = database.getStatement("INSERT INTO furniture VALUES(?, ?, ?, ?, ?)");
-            stmt.setString(1, this.id);
-            stmt.setFloat(2, this.price);
-            stmt.setString(3, this.material);
-            stmt.setFloat(4, this.weight);
-            stmt.setString(5, this.color);
+            PreparedStatement stmt = database.getStatement("INSERT INTO furniture(price, material, weight, color) VALUES(?, ?, ?, ?)");
+            stmt.setFloat(1, price_);
+            stmt.setString(2, material_);
+            stmt.setFloat(3, weight_);
+            stmt.setString(4, color_);
 
             if (stmt.executeUpdate() == 1) {
-                System.out.println("ingreso al if");
                 return "El mueble ha sido agregado con exito";
             }
 
-            System.out.println("No ingreso al if");
-            return "Error: El mueble no pudo ser adicionado";
+            return "Error: el mueble no pudo ser adicionado";
 
         } catch (SQLException e) {
             if (e.getSQLState().equals("23505")) {
                 return "Error: ya existe un mueble con el ID ingresado";
             }
         }
-        return "asda";
+        return "Error: el mueble no pudo ser adicionado";
     }
 }

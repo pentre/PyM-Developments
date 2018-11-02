@@ -83,10 +83,9 @@ public class Furniture {
             return "Error: el mueble no pudo ser adicionado";
 
         } catch (SQLException e) {
-            if (e.getSQLState().equals("23505")) {
-                return "Error: ya existe un mueble con el ID ingresado";
-            }
+            return "Error: el mueble no pudo ser adicionado";
+
         }
-        return "Error: el mueble no pudo ser adicionado";
+
     }
 }

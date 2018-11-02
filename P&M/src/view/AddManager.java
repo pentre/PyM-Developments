@@ -240,7 +240,7 @@ public class AddManager extends javax.swing.JFrame {
         String password = new String(passwordField.getPassword());
 
         String message = controller_.createEmployee(id, name, branch, "Gerente", salary, phoneNumber);
-        message += controller_.createUser(id,password,"Gerente");
+        message += controller_.createUser(id,password);
 
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_addManagerButtonActionPerformed

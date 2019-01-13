@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS employee CASCADE;
+
 CREATE TABLE employee 
 (
     id VARCHAR(20) PRIMARY KEY NOT NULL,
@@ -103,4 +104,6 @@ CREATE TABLE commission
 );
 
 INSERT INTO employee VALUES('admin', 'soph', 'Cra 84A #14-115', 'admin', 1234567, '12345678', true);
+
 INSERT INTO login VALUES('admin', '123');
+

@@ -16,14 +16,10 @@ import java.sql.SQLException;
 public class User {
     private String username_;
     private String password_;
-    private String type_;
-    private boolean active_;
     
-    public User(String username, String password, String type, boolean active){
+    public User(String username, String password){
         username_ = username;
         password_ = password;
-        type_ = type;            
-        active_ = active;
     }
 
     public String getUsername() {
@@ -32,15 +28,7 @@ public class User {
 
     public String getPassword() {
         return password_;
-    }
-
-    public String getType() {
-        return type_;
-    }
-
-    public boolean isActive() {
-        return active_;
-    }      
+    } 
 
     public void setUsername(String username) {
         username_ = username;
@@ -48,31 +36,22 @@ public class User {
 
     public void setPassword(String password) {
         password_ = password;
-    }
-
-    public void setType(String type) {
-        type_ = type;
-    }    
-
-    public void setActive(boolean active) {
-        active_ = active;
-    }    
+    } 
     
-    public String login(Database conn) {              
-        try{
-            String query = "SELECT type FROM login WHERE username = ? AND pass = ? AND active = true";
+    public boolean validate(Database conn) {              
+        try{            
+            String query = "SELECT EXISTS (SELECT * FROM login WHERE username = ? AND pass = ?)";
             PreparedStatement statement = conn.getStatement(query);
             statement.setString(1, username_);
             statement.setString(2, password_);
             
-            ResultSet result = statement.executeQuery();
-            if (result.next()){                
-                return result.getString("type");                
-            }
-            return "Error: usuario o contraseña incorrecta";        
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-            return "Error: un problema en el servidor impidió el proceso";
+            ResultSet result = statement.executeQuery();             
+            result.next();         
+            
+            return result.getBoolean("exists");
+        } catch (Exception e){            
+            System.out.println(e.getMessage());            
+            return false;
         }          
 
     }
@@ -88,8 +67,6 @@ public class User {
             
             username_ = rs.getString("username");
             password_ = rs.getString("pass");
-            type_ = rs.getString("type");
-            active_ = rs.getBoolean("active");
             
             return true;
         }catch(Exception e){
@@ -101,26 +78,23 @@ public class User {
     
     public String store(Database database){
         try{
-            PreparedStatement stmt = database.getStatement("INSERT INTO login VALUES(?, ?, ?, ?)");
+            PreparedStatement stmt = database.getStatement("INSERT INTO login VALUES(?, ?)");
             
             stmt.setString(1,username_);
-            stmt.setString(2,password_);
-            stmt.setString(3,type_);
-            stmt.setBoolean(4,active_);     
+            stmt.setString(2,password_);  
 
             if(stmt.executeUpdate()==1){
-                return " El usuario es su cedula.";
+                return "El nombre de usuario es la cédula";
             }
             
             return "Error: el usuario no pudo ser adicionado";
         }catch(SQLException e){
             if (e.getSQLState().equals("23505")){
-                return "Ya existe un usuario con esta cédula. ";
-            }
-            return "Error: el usuario no pudo ser adicionado";
+                return "Error: ya existe un usuario con esta cédula";
+            }            
         }catch(Exception e){
-            e.printStackTrace();
-            return "Error: el usuario no pudo ser adicionado";
+            e.printStackTrace();            
         }
+        return "Error: el usuario no pudo ser adicionado";
     }
 }

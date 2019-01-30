@@ -1,4 +1,13 @@
-﻿DROP TABLE IF EXISTS employee CASCADE;
+﻿DROP TABLE IF EXISTS branch CASCADE;
+CREATE TABLE branch 
+(
+    name VARCHAR(20) PRIMARY KEY NOT NULL,
+    city VARCHAR(20) NOT NULL,
+    address VARCHAR(30) NOT NULL,    
+    active BOOLEAN NOT NULL  
+);
+
+DROP TABLE IF EXISTS employee CASCADE;
 CREATE TABLE employee 
 (
     id VARCHAR(20) PRIMARY KEY NOT NULL,
@@ -17,15 +26,6 @@ CREATE TABLE login
 (
     username VARCHAR(20) PRIMARY KEY NOT NULL,
     pass VARCHAR(20) NOT NULL
-);
-
-DROP TABLE IF EXISTS branch CASCADE;
-CREATE TABLE branch 
-(
-    name VARCHAR(20) PRIMARY KEY NOT NULL,
-    city VARCHAR(20) NOT NULL,
-    address VARCHAR(30) NOT NULL,    
-    active BOOLEAN NOT NULL  
 );
 
 DROP TABLE IF EXISTS transaction CASCADE;
@@ -101,5 +101,6 @@ CREATE TABLE commission
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 
-INSERT INTO employee VALUES('admin', 'soph', 'Cra 84A #14-115', 'admin', 1234567, '12345678', true);
+INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
+INSERT INTO employee VALUES('admin', 'soph', 'Sede0', 'admin', 1234567, '12345678', true);
 INSERT INTO login VALUES('admin', '123');

@@ -1,8 +1,10 @@
-DROP TABLE IF EXISTS login CASCADE;
-CREATE TABLE login
+﻿DROP TABLE IF EXISTS branch CASCADE;
+CREATE TABLE branch 
 (
-    username VARCHAR(20) PRIMARY KEY NOT NULL,
-    pass VARCHAR(20) NOT NULL
+    name VARCHAR(20) PRIMARY KEY NOT NULL,
+    city VARCHAR(20) NOT NULL,
+    address VARCHAR(30) NOT NULL,    
+    active BOOLEAN NOT NULL  
 );
 
 DROP TABLE IF EXISTS employee CASCADE;
@@ -19,16 +21,11 @@ CREATE TABLE employee
     FOREIGN KEY (branch) REFERENCES branch (name)
 );
 
-DROP TABLE IF EXISTS branch CASCADE;
-CREATE TABLE branch 
+DROP TABLE IF EXISTS login CASCADE;
+CREATE TABLE login
 (
-    name VARCHAR(20) PRIMARY KEY NOT NULL,
-    city VARCHAR(20) NOT NULL,
-    address VARCHAR(30) NOT NULL,
-    manager_id VARCHAR(20) NOT NULL,
-    active BOOLEAN NOT NULL,
-    
-    FOREIGN KEY (manager_id) REFERENCES employee (id)
+    username VARCHAR(20) PRIMARY KEY NOT NULL,
+    pass VARCHAR(20) NOT NULL
 );
 
 DROP TABLE IF EXISTS transaction CASCADE;
@@ -111,11 +108,15 @@ CREATE TABLE commission
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 
+INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
+INSERT INTO employee VALUES('admin', 'soph', 'Sede0', 'admin', 1234567, '12345678', true);
 INSERT INTO login VALUES('admin', '123');
+
 INSERT INTO login VALUES('manager', '123');
 INSERT INTO login VALUES('seller', '123');
 INSERT INTO login VALUES('foreman', '123');
 INSERT INTO employee VALUES('1','sofia','principal','manager',9999,'234567',true);
 INSERT INTO branch VALUES('principal','cali','direccion','1',true);
 INSERT INTO catalog VALUES('1',100,'madera',12,'azul');
-insert into catalog values('2',50,'acero',2,'verde');
+INSERT INTO catalog VALUES('2',50,'acero',2,'verde');
+

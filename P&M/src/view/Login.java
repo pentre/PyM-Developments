@@ -7,7 +7,6 @@ package view;
 
 import javax.swing.JOptionPane;
 import controller.Controller;
-import java.lang.String;
 
 /**
  *

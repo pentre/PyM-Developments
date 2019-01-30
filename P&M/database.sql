@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS branch CASCADE;
+DROP TABLE IF EXISTS branch CASCADE;
 CREATE TABLE branch 
 (
     name VARCHAR(20) PRIMARY KEY NOT NULL,
@@ -28,34 +28,16 @@ CREATE TABLE login
     pass VARCHAR(20) NOT NULL
 );
 
-DROP TABLE IF EXISTS transaction CASCADE;
-CREATE TABLE transaction 
-(
-    client_id VARCHAR(20) PRIMARY KEY NOT NULL,
-    client_phone VARCHAR(20) NOT NULL,
-    employee_id VARCHAR(20) NOT NULL,
-    date DATE NOT NULL,
-
-    FOREIGN KEY (employee_id) REFERENCES employee (id)
-);
-
 DROP TABLE IF EXISTS catalog CASCADE;
 CREATE TABLE catalog
 (
     furniture_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    name VARCHAR(20) NOT NULL,
     price FLOAT(20) NOT NULL,
     material VARCHAR(20) NOT NULL,
     weight VARCHAR(20) NOT NULL,
-    color VARCHAR(20) NOT NULL
-);
-
-DROP TABLE IF EXISTS quote CASCADE;
-CREATE TABLE quote 
-(
-    id VARCHAR(20) PRIMARY KEY NOT NULL,
-    furniture_id VARCHAR(20) NOT NULL,
-
-    FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
+    color VARCHAR(20) NOT NULL,
+    active BOOLEAN NOT NULL
 );
 
 DROP TABLE IF EXISTS sale CASCADE;
@@ -64,8 +46,9 @@ CREATE TABLE sale
     sale_id VARCHAR(20) PRIMARY KEY NOT NULL,
     value FLOAT(30) NOT NULL,
     branch VARCHAR(20) NOT NULL,
+    employee VARCHAR(29) NOT NULL,
     date DATE NOT NULL,
-
+    FOREIGN KEY (employee) REFERENCES employee(id),
     FOREIGN KEY (branch) REFERENCES branch (name)
 );
 
@@ -75,7 +58,7 @@ CREATE TABLE furniture_sold
     sale_id VARCHAR(20) NOT NULL,
     furniture_id VARCHAR(20) NOT NULL,
     quantity VARCHAR(20) NOT NULL,
-
+    value FLOAT(30) NOT NULL,
     PRIMARY KEY (sale_id, furniture_id),
     FOREIGN KEY (sale_id) REFERENCES sale (sale_id),
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
@@ -86,8 +69,9 @@ CREATE TABLE inventory
 (    
     furniture_id VARCHAR(20) NOT NULL,
     quantity VARCHAR(20) NOT NULL,
-
-    PRIMARY KEY (furniture_id, quantity),    
+    branch VARCHAR(20) NOT NULL,
+    PRIMARY KEY (furniture_id, branch),    
+    FOREIGN KEY (branch) REFERENCES   branch (name),
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 

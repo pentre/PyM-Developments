@@ -113,19 +113,19 @@ public class AdminMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DeleteEmployee deleteMenu = new DeleteEmployee(controller_, "admin");
+        DeleteEmployee deleteMenu = new DeleteEmployee(controller_, "Administrador");
         deleteMenu.setLocationRelativeTo(null);
         deleteMenu.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
-        ModifyEmployee modifyMenu = new ModifyEmployee(controller_,"admin");
+        ModifyEmployee modifyMenu = new ModifyEmployee(controller_,"Administrador");
         modifyMenu.setLocationRelativeTo(null);
         modifyMenu.setVisible(true);
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AddEmployee addMenu = new AddEmployee(controller_, "admin");
+        AddEmployee addMenu = new AddEmployee(controller_, "Administrador");
         addMenu.setLocationRelativeTo(null);
         addMenu.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed

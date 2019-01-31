@@ -25,7 +25,7 @@ public class AddEmployee extends javax.swing.JFrame {
         controller_ = controller;
         initComponents();
         
-        if ("admin".equals(userType)){
+        if ("Administrador".equals(userType)){
             this.chargeCombo.addItem("Gerente");
         }
 

@@ -83,7 +83,7 @@ public class ManagerMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DeleteMenu deleteMenu = new DeleteMenu(controller_, "Gerente");
+        DeleteEmployee deleteMenu = new DeleteEmployee(controller_, "Gerente");
         deleteMenu.setLocationRelativeTo(null);
         deleteMenu.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed

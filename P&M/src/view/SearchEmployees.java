@@ -48,11 +48,13 @@ public class SearchEmployees extends javax.swing.JFrame {
         chargeComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         activeComboBox = new javax.swing.JComboBox<>();
+        cancelButton = new javax.swing.JButton();
         dataPanel = new javax.swing.JPanel();
         dataScrollPane = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         idLabel.setText("ID:");
 
@@ -98,6 +100,13 @@ public class SearchEmployees extends javax.swing.JFrame {
 
         activeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Ambos" }));
 
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
@@ -125,7 +134,9 @@ public class SearchEmployees extends javax.swing.JFrame {
                 .addComponent(activeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(searchButton)
-                .addGap(153, 153, 153))
+                .addGap(18, 18, 18)
+                .addComponent(cancelButton)
+                .addGap(45, 45, 45))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +149,8 @@ public class SearchEmployees extends javax.swing.JFrame {
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(activeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
+                    .addComponent(searchButton)
+                    .addComponent(cancelButton))
                 .addGap(24, 24, 24)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,6 +276,10 @@ public class SearchEmployees extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_branchTextFieldKeyTyped
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,6 +319,7 @@ public class SearchEmployees extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> activeComboBox;
     private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<String> chargeComboBox;
     private javax.swing.JLabel chargeLabel;
     private javax.swing.JPanel dataPanel;

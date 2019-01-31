@@ -20,7 +20,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         controller_ = new Controller();
-        initComponents();
+        initComponents(); 
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -123,6 +124,7 @@ public class Login extends javax.swing.JFrame {
                 
             case "manager":
                 ManagerMenu manager = new ManagerMenu(controller_);
+                manager.setTitle("Gerente - Menú Principal");
                 manager.setLocationRelativeTo(null);
                 manager.setVisible(true);
                 this.dispose();
@@ -130,6 +132,7 @@ public class Login extends javax.swing.JFrame {
                 
             case "seller":
                 SellerMenu seller = new SellerMenu(controller_);
+                seller.setTitle("Vendendor - Menú Principal");
                 seller.setLocationRelativeTo(null);
                 seller.setVisible(true);
                 this.dispose();
@@ -137,6 +140,7 @@ public class Login extends javax.swing.JFrame {
                 
             case "foreman":
                 ForemanMenu foreman = new ForemanMenu(controller_);
+                foreman.setTitle("Jefe de taller - Menú Principal");
                 foreman.setLocationRelativeTo(null);
                 foreman.setVisible(true);
                 this.dispose();

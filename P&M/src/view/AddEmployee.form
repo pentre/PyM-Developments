@@ -3,6 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -49,31 +50,34 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="branchLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="passwordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="passwordField" alignment="0" pref="139" max="32767" attributes="0"/>
-                              <Component id="branchTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="idTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="nameTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="salaryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="salaryTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="addManagerButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="MessageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="phoneNumberTextField" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <Component id="idLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="idTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="nameTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="salaryTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="salaryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="phoneNumberTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordField" alignment="0" pref="188" max="32767" attributes="0"/>
+                      <Component id="branchLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="branchTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="chargeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="chargeCombo" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="MessageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="addManagerButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,15 +86,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="idTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="nameTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="chargeLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <Component id="chargeCombo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="branchLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="branchTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="salaryLabel" min="-2" max="-2" attributes="0"/>
@@ -107,7 +115,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="MessageLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="addManagerButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="addManagerButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -160,6 +171,44 @@
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="passwordLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="passwordField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="branchLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sede:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="branchTextField">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="branchTextFieldKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="chargeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargo:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="chargeCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Vendedor"/>
+                <StringItem index="1" value="Jefe de Taller"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
         <Component class="javax.swing.JButton" name="addManagerButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
@@ -170,25 +219,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="MessageLabel">
         </Component>
-        <Component class="javax.swing.JLabel" name="passwordLabel">
+        <Component class="javax.swing.JButton" name="cancelButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="passwordField">
-        </Component>
-        <Component class="javax.swing.JTextField" name="branchTextField">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="branchTextFieldKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="branchLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sede:"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

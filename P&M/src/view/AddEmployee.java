@@ -15,16 +15,19 @@ import javax.swing.event.DocumentListener;
  *
  * @author Luis
  */
-public class AddManager extends javax.swing.JFrame {
+public class AddEmployee extends javax.swing.JFrame {
 
     private Controller controller_;
-
     /**
      * Creates new form AddManagerFrame
      */
-    public AddManager(Controller controller) {
+    public AddEmployee(Controller controller, String userType) {
         controller_ = controller;
         initComponents();
+        
+        if ("admin".equals(userType)){
+            this.chargeCombo.addItem("Gerente");
+        }
 
     }
 
@@ -46,14 +49,18 @@ public class AddManager extends javax.swing.JFrame {
         salaryLabel = new javax.swing.JLabel();
         phoneNumberTextField = new javax.swing.JTextField();
         phoneNumberLabel = new javax.swing.JLabel();
-        addManagerButton = new javax.swing.JButton();
-        MessageLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        branchTextField = new javax.swing.JTextField();
         branchLabel = new javax.swing.JLabel();
+        branchTextField = new javax.swing.JTextField();
+        chargeLabel = new javax.swing.JLabel();
+        chargeCombo = new javax.swing.JComboBox<>();
+        addManagerButton = new javax.swing.JButton();
+        MessageLabel = new javax.swing.JLabel();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         idLabel.setText("ID:");
         idLabel.setToolTipText("");
@@ -109,14 +116,9 @@ public class AddManager extends javax.swing.JFrame {
 
         phoneNumberLabel.setText("Teléfono:");
 
-        addManagerButton.setText("Agregar");
-        addManagerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addManagerButtonActionPerformed(evt);
-            }
-        });
-
         passwordLabel.setText("Contraseña");
+
+        branchLabel.setText("Sede:");
 
         branchTextField.setToolTipText("");
         branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -125,7 +127,23 @@ public class AddManager extends javax.swing.JFrame {
             }
         });
 
-        branchLabel.setText("Sede:");
+        chargeLabel.setText("Cargo:");
+
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Jefe de Taller" }));
+
+        addManagerButton.setText("Agregar");
+        addManagerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addManagerButtonActionPerformed(evt);
+            }
+        });
+
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,41 +152,49 @@ public class AddManager extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(idLabel)
+                    .addComponent(idTextField)
+                    .addComponent(nameTextField)
+                    .addComponent(nameLabel)
+                    .addComponent(salaryTextField)
+                    .addComponent(salaryLabel)
+                    .addComponent(phoneNumberTextField)
+                    .addComponent(phoneNumberLabel)
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(branchLabel)
+                    .addComponent(branchTextField)
+                    .addComponent(chargeLabel)
+                    .addComponent(chargeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MessageLabel)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idLabel)
-                            .addComponent(branchLabel)
-                            .addComponent(passwordLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                            .addComponent(branchTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(salaryLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(salaryTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phoneNumberLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addManagerButton, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MessageLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phoneNumberTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap(71, Short.MAX_VALUE))))
+                        .addComponent(addManagerButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(cancelButton)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(idLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chargeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(chargeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(branchLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(salaryLabel)
@@ -185,7 +211,9 @@ public class AddManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MessageLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addManagerButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addManagerButton)
+                    .addComponent(cancelButton))
                 .addGap(14, 14, 14))
         );
 
@@ -234,12 +262,13 @@ public class AddManager extends javax.swing.JFrame {
 
         String id = idTextField.getText();
         String name = nameTextField.getText();
+        String charge = (String) this.chargeCombo.getSelectedItem();
         String branch = branchTextField.getText();
         float salary = Float.parseFloat(salaryTextField.getText());
         String phoneNumber = phoneNumberTextField.getText();
         String password = new String(passwordField.getPassword());
 
-        String message = controller_.createEmployee(id, name, branch, "Gerente", salary, phoneNumber);
+        String message = controller_.createEmployee(id, name, branch, charge, salary, phoneNumber);
         message += controller_.createUser(id,password);
 
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -265,6 +294,10 @@ public class AddManager extends javax.swing.JFrame {
         // TODO add your handling code here:
         validateNumbersAndCharacters(evt);
     }//GEN-LAST:event_branchTextFieldKeyTyped
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
     
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
@@ -294,6 +327,9 @@ public class AddManager extends javax.swing.JFrame {
     private javax.swing.JButton addManagerButton;
     private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JComboBox<String> chargeCombo;
+    private javax.swing.JLabel chargeLabel;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
     private javax.swing.JPanel jPanel1;

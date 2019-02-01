@@ -114,7 +114,7 @@ public class Login extends javax.swing.JFrame {
 
     private void selectMenu(String type){
         switch(type){
-            case "admin":
+            case "Administrador":
                 AdminMenu admin = new AdminMenu(controller_);
                 admin.setTitle("Administrador - Menú Principal");
                 admin.setLocationRelativeTo(null);
@@ -122,7 +122,7 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
                 break;
                 
-            case "manager":
+            case "Gerente":
                 ManagerMenu manager = new ManagerMenu(controller_);
                 manager.setTitle("Gerente - Menú Principal");
                 manager.setLocationRelativeTo(null);
@@ -130,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
                 break;
                 
-            case "seller":
+            case "Vendedor":
                 SellerMenu seller = new SellerMenu(controller_);
                 seller.setTitle("Vendendor - Menú Principal");
                 seller.setLocationRelativeTo(null);
@@ -138,9 +138,9 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
                 break;
                 
-            case "foreman":
+            case "Jefe de Taller":
                 ForemanMenu foreman = new ForemanMenu(controller_);
-                foreman.setTitle("Jefe de taller - Menú Principal");
+                foreman.setTitle("Jefe de Taller - Menú Principal");
                 foreman.setLocationRelativeTo(null);
                 foreman.setVisible(true);
                 this.dispose();

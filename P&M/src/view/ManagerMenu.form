@@ -51,9 +51,10 @@
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="addBranchButton" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="searchButton" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="modifyButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="modifyEmployeeButton" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="deleteButton" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="addEmployeeButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="modifyBranchButton" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               </Group>
@@ -71,10 +72,12 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="searchButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="modifyButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="modifyEmployeeButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="modifyBranchButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -109,12 +112,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="modifyButton">
+        <Component class="javax.swing.JButton" name="modifyEmployeeButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar"/>
+            <Property name="text" type="java.lang.String" value="Modificar Empleado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyEmployeeButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="addBranchButton">
@@ -123,6 +126,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBranchButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="modifyBranchButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modificar Sede"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyBranchButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

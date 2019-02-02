@@ -237,7 +237,7 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
             evt.consume();
         }
     }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JTextField ColorField;

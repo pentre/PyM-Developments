@@ -8,6 +8,7 @@ package controller;
 import model.Branch;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -38,4 +39,8 @@ public interface BranchController {
         return branch.updateInfo(Controller.database);
     }
 
+    default public List<String> listBranches(){
+        Branch branch = new Branch("","","");
+        return branch.listBranches(Controller.database);
+    }
 }

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS branch CASCADE;
+﻿DROP TABLE IF EXISTS branch CASCADE;
 CREATE TABLE branch 
 (
     name VARCHAR(20) PRIMARY KEY NOT NULL,
@@ -78,12 +78,15 @@ CREATE TABLE inventory
 DROP TABLE IF EXISTS commission CASCADE;
 CREATE TABLE commission
 (    
-    order_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    order_id SERIAL PRIMARY KEY NOT NULL,
     status BOOLEAN NOT NULL,
     furniture_id INTEGER NOT NULL,
-  
+    quantity INTEGER NOT NULL,
+    branch VARCHAR(20) NOT NULL,
+    FOREIGN KEY (branch) REFERENCES branch(name),
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
+
 
 INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
 INSERT INTO employee VALUES('admin', 'soph', 'Sede0', 'admin', 1234567, '12345678', true);

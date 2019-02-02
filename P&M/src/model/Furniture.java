@@ -6,6 +6,10 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -109,6 +113,25 @@ public class Furniture {
         } catch (SQLException ex) {
             ex.printStackTrace();
             return "Error: el mueble no pudo ser adicionado";
+        }
+    }
+    
+    public List<String> listFurniture(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE active = true");
+            ResultSet rs = stmt.executeQuery();
+            List<String> results = new ArrayList<>(); 
+            while(rs.next()) {
+                String result = rs.getString("name") + "-" + rs.getInt("furniture_id");
+                results.add(result);
+            }
+            return results;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

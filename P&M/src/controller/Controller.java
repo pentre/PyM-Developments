@@ -12,7 +12,7 @@ import model.Database;
  * @author pentre
  */
 
-public class Controller implements BranchController, UserController, EmployeeController, FurnitureController{
+public class Controller implements BranchController, UserController, EmployeeController, FurnitureController, CommissionController{
 
     public static Database database;
 

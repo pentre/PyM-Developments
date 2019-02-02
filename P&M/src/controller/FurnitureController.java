@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package controller;
+
 import model.Furniture;
+import java.util.List;
+
 /**
  *
  * @author Luis
@@ -15,5 +18,10 @@ public interface FurnitureController {
         Furniture furniture = new Furniture(name, price, material, weight, color);
         
         return furniture.store(Controller.database);
+    }
+ 
+    default public List<String> listFurniture(){
+        Furniture furniture = new Furniture("",0,"",0,"");
+        return furniture.listFurniture(Controller.database);
     }
 }

@@ -31,7 +31,7 @@ CREATE TABLE login
 DROP TABLE IF EXISTS catalog CASCADE;
 CREATE TABLE catalog
 (
-    furniture_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    furniture_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(20) NOT NULL,
     price FLOAT(20) NOT NULL,
     material VARCHAR(20) NOT NULL,
@@ -56,7 +56,7 @@ DROP TABLE IF EXISTS furniture_sold CASCADE;
 CREATE TABLE furniture_sold
 (
     sale_id VARCHAR(20) NOT NULL,
-    furniture_id VARCHAR(20) NOT NULL,
+    furniture_id INTEGER NOT NULL,
     quantity VARCHAR(20) NOT NULL,
     value FLOAT(30) NOT NULL,
     PRIMARY KEY (sale_id, furniture_id),
@@ -67,7 +67,7 @@ CREATE TABLE furniture_sold
 DROP TABLE IF EXISTS inventory CASCADE;
 CREATE TABLE inventory
 (    
-    furniture_id VARCHAR(20) NOT NULL,
+    furniture_id INTEGER NOT NULL,
     quantity VARCHAR(20) NOT NULL,
     branch VARCHAR(20) NOT NULL,
     PRIMARY KEY (furniture_id, branch),    
@@ -78,12 +78,15 @@ CREATE TABLE inventory
 DROP TABLE IF EXISTS commission CASCADE;
 CREATE TABLE commission
 (    
-    order_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    order_id SERIAL PRIMARY KEY NOT NULL,
     status BOOLEAN NOT NULL,
-    furniture_id VARCHAR(20) NOT NULL,
-  
+    furniture_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    branch VARCHAR(20) NOT NULL,
+    FOREIGN KEY (branch) REFERENCES branch(name),
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
+
 
 INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
 INSERT INTO employee VALUES('1', 'soph', 'Sede0', 'Administrador', 1234567, '12345678', true);

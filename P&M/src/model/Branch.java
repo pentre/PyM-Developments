@@ -6,6 +6,8 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -63,7 +65,7 @@ public class Branch {
             stmt.setString(1, name_);
             stmt.setString(2, city_);
             stmt.setString(3, address_);
-            stmt.setBoolean(5, active_);
+            stmt.setBoolean(4, active_);
 
             if (stmt.executeUpdate() == 1) {
                 return "Sede adicionada exitosamente";
@@ -122,6 +124,25 @@ public class Branch {
         } catch (Exception e) {
             e.printStackTrace();
             return "Error: no fue posible modificar la sede";
+        }
+    }
+    
+    public List<String> listBranches(Database database){
+        try{
+            PreparedStatement stmt = database.getStatement("SELECT * FROM branch WHERE active = true");
+            ResultSet rs = stmt.executeQuery();
+            List<String> results = new ArrayList<>(); 
+            while(rs.next()) {
+                String result = rs.getString("name");
+                results.add(result);
+            }
+            return results;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

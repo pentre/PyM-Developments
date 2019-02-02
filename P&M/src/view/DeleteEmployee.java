@@ -40,7 +40,6 @@ public class DeleteEmployee extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         idLabel.setText("ID:");
 
@@ -117,16 +116,21 @@ public class DeleteEmployee extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         
-        if(this.idInputField.getText().isEmpty()){
+        if (this.idInputField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
         }
         
-        String id = this.idInputField.getText();
-
-        //user_ is sent to verify the user's charge that is going to delete an employee
-        String message = this.controller_.deleteEmployee(user_, id);
+        int selectedOption = JOptionPane.showConfirmDialog(this, "¿Desea eliminar el usuario ingresado?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
         
-        JOptionPane.showMessageDialog(this, message);
+        if (selectedOption == 0){
+            String id = this.idInputField.getText();
+
+            //user_ is sent to verify the user's charge that is going to delete an employee
+            String message = this.controller_.deleteEmployee(user_, id);
+        
+            JOptionPane.showMessageDialog(this, message);
+            clearFields();
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void idInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idInputFieldKeyTyped
@@ -144,6 +148,10 @@ public class DeleteEmployee extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void clearFields(){
+        this.idInputField.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton cancelButton;

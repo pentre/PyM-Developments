@@ -44,6 +44,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         addressTextField = new javax.swing.JTextField();
         cityInputField = new javax.swing.JTextField();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +77,7 @@ public class ModifyBranch extends javax.swing.JFrame {
                         .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(loadBranchInfoButton)
                             .addComponent(branchNameLabel))
-                        .addGap(0, 57, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         topPanelLayout.setVerticalGroup(
@@ -114,6 +115,13 @@ public class ModifyBranch extends javax.swing.JFrame {
             }
         });
 
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
@@ -126,7 +134,10 @@ public class ModifyBranch extends javax.swing.JFrame {
                         .addComponent(addressLabel)
                         .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                         .addComponent(cityInputField))
-                    .addComponent(updateButton))
+                    .addGroup(bottomPanelLayout.createSequentialGroup()
+                        .addComponent(updateButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cancelButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
@@ -141,7 +152,9 @@ public class ModifyBranch extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updateButton)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -227,13 +240,19 @@ public class ModifyBranch extends javax.swing.JFrame {
         String message = controller_.updateBranch(name, city, address);
 
         JOptionPane.showMessageDialog(this, message);
-
+        
+        clearFields();
         disabled();
+        
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void branchNameInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchNameInputFieldKeyTyped
         validateCharactersAndNumbers(evt);
     }//GEN-LAST:event_branchNameInputFieldKeyTyped
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void validateCharacters(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
@@ -248,6 +267,12 @@ public class ModifyBranch extends javax.swing.JFrame {
             evt.consume();
         }
     }
+    
+    private void clearFields(){
+        this.addressTextField.setText("");
+        this.branchNameInputField.setText("");
+        this.cityInputField.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
@@ -255,6 +280,7 @@ public class ModifyBranch extends javax.swing.JFrame {
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JTextField branchNameInputField;
     private javax.swing.JLabel branchNameLabel;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JTextField cityInputField;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JButton loadBranchInfoButton;

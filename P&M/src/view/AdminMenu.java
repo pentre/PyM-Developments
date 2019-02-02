@@ -53,7 +53,7 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
-        modifyButton.setText("Modiicar");
+        modifyButton.setText("Modificar");
         modifyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifyButtonActionPerformed(evt);

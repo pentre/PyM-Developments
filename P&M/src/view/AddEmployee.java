@@ -60,7 +60,6 @@ public class AddEmployee extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         idLabel.setText("ID:");
         idLabel.setToolTipText("");
@@ -129,7 +128,7 @@ public class AddEmployee extends javax.swing.JFrame {
 
         chargeLabel.setText("Cargo:");
 
-        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Jefe de Taller" }));
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Vendedor", "Jefe de Taller" }));
 
         addManagerButton.setText("Agregar");
         addManagerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -272,6 +271,7 @@ public class AddEmployee extends javax.swing.JFrame {
         message += controller_.createUser(id,password);
 
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
     }//GEN-LAST:event_addManagerButtonActionPerformed
 
     private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
@@ -320,6 +320,16 @@ public class AddEmployee extends javax.swing.JFrame {
         if (!Character.isLetter(c) && !Character.isWhitespace(c) && !Character.isDigit(c)) {
             evt.consume();
         }
+    }
+    
+    private void clearFields(){
+        this.idTextField.setText("");
+        this.nameTextField.setText("");
+        this.branchTextField.setText("");
+        this.phoneNumberTextField.setText("");
+        this.salaryTextField.setText("");
+        this.passwordField.setText("");
+        this.chargeCombo.setSelectedIndex(0);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

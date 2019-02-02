@@ -24,9 +24,9 @@ public class ModifyEmployee extends javax.swing.JFrame {
         
         initComponents();
         if(userType_.equals("Administrador")){
-            chargeComboBox.addItem("Gerente");
+            chargeCombo.addItem("Gerente");
         }
-        chargeComboBox.setSelectedIndex(-1);
+        chargeCombo.setSelectedIndex(-1);
     }
 
     /**
@@ -50,13 +50,12 @@ public class ModifyEmployee extends javax.swing.JFrame {
         salaryTextField = new javax.swing.JTextField();
         phoneNumberTextField = new javax.swing.JTextField();
         updateButton = new javax.swing.JButton();
-        chargeComboBox = new javax.swing.JComboBox<>();
+        chargeCombo = new javax.swing.JComboBox<>();
         branchLabel = new javax.swing.JLabel();
         branchTextField = new javax.swing.JTextField();
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         idLabel.setText("Id:");
 
@@ -125,11 +124,11 @@ public class ModifyEmployee extends javax.swing.JFrame {
             }
         });
 
-        chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jefe de Taller", "Vendedor" }));
-        chargeComboBox.setEnabled(false);
-        chargeComboBox.addActionListener(new java.awt.event.ActionListener() {
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Jefe de Taller", "Vendedor" }));
+        chargeCombo.setEnabled(false);
+        chargeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chargeComboBoxActionPerformed(evt);
+                chargeComboActionPerformed(evt);
             }
         });
 
@@ -173,7 +172,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                     .addComponent(salaryTextField)
                     .addComponent(nameTextField)
                     .addComponent(idTextField)
-                    .addComponent(chargeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chargeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(phoneNumberTextField)
                     .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -194,7 +193,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chargeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chargeLabel))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -232,7 +231,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
     public void disable(){
         updateButton.setEnabled(false);
         idTextField.setEnabled(false);
-        chargeComboBox.setEnabled(false);
+        chargeCombo.setEnabled(false);
         salaryTextField.setEnabled(false);
         phoneNumberTextField.setEnabled(false);
         branchTextField.setEnabled(false);
@@ -247,7 +246,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
     
     public void enable(){
         nameTextField.setEnabled(true);
-        chargeComboBox.setEnabled(true);
+        chargeCombo.setEnabled(true);
         salaryTextField.setEnabled(true);
         phoneNumberTextField.setEnabled(true);
         updateButton.setEnabled(true);
@@ -275,7 +274,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         enable();
         idTextField.setEditable(false);
         nameTextField.setText(infoEmployee.get("name"));
-        chargeComboBox.setSelectedItem(infoEmployee.get("charge"));
+        chargeCombo.setSelectedItem(infoEmployee.get("charge"));
         salaryTextField.setText(infoEmployee.get("salary"));  
         phoneNumberTextField.setText(infoEmployee.get("phoneNumber"));
         branchTextField.setText(infoEmployee.get("branch"));
@@ -286,13 +285,14 @@ public class ModifyEmployee extends javax.swing.JFrame {
         String id = idTextField.getText();
         String name = nameTextField.getText();
         String branch = branchTextField.getText();
-        String charge =  chargeComboBox.getSelectedItem().toString();
+        String charge =  chargeCombo.getSelectedItem().toString();
         Float salary = Float.valueOf(salaryTextField.getText());
         String phoneNumber = phoneNumberTextField.getText();
         String message = controller_.updateEmployee(id, name, branch, charge, salary, phoneNumber, userType_);
         JOptionPane.showMessageDialog(this, message);
         disable();
         idTextField.setEditable(true);
+        clearFields();
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
@@ -339,9 +339,9 @@ public class ModifyEmployee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextFieldActionPerformed
 
-    private void chargeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargeComboBoxActionPerformed
+    private void chargeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargeComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chargeComboBoxActionPerformed
+    }//GEN-LAST:event_chargeComboActionPerformed
 
     private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
         // TODO add your handling code here:
@@ -355,13 +355,20 @@ public class ModifyEmployee extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    
+    private void clearFields(){
+        this.idTextField.setText("");
+        this.nameTextField.setText("");
+        this.branchTextField.setText("");
+        this.phoneNumberTextField.setText("");
+        this.salaryTextField.setText("");
+        this.chargeCombo.setSelectedIndex(0);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JComboBox<String> chargeComboBox;
+    private javax.swing.JComboBox<String> chargeCombo;
     private javax.swing.JLabel chargeLabel;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;

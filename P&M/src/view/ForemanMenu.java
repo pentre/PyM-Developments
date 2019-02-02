@@ -29,27 +29,50 @@ public class ForemanMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
+        addCommissionButton = new javax.swing.JButton();
+        addFurnitureButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Jefe de Taller");
+        titleLabel.setText("Jefe de Taller");
+
+        addCommissionButton.setText("Crear orden de trabajo");
+        addCommissionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCommissionButtonActionPerformed(evt);
+            }
+        });
+
+        addFurnitureButton.setText("Agregar mueble al catálogo");
+        addFurnitureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFurnitureButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(152, 152, 152))
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(titleLabel)
+                    .addComponent(addFurnitureButton)
+                    .addComponent(addCommissionButton))
+                .addGap(67, 67, 67))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel1)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addComponent(titleLabel)
+                .addGap(18, 18, 18)
+                .addComponent(addCommissionButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addFurnitureButton)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -66,9 +89,23 @@ public class ForemanMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addCommissionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCommissionButtonActionPerformed
+        CreateCommission createMenu = new CreateCommission(controller_);
+        createMenu.setLocationRelativeTo(null);
+        createMenu.setVisible(true);
+    }//GEN-LAST:event_addCommissionButtonActionPerformed
+
+    private void addFurnitureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFurnitureButtonActionPerformed
+        AddFurniture addMenu = new AddFurniture(controller_);
+        addMenu.setLocationRelativeTo(null);
+        addMenu.setVisible(true);
+    }//GEN-LAST:event_addFurnitureButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton addCommissionButton;
+    private javax.swing.JButton addFurnitureButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

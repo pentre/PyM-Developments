@@ -5,17 +5,30 @@
  */
 package view;
 
+import controller.Controller;
+import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author mily
  */
 public class createCommission extends javax.swing.JFrame {
 
+    private Controller controller_;
     /**
      * Creates new form createCommission
      */
-    public createCommission() {
+    public createCommission(Controller controller) {
+        controller_ = controller;
         initComponents();
+        List<String> furnitures = controller_.listFurniture();
+        List<String> branches = controller_.listBranches();
+        for (String aux : furnitures){
+            furnitureComboBox.addItem(aux);
+        }
+        for (String aux: branches){
+            branchComboBox.addItem(aux);
+        }
     }
 
     /**
@@ -27,22 +40,131 @@ public class createCommission extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        statusLabel = new javax.swing.JLabel();
+        statusComboBox = new javax.swing.JComboBox<>();
+        furnitureLabel = new javax.swing.JLabel();
+        furnitureComboBox = new javax.swing.JComboBox<>();
+        quantityLabel = new javax.swing.JLabel();
+        quantityTextField = new javax.swing.JTextField();
+        branchLabel = new javax.swing.JLabel();
+        branchComboBox = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        statusLabel.setText("Estado:");
+
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "En proceso", "Terminado" }));
+
+        furnitureLabel.setText("Muebles:");
+
+        quantityLabel.setText("Cantidad:");
+
+        quantityTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityTextFieldActionPerformed(evt);
+            }
+        });
+        quantityTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantityTextFieldKeyTyped(evt);
+            }
+        });
+
+        branchLabel.setText("Sede:");
+
+        jButton1.setText("Crear Orden de Trabajo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(statusLabel)
+                            .addComponent(furnitureLabel)
+                            .addComponent(branchLabel)
+                            .addComponent(quantityLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(statusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(furnitureComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(branchComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusLabel)
+                    .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(furnitureLabel)
+                    .addComponent(furnitureComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(branchLabel)
+                    .addComponent(branchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quantityLabel)
+                    .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(jButton1)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void quantityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTextFieldKeyTyped
+        // TODO add your handling code here:
+        validateNumber(evt);
+    }//GEN-LAST:event_quantityTextFieldKeyTyped
+
+    private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTextFieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (quantityTextField.getText().isEmpty() || (quantityTextField.getText().equals("0"))){
+            JOptionPane.showMessageDialog(this, "Porfavor ingrese la cantidad", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        String status = statusComboBox.getSelectedItem().toString();
+        String furniture = furnitureComboBox.getSelectedItem().toString();
+        String branch = branchComboBox.getSelectedItem().toString();
+        int quantity = Integer.parseInt(quantityTextField.getText());
+        boolean statusBool = false;
+        if (status.equals("Terminado")){
+            statusBool = true;
+        }
+        int furnitureInt = Integer.parseInt(furniture.split("-")[1]);
+        String message = controller_.createComission(statusBool, furnitureInt, quantity, branch);
+        
+        JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void validateNumber(java.awt.event.KeyEvent evt) {
+        char inputChar = evt.getKeyChar();
+        if(!(Character.isDigit(inputChar))){
+            evt.consume();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -73,11 +195,20 @@ public class createCommission extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createCommission().setVisible(true);
+                new createCommission(new Controller()).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> branchComboBox;
+    private javax.swing.JLabel branchLabel;
+    private javax.swing.JComboBox<String> furnitureComboBox;
+    private javax.swing.JLabel furnitureLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel quantityLabel;
+    private javax.swing.JTextField quantityTextField;
+    private javax.swing.JComboBox<String> statusComboBox;
+    private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
 }

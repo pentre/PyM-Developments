@@ -11,7 +11,7 @@ import model.Commission;
  * @author mily
  */
 public interface CommissionController {
-    default public String createComission(Boolean status, int furniture, int quantity, String branch){
+    default public String createComission(boolean status, int furniture, int quantity, String branch){
         Commission commission = new Commission(status,furniture,quantity,branch);
         return commission.store(Controller.database);
     }

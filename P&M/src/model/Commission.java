@@ -6,7 +6,12 @@
 package model;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -85,6 +90,44 @@ public class Commission {
         }catch(Exception e){
             e.printStackTrace();
             return "Error: la orden de trabajo no pudo ser adicionada";
+        }
+    }
+    
+    public List<Map<String, String>> listCommissions(Database database, boolean completed){
+        try {
+            
+            PreparedStatement stmt = database.getStatement("SELECT * FROM commission WHERE status="+String.valueOf(completed));
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("order_id", String.valueOf(rs.getInt("order_id")));
+                result.put("furniture_id", rs.getString("furniture_id"));
+                result.put("quantity", rs.getString("quantity"));
+                result.put("branch", rs.getString("branch"));
+                
+                
+                PreparedStatement stmtFurnitureName = database.getStatement("SELECT * FROM catalog WHERE furniture_id="+rs.getString("furniture_id"));
+                
+                ResultSet rsFurnitureName = stmtFurnitureName.executeQuery();
+                
+                if(!rsFurnitureName.next()){
+                    return results;
+                }
+                result.put ("name", rsFurnitureName.getString("name"));
+                
+                results.add(result);
+            }
+            
+            return results;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     

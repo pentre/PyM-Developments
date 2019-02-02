@@ -65,7 +65,7 @@ public class Branch {
             stmt.setString(1, name_);
             stmt.setString(2, city_);
             stmt.setString(3, address_);
-            stmt.setBoolean(5, active_);
+            stmt.setBoolean(4, active_);
 
             if (stmt.executeUpdate() == 1) {
                 return "Sede adicionada exitosamente";

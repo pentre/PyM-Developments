@@ -58,6 +58,8 @@ public class ListCatalog extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setEnabled(false);
+
         catalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -85,6 +87,7 @@ public class ListCatalog extends javax.swing.JFrame {
             }
         });
         catalogTable.setCellSelectionEnabled(true);
+        catalogTable.setEnabled(false);
         jScrollPane1.setViewportView(catalogTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

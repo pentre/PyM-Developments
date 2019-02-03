@@ -32,6 +32,10 @@ public class ForemanMenu extends javax.swing.JFrame {
         titleLabel = new javax.swing.JLabel();
         addCommissionButton = new javax.swing.JButton();
         addFurnitureButton = new javax.swing.JButton();
+        searchCommissionButton = new javax.swing.JButton();
+        listCatalogButton = new javax.swing.JButton();
+        searchFurniture = new javax.swing.JButton();
+        modifyFurnitureButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +55,34 @@ public class ForemanMenu extends javax.swing.JFrame {
             }
         });
 
+        searchCommissionButton.setText("Consultar orden");
+        searchCommissionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCommissionButtonActionPerformed(evt);
+            }
+        });
+
+        listCatalogButton.setText("Consultar Catálogo");
+        listCatalogButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listCatalogButtonActionPerformed(evt);
+            }
+        });
+
+        searchFurniture.setText("Consultar Mueble");
+        searchFurniture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFurnitureActionPerformed(evt);
+            }
+        });
+
+        modifyFurnitureButton.setText("Modificar Mueble");
+        modifyFurnitureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyFurnitureButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -60,7 +92,11 @@ public class ForemanMenu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(titleLabel)
                     .addComponent(addFurnitureButton)
-                    .addComponent(addCommissionButton))
+                    .addComponent(addCommissionButton)
+                    .addComponent(searchCommissionButton)
+                    .addComponent(listCatalogButton)
+                    .addComponent(searchFurniture)
+                    .addComponent(modifyFurnitureButton))
                 .addGap(67, 67, 67))
         );
         jPanel1Layout.setVerticalGroup(
@@ -72,7 +108,15 @@ public class ForemanMenu extends javax.swing.JFrame {
                 .addComponent(addCommissionButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addFurnitureButton)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchCommissionButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(listCatalogButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchFurniture)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(modifyFurnitureButton)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,11 +145,40 @@ public class ForemanMenu extends javax.swing.JFrame {
         addMenu.setVisible(true);
     }//GEN-LAST:event_addFurnitureButtonActionPerformed
 
+    private void searchCommissionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCommissionButtonActionPerformed
+        SearchCommissions searchMenu = new SearchCommissions(controller_);
+        searchMenu.setLocationRelativeTo(null);
+        searchMenu.setVisible(true);
+    }//GEN-LAST:event_searchCommissionButtonActionPerformed
+
+    private void listCatalogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listCatalogButtonActionPerformed
+        ListCatalog searchMenu = new ListCatalog(controller_);
+        searchMenu.setLocationRelativeTo(null);
+        searchMenu.setVisible(true);
+        
+    }//GEN-LAST:event_listCatalogButtonActionPerformed
+
+    private void searchFurnitureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFurnitureActionPerformed
+        SearchFurniture searchMenu = new SearchFurniture(controller_);
+        searchMenu.setLocationRelativeTo(null);
+        searchMenu.setVisible(true);
+    }//GEN-LAST:event_searchFurnitureActionPerformed
+
+    private void modifyFurnitureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyFurnitureButtonActionPerformed
+        ModifyFurniture modifyMenu = new ModifyFurniture(controller_);
+        modifyMenu.setLocationRelativeTo(null);
+        modifyMenu.setVisible(true);                                  
+    }//GEN-LAST:event_modifyFurnitureButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCommissionButton;
     private javax.swing.JButton addFurnitureButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton listCatalogButton;
+    private javax.swing.JButton modifyFurnitureButton;
+    private javax.swing.JButton searchCommissionButton;
+    private javax.swing.JButton searchFurniture;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

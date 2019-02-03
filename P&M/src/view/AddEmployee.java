@@ -254,7 +254,7 @@ public class AddEmployee extends javax.swing.JFrame {
 
     private void addManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addManagerButtonActionPerformed
 
-        if(idTextField.getText().isEmpty() || nameTextField.getText().isEmpty() || branchTextField.getText().isEmpty() || salaryTextField.getText().isEmpty() || phoneNumberTextField.getText().isEmpty() ||  new String(passwordField.getPassword()).isEmpty()){
+        if(idTextField.getText().isEmpty() || nameTextField.getText().isEmpty() || branchTextField.getText().isEmpty() || salaryTextField.getText().isEmpty() || phoneNumberTextField.getText().isEmpty() || chargeCombo.getSelectedItem() == "-" ||  new String(passwordField.getPassword()).isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor ingrese todos los datos.");
             return;
         }

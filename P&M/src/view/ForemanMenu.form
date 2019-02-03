@@ -44,6 +44,10 @@
                       <Component id="titleLabel" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="addFurnitureButton" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="addCommissionButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchCommissionButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="listCatalogButton" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchFurniture" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="modifyFurnitureButton" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
@@ -58,7 +62,15 @@
                   <Component id="addCommissionButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="addFurnitureButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="126" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="searchCommissionButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="listCatalogButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="searchFurniture" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="modifyFurnitureButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,6 +95,38 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addFurnitureButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="searchCommissionButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar orden"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchCommissionButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="listCatalogButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar Cat&#xe1;logo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listCatalogButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="searchFurniture">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar Mueble"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchFurnitureActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="modifyFurnitureButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modificar Mueble"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyFurnitureButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

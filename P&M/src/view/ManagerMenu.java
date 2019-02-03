@@ -37,6 +37,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         modifyEmployeeButton = new javax.swing.JButton();
         addBranchButton = new javax.swing.JButton();
         modifyBranchButton = new javax.swing.JButton();
+        listBranchesButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +57,7 @@ public class ManagerMenu extends javax.swing.JFrame {
             }
         });
 
-        searchButton.setText("Buscar");
+        searchButton.setText("Busca Empleado");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
@@ -84,6 +85,13 @@ public class ManagerMenu extends javax.swing.JFrame {
             }
         });
 
+        listBranchesButton.setText("Buscar Sede");
+        listBranchesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listBranchesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -100,7 +108,8 @@ public class ManagerMenu extends javax.swing.JFrame {
                     .addComponent(modifyEmployeeButton)
                     .addComponent(deleteButton)
                     .addComponent(addEmployeeButton)
-                    .addComponent(modifyBranchButton))
+                    .addComponent(modifyBranchButton)
+                    .addComponent(listBranchesButton))
                 .addGap(108, 108, 108))
         );
         backgroundPanelLayout.setVerticalGroup(
@@ -115,12 +124,14 @@ public class ManagerMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(searchButton)
                 .addGap(18, 18, 18)
+                .addComponent(listBranchesButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(modifyEmployeeButton)
                 .addGap(18, 18, 18)
                 .addComponent(modifyBranchButton)
                 .addGap(18, 18, 18)
                 .addComponent(deleteButton)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,12 +186,19 @@ public class ManagerMenu extends javax.swing.JFrame {
         modifyMenu.setVisible(true);
     }//GEN-LAST:event_modifyBranchButtonActionPerformed
 
+    private void listBranchesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBranchesButtonActionPerformed
+       ListBranches searchMenu = new ListBranches(controller_);
+       searchMenu.setLocationRelativeTo(null);
+       searchMenu.setVisible(true);
+    }//GEN-LAST:event_listBranchesButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBranchButton;
     private javax.swing.JButton addEmployeeButton;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JButton listBranchesButton;
     private javax.swing.JButton modifyBranchButton;
     private javax.swing.JButton modifyEmployeeButton;
     private javax.swing.JButton searchButton;

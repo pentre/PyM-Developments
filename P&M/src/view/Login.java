@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
         passwordLabel = new javax.swing.JLabel();
         passwordSeparator = new javax.swing.JSeparator();
-        kButton1 = new keeptoo.KButton();
+        loginButton = new keeptoo.KButton();
         kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,29 +93,29 @@ public class Login extends javax.swing.JFrame {
         passwordSeparator.setForeground(new java.awt.Color(255, 255, 255));
         kGradientPanel2.add(passwordSeparator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, -1));
 
-        kButton1.setBackground(new java.awt.Color(114, 137, 218));
-        kButton1.setBorder(null);
-        kButton1.setText("Iniciar Sesión");
-        kButton1.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
-        kButton1.setkAllowGradient(false);
-        kButton1.setkBackGroundColor(new java.awt.Color(114, 137, 218));
-        kButton1.setkEndColor(new java.awt.Color(114, 137, 218));
-        kButton1.setkHoverColor(new java.awt.Color(148, 169, 241));
-        kButton1.setkHoverEndColor(new java.awt.Color(148, 169, 241));
-        kButton1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        kButton1.setkHoverStartColor(new java.awt.Color(148, 169, 241));
-        kButton1.setkIndicatorColor(new java.awt.Color(114, 137, 218));
-        kButton1.setkIndicatorThickness(0);
-        kButton1.setkPressedColor(new java.awt.Color(95, 116, 188));
-        kButton1.setkSelectedColor(new java.awt.Color(95, 116, 188));
-        kButton1.setkStartColor(new java.awt.Color(114, 137, 218));
-        kButton1.setOpaque(false);
-        kButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setBackground(new java.awt.Color(114, 137, 218));
+        loginButton.setBorder(null);
+        loginButton.setText("Iniciar Sesión");
+        loginButton.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
+        loginButton.setkAllowGradient(false);
+        loginButton.setkBackGroundColor(new java.awt.Color(114, 137, 218));
+        loginButton.setkEndColor(new java.awt.Color(114, 137, 218));
+        loginButton.setkHoverColor(new java.awt.Color(148, 169, 241));
+        loginButton.setkHoverEndColor(new java.awt.Color(148, 169, 241));
+        loginButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        loginButton.setkHoverStartColor(new java.awt.Color(148, 169, 241));
+        loginButton.setkIndicatorColor(new java.awt.Color(114, 137, 218));
+        loginButton.setkIndicatorThickness(0);
+        loginButton.setkPressedColor(new java.awt.Color(95, 116, 188));
+        loginButton.setkSelectedColor(new java.awt.Color(95, 116, 188));
+        loginButton.setkStartColor(new java.awt.Color(114, 137, 218));
+        loginButton.setOpaque(false);
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton1ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(kButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 140, 40));
+        kGradientPanel2.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 140, 40));
 
         loginBackground.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 360, 330));
 
@@ -145,7 +145,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userTextFieldActionPerformed
 
-    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
                 validateInput();
 
         String user = userTextField.getText();
@@ -159,7 +159,7 @@ public class Login extends javax.swing.JFrame {
         }
 
         selectMenu(message);
-    }//GEN-LAST:event_kButton1ActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     private void selectMenu(String type){
         switch(type){
@@ -242,10 +242,10 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private keeptoo.KButton kButton1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JPanel loginBackground;
+    private keeptoo.KButton loginButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JSeparator passwordSeparator;

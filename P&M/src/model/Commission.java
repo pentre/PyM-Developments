@@ -108,11 +108,15 @@ public class Commission {
                 result.put("quantity", rs.getString("quantity"));
                 result.put("branch", rs.getString("branch"));
                 
-                if (rs.getBoolean("status")){
-                    result.put("status", "Terminado");
-                } else{
-                    result.put("status", "Pendiente");
+                
+                PreparedStatement stmtFurnitureName = database.getStatement("SELECT * FROM catalog WHERE furniture_id="+rs.getString("furniture_id"));
+                
+                ResultSet rsFurnitureName = stmtFurnitureName.executeQuery();
+                
+                if(!rsFurnitureName.next()){
+                    return results;
                 }
+                result.put ("name", rsFurnitureName.getString("name"));
                 
                 results.add(result);
             }

@@ -67,7 +67,7 @@ public class SearchCommissions extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id de la orden", "Estado", "Id del mueble", "Cantidad", "Sede"
+                "Id de la orden", "Nombre del mueble", "Id del mueble", "Cantidad", "Sede"
             }
         ));
         dataTable.setEnabled(false);
@@ -89,14 +89,14 @@ public class SearchCommissions extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(finishedCommission)
                     .addComponent(pendingCommission, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(0, 338, Short.MAX_VALUE))
+                .addGap(0, 514, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(search)
                 .addGap(109, 109, 109))
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,8 +109,8 @@ public class SearchCommissions extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pendingCommission)
                 .addGap(33, 33, 33)
-                .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,7 +126,7 @@ public class SearchCommissions extends javax.swing.JFrame {
             results = controller_.searchCommissions(false);
         }
         
-        Object[] columnNames = { "Id de la orden", "Estado", "Id del mueble", "Cantidad", "Sede"};
+        Object[] columnNames = { "Id de la orden", "Nombre del mueble", "Id del mueble", "Cantidad", "Sede"};
         DefaultTableModel model = new DefaultTableModel(columnNames,0);
         
         if(results.isEmpty()) {
@@ -138,7 +138,7 @@ public class SearchCommissions extends javax.swing.JFrame {
         for(int i=0; i<results.size(); i++) {
             Object[] row = {
                 results.get(i).get("order_id"),
-                results.get(i).get("status"),
+                results.get(i).get("name"),
                 results.get(i).get("furniture_id"),
                 results.get(i).get("quantity"),
                 results.get(i).get("branch")

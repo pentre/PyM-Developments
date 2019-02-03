@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Furniture {
 
-    private String id_;
+    private int id_;
     private String name_;
     private float price_;
     private String material_;
@@ -27,7 +25,8 @@ public class Furniture {
     private String color_;
     private boolean active_;
 
-    public Furniture(String name, float price, String material, float weight, String color) {
+    public Furniture(int id, String name, float price, String material, float weight, String color) {
+        id_ = id;
         name_ = name;
         price_ = price;
         material_ = material;
@@ -37,7 +36,7 @@ public class Furniture {
 
     }
 
-    public String getId() {
+    public int getId() {
         return id_;
     }
 
@@ -65,7 +64,7 @@ public class Furniture {
         return active_;
     }
 
-    public void setId(String id_) {
+    public void setId(int id_) {
         this.id_ = id_;
     }
 
@@ -127,6 +126,115 @@ public class Furniture {
             }
             return results;
         }catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public boolean searchActive(Database database) {
+        try {            
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE furniture_id = ? AND active = true");
+            stmt.setInt(1, id_);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+                      
+            name_ = rs.getString("name");
+            price_ = rs.getFloat("price");
+            material_ = rs.getString("material");
+            weight_ = rs.getFloat("weight");
+            color_ = rs.getString("color");            
+                        
+            return true;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public String update(Database database) {
+        try {
+            PreparedStatement stmt = database.getStatement("UPDATE catalog SET name = ? , price = ? , material = ? , weight = ? , color = ? WHERE furniture_id = ? AND active = true");
+
+            stmt.setString(1, name_);
+            stmt.setFloat(2, price_);
+            stmt.setString(3, material_);
+            stmt.setFloat(4, weight_);
+            stmt.setString(5, color_);           
+            stmt.setInt(6, id_);
+            
+            int result = stmt.executeUpdate();
+
+            if (result == 0) {
+                return "Error: mueble no encontrado";
+            }
+
+            return "Catálogo actualizado exitosamente";
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error: no fue posible actualizar el catálogo";
+        }
+    }
+    
+    public boolean searchAll(Database database) {
+        try {            
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE furniture_id = ?");
+            stmt.setInt(1, id_);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+                      
+            name_ = rs.getString("name");
+            price_ = rs.getFloat("price");
+            material_ = rs.getString("material");
+            weight_ = rs.getFloat("weight");
+            color_ = rs.getString("color");   
+            active_ = rs.getBoolean("active");
+                        
+            return true;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public List<Map<String, String>> listCatalog(Database database){
+        try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE active = ?");
+            stmt.setBoolean(1, active_);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("id", rs.getString("furniture_id"));
+                result.put("name", rs.getString("name"));
+                result.put("price", Float.toString(rs.getFloat("price")));
+                result.put("material", rs.getString("material"));
+                result.put("weight", Float.toString(rs.getFloat("weight")));
+                result.put("color", rs.getString("color"));
+                
+                results.add(result);
+            }
+            
+            return results;
+            
+        } catch(SQLException e) {
             e.printStackTrace();
             return null;
         } catch(Exception e) {

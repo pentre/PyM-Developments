@@ -27,11 +27,11 @@ public interface FurnitureController {
         return furniture.listFurniture(Controller.database);
     }
     
-    default public Map <String, String> getFurnitureInfo (int id){
+    default public Map <String, String> getActiveFurnitureInfo (int id){
         Furniture furniture = new Furniture(id, "", 0, "", 0, "");
         Map <String, String>listFurniture = new HashMap<>();
         
-        if(!furniture.search(Controller.database)){
+        if(!furniture.searchActive(Controller.database)){
             return listFurniture;
         }
   
@@ -43,9 +43,37 @@ public interface FurnitureController {
         return listFurniture;
     }
     
+    default public String getFurnitureInfo (int id){
+        Furniture furniture = new Furniture(id, "", 0, "", 0, "");
+                
+        if(!furniture.searchAll(Controller.database)){
+            return "";
+        }
+        
+        String message = "Referencia: " + Integer.toString(furniture.getId()) + 
+                "\nNombre: " + furniture.getName() + "\nPrecio: " + 
+                Float.toString(furniture.getPrice()) + "\nMaterial: " + furniture.getMaterial() +
+                "\nColor: " + furniture.getColor() + "\nPeso: " + Float.toString(furniture.getWeight())
+                + "\nEstado: ";
+
+        if(furniture.isActive()) {
+            message += "Modelo disponible";
+        } else {
+            message += "Modelo descontinuado";
+        }
+        
+        return message;
+    }
+    
     default public String updateFurniture(int id, String name, float price, String material, float weight, String color){
         Furniture furniture = new Furniture(id, name, price, material, weight, color);
         
         return furniture.update(Controller.database);
+    }
+    
+    default public List<Map<String, String>> listCatalog(boolean active){
+        Furniture furniture = new Furniture(0, "", 0, "", 0, "");
+        furniture.setActive(active);
+        return furniture.listCatalog(Controller.database);
     }
 }

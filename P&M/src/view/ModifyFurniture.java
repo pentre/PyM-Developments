@@ -243,7 +243,7 @@ public class ModifyFurniture extends javax.swing.JFrame {
         }
         int id = Integer.parseInt(idTextField.getText());
         
-        Map <String, String>infoFurniture = controller_.getFurnitureInfo(id);
+        Map <String, String>infoFurniture = controller_.getActiveFurnitureInfo(id);
         
         if (infoFurniture.isEmpty()){
             JOptionPane.showMessageDialog(this,"No existe un mueble con esa id");  

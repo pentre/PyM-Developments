@@ -7,7 +7,9 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -132,7 +134,7 @@ public class Furniture {
         }
     }
     
-    public boolean search(Database database) {
+    public boolean searchActive(Database database) {
         try {            
             PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE furniture_id = ? AND active = true");
             stmt.setInt(1, id_);
@@ -180,6 +182,64 @@ public class Furniture {
         } catch (Exception e) {
             e.printStackTrace();
             return "Error: no fue posible actualizar el catálogo";
+        }
+    }
+    
+    public boolean searchAll(Database database) {
+        try {            
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE furniture_id = ?");
+            stmt.setInt(1, id_);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+                      
+            name_ = rs.getString("name");
+            price_ = rs.getFloat("price");
+            material_ = rs.getString("material");
+            weight_ = rs.getFloat("weight");
+            color_ = rs.getString("color");   
+            active_ = rs.getBoolean("active");
+                        
+            return true;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public List<Map<String, String>> listCatalog(Database database){
+        try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE active = ?");
+            stmt.setBoolean(1, active_);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("id", rs.getString("furniture_id"));
+                result.put("name", rs.getString("name"));
+                result.put("price", Float.toString(rs.getFloat("price")));
+                result.put("material", rs.getString("material"));
+                result.put("weight", Float.toString(rs.getFloat("weight")));
+                result.put("color", rs.getString("color"));
+                
+                results.add(result);
+            }
+            
+            return results;
+            
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

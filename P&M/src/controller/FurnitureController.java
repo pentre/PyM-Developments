@@ -5,8 +5,10 @@
  */
 package controller;
 
+import java.util.HashMap;
 import model.Furniture;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -15,13 +17,35 @@ import java.util.List;
 public interface FurnitureController {
    
     default public String createFurniture(String name, float price, String material, float weight, String color){
-        Furniture furniture = new Furniture(name, price, material, weight, color);
+        Furniture furniture = new Furniture(0, name, price, material, weight, color);
         
         return furniture.store(Controller.database);
     }
  
     default public List<String> listFurniture(){
-        Furniture furniture = new Furniture("",0,"",0,"");
+        Furniture furniture = new Furniture(0, "",0,"",0,"");
         return furniture.listFurniture(Controller.database);
+    }
+    
+    default public Map <String, String> getFurnitureInfo (int id){
+        Furniture furniture = new Furniture(id, "", 0, "", 0, "");
+        Map <String, String>listFurniture = new HashMap<>();
+        
+        if(!furniture.search(Controller.database)){
+            return listFurniture;
+        }
+  
+        listFurniture.put("name", furniture.getName());
+        listFurniture.put("price", Float.toString(furniture.getPrice()));
+        listFurniture.put("material", furniture.getMaterial());
+        listFurniture.put("color", furniture.getColor());  
+        listFurniture.put("weight", Float.toString(furniture.getWeight()));      
+        return listFurniture;
+    }
+    
+    default public String updateFurniture(int id, String name, float price, String material, float weight, String color){
+        Furniture furniture = new Furniture(id, name, price, material, weight, color);
+        
+        return furniture.update(Controller.database);
     }
 }

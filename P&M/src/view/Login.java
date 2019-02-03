@@ -7,9 +7,10 @@ package view;
 
 import javax.swing.JOptionPane;
 import controller.Controller;
-
+import java.awt.Image;
+import javax.swing.ImageIcon;
 /**
- *
+ * 
  * @author jose
  */
 
@@ -33,77 +34,109 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background_panel = new javax.swing.JPanel();
+        loginBackground = new javax.swing.JPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
         userTextField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JPasswordField();
         userLabel = new javax.swing.JLabel();
+        userSeparator = new javax.swing.JSeparator();
+        passwordField = new javax.swing.JPasswordField();
         passwordLabel = new javax.swing.JLabel();
-        loginButton = new javax.swing.JButton();
+        passwordSeparator = new javax.swing.JSeparator();
+        kButton1 = new keeptoo.KButton();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(35, 39, 42));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        loginBackground.setBackground(new java.awt.Color(35, 39, 42));
+        loginBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kGradientPanel2.setkBorderRadius(30);
+        kGradientPanel2.setkEndColor(new java.awt.Color(44, 47, 51));
+        kGradientPanel2.setkStartColor(new java.awt.Color(44, 47, 51));
+        kGradientPanel2.setOpaque(false);
+        kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userTextField.setBackground(new java.awt.Color(44, 47, 51));
+        userTextField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
+        userTextField.setForeground(new java.awt.Color(255, 255, 255));
+        userTextField.setBorder(null);
         userTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTextFieldActionPerformed(evt);
             }
         });
+        kGradientPanel2.add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 290, 20));
 
+        userLabel.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
+        userLabel.setForeground(new java.awt.Color(255, 255, 255));
         userLabel.setText("Usuario");
+        kGradientPanel2.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 30));
 
+        userSeparator.setBackground(new java.awt.Color(255, 255, 255));
+        userSeparator.setForeground(new java.awt.Color(255, 255, 255));
+        kGradientPanel2.add(userSeparator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 290, -1));
+
+        passwordField.setBackground(new java.awt.Color(44, 47, 51));
+        passwordField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
+        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setBorder(null);
+        kGradientPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 290, 20));
+
+        passwordLabel.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Contraseña");
+        kGradientPanel2.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        loginButton.setText("Iniciar Sesión");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
+        passwordSeparator.setBackground(new java.awt.Color(255, 255, 255));
+        passwordSeparator.setForeground(new java.awt.Color(255, 255, 255));
+        kGradientPanel2.add(passwordSeparator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, -1));
+
+        kButton1.setBackground(new java.awt.Color(114, 137, 218));
+        kButton1.setBorder(null);
+        kButton1.setText("Iniciar Sesión");
+        kButton1.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
+        kButton1.setkAllowGradient(false);
+        kButton1.setkBackGroundColor(new java.awt.Color(114, 137, 218));
+        kButton1.setkEndColor(new java.awt.Color(114, 137, 218));
+        kButton1.setkHoverColor(new java.awt.Color(148, 169, 241));
+        kButton1.setkHoverEndColor(new java.awt.Color(148, 169, 241));
+        kButton1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kButton1.setkHoverStartColor(new java.awt.Color(148, 169, 241));
+        kButton1.setkIndicatorColor(new java.awt.Color(114, 137, 218));
+        kButton1.setkIndicatorThickness(0);
+        kButton1.setkPressedColor(new java.awt.Color(95, 116, 188));
+        kButton1.setkSelectedColor(new java.awt.Color(95, 116, 188));
+        kButton1.setkStartColor(new java.awt.Color(114, 137, 218));
+        kButton1.setOpaque(false);
+        kButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
+                kButton1ActionPerformed(evt);
             }
         });
+        kGradientPanel2.add(kButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 140, 40));
 
-        javax.swing.GroupLayout background_panelLayout = new javax.swing.GroupLayout(background_panel);
-        background_panel.setLayout(background_panelLayout);
-        background_panelLayout.setHorizontalGroup(
-            background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background_panelLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userLabel)
-                    .addComponent(passwordLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userTextField)
-                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
-                .addGap(64, 64, 64))
-            .addGroup(background_panelLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(loginButton)
-                .addContainerGap(141, Short.MAX_VALUE))
+        loginBackground.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 360, 330));
+
+        getContentPane().add(loginBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 0, 439, 420));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(37, 51, 101));
+        kGradientPanel1.setkGradientFocus(100);
+        kGradientPanel1.setkStartColor(new java.awt.Color(114, 137, 218));
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
-        background_panelLayout.setVerticalGroup(
-            background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(background_panelLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userLabel)
-                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(background_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordLabel)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(loginButton)
-                .addGap(32, 32, 32))
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,6 +144,22 @@ public class Login extends javax.swing.JFrame {
     private void userTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userTextFieldActionPerformed
+
+    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+                validateInput();
+
+        String user = userTextField.getText();
+        String password = new String(passwordField.getPassword());
+
+        String message = controller_.login(user, password);
+
+        if(message.contains("Error")){
+            JOptionPane.showMessageDialog(this, message);
+            return;
+        }
+
+        selectMenu(message);
+    }//GEN-LAST:event_kButton1ActionPerformed
 
     private void selectMenu(String type){
         switch(type){
@@ -159,22 +208,6 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        validateInput();
-        
-        String user = userTextField.getText();
-        String password = new String(passwordField.getPassword());
-        
-        String message = controller_.login(user, password);
-
-        if(message.contains("Error")){
-            JOptionPane.showMessageDialog(this, message);
-            return;
-        }
-        
-        selectMenu(message);  
-    }//GEN-LAST:event_loginButtonActionPerformed
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -209,11 +242,15 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background_panel;
-    private javax.swing.JButton loginButton;
+    private keeptoo.KButton kButton1;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JPanel loginBackground;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JSeparator passwordSeparator;
     private javax.swing.JLabel userLabel;
+    private javax.swing.JSeparator userSeparator;
     private javax.swing.JTextField userTextField;
     // End of variables declaration//GEN-END:variables
 }

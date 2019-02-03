@@ -7,7 +7,9 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -145,4 +147,32 @@ public class Branch {
             return null;
         }
     }
+    
+    public List<Map<String, String>> tableBranches(Database database, boolean active){
+            try {
+            
+            PreparedStatement stmt = database.getStatement("SELECT * FROM branch WHERE active="+String.valueOf(active));
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("name", rs.getString("name"));
+                result.put("city", rs.getString("city"));
+                result.put("address", rs.getString("address"));
+                
+                results.add(result);
+            }
+            
+            return results;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
 }

@@ -43,4 +43,9 @@ public interface BranchController {
         Branch branch = new Branch("","","");
         return branch.listBranches(Controller.database);
     }
+    
+    default public List<Map<String, String>> tableBranches(boolean active){
+        Branch branch = new Branch("","","");
+        return branch.tableBranches(Controller.database, active);
+    }
 }

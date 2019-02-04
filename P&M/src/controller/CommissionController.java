@@ -48,7 +48,6 @@ public interface CommissionController {
     public default String updateCommission(String order_id, boolean status) {
         Commission commission = new Commission(status, 0, 0, "");
         commission.setId_(order_id);
-        //Inserta aqui el codigo camilin 
         return commission.update(Controller.database);
     }
 }

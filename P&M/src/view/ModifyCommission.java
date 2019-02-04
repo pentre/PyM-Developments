@@ -223,6 +223,8 @@ public class ModifyCommission extends javax.swing.JFrame {
         if (status.equals("Terminado")) {
             String mensaje = controller_.updateCommission(order_id, true);
             JOptionPane.showMessageDialog(this, mensaje, "Atención", JOptionPane.INFORMATION_MESSAGE);
+            
+            
 
             this.StatusComboBox.setEnabled(false);
             this.UpdateOrderButton.setEnabled(false);

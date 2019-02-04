@@ -97,15 +97,15 @@ public class Commission {
 
     public boolean search(Database database, String orderNumber) {
         try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM commision WHERE id = ?");
-            stmt.setString(1, orderNumber);
+            PreparedStatement stmt = database.getStatement("SELECT * FROM commission WHERE order_id = ?;");
+            stmt.setInt(1, Integer.parseInt(orderNumber));
 
             ResultSet rs = stmt.executeQuery();
             if (!rs.next()) {
                 return false;
             }
 
-            id_ = rs.getString("order_id");
+            id_ = Integer.toString(rs.getInt("order_id"));
             quantity_ = rs.getInt("quantity");
             branch_ = rs.getString("branch");
             status_ = rs.getBoolean("status");
@@ -124,8 +124,9 @@ public class Commission {
     
     public String update(Database database){
         try {
-            PreparedStatement stmt = database.getStatement("UPDATE commission SET status = ?, WHERE order_id="+id_);
+            PreparedStatement stmt = database.getStatement("UPDATE commission SET status = ? WHERE order_id = ?");
             stmt.setBoolean(1, status_);
+            stmt.setInt(2, Integer.parseInt(id_));
             
             int result = stmt.executeUpdate();
             

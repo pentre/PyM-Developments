@@ -28,12 +28,13 @@ public interface CommissionController {
 
     default public Map<String, String> getCommissionInfo(String order_id) {
         Commission commission = new Commission(true, 0, 0, "");
-        Map<String, String> commissionInfo = null;
-        if (commission.search(Controller.database, order_id)) {
-            return commissionInfo;
+        Map<String, String> commissionInfo = new HashMap<>();
+        if (!commission.search(Controller.database, order_id)) {
+            
+            return null;
 
         } else {
-            commissionInfo = new HashMap<>();
+            
             commissionInfo.put("order_id", commission.getId_());
             commissionInfo.put("status", Boolean.toString(commission.getStatus_()));
             commissionInfo.put("quantity", Integer.toString(commission.getQuantity_()));

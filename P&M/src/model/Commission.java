@@ -91,7 +91,32 @@ public class Commission {
             e.printStackTrace();
             return "Error: la orden de trabajo no pudo ser adicionada";
         }
+        
     }
+        public boolean search(Database database, String orderNumber){
+            try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM commision WHERE id = ?");
+            stmt.setString(1, orderNumber);
+
+            ResultSet rs = stmt.executeQuery();
+            if (!rs.next()) {
+                return false;
+            }
+
+            id_ = rs.getString("order_id");
+            status_ = rs.getBoolean("status");
+            furniture_ = rs.getInt("furniture_id");
+           
+            return true;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        }
     
     public List<Map<String, String>> listCommissions(Database database, boolean completed){
         try {

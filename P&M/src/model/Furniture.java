@@ -242,5 +242,28 @@ public class Furniture {
             return null;
         }
     }
+    
+    public String deleteFurniture(Database database, int id){
+        PreparedStatement stmt;
+        try {
+            stmt = database.getStatement("UPDATE catalog SET active = false WHERE furniture_id = ? AND active != false");
+            stmt.setInt(1, id);
+
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                return "Error: diseño no encontrado";
+            }
+            
+            return "Diseño eliminado correctamente";
+        }  catch(SQLException e) {
+            e.printStackTrace();
+            return "Error: un problema en el servidor impidió el proceso";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Error: el diseño no pudo ser eliminado";
+        }
+    }
+
 
 }

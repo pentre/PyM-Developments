@@ -76,4 +76,9 @@ public interface FurnitureController {
         furniture.setActive(active);
         return furniture.listCatalog(Controller.database);
     }
+    
+    default public String deleteFurniture(int id){
+        Furniture furniture = new Furniture(0,"",0,"",0,"");
+        return furniture.deleteFurniture(Controller.database, id);
+    }
 }

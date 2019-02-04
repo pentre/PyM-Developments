@@ -52,6 +52,12 @@ public class ModifyCommission extends javax.swing.JFrame {
 
         OrderIdLabel.setText("Numero de orden");
 
+        OrderIdTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                OrderIdTextFieldKeyTyped(evt);
+            }
+        });
+
         LoadOrderInfoButton.setText("Cargar datos");
         LoadOrderInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +164,7 @@ public class ModifyCommission extends javax.swing.JFrame {
                 this.UpdateOrderButton.setEnabled(true);
                 this.LoadOrderInfoButton.setEnabled(false);
                 this.OrderIdTextField.setEnabled(false);
-                
+
                 String commissionStatus = commissionInfo.get("status");
 
                 switch (commissionStatus) {
@@ -182,45 +188,33 @@ public class ModifyCommission extends javax.swing.JFrame {
         if (status.equals("Terminado")) {
             String mensaje = controller_.updateCommission(order_id, true);
             JOptionPane.showMessageDialog(this, mensaje, "Atención", JOptionPane.INFORMATION_MESSAGE);
+
+            this.StatusComboBox.setEnabled(false);
+            this.UpdateOrderButton.setEnabled(false);
+            this.LoadOrderInfoButton.setEnabled(true);
+            this.OrderIdTextField.setEnabled(true);
+
         } else {
             String mensaje = controller_.updateCommission(order_id, false);
             JOptionPane.showMessageDialog(this, mensaje, "Atención", JOptionPane.INFORMATION_MESSAGE);
+
+            this.StatusComboBox.setEnabled(false);
+            this.UpdateOrderButton.setEnabled(false);
+            this.LoadOrderInfoButton.setEnabled(true);
+            this.OrderIdTextField.setEnabled(true);
         }
     }//GEN-LAST:event_UpdateOrderButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModifyCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModifyCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModifyCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModifyCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void OrderIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OrderIdTextFieldKeyTyped
+        validateNumber(evt);
+    }//GEN-LAST:event_OrderIdTextFieldKeyTyped
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModifyCommission(new Controller()).setVisible(true);
-            }
-        });
+    //This function validates that all typed keys are numbers
+    private void validateNumber(java.awt.event.KeyEvent evt) {
+        char inputChar = evt.getKeyChar();
+        if (!(Character.isDigit(inputChar))) {
+            evt.consume();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

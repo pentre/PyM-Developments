@@ -23,11 +23,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="InfoUpdatePanel" max="32767" attributes="0"/>
-                  <Component id="InfoLoadPanel" max="32767" attributes="0"/>
+                  <Component id="InfoLoadPanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="InfoUpdatePanel" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -38,9 +38,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="InfoLoadPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="InfoUpdatePanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="InfoUpdatePanel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -120,27 +120,47 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="StatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="StatusComboBox" min="-2" pref="121" max="-2" attributes="0"/>
-                      <Component id="UpdateOrderButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="BranchTextField" pref="121" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="QuantityTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="StatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="StatusComboBox" alignment="0" pref="121" max="32767" attributes="0"/>
+                          <Component id="UpdateOrderButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="FurnitureIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="QuantityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="BranchLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="FurnitureIdTextField" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="FurnitureIdLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  <Component id="FurnitureIdTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="QuantityLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="QuantityTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="BranchLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="BranchTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="StatusLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="StatusComboBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="UpdateOrderButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -171,6 +191,30 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateOrderButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="FurnitureIdLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Codigo mueble"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="QuantityLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cantidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="BranchLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sede"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="FurnitureIdTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FurnitureIdTextFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="QuantityTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="BranchTextField">
         </Component>
       </SubComponents>
     </Container>

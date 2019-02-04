@@ -38,7 +38,7 @@ public interface CommissionController {
             commissionInfo.put("order_id", commission.getId_());
             commissionInfo.put("status", Boolean.toString(commission.getStatus_()));
             commissionInfo.put("quantity", Integer.toString(commission.getQuantity_()));
-            commissionInfo.put("furniture", Integer.toString(commission.getFurniture_()));
+            commissionInfo.put("furniture_id", Integer.toString(commission.getFurniture_()));
             commissionInfo.put("branch", commission.getBranch_());
             return commissionInfo;
 
@@ -48,6 +48,7 @@ public interface CommissionController {
     public default String updateCommission(String order_id, boolean status) {
         Commission commission = new Commission(status, 0, 0, "");
         commission.setId_(order_id);
+        //Inserta aqui el codigo camilin 
         return commission.update(Controller.database);
     }
 }

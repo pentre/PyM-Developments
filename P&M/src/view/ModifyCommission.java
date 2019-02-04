@@ -25,6 +25,10 @@ public class ModifyCommission extends javax.swing.JFrame {
         initComponents();
         this.StatusComboBox.setEnabled(false);
         this.UpdateOrderButton.setEnabled(false);
+        this.BranchTextField.setEditable(false);
+        this.QuantityTextField.setEditable(false);
+        this.FurnitureIdTextField.setEditable(false);
+        this.StatusComboBox.setSelectedIndex(1);
 
     }
 
@@ -45,6 +49,12 @@ public class ModifyCommission extends javax.swing.JFrame {
         StatusLabel = new javax.swing.JLabel();
         StatusComboBox = new javax.swing.JComboBox<>();
         UpdateOrderButton = new javax.swing.JButton();
+        FurnitureIdLabel = new javax.swing.JLabel();
+        QuantityLabel = new javax.swing.JLabel();
+        BranchLabel = new javax.swing.JLabel();
+        FurnitureIdTextField = new javax.swing.JTextField();
+        QuantityTextField = new javax.swing.JTextField();
+        BranchTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,28 +112,59 @@ public class ModifyCommission extends javax.swing.JFrame {
             }
         });
 
+        FurnitureIdLabel.setText("Codigo mueble");
+
+        QuantityLabel.setText("Cantidad");
+
+        BranchLabel.setText("Sede");
+
+        FurnitureIdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FurnitureIdTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InfoUpdatePanelLayout = new javax.swing.GroupLayout(InfoUpdatePanel);
         InfoUpdatePanel.setLayout(InfoUpdatePanelLayout);
         InfoUpdatePanelLayout.setHorizontalGroup(
             InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoUpdatePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(StatusLabel)
-                    .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UpdateOrderButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(BranchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(QuantityTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(StatusLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
+                        .addComponent(UpdateOrderButton, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(FurnitureIdLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(QuantityLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BranchLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         InfoUpdatePanelLayout.setVerticalGroup(
             InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoUpdatePanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoUpdatePanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(FurnitureIdLabel)
+                .addGap(3, 3, 3)
+                .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(QuantityLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(QuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BranchLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BranchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StatusLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UpdateOrderButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,8 +174,8 @@ public class ModifyCommission extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InfoUpdatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InfoLoadPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(InfoLoadPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InfoUpdatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -142,9 +183,9 @@ public class ModifyCommission extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(InfoLoadPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(InfoUpdatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(InfoUpdatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -165,17 +206,11 @@ public class ModifyCommission extends javax.swing.JFrame {
                 this.LoadOrderInfoButton.setEnabled(false);
                 this.OrderIdTextField.setEnabled(false);
 
-                String commissionStatus = commissionInfo.get("status");
-
-                switch (commissionStatus) {
-                    case "true":
-                        this.StatusComboBox.setSelectedIndex(0);
-                        break;
-
-                    case "false":
-                        this.StatusComboBox.setSelectedIndex(1);
-                        break;
-                }
+                this.FurnitureIdTextField.setText(commissionInfo.get("furniture_id"));
+                this.BranchTextField.setText(commissionInfo.get("branch"));
+                this.QuantityTextField.setText(commissionInfo.get("quantity"));
+                
+               
             }
         }
 
@@ -193,6 +228,10 @@ public class ModifyCommission extends javax.swing.JFrame {
             this.UpdateOrderButton.setEnabled(false);
             this.LoadOrderInfoButton.setEnabled(true);
             this.OrderIdTextField.setEnabled(true);
+            this.BranchTextField.setText("");
+            this.QuantityTextField.setText("");
+            this.FurnitureIdTextField.setText("");
+            
 
         } 
     }//GEN-LAST:event_UpdateOrderButtonActionPerformed
@@ -200,6 +239,10 @@ public class ModifyCommission extends javax.swing.JFrame {
     private void OrderIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OrderIdTextFieldKeyTyped
         validateNumber(evt);
     }//GEN-LAST:event_OrderIdTextFieldKeyTyped
+
+    private void FurnitureIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FurnitureIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FurnitureIdTextFieldActionPerformed
 
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
@@ -245,11 +288,17 @@ public class ModifyCommission extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BranchLabel;
+    private javax.swing.JTextField BranchTextField;
+    private javax.swing.JLabel FurnitureIdLabel;
+    private javax.swing.JTextField FurnitureIdTextField;
     private javax.swing.JPanel InfoLoadPanel;
     private javax.swing.JPanel InfoUpdatePanel;
     private javax.swing.JButton LoadOrderInfoButton;
     private javax.swing.JLabel OrderIdLabel;
     private javax.swing.JTextField OrderIdTextField;
+    private javax.swing.JLabel QuantityLabel;
+    private javax.swing.JTextField QuantityTextField;
     private javax.swing.JComboBox<String> StatusComboBox;
     private javax.swing.JLabel StatusLabel;
     private javax.swing.JButton UpdateOrderButton;

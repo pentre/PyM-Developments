@@ -89,5 +89,5 @@ CREATE TABLE commission
 
 
 INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
-INSERT INTO employee VALUES('admin', 'soph', 'Sede0', 'admin', 1234567, '12345678', true);
-INSERT INTO login VALUES('admin', '123');
+INSERT INTO employee VALUES('1', 'soph', 'Sede0', 'Administrador', 1234567, '12345678', true);
+INSERT INTO login VALUES('1', '123');

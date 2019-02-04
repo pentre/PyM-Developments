@@ -12,14 +12,14 @@ import javax.swing.JOptionPane;
  *
  * @author Luis
  */
-public class AddFurnitureToCatalog extends javax.swing.JFrame {
+public class AddFurniture extends javax.swing.JFrame {
 
     Controller controller_;
 
     /**
      * Creates new form AddFurniture
      */
-    public AddFurnitureToCatalog(Controller controller) {
+    public AddFurniture(Controller controller) {
         controller_ = controller;
         initComponents();
     }
@@ -39,12 +39,13 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
         MaterialLabel = new javax.swing.JLabel();
         WeightLabel = new javax.swing.JLabel();
         ColorLabel = new javax.swing.JLabel();
-        NameField = new javax.swing.JTextField();
-        PriceField = new javax.swing.JTextField();
-        MaterialField = new javax.swing.JTextField();
-        WeightField = new javax.swing.JTextField();
-        ColorField = new javax.swing.JTextField();
-        AddButton = new javax.swing.JButton();
+        nameField = new javax.swing.JTextField();
+        priceField = new javax.swing.JTextField();
+        materialField = new javax.swing.JTextField();
+        weightField = new javax.swing.JTextField();
+        colorField = new javax.swing.JTextField();
+        addButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,50 +59,57 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
 
         ColorLabel.setText("Color");
 
-        NameField.addActionListener(new java.awt.event.ActionListener() {
+        nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NameFieldActionPerformed(evt);
+                nameFieldActionPerformed(evt);
             }
         });
-        NameField.addKeyListener(new java.awt.event.KeyAdapter() {
+        nameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                NameFieldKeyTyped(evt);
+                nameFieldKeyTyped(evt);
             }
         });
 
-        PriceField.addActionListener(new java.awt.event.ActionListener() {
+        priceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PriceFieldActionPerformed(evt);
+                priceFieldActionPerformed(evt);
             }
         });
-        PriceField.addKeyListener(new java.awt.event.KeyAdapter() {
+        priceField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                PriceFieldKeyTyped(evt);
+                priceFieldKeyTyped(evt);
             }
         });
 
-        MaterialField.addKeyListener(new java.awt.event.KeyAdapter() {
+        materialField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                MaterialFieldKeyTyped(evt);
+                materialFieldKeyTyped(evt);
             }
         });
 
-        WeightField.addKeyListener(new java.awt.event.KeyAdapter() {
+        weightField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                WeightFieldKeyTyped(evt);
+                weightFieldKeyTyped(evt);
             }
         });
 
-        ColorField.addKeyListener(new java.awt.event.KeyAdapter() {
+        colorField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                ColorFieldKeyTyped(evt);
+                colorFieldKeyTyped(evt);
             }
         });
 
-        AddButton.setText("Agregar");
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
+        addButton.setText("Agregar");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonActionPerformed(evt);
+                addButtonActionPerformed(evt);
+            }
+        });
+
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -112,20 +120,23 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MaterialField)
+                    .addComponent(materialField)
+                    .addComponent(priceField)
+                    .addComponent(nameField)
+                    .addComponent(weightField)
+                    .addComponent(colorField)
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NameLabel)
                             .addComponent(PriceLabel)
                             .addComponent(MaterialLabel)
                             .addComponent(WeightLabel)
-                            .addComponent(ColorLabel)
-                            .addComponent(AddButton))
-                        .addGap(0, 46, Short.MAX_VALUE))
-                    .addComponent(PriceField)
-                    .addComponent(NameField)
-                    .addComponent(WeightField)
-                    .addComponent(ColorField))
+                            .addComponent(ColorLabel))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addComponent(addButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(cancelButton)))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
@@ -134,25 +145,27 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(NameLabel)
                 .addGap(2, 2, 2)
-                .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PriceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MaterialLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MaterialField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(materialField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(WeightLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(WeightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(weightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ColorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ColorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(colorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(AddButton)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -176,51 +189,57 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameFieldActionPerformed
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NameFieldActionPerformed
+    }//GEN-LAST:event_nameFieldActionPerformed
 
-    private void PriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceFieldActionPerformed
+    private void priceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PriceFieldActionPerformed
+    }//GEN-LAST:event_priceFieldActionPerformed
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        if (NameField.getText().isEmpty() || PriceField.getText().isEmpty() || MaterialField.getText().isEmpty() || WeightField.getText().isEmpty() || ColorField.getText().isEmpty()) {
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        if (nameField.getText().isEmpty() || priceField.getText().isEmpty() || materialField.getText().isEmpty() || weightField.getText().isEmpty() || colorField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Porfavor llene todos los campos", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
         }
 
-        String name = NameField.getText();
-        float price = Float.parseFloat(PriceField.getText());
-        String material = MaterialField.getText();
-        float weight = Float.parseFloat(WeightField.getText());
-        String color = ColorField.getText();
+        String name = nameField.getText();
+        float price = Float.parseFloat(priceField.getText());
+        String material = materialField.getText();
+        float weight = Float.parseFloat(weightField.getText());
+        String color = colorField.getText();
         
         String message = controller_.createFurniture(name, price, material, weight, color);
         
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         
+        clearFields();
+        
 
-    }//GEN-LAST:event_AddButtonActionPerformed
+    }//GEN-LAST:event_addButtonActionPerformed
 
-    private void NameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameFieldKeyTyped
+    private void nameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameFieldKeyTyped
         validateCharacters(evt);
-    }//GEN-LAST:event_NameFieldKeyTyped
+    }//GEN-LAST:event_nameFieldKeyTyped
 
-    private void MaterialFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MaterialFieldKeyTyped
+    private void materialFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_materialFieldKeyTyped
         validateCharacters(evt);
-    }//GEN-LAST:event_MaterialFieldKeyTyped
+    }//GEN-LAST:event_materialFieldKeyTyped
 
-    private void ColorFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ColorFieldKeyTyped
+    private void colorFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_colorFieldKeyTyped
         validateCharacters(evt);
-    }//GEN-LAST:event_ColorFieldKeyTyped
+    }//GEN-LAST:event_colorFieldKeyTyped
 
-    private void PriceFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceFieldKeyTyped
+    private void priceFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_priceFieldKeyTyped
         validateNumber(evt);
-    }//GEN-LAST:event_PriceFieldKeyTyped
+    }//GEN-LAST:event_priceFieldKeyTyped
 
-    private void WeightFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WeightFieldKeyTyped
+    private void weightFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weightFieldKeyTyped
         validateNumber(evt);
-    }//GEN-LAST:event_WeightFieldKeyTyped
+    }//GEN-LAST:event_weightFieldKeyTyped
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
@@ -237,19 +256,28 @@ public class AddFurnitureToCatalog extends javax.swing.JFrame {
             evt.consume();
         }
     }
+    
+    private void clearFields (){
+        this.nameField.setText("");
+        this.colorField.setText("");
+        this.materialField.setText("");
+        this.weightField.setText("");
+        this.priceField.setText("");
+    }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddButton;
-    private javax.swing.JTextField ColorField;
     private javax.swing.JLabel ColorLabel;
     private javax.swing.JPanel MainPanel;
-    private javax.swing.JTextField MaterialField;
     private javax.swing.JLabel MaterialLabel;
-    private javax.swing.JTextField NameField;
     private javax.swing.JLabel NameLabel;
-    private javax.swing.JTextField PriceField;
     private javax.swing.JLabel PriceLabel;
-    private javax.swing.JTextField WeightField;
     private javax.swing.JLabel WeightLabel;
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JTextField colorField;
+    private javax.swing.JTextField materialField;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JTextField priceField;
+    private javax.swing.JTextField weightField;
     // End of variables declaration//GEN-END:variables
 }

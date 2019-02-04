@@ -152,12 +152,12 @@ public class ModifyCommission extends javax.swing.JFrame {
 
     private void LoadOrderInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadOrderInfoButtonActionPerformed
         if (OrderIdTextField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingrese el numero de orden que desea modificar", "Atención", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error: ingrese el numero de orden sin modificar que desea modificar", "Atención", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String order_id = OrderIdTextField.getText();
             Map<String, String> commissionInfo = controller_.getCommissionInfo(order_id);
             if (commissionInfo == null) {
-                JOptionPane.showMessageDialog(this, "No existe el numero de orden ingresado", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error: el numero de orden sin terminar ingresado es incorrecto", "Error", JOptionPane.WARNING_MESSAGE);
 
             } else {
                 this.StatusComboBox.setEnabled(true);
@@ -194,15 +194,7 @@ public class ModifyCommission extends javax.swing.JFrame {
             this.LoadOrderInfoButton.setEnabled(true);
             this.OrderIdTextField.setEnabled(true);
 
-        } else {
-            String mensaje = controller_.updateCommission(order_id, false);
-            JOptionPane.showMessageDialog(this, mensaje, "Atención", JOptionPane.INFORMATION_MESSAGE);
-
-            this.StatusComboBox.setEnabled(false);
-            this.UpdateOrderButton.setEnabled(false);
-            this.LoadOrderInfoButton.setEnabled(true);
-            this.OrderIdTextField.setEnabled(true);
-        }
+        } 
     }//GEN-LAST:event_UpdateOrderButtonActionPerformed
 
     private void OrderIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OrderIdTextFieldKeyTyped

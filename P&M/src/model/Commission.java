@@ -97,7 +97,7 @@ public class Commission {
 
     public boolean search(Database database, String orderNumber) {
         try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM commission WHERE order_id = ?;");
+            PreparedStatement stmt = database.getStatement("SELECT * FROM commission WHERE order_id = ? AND status = false;");
             stmt.setInt(1, Integer.parseInt(orderNumber));
 
             ResultSet rs = stmt.executeQuery();

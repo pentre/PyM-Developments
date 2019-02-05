@@ -22,6 +22,7 @@ nbdist/
 # Package Files #
 *.jar
 !postgresql-42.2.5.jar
+!KControls.jar
 *.war
 *.nar
 *.ear

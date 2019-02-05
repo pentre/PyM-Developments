@@ -7,8 +7,6 @@ package view;
 
 import javax.swing.JOptionPane;
 import controller.Controller;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 /**
  * 
  * @author jose

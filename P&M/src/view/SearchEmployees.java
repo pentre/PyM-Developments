@@ -166,6 +166,7 @@ public class SearchEmployees extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        dataTable.setRowSelectionAllowed(false);
         dataScrollPane.setViewportView(dataTable);
 
         javax.swing.GroupLayout dataPanelLayout = new javax.swing.GroupLayout(dataPanel);

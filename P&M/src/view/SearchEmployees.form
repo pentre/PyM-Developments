@@ -239,6 +239,7 @@
                     </Column>
                   </Table>
                 </Property>
+                <Property name="rowSelectionAllowed" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>

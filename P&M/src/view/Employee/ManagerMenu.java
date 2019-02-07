@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Employee;
 
+import view.Branch.ListBranches;
+import view.Branch.ModifyBranch;
+import view.Branch.AddBranch;
 import controller.*;
 /**
  *

@@ -40,13 +40,10 @@ public class Login extends javax.swing.JFrame {
         loginContainer = new keeptoo.KGradientPanel();
         userTextField = new javax.swing.JTextField();
         userLabel = new javax.swing.JLabel();
-        userSeparator = new javax.swing.JSeparator();
         passwordField = new javax.swing.JPasswordField();
         passwordLabel = new javax.swing.JLabel();
-        passwordSeparator = new javax.swing.JSeparator();
         loginButton = new keeptoo.KButton();
-        loginContainer1 = new keeptoo.KGradientPanel();
-        iconLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         logoPanel = new keeptoo.KGradientPanel();
         separator = new javax.swing.JLabel();
 
@@ -55,48 +52,34 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginPanel.setBackground(new java.awt.Color(35, 39, 42));
-        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginContainer.setkBorderRadius(30);
         loginContainer.setkEndColor(new java.awt.Color(44, 47, 51));
         loginContainer.setkStartColor(new java.awt.Color(44, 47, 51));
         loginContainer.setOpaque(false);
-        loginContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userTextField.setBackground(new java.awt.Color(44, 47, 51));
+        userTextField.setBackground(new java.awt.Color(232, 233, 235));
         userTextField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
-        userTextField.setForeground(new java.awt.Color(255, 255, 255));
+        userTextField.setForeground(new java.awt.Color(35, 39, 42));
         userTextField.setBorder(null);
         userTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTextFieldActionPerformed(evt);
             }
         });
-        loginContainer.add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 290, 20));
 
         userLabel.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
         userLabel.setForeground(new java.awt.Color(255, 255, 255));
         userLabel.setText("Usuario");
-        loginContainer.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
 
-        userSeparator.setBackground(new java.awt.Color(255, 255, 255));
-        userSeparator.setForeground(new java.awt.Color(255, 255, 255));
-        loginContainer.add(userSeparator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 290, -1));
-
-        passwordField.setBackground(new java.awt.Color(44, 47, 51));
+        passwordField.setBackground(new java.awt.Color(221, 220, 220));
         passwordField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
-        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setForeground(new java.awt.Color(35, 39, 42));
         passwordField.setBorder(null);
-        loginContainer.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 290, 20));
 
         passwordLabel.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("Contraseña");
-        loginContainer.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
-        passwordSeparator.setBackground(new java.awt.Color(255, 255, 255));
-        passwordSeparator.setForeground(new java.awt.Color(255, 255, 255));
-        loginContainer.add(passwordSeparator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 290, -1));
 
         loginButton.setBackground(new java.awt.Color(114, 137, 218));
         loginButton.setBorder(null);
@@ -104,6 +87,7 @@ public class Login extends javax.swing.JFrame {
         loginButton.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
         loginButton.setkAllowGradient(false);
         loginButton.setkBackGroundColor(new java.awt.Color(114, 137, 218));
+        loginButton.setkBorderRadius(30);
         loginButton.setkEndColor(new java.awt.Color(114, 137, 218));
         loginButton.setkHoverColor(new java.awt.Color(148, 169, 241));
         loginButton.setkHoverEndColor(new java.awt.Color(148, 169, 241));
@@ -111,8 +95,8 @@ public class Login extends javax.swing.JFrame {
         loginButton.setkHoverStartColor(new java.awt.Color(148, 169, 241));
         loginButton.setkIndicatorColor(new java.awt.Color(114, 137, 218));
         loginButton.setkIndicatorThickness(0);
-        loginButton.setkPressedColor(new java.awt.Color(95, 116, 188));
-        loginButton.setkSelectedColor(new java.awt.Color(95, 116, 188));
+        loginButton.setkPressedColor(new java.awt.Color(75, 90, 144));
+        loginButton.setkSelectedColor(new java.awt.Color(75, 90, 144));
         loginButton.setkStartColor(new java.awt.Color(114, 137, 218));
         loginButton.setOpaque(false);
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -120,33 +104,69 @@ public class Login extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        loginContainer.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 140, 40));
 
-        loginPanel.add(loginContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 360, 260));
+        javax.swing.GroupLayout loginContainerLayout = new javax.swing.GroupLayout(loginContainer);
+        loginContainer.setLayout(loginContainerLayout);
+        loginContainerLayout.setHorizontalGroup(
+            loginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginContainerLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(loginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userLabel, javax.swing.GroupLayout.Alignment.LEADING)))
+        );
+        loginContainerLayout.setVerticalGroup(
+            loginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginContainerLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(passwordLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        loginContainer1.setBackground(new java.awt.Color(0, 0, 0));
-        loginContainer1.setForeground(new java.awt.Color(0, 0, 0));
-        loginContainer1.setkBorderRadius(30);
-        loginContainer1.setkEndColor(new java.awt.Color(29, 32, 34));
-        loginContainer1.setkStartColor(new java.awt.Color(29, 32, 34));
-        loginContainer1.setOpaque(false);
-        loginContainer1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        loginPanel.add(loginContainer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 380, 280));
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/jose/Documents/avatar-inside-a-circle.png")); // NOI18N
 
-        iconLabel.setIcon(new javax.swing.ImageIcon("/home/jose/Documents/user (1).png")); // NOI18N
-        loginPanel.add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(loginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(34, 34, 34))
+        );
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(loginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
 
         getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 0, 439, 420));
 
-        logoPanel.setkEndColor(new java.awt.Color(181, 179, 179));
+        logoPanel.setkEndColor(new java.awt.Color(73, 88, 139));
         logoPanel.setkGradientFocus(100);
-        logoPanel.setkStartColor(new java.awt.Color(255, 255, 255));
+        logoPanel.setkStartColor(new java.awt.Color(114, 137, 218));
         logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         separator.setBackground(new java.awt.Color(29, 32, 34));
         separator.setText(" ");
         separator.setOpaque(true);
-        logoPanel.add(separator, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 20, 420));
+        logoPanel.add(separator, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 10, 420));
 
         getContentPane().add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 420));
 
@@ -254,18 +274,15 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel iconLabel;
+    private javax.swing.JLabel jLabel1;
     private keeptoo.KButton loginButton;
     private keeptoo.KGradientPanel loginContainer;
-    private keeptoo.KGradientPanel loginContainer1;
     private javax.swing.JPanel loginPanel;
     private keeptoo.KGradientPanel logoPanel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JSeparator passwordSeparator;
     private javax.swing.JLabel separator;
     private javax.swing.JLabel userLabel;
-    private javax.swing.JSeparator userSeparator;
     private javax.swing.JTextField userTextField;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author jose
  */
-public class DeleteMenu extends javax.swing.JFrame {
+public class DeleteEmployee extends javax.swing.JFrame {
     private Controller controller_;
     private String user_;
     /**
      * Creates new form AdminDeleteMenu
      */
-    public DeleteMenu(Controller controller, String userType) {
+    public DeleteEmployee(Controller controller, String userType) {
         controller_ = controller;
         user_ = userType;
         initComponents();
@@ -37,6 +37,7 @@ public class DeleteMenu extends javax.swing.JFrame {
         idLabel = new javax.swing.JLabel();
         idInputField = new javax.swing.JTextField();
         deleteButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,31 +61,43 @@ public class DeleteMenu extends javax.swing.JFrame {
             }
         });
 
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(idLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(deleteButton)
-                .addGap(84, 84, 84))
+                .addGap(34, 34, 34)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addComponent(deleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addComponent(idLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel)
-                    .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(deleteButton)
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton)
+                    .addComponent(cancelButton))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,16 +116,21 @@ public class DeleteMenu extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         
-        if(this.idInputField.getText().isEmpty()){
+        if (this.idInputField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
         }
         
-        String id = this.idInputField.getText();
-
-        //user_ is sent to verify the user's charge that is going to delete an employee
-        String message = this.controller_.deleteEmployee(user_, id);
+        int selectedOption = JOptionPane.showConfirmDialog(this, "¿Desea eliminar el usuario ingresado?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
         
-        JOptionPane.showMessageDialog(this, message);
+        if (selectedOption == 0){
+            String id = this.idInputField.getText();
+
+            //user_ is sent to verify the user's charge that is going to delete an employee
+            String message = this.controller_.deleteEmployee(user_, id);
+        
+            JOptionPane.showMessageDialog(this, message);
+            clearFields();
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void idInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idInputFieldKeyTyped
@@ -126,8 +144,17 @@ public class DeleteMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idInputFieldActionPerformed
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void clearFields(){
+        this.idInputField.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField idInputField;
     private javax.swing.JLabel idLabel;

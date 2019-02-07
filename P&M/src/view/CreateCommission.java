@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author mily
  */
-public class createCommission extends javax.swing.JFrame {
+public class CreateCommission extends javax.swing.JFrame {
 
     private Controller controller_;
     /**
      * Creates new form createCommission
      */
-    public createCommission(Controller controller) {
+    public CreateCommission(Controller controller) {
         controller_ = controller;
         initComponents();
         List<String> furnitures = controller_.listFurniture();
@@ -40,23 +40,20 @@ public class createCommission extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        statusLabel = new javax.swing.JLabel();
-        statusComboBox = new javax.swing.JComboBox<>();
         furnitureLabel = new javax.swing.JLabel();
         furnitureComboBox = new javax.swing.JComboBox<>();
         quantityLabel = new javax.swing.JLabel();
         quantityTextField = new javax.swing.JTextField();
         branchLabel = new javax.swing.JLabel();
         branchComboBox = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        statusLabel.setText("Estado:");
-
-        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "En proceso", "Terminado" }));
-
         furnitureLabel.setText("Muebles:");
+
+        furnitureComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
 
         quantityLabel.setText("Cantidad:");
 
@@ -73,10 +70,19 @@ public class createCommission extends javax.swing.JFrame {
 
         branchLabel.setText("Sede:");
 
-        jButton1.setText("Crear Orden de Trabajo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        branchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+
+        createButton.setText("Crear Orden de Trabajo");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createButtonActionPerformed(evt);
+            }
+        });
+
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -84,13 +90,12 @@ public class createCommission extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(createButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(statusLabel)
                             .addComponent(furnitureLabel)
                             .addComponent(branchLabel)
                             .addComponent(quantityLabel))
@@ -98,19 +103,17 @@ public class createCommission extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(statusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(furnitureComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(branchComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                                .addComponent(branchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(cancelButton)))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusLabel)
-                    .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(furnitureLabel)
                     .addComponent(furnitureComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,8 +126,10 @@ public class createCommission extends javax.swing.JFrame {
                     .addComponent(quantityLabel)
                     .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(jButton1)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(createButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cancelButton)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,25 +144,27 @@ public class createCommission extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityTextFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
         if (quantityTextField.getText().isEmpty() || (quantityTextField.getText().equals("0"))){
             JOptionPane.showMessageDialog(this, "Porfavor ingrese la cantidad", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        String status = statusComboBox.getSelectedItem().toString();
         String furniture = furnitureComboBox.getSelectedItem().toString();
         String branch = branchComboBox.getSelectedItem().toString();
         int quantity = Integer.parseInt(quantityTextField.getText());
-        boolean statusBool = false;
-        if (status.equals("Terminado")){
-            statusBool = true;
-        }
+        boolean status = false; //en proceso
         int furnitureInt = Integer.parseInt(furniture.split("-")[1]);
-        String message = controller_.createComission(statusBool, furnitureInt, quantity, branch);
+        String message = controller_.createComission(status, furnitureInt, quantity, branch);
         
         JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        clearFields();
+    }//GEN-LAST:event_createButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void validateNumber(java.awt.event.KeyEvent evt) {
         char inputChar = evt.getKeyChar();
@@ -165,50 +172,20 @@ public class createCommission extends javax.swing.JFrame {
             evt.consume();
         }
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(createCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(createCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(createCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(createCommission.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new createCommission(new Controller()).setVisible(true);
-            }
-        });
+    
+    private void clearFields() {
+        this.branchComboBox.setSelectedIndex(0);
+        this.furnitureComboBox.setSelectedIndex(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> branchComboBox;
     private javax.swing.JLabel branchLabel;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton createButton;
     private javax.swing.JComboBox<String> furnitureComboBox;
     private javax.swing.JLabel furnitureLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel quantityLabel;
     private javax.swing.JTextField quantityTextField;
-    private javax.swing.JComboBox<String> statusComboBox;
-    private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
 }

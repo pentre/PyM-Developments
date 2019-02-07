@@ -12,21 +12,21 @@ import java.util.Map;
  *
  * @author lalil
  */
-public class ModifyManager extends javax.swing.JFrame {
+public class ModifyEmployee extends javax.swing.JFrame {
     private Controller controller_;
     private String userType_;
     /**
      * Creates new form ModifyManager
      */
-    public ModifyManager(Controller controller,String userType) {
+    public ModifyEmployee(Controller controller,String userType) {
         controller_ = controller;
         userType_ = userType;
         
         initComponents();
         if(userType_.equals("Administrador")){
-            chargeComboBox.addItem("Gerente");
+            chargeCombo.addItem("Gerente");
         }
-        chargeComboBox.setSelectedIndex(-1);
+        chargeCombo.setSelectedIndex(-1);
     }
 
     /**
@@ -38,6 +38,7 @@ public class ModifyManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         idLabel = new javax.swing.JLabel();
         idTextField = new javax.swing.JTextField();
         loadButton = new javax.swing.JButton();
@@ -49,9 +50,10 @@ public class ModifyManager extends javax.swing.JFrame {
         salaryTextField = new javax.swing.JTextField();
         phoneNumberTextField = new javax.swing.JTextField();
         updateButton = new javax.swing.JButton();
-        chargeComboBox = new javax.swing.JComboBox<>();
+        chargeCombo = new javax.swing.JComboBox<>();
         branchLabel = new javax.swing.JLabel();
         branchTextField = new javax.swing.JTextField();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,11 +124,11 @@ public class ModifyManager extends javax.swing.JFrame {
             }
         });
 
-        chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jefe de Taller", "Vendedor" }));
-        chargeComboBox.setEnabled(false);
-        chargeComboBox.addActionListener(new java.awt.event.ActionListener() {
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Jefe de Taller", "Vendedor" }));
+        chargeCombo.setEnabled(false);
+        chargeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chargeComboBoxActionPerformed(evt);
+                chargeComboActionPerformed(evt);
             }
         });
 
@@ -139,13 +141,26 @@ public class ModifyManager extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(updateButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cancelButton)
+                .addGap(53, 53, 53))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLabel)
                     .addComponent(chargeLabel)
                     .addComponent(idLabel)
@@ -153,49 +168,61 @@ public class ModifyManager extends javax.swing.JFrame {
                     .addComponent(phoneNumberLabel)
                     .addComponent(branchLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(salaryTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(salaryTextField)
+                    .addComponent(nameTextField)
                     .addComponent(idTextField)
-                    .addComponent(chargeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(phoneNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addComponent(branchTextField))
+                    .addComponent(chargeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(phoneNumberTextField)
+                    .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updateButton)
-                    .addComponent(loadButton))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(loadButton)
+                .addGap(29, 29, 29))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loadButton))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chargeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chargeLabel))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salaryLabel))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneNumberLabel))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(branchLabel)
-                    .addComponent(updateButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(branchLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(updateButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(25, 25, 25))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -204,7 +231,7 @@ public class ModifyManager extends javax.swing.JFrame {
     public void disable(){
         updateButton.setEnabled(false);
         idTextField.setEnabled(false);
-        chargeComboBox.setEnabled(false);
+        chargeCombo.setEnabled(false);
         salaryTextField.setEnabled(false);
         phoneNumberTextField.setEnabled(false);
         branchTextField.setEnabled(false);
@@ -219,7 +246,7 @@ public class ModifyManager extends javax.swing.JFrame {
     
     public void enable(){
         nameTextField.setEnabled(true);
-        chargeComboBox.setEnabled(true);
+        chargeCombo.setEnabled(true);
         salaryTextField.setEnabled(true);
         phoneNumberTextField.setEnabled(true);
         updateButton.setEnabled(true);
@@ -247,7 +274,7 @@ public class ModifyManager extends javax.swing.JFrame {
         enable();
         idTextField.setEditable(false);
         nameTextField.setText(infoEmployee.get("name"));
-        chargeComboBox.setSelectedItem(infoEmployee.get("charge"));
+        chargeCombo.setSelectedItem(infoEmployee.get("charge"));
         salaryTextField.setText(infoEmployee.get("salary"));  
         phoneNumberTextField.setText(infoEmployee.get("phoneNumber"));
         branchTextField.setText(infoEmployee.get("branch"));
@@ -258,13 +285,14 @@ public class ModifyManager extends javax.swing.JFrame {
         String id = idTextField.getText();
         String name = nameTextField.getText();
         String branch = branchTextField.getText();
-        String charge =  chargeComboBox.getSelectedItem().toString();
+        String charge =  chargeCombo.getSelectedItem().toString();
         Float salary = Float.valueOf(salaryTextField.getText());
         String phoneNumber = phoneNumberTextField.getText();
         String message = controller_.updateEmployee(id, name, branch, charge, salary, phoneNumber, userType_);
         JOptionPane.showMessageDialog(this, message);
         disable();
         idTextField.setEditable(true);
+        clearFields();
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
@@ -311,9 +339,9 @@ public class ModifyManager extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextFieldActionPerformed
 
-    private void chargeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargeComboBoxActionPerformed
+    private void chargeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargeComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chargeComboBoxActionPerformed
+    }//GEN-LAST:event_chargeComboActionPerformed
 
     private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
         // TODO add your handling code here:
@@ -322,46 +350,29 @@ public class ModifyManager extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_branchTextFieldKeyTyped
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(createBranch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModifyManager(new Controller(),"Administrador").setVisible(true);
-            }
-        });
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void clearFields(){
+        this.idTextField.setText("");
+        this.nameTextField.setText("");
+        this.branchTextField.setText("");
+        this.phoneNumberTextField.setText("");
+        this.salaryTextField.setText("");
+        this.chargeCombo.setSelectedIndex(0);
     }
-    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;
-    private javax.swing.JComboBox<String> chargeComboBox;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JComboBox<String> chargeCombo;
     private javax.swing.JLabel chargeLabel;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loadButton;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;

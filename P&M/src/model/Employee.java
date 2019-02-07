@@ -222,7 +222,7 @@ public class Employee {
             stmt.setBoolean(7, active_);
             
             if(stmt.executeUpdate()==1){
-                return "El empleado fue adicionado exitosamente.";
+                return "El empleado fue adicionado exitosamente. ";
             }
             
             return "Error: el empleado no pudo ser adicionado";

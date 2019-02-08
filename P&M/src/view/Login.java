@@ -36,27 +36,14 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        loginPanel = new javax.swing.JPanel();
-        loginContainer = new keeptoo.KGradientPanel();
         userTextField = new javax.swing.JTextField();
-        userLabel = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        passwordLabel = new javax.swing.JLabel();
         loginButton = new keeptoo.KButton();
-        jLabel1 = new javax.swing.JLabel();
-        logoPanel = new keeptoo.KGradientPanel();
-        separator = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(35, 39, 42));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        loginPanel.setBackground(new java.awt.Color(35, 39, 42));
-
-        loginContainer.setkBorderRadius(30);
-        loginContainer.setkEndColor(new java.awt.Color(44, 47, 51));
-        loginContainer.setkStartColor(new java.awt.Color(44, 47, 51));
-        loginContainer.setOpaque(false);
 
         userTextField.setBackground(new java.awt.Color(232, 233, 235));
         userTextField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
@@ -67,19 +54,13 @@ public class Login extends javax.swing.JFrame {
                 userTextFieldActionPerformed(evt);
             }
         });
-
-        userLabel.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(255, 255, 255));
-        userLabel.setText("Usuario");
+        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 290, 20));
 
         passwordField.setBackground(new java.awt.Color(221, 220, 220));
         passwordField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
         passwordField.setForeground(new java.awt.Color(35, 39, 42));
         passwordField.setBorder(null);
-
-        passwordLabel.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
-        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
-        passwordLabel.setText("Contraseña");
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 290, 20));
 
         loginButton.setBackground(new java.awt.Color(114, 137, 218));
         loginButton.setBorder(null);
@@ -104,71 +85,10 @@ public class Login extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 230, 40));
 
-        javax.swing.GroupLayout loginContainerLayout = new javax.swing.GroupLayout(loginContainer);
-        loginContainer.setLayout(loginContainerLayout);
-        loginContainerLayout.setHorizontalGroup(
-            loginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginContainerLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(loginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userLabel, javax.swing.GroupLayout.Alignment.LEADING)))
-        );
-        loginContainerLayout.setVerticalGroup(
-            loginContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginContainerLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(passwordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/jose/Documents/avatar-inside-a-circle.png")); // NOI18N
-
-        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
-        loginPanel.setLayout(loginPanelLayout);
-        loginPanelLayout.setHorizontalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(loginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(34, 34, 34))
-        );
-        loginPanelLayout.setVerticalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(loginContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 0, 439, 420));
-
-        logoPanel.setkEndColor(new java.awt.Color(73, 88, 139));
-        logoPanel.setkGradientFocus(100);
-        logoPanel.setkStartColor(new java.awt.Color(114, 137, 218));
-        logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        separator.setBackground(new java.awt.Color(29, 32, 34));
-        separator.setText(" ");
-        separator.setOpaque(true);
-        logoPanel.add(separator, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 10, 420));
-
-        getContentPane().add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 420));
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/jose/Desktop/UI/Login/Login.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,7 +98,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_userTextFieldActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-                validateInput();
+        validateInput();
 
         String user = userTextField.getText();
         String password = new String(passwordField.getPassword());
@@ -274,15 +194,9 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private keeptoo.KButton loginButton;
-    private keeptoo.KGradientPanel loginContainer;
-    private javax.swing.JPanel loginPanel;
-    private keeptoo.KGradientPanel logoPanel;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JLabel passwordLabel;
-    private javax.swing.JLabel separator;
-    private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTextField;
     // End of variables declaration//GEN-END:variables
 }

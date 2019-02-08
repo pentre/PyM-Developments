@@ -9,8 +9,10 @@ import view.Employee.ManagerMenu;
 import view.Employee.AdminMenu;
 import view.Seller.SellerMenu;
 import view.Foreman.ForemanMenu;
+import ui_resources.*;
 import javax.swing.JOptionPane;
 import controller.Controller;
+import javax.swing.ImageIcon;
 /**
  * 
  * @author jose
@@ -18,6 +20,7 @@ import controller.Controller;
 
 public class Login extends javax.swing.JFrame {
     private Controller controller_;
+    private Utils utils;
     /**
      * Creates new form Login
      */
@@ -38,57 +41,59 @@ public class Login extends javax.swing.JFrame {
 
         userTextField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        loginButton = new keeptoo.KButton();
-        jLabel2 = new javax.swing.JLabel();
+        loginLabel = new javax.swing.JLabel();
+        exitLabel = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(35, 39, 42));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userTextField.setBackground(new java.awt.Color(232, 233, 235));
-        userTextField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
+        userTextField.setFont(new java.awt.Font("Laksaman", 0, 18)); // NOI18N
         userTextField.setForeground(new java.awt.Color(35, 39, 42));
         userTextField.setBorder(null);
+        userTextField.setOpaque(false);
         userTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 290, 20));
+        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 250, 40));
 
         passwordField.setBackground(new java.awt.Color(221, 220, 220));
-        passwordField.setFont(new java.awt.Font("Laksaman", 0, 12)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Laksaman", 0, 18)); // NOI18N
         passwordField.setForeground(new java.awt.Color(35, 39, 42));
         passwordField.setBorder(null);
-        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 290, 20));
-
-        loginButton.setBackground(new java.awt.Color(114, 137, 218));
-        loginButton.setBorder(null);
-        loginButton.setText("Iniciar Sesión");
-        loginButton.setFont(new java.awt.Font("Laksaman", 1, 14)); // NOI18N
-        loginButton.setkAllowGradient(false);
-        loginButton.setkBackGroundColor(new java.awt.Color(114, 137, 218));
-        loginButton.setkBorderRadius(30);
-        loginButton.setkEndColor(new java.awt.Color(114, 137, 218));
-        loginButton.setkHoverColor(new java.awt.Color(148, 169, 241));
-        loginButton.setkHoverEndColor(new java.awt.Color(148, 169, 241));
-        loginButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        loginButton.setkHoverStartColor(new java.awt.Color(148, 169, 241));
-        loginButton.setkIndicatorColor(new java.awt.Color(114, 137, 218));
-        loginButton.setkIndicatorThickness(0);
-        loginButton.setkPressedColor(new java.awt.Color(75, 90, 144));
-        loginButton.setkSelectedColor(new java.awt.Color(75, 90, 144));
-        loginButton.setkStartColor(new java.awt.Color(114, 137, 218));
-        loginButton.setOpaque(false);
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 230, 40));
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 250, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/home/jose/Desktop/UI/Login/Login.png")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        loginLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/login button.png"))); // NOI18N
+        loginLabel.setText("jLabel1");
+        loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                loginLabelMousePressed(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginLabelMouseEntered(evt);
+            }
+        });
+        getContentPane().add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 300, 70));
+
+        exitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/close.png"))); // NOI18N
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+
+        background.setIcon(new javax.swing.ImageIcon("/home/jose/Desktop/Login (1).png")); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,7 +102,15 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userTextFieldActionPerformed
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void loginLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseEntered
+        this.loginLabel.setIcon(new ImageIcon("login_button_hovered.png"));
+    }//GEN-LAST:event_loginLabelMouseEntered
+
+    private void loginLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMousePressed
         validateInput();
 
         String user = userTextField.getText();
@@ -111,7 +124,11 @@ public class Login extends javax.swing.JFrame {
         }
 
         selectMenu(message);
-    }//GEN-LAST:event_loginButtonActionPerformed
+    }//GEN-LAST:event_loginLabelMousePressed
+
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_exitLabelMouseClicked
 
     private void selectMenu(String type){
         switch(type){
@@ -194,8 +211,9 @@ public class Login extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private keeptoo.KButton loginButton;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel exitLabel;
+    private javax.swing.JLabel loginLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userTextField;
     // End of variables declaration//GEN-END:variables

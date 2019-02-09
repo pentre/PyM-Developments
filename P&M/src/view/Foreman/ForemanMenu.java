@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Foreman;
 
 import controller.*;
 
@@ -36,6 +36,7 @@ public class ForemanMenu extends javax.swing.JFrame {
         listCatalogButton = new javax.swing.JButton();
         searchFurniture = new javax.swing.JButton();
         modifyFurnitureButton = new javax.swing.JButton();
+        deleteFurnitureButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +84,13 @@ public class ForemanMenu extends javax.swing.JFrame {
             }
         });
 
+        deleteFurnitureButton.setText("Eliminar Mueble");
+        deleteFurnitureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteFurnitureButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,7 +104,8 @@ public class ForemanMenu extends javax.swing.JFrame {
                     .addComponent(searchCommissionButton)
                     .addComponent(listCatalogButton)
                     .addComponent(searchFurniture)
-                    .addComponent(modifyFurnitureButton))
+                    .addComponent(modifyFurnitureButton)
+                    .addComponent(deleteFurnitureButton))
                 .addGap(67, 67, 67))
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,7 +125,9 @@ public class ForemanMenu extends javax.swing.JFrame {
                 .addComponent(searchFurniture)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(modifyFurnitureButton)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteFurnitureButton)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,10 +181,17 @@ public class ForemanMenu extends javax.swing.JFrame {
         modifyMenu.setVisible(true);                                  
     }//GEN-LAST:event_modifyFurnitureButtonActionPerformed
 
+    private void deleteFurnitureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFurnitureButtonActionPerformed
+        DeleteFurniture deleteMenu = new DeleteFurniture(controller_);
+        deleteMenu.setLocationRelativeTo(null);
+        deleteMenu.setVisible(true);
+    }//GEN-LAST:event_deleteFurnitureButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCommissionButton;
     private javax.swing.JButton addFurnitureButton;
+    private javax.swing.JButton deleteFurnitureButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton listCatalogButton;
     private javax.swing.JButton modifyFurnitureButton;

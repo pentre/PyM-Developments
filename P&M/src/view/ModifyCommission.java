@@ -8,6 +8,7 @@ package view;
 import controller.Controller;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import view.Foreman.ListCatalog;
 
 /**
  *

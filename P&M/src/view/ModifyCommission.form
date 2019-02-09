@@ -124,16 +124,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="BranchTextField" pref="121" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="QuantityTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="StatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="StatusComboBox" alignment="0" pref="121" max="32767" attributes="0"/>
-                          <Component id="UpdateOrderButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FurnitureIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="QuantityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="BranchLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FurnitureIdTextField" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="QuantityTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="StatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="StatusComboBox" alignment="0" pref="121" max="32767" attributes="0"/>
+                      <Component id="UpdateOrderButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="FurnitureIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="QuantityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="BranchLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="FurnitureIdTextField" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>

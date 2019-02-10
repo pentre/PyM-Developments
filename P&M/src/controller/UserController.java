@@ -22,6 +22,7 @@ public interface UserController {
         if (!employee.search(Controller.database, username)){
             return "Error: usuario inactivo en el sistema";
         }
+        Controller.employee = employee;
         return employee.getCharge();
     }
   

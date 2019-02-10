@@ -84,7 +84,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 300, 70));
 
-        exitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/close.png"))); // NOI18N
+        exitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/close.png"))); // NOI18N
         exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitLabelMouseClicked(evt);
@@ -107,7 +107,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void loginLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseEntered
-        this.loginLabel.setIcon(new ImageIcon("login_button_hovered.png"));
+
     }//GEN-LAST:event_loginLabelMouseEntered
 
     private void loginLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMousePressed

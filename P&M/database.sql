@@ -43,8 +43,7 @@ CREATE TABLE catalog
 DROP TABLE IF EXISTS sale CASCADE;
 CREATE TABLE sale 
 (
-    sale_id VARCHAR(20) PRIMARY KEY NOT NULL,
-    value FLOAT(30) NOT NULL,
+    sale_id VARCHAR(36) PRIMARY KEY NOT NULL,
     branch VARCHAR(20) NOT NULL,
     employee VARCHAR(29) NOT NULL,
     date DATE NOT NULL,
@@ -55,7 +54,7 @@ CREATE TABLE sale
 DROP TABLE IF EXISTS furniture_sold CASCADE;
 CREATE TABLE furniture_sold
 (
-    sale_id VARCHAR(20) NOT NULL,
+    sale_id VARCHAR(36) NOT NULL,
     furniture_id INTEGER NOT NULL,
     quantity VARCHAR(20) NOT NULL,
     value FLOAT(30) NOT NULL,
@@ -91,3 +90,7 @@ CREATE TABLE commission
 INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
 INSERT INTO employee VALUES('1', 'soph', 'Sede0', 'Administrador', 1234567, '12345678', true);
 INSERT INTO login VALUES('1', '123');
+INSERT INTO catalog VALUES(DEFAULT, 'silla', 100, 'madera', 10, 'cafe', true);
+INSERT INTO catalog VALUES(DEFAULT, 'sofa', 200, 'aire', 20, 'rojo', true);
+INSERT INTO inventory VALUES(1, 5, 'Sede0');
+INSERT INTO inventory VALUES(2, 3, 'Sede0');

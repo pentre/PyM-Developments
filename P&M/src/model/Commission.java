@@ -21,14 +21,6 @@ import java.util.Map;
 public class Commission {
 
     private String id_;
-
-    public String getId_() {
-        return id_;
-    }
-
-    public void setId_(String id_) {
-        this.id_ = id_;
-    }
     private Boolean status_;
     private int furniture_;
     private int quantity_;
@@ -40,37 +32,45 @@ public class Commission {
         quantity_ = quantity;
         branch_ = branch;
     }
+    
+    public String getId() {
+        return id_;
+    }
 
-    public int getQuantity_() {
+    public void setId(String id) {
+        id_ = id;
+    }
+
+    public int getQuantity() {
         return quantity_;
     }
 
-    public void setQuantity_(int quantity_) {
-        this.quantity_ = quantity_;
+    public void setQuantity(int quantity) {
+        quantity_ = quantity;
     }
 
-    public String getBranch_() {
+    public String getBranch() {
         return branch_;
     }
 
-    public void setBranch_(String branch_) {
-        this.branch_ = branch_;
+    public void setBranch(String branch) {
+        branch_ = branch;
     }
 
-    public Boolean getStatus_() {
+    public Boolean getStatus() {
         return status_;
     }
 
-    public void setStatus_(Boolean status_) {
-        this.status_ = status_;
+    public void setStatus(Boolean status) {
+        status_ = status;
     }
 
-    public int getFurniture_() {
+    public int getFurniture() {
         return furniture_;
     }
 
-    public void setFurniture_(int furniture_) {
-        this.furniture_ = furniture_;
+    public void setFurniture(int furniture) {
+        furniture_ = furniture;
     }
 
     public String store(Database database) {

@@ -60,18 +60,17 @@ public interface CommissionController {
         }
         
         Inventory inventory = new Inventory(0, 0, "");
-        int increaseResult = 0;
+        inventory.search(Controller.database, commission.getFurniture(), commission.getBranch());
         ok = inventory.search(Controller.database, commission.getFurniture(), commission.getBranch());
         if (ok) {
-            
-        } else {
-            
+            inventory.increase(Controller.database, commission.getQuantity());
+            return updateResult;
         }
-        increaseResult = inventory.increase(Controller.database, commission.getQuantity());
-        if (increaseResult < 0) {
-            return "Error: no se pudo añadir el mueble al inventario";
-        }
-                
+        
+        inventory.setId(commission.getFurniture());
+        inventory.setBranch(commission.getBranch());
+        inventory.setQuantity(commission.getQuantity());
+        inventory.store(Controller.database);
         return updateResult;
     }
 }

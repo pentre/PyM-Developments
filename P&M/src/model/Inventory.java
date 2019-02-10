@@ -8,6 +8,8 @@ package model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -50,8 +52,8 @@ public class Inventory {
 
     public boolean search(Database database, int id, String branch) {
         try {
-            PreparedStatement stmt = database.getStatement("SELECT * FROM inventory WHERE id = ? AND bramch = ?");
-            stmt.setString(1, Integer.toString(id));
+            PreparedStatement stmt = database.getStatement("SELECT * FROM inventory WHERE furniture_id = ? AND branch = ?");
+            stmt.setInt(1, id);
             stmt.setString(2, branch);
             
             ResultSet rs = stmt.executeQuery();
@@ -59,7 +61,7 @@ public class Inventory {
                 return false;
             }
             
-            id_ = rs.getInt("id");
+            id_ = rs.getInt("furniture_id");
             quantity_ = rs.getInt("quantity");
             branch_ = rs.getString("branch");
            
@@ -70,6 +72,94 @@ public class Inventory {
         } catch(Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    
+    public int increase(Database database, int quantity) {
+        try {
+            int missingQuantity = 0;
+            PreparedStatement stmt = null;
+            if (quantity >= quantity_) {
+                missingQuantity = quantity - quantity_;
+                stmt = database.getStatement("DELETE FROM inventory WHERE furniture_id = ? AND branch = ?;");
+                stmt.setInt(1, id_);
+                stmt.setString(2, branch_);
+            } else {
+                stmt = database.getStatement("UPDATE inventory SET quantity = ? WHERE furniture_id = ? AND branch = ?;");
+                stmt.setInt(1, quantity_-quantity);
+                stmt.setInt(2, id_);
+                stmt.setString(3, branch_);
+            }
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                missingQuantity = -1;
+            }
+            
+            return missingQuantity;
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+    
+    public int decrease(Database database, int quantity) {
+        try {
+            int missingQuantity = 0;
+            PreparedStatement stmt = null;
+            if (quantity >= quantity_) {
+                missingQuantity = quantity - quantity_;
+                stmt = database.getStatement("DELETE FROM inventory WHERE furniture_id = ? AND branch = ?;");
+                stmt.setInt(1, id_);
+                stmt.setString(2, branch_);
+            } else {
+                stmt = database.getStatement("UPDATE inventory SET quantity = ? WHERE furniture_id = ? AND branch = ?;");
+                stmt.setInt(1, quantity_-quantity);
+                stmt.setInt(2, id_);
+                stmt.setString(3, branch_);
+            }
+            
+            int result = stmt.executeUpdate();
+            
+            if(result == 0) {
+                missingQuantity = -1;
+            }
+            
+            return missingQuantity;
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+    
+    public List<Inventory> list(Database database) {
+        try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM inventory WHERE branch = ?");
+            stmt.setString(1, branch_);
+            
+            List<Inventory> list = new ArrayList<>();
+            
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+                Inventory inventory = new Inventory(0, 0, "");
+                inventory.setId(rs.getInt("furniture_id"));
+                inventory.setQuantity(rs.getInt("quantity"));
+                inventory.setBranch(rs.getString("branch"));
+                              
+                list.add(inventory);
+            }
+           
+            return list;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        } catch(Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
     }
 }

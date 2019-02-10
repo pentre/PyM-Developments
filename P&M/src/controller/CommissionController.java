@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.Commission;
+import model.Inventory;
 
 /**
  *
@@ -35,11 +36,11 @@ public interface CommissionController {
 
         } else {
             
-            commissionInfo.put("order_id", commission.getId_());
-            commissionInfo.put("status", Boolean.toString(commission.getStatus_()));
-            commissionInfo.put("quantity", Integer.toString(commission.getQuantity_()));
-            commissionInfo.put("furniture_id", Integer.toString(commission.getFurniture_()));
-            commissionInfo.put("branch", commission.getBranch_());
+            commissionInfo.put("order_id", commission.getId());
+            commissionInfo.put("status", Boolean.toString(commission.getStatus()));
+            commissionInfo.put("quantity", Integer.toString(commission.getQuantity()));
+            commissionInfo.put("furniture_id", Integer.toString(commission.getFurniture()));
+            commissionInfo.put("branch", commission.getBranch());
             return commissionInfo;
 
         }
@@ -47,7 +48,30 @@ public interface CommissionController {
 
     public default String updateCommission(String order_id, boolean status) {
         Commission commission = new Commission(status, 0, 0, "");
-        commission.setId_(order_id);
-        return commission.update(Controller.database);
+        boolean ok = commission.search(Controller.database, order_id);
+        if (!ok) {
+            return "Error: no fue posible actualizar la orden";
+        }
+        commission.setStatus(status);
+        
+        String updateResult = commission.update(Controller.database);
+        if (!status || updateResult.contains("Error")) {
+            return updateResult;
+        }
+        
+        Inventory inventory = new Inventory(0, 0, "");
+        int increaseResult = 0;
+        ok = inventory.search(Controller.database, commission.getFurniture(), commission.getBranch());
+        if (ok) {
+            
+        } else {
+            
+        }
+        increaseResult = inventory.increase(Controller.database, commission.getQuantity());
+        if (increaseResult < 0) {
+            return "Error: no se pudo añadir el mueble al inventario";
+        }
+                
+        return updateResult;
     }
 }

@@ -60,12 +60,13 @@ public interface InventoryController {
                 return "Error: no se pudo realizar la venta";
             }
             
-            if (missingQuantity != 0) {
-                Commission commission = new Commission(false, furniture.getKey(), missingQuantity, "Sede0");//Controller.employee.getBranch());
-                String err = commission.store(Controller.database);
-                if (err.contains("Error")) {
-                    return "Error: no se pudieron crear las órdenes de trabajo";
-                }
+            if (missingQuantity == 0) {
+                continue;
+            }
+            Commission commission = new Commission(false, furniture.getKey(), missingQuantity, "Sede0");//Controller.employee.getBranch());
+            String err = commission.store(Controller.database);
+            if (err.contains("Error")) {
+                return "Error: no se pudieron crear las órdenes de trabajo";
             }
         }
         

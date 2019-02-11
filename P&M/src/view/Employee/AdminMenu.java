@@ -29,11 +29,6 @@ public class AdminMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         menuPanel = new javax.swing.JPanel();
-        addLabel = new javax.swing.JLabel();
-        searchLabel = new javax.swing.JLabel();
-        deleteLabel = new javax.swing.JLabel();
-        modifyLabel = new javax.swing.JLabel();
-        menuLabel = new javax.swing.JLabel();
         UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,42 +36,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/add_button.png"))); // NOI18N
-        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addLabelMouseClicked(evt);
-            }
-        });
-        menuPanel.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
-
-        searchLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/search_icon.png"))); // NOI18N
-        searchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchLabelMouseClicked(evt);
-            }
-        });
-        menuPanel.add(searchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
-
-        deleteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/delete_icon.png"))); // NOI18N
-        deleteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteLabelMouseClicked(evt);
-            }
-        });
-        menuPanel.add(deleteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 360, 70, 80));
-
-        modifyLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/modify_icon.png"))); // NOI18N
-        modifyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifyLabelMouseClicked(evt);
-            }
-        });
-        menuPanel.add(modifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, -1, -1));
-
-        menuLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/menu_bar.png"))); // NOI18N
-        menuPanel.add(menuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Web 1920 – 1.png"))); // NOI18N
+        UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Admin Menu.png"))); // NOI18N
         menuPanel.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
 
         getContentPane().add(menuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
@@ -84,37 +44,8 @@ public class AdminMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
-        AddEmployee addMenu = new AddEmployee(controller_, "Administrador");
-        addMenu.setLocationRelativeTo(null);
-        addMenu.setVisible(true);
-    }//GEN-LAST:event_addLabelMouseClicked
-
-    private void searchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchLabelMouseClicked
-       SearchEmployees searchMenu = new SearchEmployees(controller_);
-       searchMenu.setLocationRelativeTo(null);
-       searchMenu.setVisible(true);
-    }//GEN-LAST:event_searchLabelMouseClicked
-
-    private void modifyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyLabelMouseClicked
-        ModifyEmployee modifyMenu = new ModifyEmployee(controller_,"Administrador");
-        modifyMenu.setLocationRelativeTo(null);
-        modifyMenu.setVisible(true);
-    }//GEN-LAST:event_modifyLabelMouseClicked
-
-    private void deleteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteLabelMouseClicked
-        DeleteEmployee deleteMenu = new DeleteEmployee(controller_, "Administrador");
-        deleteMenu.setLocationRelativeTo(null);
-        deleteMenu.setVisible(true);
-    }//GEN-LAST:event_deleteLabelMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UI;
-    private javax.swing.JLabel addLabel;
-    private javax.swing.JLabel deleteLabel;
-    private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JLabel modifyLabel;
-    private javax.swing.JLabel searchLabel;
     // End of variables declaration//GEN-END:variables
 }

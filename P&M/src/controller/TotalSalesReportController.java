@@ -8,16 +8,16 @@ package controller;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import model.SaleVsBranchReport;
+import model.TotalSalesReport;
 
 /**
  *
  * @author Luis
  */
-public interface SaleVsBranchReportController {
+public interface TotalSalesReportController {
     
     default public Map<String, List> getSalesInfo(LocalDate initialDate, LocalDate endDate){
-        SaleVsBranchReport salesReport = new SaleVsBranchReport(initialDate, endDate);
+        TotalSalesReport salesReport = new TotalSalesReport(initialDate, endDate);
         return salesReport.getSalesInfo(Controller.database);
     }
 }

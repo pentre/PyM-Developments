@@ -13,7 +13,7 @@ import model.Employee;
  * @author pentre
  */
 
-public class Controller implements BranchController, UserController, EmployeeController, FurnitureController, CommissionController, InventoryController, SaleVsBranchReportController{
+public class Controller implements BranchController, UserController, EmployeeController, FurnitureController, CommissionController, InventoryController, TotalSalesReportController{
 
     public static Database database;
     public static Employee employee;

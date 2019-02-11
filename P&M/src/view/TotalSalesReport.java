@@ -19,14 +19,14 @@ import org.knowm.xchart.SwingWrapper;
  *
  * @author Luis
  */
-public class SalesVsBranchReport extends javax.swing.JFrame implements Runnable {
+public class TotalSalesReport extends javax.swing.JFrame implements Runnable {
 
     Controller controller_;
 
     /**
      * Creates new form SalesVsBranchReport
      */
-    public SalesVsBranchReport(Controller controller) {
+    public TotalSalesReport(Controller controller) {
         controller_ = controller;
         initComponents();
 
@@ -160,20 +160,21 @@ public class SalesVsBranchReport extends javax.swing.JFrame implements Runnable 
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SalesVsBranchReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TotalSalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SalesVsBranchReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TotalSalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SalesVsBranchReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TotalSalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SalesVsBranchReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TotalSalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SalesVsBranchReport(new Controller()).setVisible(true);
+                new TotalSalesReport(new Controller()).setVisible(true);
             }
         });
     }

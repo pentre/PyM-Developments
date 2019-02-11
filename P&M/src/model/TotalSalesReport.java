@@ -24,11 +24,11 @@ import java.util.logging.Logger;
  *
  * @author Luis
  */
-public class SaleVsBranchReport {
+public class TotalSalesReport {
     private LocalDate initialDate_;
     private LocalDate endDate_;
 
-    public SaleVsBranchReport(LocalDate initialDate, LocalDate endDate) {
+    public TotalSalesReport(LocalDate initialDate, LocalDate endDate) {
         initialDate_ = initialDate;
         endDate_ = endDate;
     }
@@ -47,7 +47,7 @@ public class SaleVsBranchReport {
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(SaleVsBranchReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TotalSalesReport.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Employee;
 
 import controller.Controller;
 import java.time.LocalDate;
@@ -183,7 +183,7 @@ public class TotalSalesReport extends javax.swing.JFrame implements Runnable {
         List<String> branches = data.get("branches");
         List<Integer> values = data.get("values");
 
-        CategoryChart chart = new CategoryChartBuilder().width(600).height(400).title("Total ventas por sede").xAxisTitle("Sedes").yAxisTitle("Ventas").build();
+        CategoryChart chart = new CategoryChartBuilder().width(400).height(600).title("Total ventas por sede").xAxisTitle("Sedes").yAxisTitle("Ventas").build();
 
         chart.addSeries("Ventas", branches, values);
         chart.getStyler().setHasAnnotations(true);

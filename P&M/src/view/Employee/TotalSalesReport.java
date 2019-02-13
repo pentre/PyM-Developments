@@ -10,16 +10,18 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 import org.knowm.xchart.CategoryChart;
 import org.knowm.xchart.CategoryChartBuilder;
 import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XChartPanel;
 
 /**
  *
  * @author Luis
  */
-public class TotalSalesReport extends javax.swing.JFrame{
+public class TotalSalesReport extends javax.swing.JFrame {
 
     Controller controller_;
 
@@ -47,6 +49,7 @@ public class TotalSalesReport extends javax.swing.JFrame{
         EndDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         EndDateLabel = new javax.swing.JLabel();
         ShowReportButton = new javax.swing.JButton();
+        ChartPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,13 +102,18 @@ public class TotalSalesReport extends javax.swing.JFrame{
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        ChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        ChartPanel.setLayout(new javax.swing.BoxLayout(ChartPanel, javax.swing.BoxLayout.LINE_AXIS));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(DatesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DatesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -113,6 +121,8 @@ public class TotalSalesReport extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(DatesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -129,18 +139,14 @@ public class TotalSalesReport extends javax.swing.JFrame{
 
             Map<String, List> data = controller_.getSalesInfo(initialDate, endDate);
 
-            SwingWorker worker = new SwingWorker() {
-                @Override
-                protected Object doInBackground() throws Exception {
-                    CategoryChart chart = getChart(data);
-                    new SwingWrapper<>(chart).displayChart();
+            JPanel chartPanelArea = new XChartPanel(this.getChart(data));
+            ChartPanel.removeAll();
+            ChartPanel.revalidate();
+            ChartPanel.repaint();
+            ChartPanel.add(chartPanelArea);
+            ChartPanel.validate();
 
-                    return null;
-                }
-            };
-            worker.execute();
         }
-
     }//GEN-LAST:event_ShowReportButtonActionPerformed
 
     private CategoryChart getChart(Map<String, List> data) {
@@ -156,6 +162,7 @@ public class TotalSalesReport extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ChartPanel;
     private javax.swing.JPanel DatesPanel;
     private javax.swing.JLabel EndDateLabel;
     private com.github.lgooddatepicker.components.DatePicker EndDatePicker;
@@ -164,4 +171,11 @@ public class TotalSalesReport extends javax.swing.JFrame{
     private javax.swing.JButton ShowReportButton;
     // End of variables declaration//GEN-END:variables
 
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TotalSalesReport(new Controller()).setVisible(true);
+            }
+        });
+    }
 }

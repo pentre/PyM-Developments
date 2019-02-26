@@ -29,12 +29,20 @@ public class AdminMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         menuPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        menuPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(881, 10, 60, 50));
 
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Admin Menu.png"))); // NOI18N
         menuPanel.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
@@ -44,8 +52,13 @@ public class AdminMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UI;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel menuPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Foreman;
 
 import controller.Controller;
 import java.util.Map;
@@ -133,15 +133,14 @@ public class ModifyCommission extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(BranchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(QuantityTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(StatusLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
-                        .addComponent(UpdateOrderButton, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(FurnitureIdLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(QuantityLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(BranchLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(QuantityTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(StatusLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
+                    .addComponent(UpdateOrderButton, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FurnitureIdLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(QuantityLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BranchLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         InfoUpdatePanelLayout.setVerticalGroup(

@@ -6,6 +6,7 @@
 package view.Seller;
 
 import controller.*;
+import view.Foreman.ListCatalog;
 /**
  *
  * @author jose
@@ -27,47 +28,79 @@ public class SellerMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        salesPanel = new javax.swing.JPanel();
+        salesLabel = new javax.swing.JLabel();
+        inventoryLabel = new javax.swing.JLabel();
+        catalogLabel = new javax.swing.JLabel();
+        closeLabel = new javax.swing.JLabel();
+        backgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Vendedor");
+        salesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(173, 173, 173))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel1)
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
+        salesLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salesLabelMouseClicked(evt);
+            }
+        });
+        salesPanel.add(salesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 540, 190));
+
+        inventoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventoryLabelMouseClicked(evt);
+            }
+        });
+        salesPanel.add(inventoryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 270, 200));
+
+        catalogLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                catalogLabelMouseClicked(evt);
+            }
+        });
+        salesPanel.add(catalogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 270, 200));
+        salesPanel.add(closeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 15, 50, 50));
+
+        backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Seller Menu.png"))); // NOI18N
+        salesPanel.add(backgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(salesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(salesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void salesLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesLabelMouseClicked
+        Sale sale = new Sale(controller_);
+        sale.setLocationRelativeTo(null);
+        sale.setVisible(true);
+    }//GEN-LAST:event_salesLabelMouseClicked
+
+    private void inventoryLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryLabelMouseClicked
+        
+    }//GEN-LAST:event_inventoryLabelMouseClicked
+
+    private void catalogLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogLabelMouseClicked
+       ListCatalog catalog = new ListCatalog(controller_);
+       catalog.setLocationRelativeTo(null);
+       catalog.setVisible(true);
+    }//GEN-LAST:event_catalogLabelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel backgroundLabel;
+    private javax.swing.JLabel catalogLabel;
+    private javax.swing.JLabel closeLabel;
+    private javax.swing.JLabel inventoryLabel;
+    private javax.swing.JLabel salesLabel;
+    private javax.swing.JPanel salesPanel;
     // End of variables declaration//GEN-END:variables
 }

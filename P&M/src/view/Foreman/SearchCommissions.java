@@ -46,9 +46,11 @@ public class SearchCommissions extends javax.swing.JFrame {
         search = new javax.swing.JButton();
         dataScrollPane = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jefe de taller");
+        setUndecorated(true);
 
         finishedCommission.setSelected(true);
         finishedCommission.setText("Ordenes de trabajo terminadas");
@@ -80,6 +82,13 @@ public class SearchCommissions extends javax.swing.JFrame {
             dataTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,23 +99,27 @@ public class SearchCommissions extends javax.swing.JFrame {
                     .addComponent(finishedCommission)
                     .addComponent(pendingCommission, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(0, 514, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(search)
-                .addGap(109, 109, 109))
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(search)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cancelButton)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(finishedCommission)
-                .addGap(3, 3, 3)
-                .addComponent(search)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(search)
+                    .addComponent(cancelButton))
+                .addGap(4, 4, 4)
                 .addComponent(pendingCommission)
                 .addGap(33, 33, 33)
                 .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,8 +162,13 @@ public class SearchCommissions extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchActionPerformed
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupStatus;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JScrollPane dataScrollPane;
     private javax.swing.JTable dataTable;
     private javax.swing.JRadioButton finishedCommission;

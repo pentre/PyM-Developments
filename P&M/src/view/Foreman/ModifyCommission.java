@@ -56,8 +56,10 @@ public class ModifyCommission extends javax.swing.JFrame {
         FurnitureIdTextField = new javax.swing.JTextField();
         QuantityTextField = new javax.swing.JTextField();
         BranchTextField = new javax.swing.JTextField();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         InfoLoadPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
@@ -86,7 +88,7 @@ public class ModifyCommission extends javax.swing.JFrame {
                     .addComponent(OrderIdLabel)
                     .addComponent(LoadOrderInfoButton)
                     .addComponent(OrderIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         InfoLoadPanelLayout.setVerticalGroup(
             InfoLoadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,23 +127,34 @@ public class ModifyCommission extends javax.swing.JFrame {
             }
         });
 
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout InfoUpdatePanelLayout = new javax.swing.GroupLayout(InfoUpdatePanel);
         InfoUpdatePanel.setLayout(InfoUpdatePanelLayout);
         InfoUpdatePanelLayout.setHorizontalGroup(
             InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoUpdatePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(BranchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(QuantityTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(StatusLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
-                    .addComponent(UpdateOrderButton, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FurnitureIdLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(QuantityLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BranchLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(BranchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addComponent(QuantityTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(StatusLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
+                        .addComponent(FurnitureIdLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(QuantityLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BranchLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(InfoUpdatePanelLayout.createSequentialGroup()
+                        .addComponent(UpdateOrderButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cancelButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         InfoUpdatePanelLayout.setVerticalGroup(
             InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +176,9 @@ public class ModifyCommission extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UpdateOrderButton)
+                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UpdateOrderButton)
+                    .addComponent(cancelButton))
                 .addContainerGap())
         );
 
@@ -246,47 +261,16 @@ public class ModifyCommission extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FurnitureIdTextFieldActionPerformed
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
         char inputChar = evt.getKeyChar();
         if (!(Character.isDigit(inputChar))) {
             evt.consume();
         }
-    }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListCatalog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListCatalog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListCatalog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListCatalog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModifyCommission(new Controller()).setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -304,5 +288,6 @@ public class ModifyCommission extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> StatusComboBox;
     private javax.swing.JLabel StatusLabel;
     private javax.swing.JButton UpdateOrderButton;
+    private javax.swing.JButton cancelButton;
     // End of variables declaration//GEN-END:variables
 }

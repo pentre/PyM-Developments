@@ -47,21 +47,21 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(35, 39, 42));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userTextField.setBackground(new java.awt.Color(232, 233, 235));
+        userTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         userTextField.setFont(new java.awt.Font("Laksaman", 0, 18)); // NOI18N
         userTextField.setForeground(new java.awt.Color(35, 39, 42));
         userTextField.setBorder(null);
-        userTextField.setOpaque(false);
         userTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 250, 40));
+        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 393, 250, -1));
 
-        passwordField.setBackground(new java.awt.Color(221, 220, 220));
+        passwordField.setBackground(new java.awt.Color(255, 255, 255, 0));
         passwordField.setFont(new java.awt.Font("Laksaman", 0, 18)); // NOI18N
         passwordField.setForeground(new java.awt.Color(35, 39, 42));
         passwordField.setBorder(null);
@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon("/home/jose/Desktop/Login (1).png")); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Login (1).png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

@@ -36,6 +36,7 @@ public class SellerMenu extends javax.swing.JFrame {
         backgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         salesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

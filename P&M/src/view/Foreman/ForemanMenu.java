@@ -49,6 +49,7 @@ public class ForemanMenu extends javax.swing.JFrame {
         furnitureLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         commissionOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

@@ -53,6 +53,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         userBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         branchOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

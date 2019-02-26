@@ -50,19 +50,18 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userTextField.setBackground(new java.awt.Color(232, 233, 235));
+        userTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         userTextField.setFont(new java.awt.Font("Laksaman", 0, 18)); // NOI18N
         userTextField.setForeground(new java.awt.Color(35, 39, 42));
         userTextField.setBorder(null);
-        userTextField.setOpaque(false);
         userTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 250, 40));
+        getContentPane().add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 393, 250, -1));
 
-        passwordField.setBackground(new java.awt.Color(221, 220, 220));
+        passwordField.setBackground(new java.awt.Color(255, 255, 255, 0));
         passwordField.setFont(new java.awt.Font("Laksaman", 0, 18)); // NOI18N
         passwordField.setForeground(new java.awt.Color(35, 39, 42));
         passwordField.setBorder(null);

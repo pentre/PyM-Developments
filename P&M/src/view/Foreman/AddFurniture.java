@@ -48,6 +48,7 @@ public class AddFurniture extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         NameLabel.setText("Nombre");
 

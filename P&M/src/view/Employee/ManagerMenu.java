@@ -95,9 +95,9 @@ public class ManagerMenu extends javax.swing.JFrame {
         branchOptionPanel.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 60, 80));
 
         branchBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Manager Menu - Branch.png"))); // NOI18N
-        branchOptionPanel.add(branchBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        branchOptionPanel.add(branchBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
 
-        getContentPane().add(branchOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(branchOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         userOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

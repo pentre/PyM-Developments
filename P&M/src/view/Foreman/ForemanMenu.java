@@ -90,7 +90,7 @@ public class ForemanMenu extends javax.swing.JFrame {
         commissionOptionPanel.add(closeCommission, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 50, 60));
 
         commissionBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Commissions.png"))); // NOI18N
-        commissionOptionPanel.add(commissionBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
+        commissionOptionPanel.add(commissionBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 

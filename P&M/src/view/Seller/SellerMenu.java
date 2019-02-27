@@ -60,6 +60,12 @@ public class SellerMenu extends javax.swing.JFrame {
             }
         });
         salesPanel.add(catalogLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 270, 200));
+
+        closeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeLabelMouseClicked(evt);
+            }
+        });
         salesPanel.add(closeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 15, 50, 50));
 
         backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Seller Menu.png"))); // NOI18N
@@ -94,6 +100,10 @@ public class SellerMenu extends javax.swing.JFrame {
        catalog.setLocationRelativeTo(null);
        catalog.setVisible(true);
     }//GEN-LAST:event_catalogLabelMouseClicked
+
+    private void closeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeLabelMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_closeLabelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

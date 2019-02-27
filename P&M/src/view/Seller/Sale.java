@@ -52,7 +52,7 @@ public class Sale extends javax.swing.JFrame {
         totalTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         saleButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -142,8 +142,13 @@ public class Sale extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cancelar");
-        jButton2.setToolTipText("");
+        cancelButton.setText("Cancelar");
+        cancelButton.setToolTipText("");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -157,7 +162,7 @@ public class Sale extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(saleButton)
                 .addGap(36, 36, 36)
-                .addComponent(jButton2)
+                .addComponent(cancelButton)
                 .addGap(43, 43, 43))
         );
         jPanel3Layout.setVerticalGroup(
@@ -168,7 +173,7 @@ public class Sale extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saleButton)
-                    .addComponent(jButton2))
+                    .addComponent(cancelButton))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -226,6 +231,10 @@ public class Sale extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
     
     private void updateTable(List<Map<String, Float>> results) {
         Object[] columnNames = { "Mueble", "Cantidad", "Disponibles", "Valor individual" };
@@ -250,9 +259,9 @@ public class Sale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JTable dataTable;
     private javax.swing.JComboBox<String> idComboBox;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

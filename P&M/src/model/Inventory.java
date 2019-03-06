@@ -75,29 +75,43 @@ public class Inventory {
         }
     }
     
+    public String store(Database database) {
+        try {
+            PreparedStatement stmt = database.getStatement("INSERT INTO inventory (furniture_id, quantity, branch) VALUES(?, ?, ?)");
+
+            stmt.setInt(1, id_);
+            stmt.setInt(2, quantity_);
+            stmt.setString(3, branch_);
+            if (stmt.executeUpdate() == 1) {
+                return "El mueble fue adicionado exitosamente al inventario.";
+            }
+
+            return "Error: el mueble no pudo ser adicionado.";
+        } catch (SQLException e) {
+            return "Error: el mueble no pudo ser adicionado.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error: el mueble no pudo ser adicionado.";
+        }
+
+    }
+    
     public int increase(Database database, int quantity) {
         try {
-            int missingQuantity = 0;
-            PreparedStatement stmt = null;
-            if (quantity >= quantity_) {
-                missingQuantity = quantity - quantity_;
-                stmt = database.getStatement("DELETE FROM inventory WHERE furniture_id = ? AND branch = ?;");
-                stmt.setInt(1, id_);
-                stmt.setString(2, branch_);
-            } else {
-                stmt = database.getStatement("UPDATE inventory SET quantity = ? WHERE furniture_id = ? AND branch = ?;");
-                stmt.setInt(1, quantity_-quantity);
-                stmt.setInt(2, id_);
-                stmt.setString(3, branch_);
-            }
+            quantity_ += quantity;
+            
+            PreparedStatement stmt = database.getStatement("UPDATE inventory SET quantity = ? WHERE furniture_id = ? AND branch = ?;");
+            stmt.setInt(1, quantity_);
+            stmt.setInt(2, id_);
+            stmt.setString(3, branch_);
             
             int result = stmt.executeUpdate();
             
             if(result == 0) {
-                missingQuantity = -1;
+                return -1;
             }
             
-            return missingQuantity;
+            return result;
         }
         catch(SQLException e) {
             e.printStackTrace();

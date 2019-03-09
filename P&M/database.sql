@@ -56,7 +56,7 @@ CREATE TABLE furniture_sold
 (
     sale_id VARCHAR(36) NOT NULL,
     furniture_id INTEGER NOT NULL,
-    quantity VARCHAR(20) NOT NULL,
+    quantity INTEGER NOT NULL,
     value FLOAT(30) NOT NULL,
     PRIMARY KEY (sale_id, furniture_id),
     FOREIGN KEY (sale_id) REFERENCES sale (sale_id),
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS inventory CASCADE;
 CREATE TABLE inventory
 (    
     furniture_id INTEGER NOT NULL,
-    quantity VARCHAR(20) NOT NULL,
+    quantity INTEGER NOT NULL,
     branch VARCHAR(20) NOT NULL,
     PRIMARY KEY (furniture_id, branch),    
     FOREIGN KEY (branch) REFERENCES   branch (name),

@@ -52,6 +52,57 @@ public class TotalSalesReport {
         }
     }
     
+    public List<Map<String, String>> getFurnitureSalesInfo(Database database, String branch){
+        try {
+            Date initialDate= Date.valueOf(initialDate_);
+            Date endDate= Date.valueOf(endDate_);
+            
+            PreparedStatement stmt;
+            if(branch.compareTo("Todas las sedes") == 0){
+                stmt = database.getStatement(
+                        "SELECT (sum_quantity.furniture_id || ' ' || catalog.name) AS id_name_furniture, sum_quantity.total_quantity " +
+                        "FROM catalog INNER JOIN (" +
+                            "SELECT furniture_sold.furniture_id, SUM(furniture_sold.quantity) AS total_quantity " +
+                            "FROM furniture_sold INNER JOIN sale ON furniture_sold.sale_id = sale.sale_id " +
+                            "WHERE sale.date BETWEEN ? AND ? " +
+                            "GROUP BY furniture_sold.furniture_id) AS sum_quantity ON catalog.furniture_id = sum_quantity.furniture_id");
+                stmt.setDate(1, initialDate);
+                stmt.setDate(2, endDate);
+            }
+            else{ stmt = database.getStatement(
+                    "SELECT (sum_quantity.furniture_id || ' ' || catalog.name) AS id_name_furniture, sum_quantity.total_quantity " +
+                    "FROM catalog INNER JOIN ( " +
+                        "SELECT furniture_sold.furniture_id, SUM(furniture_sold.quantity) AS total_quantity " +
+                        "FROM furniture_sold INNER JOIN sale ON furniture_sold.sale_id = sale.sale_id " +
+                        "WHERE sale.branch = ? AND sale.date BETWEEN ? AND ? " +
+                        "GROUP BY furniture_sold.furniture_id) AS sum_quantity ON catalog.furniture_id = sum_quantity.furniture_id");
+                stmt.setString(1, branch);
+                stmt.setDate(2, initialDate);
+                stmt.setDate(3, endDate);
+            }
+            
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();  
+            
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("id_name_furniture", rs.getString("id_name_furniture"));
+                result.put("total_quantity", rs.getString("total_quantity"));
+                
+                results.add(result);
+            }
+            
+            return results;
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TotalSalesReport.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     private Map<String, List> getDataArray(ResultSet rs) throws SQLException{
         List<String> branches = new ArrayList<String>();
         List<Double> values = new ArrayList<Double>();

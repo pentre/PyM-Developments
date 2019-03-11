@@ -11,12 +11,9 @@ import java.sql.SQLException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,7 +35,7 @@ public class TotalSalesReport {
         try {
             Date initialDate= Date.valueOf(initialDate_);
             Date endDate= Date.valueOf(endDate_);
-            PreparedStatement stmt = database.getStatement("SELECT sum(value), branch FROM sale WHERE date BETWEEN ? AND ? GROUP BY branch ORDER BY branch ASC;");
+            PreparedStatement stmt = database.getStatement("SELECT SUM(value), branch from furniture_sold NATURAL JOIN sale WHERE date BETWEEN ? AND ? GROUP BY branch");
             stmt.setDate(1, initialDate);
             stmt.setDate(2, endDate);
             ResultSet rs = stmt.executeQuery();

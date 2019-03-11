@@ -94,3 +94,13 @@ INSERT INTO catalog VALUES(DEFAULT, 'silla', 100, 'madera', 10, 'cafe', true);
 INSERT INTO catalog VALUES(DEFAULT, 'sofa', 200, 'aire', 20, 'rojo', true);
 INSERT INTO inventory VALUES(1, 5, 'Sede0');
 INSERT INTO inventory VALUES(2, 3, 'Sede0');
+
+insert into branch values('Sede1', 'Bogota', 'Cra 47c #37-74', true);
+
+insert into sale values('1', 'Sede0', '1', '05-03-2019');
+insert into sale values('2', 'Sede1', '1', '08-03-2019');
+
+insert into furniture_sold values('1', '1', 3, 300000);
+insert into furniture_sold values('1', '2', 2, 400000);
+insert into furniture_sold values('2', '2', 3, 600000);
+insert into furniture_sold values('2', '1', 3, 300000);

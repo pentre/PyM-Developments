@@ -44,8 +44,10 @@ public class ListBranches extends javax.swing.JFrame {
         inactiveRadioButton = new javax.swing.JRadioButton();
         dataScrollPane = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         listButton.setText("Listar Sedes");
         listButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +84,13 @@ public class ListBranches extends javax.swing.JFrame {
             dataTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,24 +100,23 @@ public class ListBranches extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(activeRadioButton)
-                        .addGap(180, 180, 180)
-                        .addComponent(listButton))
+                        .addGap(99, 99, 99)
+                        .addComponent(listButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cancelButton))
                     .addComponent(inactiveRadioButton)
                     .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(activeRadioButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(listButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(activeRadioButton)
+                    .addComponent(listButton)
+                    .addComponent(cancelButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(inactiveRadioButton)
                 .addGap(18, 18, 18)
                 .addComponent(dataScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,10 +157,15 @@ public class ListBranches extends javax.swing.JFrame {
         dataTable.setModel(model);
     }//GEN-LAST:event_listButtonActionPerformed
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton activeRadioButton;
     private javax.swing.ButtonGroup buttonGroupBranches;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JScrollPane dataScrollPane;
     private javax.swing.JTable dataTable;
     private javax.swing.JRadioButton inactiveRadioButton;

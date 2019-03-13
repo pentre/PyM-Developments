@@ -21,6 +21,8 @@ public class ManagerMenu extends javax.swing.JFrame {
     public ManagerMenu(Controller controller) {
         controller_ = controller;
         initComponents();
+        
+        this.branchOptionPanel.setVisible(false);
     }
 
     /**
@@ -32,179 +34,203 @@ public class ManagerMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backgroundPanel = new javax.swing.JPanel();
+        branchOptionPanel = new javax.swing.JPanel();
+        addBranchLabel = new javax.swing.JLabel();
+        searchBranchLabel = new javax.swing.JLabel();
+        modifyBranchLabel = new javax.swing.JLabel();
+        exitBranch = new javax.swing.JLabel();
+        reportBranchLabel = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
-        deleteButton = new javax.swing.JButton();
-        addEmployeeButton = new javax.swing.JButton();
-        searchButton = new javax.swing.JButton();
-        modifyEmployeeButton = new javax.swing.JButton();
-        addBranchButton = new javax.swing.JButton();
-        modifyBranchButton = new javax.swing.JButton();
-        listBranchesButton = new javax.swing.JButton();
+        branchBackground = new javax.swing.JLabel();
+        userOptionPanel = new javax.swing.JPanel();
+        addLabel = new javax.swing.JLabel();
+        searchLabel = new javax.swing.JLabel();
+        modifyLabel = new javax.swing.JLabel();
+        deleteLabel = new javax.swing.JLabel();
+        exitLabel = new javax.swing.JLabel();
+        branchLabel = new javax.swing.JLabel();
+        reportLabel = new javax.swing.JLabel();
+        userBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userLabel.setText("Gerente");
+        branchOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        deleteButton.setText("Eliminar");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
+        addBranchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addBranchLabelMouseClicked(evt);
             }
         });
+        branchOptionPanel.add(addBranchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 330, 190));
 
-        addEmployeeButton.setText("Adicionar Empleado");
-        addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeButtonActionPerformed(evt);
+        searchBranchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchBranchLabelMouseClicked(evt);
             }
         });
+        branchOptionPanel.add(searchBranchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 330, 200));
 
-        searchButton.setText("Busca Empleado");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
+        modifyBranchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyBranchLabelMouseClicked(evt);
             }
         });
+        branchOptionPanel.add(modifyBranchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 330, 200));
 
-        modifyEmployeeButton.setText("Modificar Empleado");
-        modifyEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modifyEmployeeButtonActionPerformed(evt);
+        exitBranch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitBranchMouseClicked(evt);
             }
         });
+        branchOptionPanel.add(exitBranch, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 50, 50));
+        branchOptionPanel.add(reportBranchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 60, 60));
 
-        addBranchButton.setText("Adicionar Sede");
-        addBranchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBranchButtonActionPerformed(evt);
+        userLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userLabelMouseClicked(evt);
             }
         });
+        branchOptionPanel.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 60, 80));
 
-        modifyBranchButton.setText("Modificar Sede");
-        modifyBranchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modifyBranchButtonActionPerformed(evt);
+        branchBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Manager Menu - Branch.png"))); // NOI18N
+        branchOptionPanel.add(branchBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(branchOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        userOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addLabelMouseClicked(evt);
             }
         });
+        userOptionPanel.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 330, 190));
 
-        listBranchesButton.setText("Buscar Sede");
-        listBranchesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listBranchesButtonActionPerformed(evt);
+        searchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchLabelMouseClicked(evt);
             }
         });
+        userOptionPanel.add(searchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 330, 200));
 
-        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
-        backgroundPanel.setLayout(backgroundPanelLayout);
-        backgroundPanelLayout.setHorizontalGroup(
-            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(userLabel)
-                .addContainerGap(172, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(addBranchButton)
-                    .addComponent(searchButton)
-                    .addComponent(modifyEmployeeButton)
-                    .addComponent(deleteButton)
-                    .addComponent(addEmployeeButton)
-                    .addComponent(modifyBranchButton)
-                    .addComponent(listBranchesButton))
-                .addGap(108, 108, 108))
-        );
-        backgroundPanelLayout.setVerticalGroup(
-            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(userLabel)
-                .addGap(18, 18, 18)
-                .addComponent(addEmployeeButton)
-                .addGap(18, 18, 18)
-                .addComponent(addBranchButton)
-                .addGap(18, 18, 18)
-                .addComponent(searchButton)
-                .addGap(18, 18, 18)
-                .addComponent(listBranchesButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(modifyEmployeeButton)
-                .addGap(18, 18, 18)
-                .addComponent(modifyBranchButton)
-                .addGap(18, 18, 18)
-                .addComponent(deleteButton)
-                .addContainerGap())
-        );
+        modifyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyLabelMouseClicked(evt);
+            }
+        });
+        userOptionPanel.add(modifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 330, 200));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        deleteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteLabelMouseClicked(evt);
+            }
+        });
+        userOptionPanel.add(deleteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 330, 200));
+
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitLabelMouseClicked(evt);
+            }
+        });
+        userOptionPanel.add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 50, 50));
+
+        branchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                branchLabelMouseClicked(evt);
+            }
+        });
+        userOptionPanel.add(branchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 60, 80));
+        userOptionPanel.add(reportLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 60, 60));
+
+        userBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Manager Menu - User.png"))); // NOI18N
+        userOptionPanel.add(userBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(userOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DeleteEmployee deleteMenu = new DeleteEmployee(controller_, "Gerente");
-        deleteMenu.setLocationRelativeTo(null);
-        deleteMenu.setVisible(true);
-    }//GEN-LAST:event_deleteButtonActionPerformed
-
-    private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
         AddEmployee addMenu = new AddEmployee(controller_, "Gerente");
         addMenu.setLocationRelativeTo(null);
         addMenu.setVisible(true);
-    }//GEN-LAST:event_addEmployeeButtonActionPerformed
+    }//GEN-LAST:event_addLabelMouseClicked
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-       SearchEmployees searchMenu = new SearchEmployees(controller_);
-       searchMenu.setLocationRelativeTo(null);
-       searchMenu.setVisible(true);
-    }//GEN-LAST:event_searchButtonActionPerformed
+    private void searchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchLabelMouseClicked
+        SearchEmployees searchMenu = new SearchEmployees(controller_);
+        searchMenu.setLocationRelativeTo(null);
+        searchMenu.setVisible(true);
+    }//GEN-LAST:event_searchLabelMouseClicked
 
-    private void modifyEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyEmployeeButtonActionPerformed
+    private void modifyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyLabelMouseClicked
         ModifyEmployee modifyMenu = new ModifyEmployee(controller_, "Gerente");
         modifyMenu.setLocationRelativeTo(null);
         modifyMenu.setVisible(true);
-    }//GEN-LAST:event_modifyEmployeeButtonActionPerformed
+        
+    }//GEN-LAST:event_modifyLabelMouseClicked
 
-    private void addBranchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBranchButtonActionPerformed
-        AddBranch addBranch = new AddBranch(controller_);
-        addBranch.setLocationRelativeTo(null);
-        addBranch.setVisible(true);
-    }//GEN-LAST:event_addBranchButtonActionPerformed
+    private void deleteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteLabelMouseClicked
+        DeleteEmployee deleteMenu = new DeleteEmployee(controller_, "Gerente");
+        deleteMenu.setLocationRelativeTo(null);
+        deleteMenu.setVisible(true);
+    }//GEN-LAST:event_deleteLabelMouseClicked
 
-    private void modifyBranchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBranchButtonActionPerformed
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_exitLabelMouseClicked
+
+    private void addBranchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBranchLabelMouseClicked
+        AddBranch addMenu = new AddBranch(controller_);
+        addMenu.setLocationRelativeTo(null);
+        addMenu.setVisible(true);
+    }//GEN-LAST:event_addBranchLabelMouseClicked
+
+    private void searchBranchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBranchLabelMouseClicked
+        ListBranches searchMenu = new ListBranches(controller_);
+        searchMenu.setLocationRelativeTo(null);
+        searchMenu.setVisible(true);
+    }//GEN-LAST:event_searchBranchLabelMouseClicked
+
+    private void modifyBranchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBranchLabelMouseClicked
         ModifyBranch modifyMenu = new ModifyBranch(controller_);
         modifyMenu.setLocationRelativeTo(null);
         modifyMenu.setVisible(true);
-    }//GEN-LAST:event_modifyBranchButtonActionPerformed
+    }//GEN-LAST:event_modifyBranchLabelMouseClicked
 
-    private void listBranchesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBranchesButtonActionPerformed
-       ListBranches searchMenu = new ListBranches(controller_);
-       searchMenu.setLocationRelativeTo(null);
-       searchMenu.setVisible(true);
-    }//GEN-LAST:event_listBranchesButtonActionPerformed
+    private void exitBranchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBranchMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_exitBranchMouseClicked
+
+    private void branchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_branchLabelMouseClicked
+        this.branchOptionPanel.setVisible(true);
+        this.userOptionPanel.setVisible(false);
+    }//GEN-LAST:event_branchLabelMouseClicked
+
+    private void userLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userLabelMouseClicked
+        this.userOptionPanel.setVisible(true);
+        this.branchOptionPanel.setVisible(false);
+    }//GEN-LAST:event_userLabelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBranchButton;
-    private javax.swing.JButton addEmployeeButton;
-    private javax.swing.JPanel backgroundPanel;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JButton listBranchesButton;
-    private javax.swing.JButton modifyBranchButton;
-    private javax.swing.JButton modifyEmployeeButton;
-    private javax.swing.JButton searchButton;
+    private javax.swing.JLabel addBranchLabel;
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JLabel branchBackground;
+    private javax.swing.JLabel branchLabel;
+    private javax.swing.JPanel branchOptionPanel;
+    private javax.swing.JLabel deleteLabel;
+    private javax.swing.JLabel exitBranch;
+    private javax.swing.JLabel exitLabel;
+    private javax.swing.JLabel modifyBranchLabel;
+    private javax.swing.JLabel modifyLabel;
+    private javax.swing.JLabel reportBranchLabel;
+    private javax.swing.JLabel reportLabel;
+    private javax.swing.JLabel searchBranchLabel;
+    private javax.swing.JLabel searchLabel;
+    private javax.swing.JLabel userBackground;
     private javax.swing.JLabel userLabel;
+    private javax.swing.JPanel userOptionPanel;
     // End of variables declaration//GEN-END:variables
 }

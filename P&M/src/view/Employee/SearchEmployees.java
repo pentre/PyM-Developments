@@ -54,6 +54,7 @@ public class SearchEmployees extends javax.swing.JFrame {
         dataTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         idLabel.setText("ID:");
 

@@ -56,6 +56,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         idLabel.setText("Id:");
 
@@ -124,7 +125,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
             }
         });
 
-        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Jefe de Taller", "Vendedor" }));
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Gerente", "Jefe de Taller", "Vendedor" }));
         chargeCombo.setEnabled(false);
         chargeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

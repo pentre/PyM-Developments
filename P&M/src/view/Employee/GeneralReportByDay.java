@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.Manager;
+package view.Employee;
 
 import controller.Controller;
-import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -15,9 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
-import javax.swing.SwingWorker;
+import javax.swing.JPanel;
+import org.knowm.xchart.CategoryChart;
 import org.knowm.xchart.CategoryChartBuilder;
-import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XChartPanel;
 import org.knowm.xchart.style.Styler;
 
 /**
@@ -49,6 +49,7 @@ public class GeneralReportByDay extends javax.swing.JFrame {
         endDatePicker = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
         reportButton = new javax.swing.JButton();
+        ChartPanel = new javax.swing.JPanel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -65,25 +66,31 @@ public class GeneralReportByDay extends javax.swing.JFrame {
             }
         });
 
+        ChartPanel.setLayout(new javax.swing.BoxLayout(ChartPanel, javax.swing.BoxLayout.LINE_AXIS));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(ChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(startDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(endDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67))))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(endDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,10 +102,11 @@ public class GeneralReportByDay extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(reportButton)
-                .addContainerGap(285, Short.MAX_VALUE))
+                    .addComponent(endDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reportButton))
+                .addGap(18, 18, 18)
+                .addComponent(ChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,25 +142,25 @@ public class GeneralReportByDay extends javax.swing.JFrame {
             yData.add(entry.getValue());         
         }
 
-        SwingWorker worker = new SwingWorker()
-        {
-            @Override
-            protected Object doInBackground() throws Exception
-            {
-                org.knowm.xchart.CategoryChart chart = new CategoryChartBuilder().title("Ventas diarias").xAxisTitle("Días").yAxisTitle("Ventas").theme(Styler.ChartTheme.GGPlot2).build();
-                chart.addSeries("N° de ventas", xData, yData);
-                
-                chart.getStyler().setYAxisLabelAlignment(Styler.TextAlignment.Left);
-                new SwingWrapper<>(chart).displayChart();
-             
-                return null;
-            }          
-        };
-        worker.execute();
+        JPanel chartPanelArea = new XChartPanel(this.getChart(xData, yData));
+        ChartPanel.removeAll();
+        ChartPanel.revalidate();
+        ChartPanel.repaint();
+        ChartPanel.add(chartPanelArea);
+        ChartPanel.validate();
         
     }//GEN-LAST:event_reportButtonActionPerformed
 
-   
+   private CategoryChart getChart(List<String> xData, List<Integer> yData) {
+        
+        CategoryChart chart = new CategoryChartBuilder().title("Ventas diarias").xAxisTitle("Días").yAxisTitle("Ventas").yAxisTitle("Ventas").theme(Styler.ChartTheme.GGPlot2).build();
+
+        chart.addSeries("N° de ventas", xData, yData);
+        chart.getStyler().setHasAnnotations(true);
+        chart.getStyler().setYAxisLabelAlignment(Styler.TextAlignment.Left);
+
+        return chart;
+    }
     
     /**
      * @param args the command line arguments
@@ -181,6 +189,8 @@ public class GeneralReportByDay extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -191,6 +201,7 @@ public class GeneralReportByDay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ChartPanel;
     private org.jdesktop.swingx.JXDatePicker endDatePicker;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

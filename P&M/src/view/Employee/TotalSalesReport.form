@@ -27,7 +27,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="ChartPanel" max="32767" attributes="0"/>
-                  <Component id="DatesPanel" max="32767" attributes="0"/>
+                  <Component id="DatesPanel" pref="727" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -37,9 +37,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="DatesPanel" min="-2" max="-2" attributes="0"/>
+              <Component id="DatesPanel" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="ChartPanel" pref="320" max="32767" attributes="0"/>
+              <Component id="ChartPanel" pref="344" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>

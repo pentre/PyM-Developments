@@ -25,6 +25,7 @@ nbdist/
 !KControls.jar
 !LGoodDatePicker-10.4.1.jar
 !xchart-3.5.3.jar
+!swingx-all-1.6.4.jar
 *.war
 *.nar
 *.ear

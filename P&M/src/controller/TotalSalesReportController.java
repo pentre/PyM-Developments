@@ -20,4 +20,10 @@ public interface TotalSalesReportController {
         TotalSalesReport salesReport = new TotalSalesReport(initialDate, endDate);
         return salesReport.getSalesInfo(Controller.database);
     }
+    
+    default public List<Map<String, String>> getFurnitureSalesInfo(LocalDate initialDate, LocalDate endDate, String branch){
+        TotalSalesReport salesReport = new TotalSalesReport(initialDate, endDate);
+        return salesReport.getFurnitureSalesInfo(Controller.database, branch);
+    }
+    
 }

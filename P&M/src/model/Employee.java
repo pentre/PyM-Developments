@@ -169,10 +169,8 @@ public class Employee {
                 } else{
                     result.put("active", "Inactivo");
                 }
-                
                 results.add(result);
             }
-            
             return results;
         } catch(SQLException e) {
             e.printStackTrace();

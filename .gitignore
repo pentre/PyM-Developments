@@ -23,6 +23,7 @@ nbdist/
 *.jar
 !postgresql-42.2.5.jar
 !KControls.jar
+!swingx-all-1.6.4.jar
 *.war
 *.nar
 *.ear

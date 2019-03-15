@@ -23,6 +23,8 @@ nbdist/
 *.jar
 !postgresql-42.2.5.jar
 !KControls.jar
+!LGoodDatePicker-10.4.1.jar
+!xchart-3.5.3.jar
 *.war
 *.nar
 *.ear

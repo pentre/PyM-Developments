@@ -9,7 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -72,6 +74,32 @@ public class Inventory {
         } catch(Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    
+    public List<Map<String, String>> searchAll(Database database) {
+        try {
+            PreparedStatement stmt = database.getStatement("SELECT * FROM inventory NATURAL JOIN catalog WHERE branch = ? AND quantity > 0");
+            stmt.setString(1, branch_);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();
+            
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("id", rs.getString("id"));
+                result.put("name", rs.getString("name"));
+                result.put("quantity", rs.getString("quantity"));
+                results.add(result);
+            }
+            
+            return results;
+        } catch (SQLException e) {
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     

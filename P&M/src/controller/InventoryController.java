@@ -12,7 +12,6 @@ import java.util.Map;
 import model.Inventory;
 import model.Commission;
 import model.Furniture;
-import model.Database;
 
 /**
  *
@@ -82,5 +81,10 @@ public interface InventoryController {
             results[i] = Integer.toString(list.get(i).getId());
         }
         return results;
+    }
+    
+    default public List<Map<String, String>> searchInventory(String branch) {
+        Inventory inventory = new Inventory(0, 0, branch);
+        return inventory.searchAll(Controller.database);
     }
 }

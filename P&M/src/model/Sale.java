@@ -7,9 +7,17 @@ package model;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import static java.util.Map.Entry.comparingByKey;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toMap;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -87,5 +95,57 @@ public class Sale {
             e.printStackTrace();
             return "Error: no se pudo registrar la venta";
         }
+    }
+    
+    public Map<String, Integer> getGeneralReportByDay(Database database, LocalDate startDate, LocalDate endDate) {         
+        long numOfDaysBetween = ChronoUnit.DAYS.between(startDate, endDate); 
+        Map<String, Integer> dates = IntStream.iterate(0, i -> i + 1)
+                .limit(numOfDaysBetween)
+                .mapToObj(i -> startDate.plusDays(i))
+                .collect(Collectors.toMap(f -> f.toString(), f -> 0, (e1, e2) -> e1, LinkedHashMap::new)); 
+        
+        try {            
+            PreparedStatement stmt = database.getStatement("SELECT date, count(*) FROM sale WHERE date BETWEEN ? AND ? GROUP BY date");
+            stmt.setDate(1, java.sql.Date.valueOf(startDate));
+            stmt.setDate(2, java.sql.Date.valueOf(endDate));
+            
+            ResultSet rs = stmt.executeQuery();
+           
+            while(rs.next()) {                
+                dates.put(rs.getDate("date").toString(), rs.getInt("count"));                
+            }
+            
+            return dates;
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }    
+    }
+    
+    public Map<String, Integer> getBranchReportByDay(Database database, LocalDate startDate, LocalDate endDate, String branch) {         
+        long numOfDaysBetween = ChronoUnit.DAYS.between(startDate, endDate); 
+        Map<String, Integer> dates = IntStream.iterate(0, i -> i + 1)
+                .limit(numOfDaysBetween)
+                .mapToObj(i -> startDate.plusDays(i))
+                .collect(Collectors.toMap(f -> f.toString(), f -> 0, (e1, e2) -> e1, LinkedHashMap::new)); 
+        
+        try {            
+            PreparedStatement stmt = database.getStatement("SELECT date, count(*) FROM sale WHERE date BETWEEN ? AND ? GROUP BY date");
+            stmt.setDate(1, java.sql.Date.valueOf(startDate));
+            stmt.setDate(2, java.sql.Date.valueOf(endDate));
+            
+            ResultSet rs = stmt.executeQuery();
+           
+            while(rs.next()) {                
+                dates.put(rs.getDate("date").toString(), rs.getInt("count"));                
+            }
+            
+            return dates;
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }    
     }
 }

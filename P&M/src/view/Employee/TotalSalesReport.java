@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingWorker;
 import org.knowm.xchart.CategoryChart;
 import org.knowm.xchart.CategoryChartBuilder;
-import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.CategorySeries;
 import org.knowm.xchart.XChartPanel;
+import org.knowm.xchart.style.Styler;
 
 /**
  *
@@ -113,16 +113,16 @@ public class TotalSalesReport extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DatesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DatesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(DatesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DatesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -132,8 +132,9 @@ public class TotalSalesReport extends javax.swing.JFrame {
     private void ShowReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowReportButtonActionPerformed
         LocalDate initialDate = this.InitialDatePicker.getDate();
         LocalDate endDate = this.EndDatePicker.getDate();
-        if (initialDate == null || endDate == null) {
-            JOptionPane.showMessageDialog(this, "Error: debe seleccionar el rango de fechas a buscar", "Error", JOptionPane.ERROR_MESSAGE);
+        
+        if (initialDate == null | endDate == null | initialDate.compareTo(endDate) > 0) {
+            JOptionPane.showMessageDialog(this, "Error: debe seleccionar un rango de fechas valido", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
 
@@ -154,9 +155,10 @@ public class TotalSalesReport extends javax.swing.JFrame {
         List<Integer> values = data.get("values");
 
         CategoryChart chart = new CategoryChartBuilder().width(400).height(600).title("Total ventas por sede").xAxisTitle("Sedes").yAxisTitle("Ventas").build();
-
         chart.addSeries("Ventas", branches, values);
         chart.getStyler().setHasAnnotations(true);
+        chart.getStyler().setDefaultSeriesRenderStyle(CategorySeries.CategorySeriesRenderStyle.Bar);
+        chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideNW);
 
         return chart;
     }

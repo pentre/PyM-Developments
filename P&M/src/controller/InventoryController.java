@@ -44,34 +44,7 @@ public interface InventoryController {
         }
         return results;
     }
-    
-    default public String sale(Map<Integer, Integer> furnitures) {
-        Inventory inventory = new Inventory(0, 0, "");
-        
-        for (Map.Entry<Integer, Integer> furniture : furnitures.entrySet()) {
-            boolean ok = inventory.search(Controller.database, furniture.getKey(), "Sede0");//Controller.employee.getBranch());
-            if (!ok) {
-                return "Error: no se pudo realizar la venta";
-            }
-            
-            int missingQuantity = inventory.decrease(Controller.database, furniture.getValue());
-            if (missingQuantity == -1) {
-                return "Error: no se pudo realizar la venta";
-            }
-            
-            if (missingQuantity == 0) {
-                continue;
-            }
-            Commission commission = new Commission(false, furniture.getKey(), missingQuantity, "Sede0");//Controller.employee.getBranch());
-            String err = commission.store(Controller.database);
-            if (err.contains("Error")) {
-                return "Error: no se pudieron crear las órdenes de trabajo";
-            }
-        }
-        
-        return "Venta exitosa";
-    }
-    
+       
     default public String[] listInventory() {
         Inventory inventory = new Inventory(0, 0, "Sede0");//Controller.employee.getBranch());
         List<Inventory> list = inventory.list(Controller.database);

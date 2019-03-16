@@ -95,6 +95,7 @@ INSERT INTO catalog VALUES(DEFAULT, 'sofa', 200, 'aire', 20, 'rojo', true);
 INSERT INTO inventory VALUES(1, 5, 'Sede0');
 INSERT INTO inventory VALUES(2, 3, 'Sede0');
 
+
 INSERT INTO sale VALUES('1', 'Sede0', '1', '2019-03-08');
 INSERT INTO sale VALUES('2', 'Sede0', '1', '2019-03-08');
 INSERT INTO furniture_sold VALUES('1', 1, 23, 130000);

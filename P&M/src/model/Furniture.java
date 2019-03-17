@@ -134,6 +134,34 @@ public class Furniture {
         }
     }
     
+    public boolean search(Database database, int id) {
+        try {            
+            PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE furniture_id = ?");
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.next()) {
+                return false;
+            }
+            
+            id_ = id;
+            name_ = rs.getString("name");
+            price_ = rs.getFloat("price");
+            material_ = rs.getString("material");
+            weight_ = rs.getFloat("weight");
+            color_ = rs.getString("color");    
+            active_ = rs.getBoolean("active");
+                        
+            return true;
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean searchActive(Database database) {
         try {            
             PreparedStatement stmt = database.getStatement("SELECT * FROM catalog WHERE furniture_id = ? AND active = true");

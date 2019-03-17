@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import model.Inventory;
-import model.Commission;
 import model.Furniture;
 
 /**
@@ -25,7 +24,7 @@ public interface InventoryController {
         List<Map<String, Float>> results = new ArrayList<>();  
         
         for (int id:ids) {
-            boolean ok = inventory.search(Controller.database, id, "Sede0");//Controller.employee.getBranch());
+            boolean ok = inventory.search(Controller.database, id, Controller.employee.getBranch());
             if (!ok) {
                 continue;
             }
@@ -46,7 +45,7 @@ public interface InventoryController {
     }
        
     default public String[] listInventory() {
-        Inventory inventory = new Inventory(0, 0, "Sede0");//Controller.employee.getBranch());
+        Inventory inventory = new Inventory(0, 0, Controller.employee.getBranch());
         List<Inventory> list = inventory.list(Controller.database);
         
         String [] results = new String[list.size()];

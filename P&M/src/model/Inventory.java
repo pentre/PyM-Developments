@@ -88,7 +88,7 @@ public class Inventory {
             
             while(rs.next()) {
                 Map<String,String> result = new HashMap<>();
-                result.put("id", rs.getString("id"));
+                result.put("id", rs.getString("furniture_id"));
                 result.put("name", rs.getString("name"));
                 result.put("quantity", rs.getString("quantity"));
                 results.add(result);
@@ -96,6 +96,7 @@ public class Inventory {
             
             return results;
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         } catch (Exception e) {
             e.printStackTrace();

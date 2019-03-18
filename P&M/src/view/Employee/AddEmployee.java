@@ -10,6 +10,7 @@ import controller.Controller;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import view.Login;
 
 /**
  *
@@ -24,6 +25,8 @@ public class AddEmployee extends javax.swing.JFrame {
     public AddEmployee(Controller controller, String userType) {
         controller_ = controller;
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         
         if ("Administrador".equals(userType)){
             this.chargeCombo.addItem("Gerente");
@@ -40,31 +43,24 @@ public class AddEmployee extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        idLabel = new javax.swing.JLabel();
         idTextField = new javax.swing.JTextField();
         nameTextField = new javax.swing.JTextField();
-        nameLabel = new javax.swing.JLabel();
-        salaryTextField = new javax.swing.JTextField();
-        salaryLabel = new javax.swing.JLabel();
-        phoneNumberTextField = new javax.swing.JTextField();
-        phoneNumberLabel = new javax.swing.JLabel();
-        passwordLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        branchLabel = new javax.swing.JLabel();
-        branchTextField = new javax.swing.JTextField();
-        chargeLabel = new javax.swing.JLabel();
         chargeCombo = new javax.swing.JComboBox<>();
-        addManagerButton = new javax.swing.JButton();
-        MessageLabel = new javax.swing.JLabel();
-        cancelButton = new javax.swing.JButton();
+        branchTextField = new javax.swing.JTextField();
+        salaryTextField = new javax.swing.JTextField();
+        phoneNumberTextField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        addButton = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
+        UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        idLabel.setText("ID:");
-        idLabel.setToolTipText("");
-
+        idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setForeground(new java.awt.Color(255, 255, 255));
+        idTextField.setBorder(null);
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTextFieldActionPerformed(evt);
@@ -75,7 +71,11 @@ public class AddEmployee extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, 30));
 
+        nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        nameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        nameTextField.setBorder(null);
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextFieldActionPerformed(evt);
@@ -86,9 +86,27 @@ public class AddEmployee extends javax.swing.JFrame {
                 nameTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 240, 30));
 
-        nameLabel.setText("Nombre:");
+        chargeCombo.setForeground(new java.awt.Color(44, 47, 51));
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Vendedor", "Jefe de Taller" }));
+        chargeCombo.setBorder(null);
+        getContentPane().add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 240, 30));
 
+        branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        branchTextField.setForeground(new java.awt.Color(255, 255, 255));
+        branchTextField.setToolTipText("");
+        branchTextField.setBorder(null);
+        branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                branchTextFieldKeyTyped(evt);
+            }
+        });
+        getContentPane().add(branchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 120, 30));
+
+        salaryTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        salaryTextField.setForeground(new java.awt.Color(255, 255, 255));
+        salaryTextField.setBorder(null);
         salaryTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salaryTextFieldActionPerformed(evt);
@@ -99,10 +117,11 @@ public class AddEmployee extends javax.swing.JFrame {
                 salaryTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(salaryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 80, 30));
 
-        salaryLabel.setText("Salario:");
-        salaryLabel.setToolTipText("");
-
+        phoneNumberTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        phoneNumberTextField.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNumberTextField.setBorder(null);
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNumberTextFieldActionPerformed(evt);
@@ -113,126 +132,29 @@ public class AddEmployee extends javax.swing.JFrame {
                 phoneNumberTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 240, 30));
 
-        phoneNumberLabel.setText("Teléfono:");
+        passwordField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setBorder(null);
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 240, 30));
 
-        passwordLabel.setText("Contraseña");
-
-        branchLabel.setText("Sede:");
-
-        branchTextField.setToolTipText("");
-        branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                branchTextFieldKeyTyped(evt);
+        addButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addButtonMouseClicked(evt);
             }
         });
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 475, 200, 50));
 
-        chargeLabel.setText("Cargo:");
-
-        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Vendedor", "Jefe de Taller" }));
-
-        addManagerButton.setText("Agregar");
-        addManagerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addManagerButtonActionPerformed(evt);
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
             }
         });
+        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 50, 40));
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idLabel)
-                    .addComponent(idTextField)
-                    .addComponent(nameTextField)
-                    .addComponent(nameLabel)
-                    .addComponent(salaryTextField)
-                    .addComponent(salaryLabel)
-                    .addComponent(phoneNumberTextField)
-                    .addComponent(phoneNumberLabel)
-                    .addComponent(passwordLabel)
-                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(branchLabel)
-                    .addComponent(branchTextField)
-                    .addComponent(chargeLabel)
-                    .addComponent(chargeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MessageLabel)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(addManagerButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancelButton)))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(idLabel)
-                .addGap(10, 10, 10)
-                .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chargeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(chargeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(branchLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salaryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(salaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(phoneNumberLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(passwordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addManagerButton)
-                    .addComponent(cancelButton))
-                .addGap(14, 14, 14))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Add Employee Menu.png"))); // NOI18N
+        getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -252,28 +174,6 @@ public class AddEmployee extends javax.swing.JFrame {
     private void phoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneNumberTextFieldActionPerformed
-
-    private void addManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addManagerButtonActionPerformed
-
-        if(idTextField.getText().isEmpty() || nameTextField.getText().isEmpty() || branchTextField.getText().isEmpty() || salaryTextField.getText().isEmpty() || phoneNumberTextField.getText().isEmpty() || chargeCombo.getSelectedItem() == "-" ||  new String(passwordField.getPassword()).isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor ingrese todos los datos.");
-            return;
-        }
-
-        String id = idTextField.getText();
-        String name = nameTextField.getText();
-        String charge = (String) this.chargeCombo.getSelectedItem();
-        String branch = branchTextField.getText();
-        float salary = Float.parseFloat(salaryTextField.getText());
-        String phoneNumber = phoneNumberTextField.getText();
-        String password = new String(passwordField.getPassword());
-
-        String message = controller_.createEmployee(id, name, branch, charge, salary, phoneNumber);
-        message += controller_.createUser(id,password);
-
-        JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        clearFields();
-    }//GEN-LAST:event_addManagerButtonActionPerformed
 
     private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
         validateNumber(evt);
@@ -296,9 +196,31 @@ public class AddEmployee extends javax.swing.JFrame {
         validateNumbersAndCharacters(evt);
     }//GEN-LAST:event_branchTextFieldKeyTyped
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
+       
+        if(idTextField.getText().isEmpty() || nameTextField.getText().isEmpty() || branchTextField.getText().isEmpty() || salaryTextField.getText().isEmpty() || phoneNumberTextField.getText().isEmpty() || chargeCombo.getSelectedItem() == "-" ||  new String(passwordField.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor ingrese todos los datos.");
+            return;
+        }
+
+        String id = idTextField.getText();
+        String name = nameTextField.getText();
+        String charge = (String) this.chargeCombo.getSelectedItem();
+        String branch = branchTextField.getText();
+        float salary = Float.parseFloat(salaryTextField.getText());
+        String phoneNumber = phoneNumberTextField.getText();
+        String password = new String(passwordField.getPassword());
+
+        String message = controller_.createEmployee(id, name, branch, charge, salary, phoneNumber);
+        message += controller_.createUser(id,password);
+
+        JOptionPane.showMessageDialog(this, message, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
+    }//GEN-LAST:event_addButtonMouseClicked
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
         this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_exitButtonMouseClicked
     
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
@@ -334,23 +256,15 @@ public class AddEmployee extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel MessageLabel;
-    private javax.swing.JButton addManagerButton;
-    private javax.swing.JLabel branchLabel;
+    private javax.swing.JLabel UI;
+    private javax.swing.JLabel addButton;
     private javax.swing.JTextField branchTextField;
-    private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<String> chargeCombo;
-    private javax.swing.JLabel chargeLabel;
-    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel exitButton;
     private javax.swing.JTextField idTextField;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JLabel passwordLabel;
-    private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberTextField;
-    private javax.swing.JLabel salaryLabel;
     private javax.swing.JTextField salaryTextField;
     // End of variables declaration//GEN-END:variables
 }

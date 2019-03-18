@@ -39,27 +39,25 @@ public class ModifyEmployee extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        idLabel = new javax.swing.JLabel();
         idTextField = new javax.swing.JTextField();
-        loadButton = new javax.swing.JButton();
-        nameLabel = new javax.swing.JLabel();
-        chargeLabel = new javax.swing.JLabel();
-        salaryLabel = new javax.swing.JLabel();
-        phoneNumberLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         salaryTextField = new javax.swing.JTextField();
         phoneNumberTextField = new javax.swing.JTextField();
-        updateButton = new javax.swing.JButton();
         chargeCombo = new javax.swing.JComboBox<>();
-        branchLabel = new javax.swing.JLabel();
         branchTextField = new javax.swing.JTextField();
-        cancelButton = new javax.swing.JButton();
+        modifyButton = new javax.swing.JLabel();
+        searchButton = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
+        UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        idLabel.setText("Id:");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setBorder(null);
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTextFieldActionPerformed(evt);
@@ -70,22 +68,10 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
+        jPanel1.add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 103, 190, 30));
 
-        loadButton.setText("Cargar");
-        loadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadButtonActionPerformed(evt);
-            }
-        });
-
-        nameLabel.setText("Nombre:");
-
-        chargeLabel.setText("Cargo:");
-
-        salaryLabel.setText("Salario:");
-
-        phoneNumberLabel.setText("Telefono:");
-
+        nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        nameTextField.setBorder(null);
         nameTextField.setEnabled(false);
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,14 +83,20 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 nameTextFieldKeyTyped(evt);
             }
         });
+        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 240, 30));
 
+        salaryTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        salaryTextField.setBorder(null);
         salaryTextField.setEnabled(false);
         salaryTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 salaryTextFieldKeyTyped(evt);
             }
         });
+        jPanel1.add(salaryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 325, 80, 20));
 
+        phoneNumberTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        phoneNumberTextField.setBorder(null);
         phoneNumberTextField.setEnabled(false);
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,14 +108,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 phoneNumberTextFieldKeyTyped(evt);
             }
         });
-
-        updateButton.setText("Actualizar");
-        updateButton.setEnabled(false);
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
-            }
-        });
+        jPanel1.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 230, 20));
 
         chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Gerente", "Jefe de Taller", "Vendedor" }));
         chargeCombo.setEnabled(false);
@@ -132,105 +117,50 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 chargeComboActionPerformed(evt);
             }
         });
+        jPanel1.add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 255, 250, 30));
 
-        branchLabel.setText("Sede:");
-
+        branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        branchTextField.setBorder(null);
         branchTextField.setEnabled(false);
         branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 branchTextFieldKeyTyped(evt);
             }
         });
+        jPanel1.add(branchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 325, 123, 20));
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+        modifyButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyButtonMouseClicked(evt);
             }
         });
+        jPanel1.add(modifyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 480, 200, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(updateButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelButton)
-                .addGap(53, 53, 53))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel)
-                    .addComponent(chargeLabel)
-                    .addComponent(idLabel)
-                    .addComponent(salaryLabel)
-                    .addComponent(phoneNumberLabel)
-                    .addComponent(branchLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(salaryTextField)
-                    .addComponent(nameTextField)
-                    .addComponent(idTextField)
-                    .addComponent(chargeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(phoneNumberTextField)
-                    .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(loadButton)
-                .addGap(29, 29, 29))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel)
-                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loadButton))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chargeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chargeLabel))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(salaryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salaryLabel))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(phoneNumberLabel))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(branchLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(updateButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(25, 25, 25))
-        );
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButtonMouseClicked(evt);
+            }
+        });
+        jPanel1.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 95, 60, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
+
+        UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Modify Employee Menu.png"))); // NOI18N
+        UI.setText("jLabel1");
+        jPanel1.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 540));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public void disable(){
-        updateButton.setEnabled(false);
+        modifyButton.setEnabled(false);
         idTextField.setEnabled(false);
         chargeCombo.setEnabled(false);
         salaryTextField.setEnabled(false);
@@ -242,7 +172,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         branchTextField.setText("");
         idTextField.setText("");
         idTextField.setEnabled(true);
-        loadButton.setEnabled(true);
+        searchButton.setEnabled(true);
     }
     
     public void enable(){
@@ -250,52 +180,12 @@ public class ModifyEmployee extends javax.swing.JFrame {
         chargeCombo.setEnabled(true);
         salaryTextField.setEnabled(true);
         phoneNumberTextField.setEnabled(true);
-        updateButton.setEnabled(true);
+        modifyButton.setEnabled(true);
         branchTextField.setEnabled(true);
         idTextField.setEnabled(false);
-        loadButton.setEnabled(false);
+        searchButton.setEnabled(false);
     }
     
-    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        // TODO add your handling code here:
-        if(idTextField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
-            return;
-        }
-        String id = idTextField.getText();
-        
-        Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
-        
-        
-        if (infoEmployee.isEmpty()){
-            JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
-            disable();
-            return;
-        }
-        enable();
-        idTextField.setEditable(false);
-        nameTextField.setText(infoEmployee.get("name"));
-        chargeCombo.setSelectedItem(infoEmployee.get("charge"));
-        salaryTextField.setText(infoEmployee.get("salary"));  
-        phoneNumberTextField.setText(infoEmployee.get("phoneNumber"));
-        branchTextField.setText(infoEmployee.get("branch"));
-    }//GEN-LAST:event_loadButtonActionPerformed
-
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        // TODO add your handling code here:
-        String id = idTextField.getText();
-        String name = nameTextField.getText();
-        String branch = branchTextField.getText();
-        String charge =  chargeCombo.getSelectedItem().toString();
-        Float salary = Float.valueOf(salaryTextField.getText());
-        String phoneNumber = phoneNumberTextField.getText();
-        String message = controller_.updateEmployee(id, name, branch, charge, salary, phoneNumber, userType_);
-        JOptionPane.showMessageDialog(this, message);
-        disable();
-        idTextField.setEditable(true);
-        clearFields();
-    }//GEN-LAST:event_updateButtonActionPerformed
-
     private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
@@ -352,9 +242,47 @@ public class ModifyEmployee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_branchTextFieldKeyTyped
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void modifyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyButtonMouseClicked
+        String id = idTextField.getText();
+        String name = nameTextField.getText();
+        String branch = branchTextField.getText();
+        String charge =  chargeCombo.getSelectedItem().toString();
+        Float salary = Float.valueOf(salaryTextField.getText());
+        String phoneNumber = phoneNumberTextField.getText();
+        String message = controller_.updateEmployee(id, name, branch, charge, salary, phoneNumber, userType_);
+        JOptionPane.showMessageDialog(this, message);
+        disable();
+        idTextField.setEditable(true);
+        clearFields();
+    }//GEN-LAST:event_modifyButtonMouseClicked
+
+    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
+        if(idTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
+            return;
+        }
+        String id = idTextField.getText();
+        
+        Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
+        
+        
+        if (infoEmployee.isEmpty()){
+            JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
+            disable();
+            return;
+        }
+        enable();
+        idTextField.setEditable(false);
+        nameTextField.setText(infoEmployee.get("name"));
+        chargeCombo.setSelectedItem(infoEmployee.get("charge"));
+        salaryTextField.setText(infoEmployee.get("salary"));  
+        phoneNumberTextField.setText(infoEmployee.get("phoneNumber"));
+        branchTextField.setText(infoEmployee.get("branch"));
+    }//GEN-LAST:event_searchButtonMouseClicked
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
         this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_exitButtonMouseClicked
 
     private void clearFields(){
         this.idTextField.setText("");
@@ -366,21 +294,16 @@ public class ModifyEmployee extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel branchLabel;
+    private javax.swing.JLabel UI;
     private javax.swing.JTextField branchTextField;
-    private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<String> chargeCombo;
-    private javax.swing.JLabel chargeLabel;
-    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel exitButton;
     private javax.swing.JTextField idTextField;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton loadButton;
-    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel modifyButton;
     private javax.swing.JTextField nameTextField;
-    private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberTextField;
-    private javax.swing.JLabel salaryLabel;
     private javax.swing.JTextField salaryTextField;
-    private javax.swing.JButton updateButton;
+    private javax.swing.JLabel searchButton;
     // End of variables declaration//GEN-END:variables
 }

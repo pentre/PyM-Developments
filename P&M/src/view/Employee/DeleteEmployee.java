@@ -185,12 +185,9 @@ public class DeleteEmployee extends javax.swing.JFrame {
         Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
 
         if (infoEmployee.isEmpty()){
-            JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
-            disable();
+            JOptionPane.showMessageDialog(this, "No existe empleado con esa id", "Atencion", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        enable();
-        idTextField.setEditable(false);
         nameTextField.setText(infoEmployee.get("name"));
         chargeCombo.setSelectedItem(infoEmployee.get("charge"));
         salaryTextField.setText(infoEmployee.get("salary"));
@@ -201,6 +198,7 @@ public class DeleteEmployee extends javax.swing.JFrame {
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         if (this.idTextField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
+            return;
         }
         
         int selectedOption = JOptionPane.showConfirmDialog(this, "¿Desea eliminar el usuario ingresado?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
@@ -265,34 +263,13 @@ public class DeleteEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonMouseClicked
 
     private void clearFields(){
+        this.idTextField.setEditable(true);
         this.idTextField.setText("");
         this.nameTextField.setText("");
         this.branchTextField.setText("");
         this.phoneNumberTextField.setText("");
         this.salaryTextField.setText("");
         this.chargeCombo.setSelectedIndex(0);
-    }
-        public void disable(){
-        deleteButton.setEnabled(false);
-        chargeCombo.setEnabled(false);
-        salaryTextField.setEnabled(false);
-        phoneNumberTextField.setEnabled(false);
-        branchTextField.setEnabled(false);
-        nameTextField.setText("");
-        salaryTextField.setText("");
-        phoneNumberTextField.setText("");
-        branchTextField.setText("");
-        idTextField.setText("");
-        idTextField.setEnabled(true);
-    }
-    
-    public void enable(){
-        nameTextField.setEnabled(true);
-        chargeCombo.setEnabled(true);
-        salaryTextField.setEnabled(true);
-        phoneNumberTextField.setEnabled(true);
-        deleteButton.setEnabled(true);
-        branchTextField.setEnabled(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

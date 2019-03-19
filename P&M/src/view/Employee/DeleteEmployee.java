@@ -6,6 +6,7 @@
 package view.Employee;
 
 import controller.*;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,96 +36,177 @@ public class DeleteEmployee extends javax.swing.JFrame {
 
         backgroundPanel = new javax.swing.JPanel();
         idLabel = new javax.swing.JLabel();
-        idInputField = new javax.swing.JTextField();
-        deleteButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        idTextField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JLabel();
+        deleteButton = new javax.swing.JLabel();
+        nameTextField = new javax.swing.JTextField();
+        chargeCombo = new javax.swing.JComboBox<>();
+        salaryTextField = new javax.swing.JTextField();
+        branchTextField = new javax.swing.JTextField();
+        phoneNumberTextField = new javax.swing.JTextField();
+        exitButton = new javax.swing.JLabel();
+        UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idLabel.setText("ID:");
+        backgroundPanel.add(idLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, -1, -1));
 
-        idInputField.addActionListener(new java.awt.event.ActionListener() {
+        idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
+        idTextField.setBorder(null);
+        idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idInputFieldActionPerformed(evt);
+                idTextFieldActionPerformed(evt);
             }
         });
-        idInputField.addKeyListener(new java.awt.event.KeyAdapter() {
+        idTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                idInputFieldKeyTyped(evt);
+                idTextFieldKeyTyped(evt);
             }
         });
+        backgroundPanel.add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 103, 190, 30));
 
-        deleteButton.setText("Eliminar");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButtonMouseClicked(evt);
+            }
+        });
+        backgroundPanel.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 95, 60, 40));
+
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
+        backgroundPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 475, 200, 50));
+
+        nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        nameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        nameTextField.setBorder(null);
+        nameTextField.setEnabled(false);
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
+                nameTextFieldActionPerformed(evt);
             }
         });
+        nameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameTextFieldKeyTyped(evt);
+            }
+        });
+        backgroundPanel.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 240, 30));
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+        chargeCombo.setForeground(new java.awt.Color(255, 255, 255));
+        chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Gerente", "Jefe de Taller", "Vendedor" }));
+        chargeCombo.setEnabled(false);
+        chargeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+                chargeComboActionPerformed(evt);
             }
         });
+        backgroundPanel.add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 255, 250, 30));
 
-        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
-        backgroundPanel.setLayout(backgroundPanelLayout);
-        backgroundPanelLayout.setHorizontalGroup(
-            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cancelButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addComponent(idLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31))
-        );
-        backgroundPanelLayout.setVerticalGroup(
-            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteButton)
-                    .addComponent(cancelButton))
-                .addGap(37, 37, 37))
-        );
+        salaryTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        salaryTextField.setForeground(new java.awt.Color(255, 255, 255));
+        salaryTextField.setBorder(null);
+        salaryTextField.setEnabled(false);
+        salaryTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                salaryTextFieldKeyTyped(evt);
+            }
+        });
+        backgroundPanel.add(salaryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 325, 80, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        branchTextField.setForeground(new java.awt.Color(255, 255, 255));
+        branchTextField.setBorder(null);
+        branchTextField.setEnabled(false);
+        branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                branchTextFieldKeyTyped(evt);
+            }
+        });
+        backgroundPanel.add(branchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 325, 123, 20));
+
+        phoneNumberTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        phoneNumberTextField.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNumberTextField.setBorder(null);
+        phoneNumberTextField.setEnabled(false);
+        phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneNumberTextFieldActionPerformed(evt);
+            }
+        });
+        phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyTyped(evt);
+            }
+        });
+        backgroundPanel.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 230, 20));
+
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
+        backgroundPanel.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
+
+        UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Delete Employee Menu.png"))); // NOI18N
+        backgroundPanel.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 540));
+
+        getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
-        if (this.idInputField.getText().isEmpty()){
+    private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
+        char inputChar = evt.getKeyChar();
+        if(!(Character.isDigit(inputChar))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_idTextFieldKeyTyped
+
+    private void idTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTextFieldActionPerformed
+
+    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
+        if(idTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
+            return;
+        }
+        String id = idTextField.getText();
+
+        Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
+
+        if (infoEmployee.isEmpty()){
+            JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
+            disable();
+            return;
+        }
+        enable();
+        idTextField.setEditable(false);
+        nameTextField.setText(infoEmployee.get("name"));
+        chargeCombo.setSelectedItem(infoEmployee.get("charge"));
+        salaryTextField.setText(infoEmployee.get("salary"));
+        phoneNumberTextField.setText(infoEmployee.get("phoneNumber"));
+        branchTextField.setText(infoEmployee.get("branch"));
+    }//GEN-LAST:event_searchButtonMouseClicked
+
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+        if (this.idTextField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
         }
         
         int selectedOption = JOptionPane.showConfirmDialog(this, "¿Desea eliminar el usuario ingresado?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
         
         if (selectedOption == 0){
-            String id = this.idInputField.getText();
+            String id = this.idTextField.getText();
 
             //user_ is sent to verify the user's charge that is going to delete an employee
             String message = this.controller_.deleteEmployee(user_, id);
@@ -132,32 +214,99 @@ public class DeleteEmployee extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, message);
             clearFields();
         }
-    }//GEN-LAST:event_deleteButtonActionPerformed
+    }//GEN-LAST:event_deleteButtonMouseClicked
 
-    private void idInputFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idInputFieldKeyTyped
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
+
+    private void nameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTextFieldKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nameTextFieldKeyTyped
+
+    private void chargeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chargeComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chargeComboActionPerformed
+
+    private void salaryTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salaryTextFieldKeyTyped
+        // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
         if(!(Character.isDigit(inputChar))){
             evt.consume();
         }
-    }//GEN-LAST:event_idInputFieldKeyTyped
+    }//GEN-LAST:event_salaryTextFieldKeyTyped
 
-    private void idInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputFieldActionPerformed
+    private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_idInputFieldActionPerformed
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c) && !Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_branchTextFieldKeyTyped
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    private void phoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneNumberTextFieldActionPerformed
+
+    private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
+        // TODO add your handling code here:
+        char inputChar = evt.getKeyChar();
+        if(!(Character.isDigit(inputChar))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_exitButtonMouseClicked
 
     private void clearFields(){
-        this.idInputField.setText("");
+        this.idTextField.setText("");
+        this.nameTextField.setText("");
+        this.branchTextField.setText("");
+        this.phoneNumberTextField.setText("");
+        this.salaryTextField.setText("");
+        this.chargeCombo.setSelectedIndex(0);
+    }
+        public void disable(){
+        deleteButton.setEnabled(false);
+        chargeCombo.setEnabled(false);
+        salaryTextField.setEnabled(false);
+        phoneNumberTextField.setEnabled(false);
+        branchTextField.setEnabled(false);
+        nameTextField.setText("");
+        salaryTextField.setText("");
+        phoneNumberTextField.setText("");
+        branchTextField.setText("");
+        idTextField.setText("");
+        idTextField.setEnabled(true);
+    }
+    
+    public void enable(){
+        nameTextField.setEnabled(true);
+        chargeCombo.setEnabled(true);
+        salaryTextField.setEnabled(true);
+        phoneNumberTextField.setEnabled(true);
+        deleteButton.setEnabled(true);
+        branchTextField.setEnabled(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UI;
     private javax.swing.JPanel backgroundPanel;
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JTextField idInputField;
+    private javax.swing.JTextField branchTextField;
+    private javax.swing.JComboBox<String> chargeCombo;
+    private javax.swing.JLabel deleteButton;
+    private javax.swing.JLabel exitButton;
     private javax.swing.JLabel idLabel;
+    private javax.swing.JTextField idTextField;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JTextField phoneNumberTextField;
+    private javax.swing.JTextField salaryTextField;
+    private javax.swing.JLabel searchButton;
     // End of variables declaration//GEN-END:variables
 }

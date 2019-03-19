@@ -192,10 +192,10 @@ public class DeleteEmployee extends javax.swing.JFrame {
         Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
 
         if (infoEmployee.isEmpty()){
-            JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
+            JOptionPane.showMessageDialog(this, "No existe empleado con esa id", "Atencion", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        idTextField.setEditable(false);
+
         nameTextField.setText(infoEmployee.get("name"));
         chargeCombo.addItem(infoEmployee.get("charge"));
         salaryTextField.setText(infoEmployee.get("salary"));
@@ -271,14 +271,14 @@ public class DeleteEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_chargeComboActionPerformed
 
     private void clearFields(){
+        this.idTextField.setEditable(true);
         this.idTextField.setText("");
         this.nameTextField.setText("");
         this.branchTextField.setText("");
         this.phoneNumberTextField.setText("");
         this.salaryTextField.setText("");
         this.chargeCombo.removeAllItems();
-    }
-        
+    } 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UI;

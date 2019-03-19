@@ -101,3 +101,17 @@ INSERT INTO sale VALUES('2', 'Sede0', '1', '2019-03-08');
 INSERT INTO furniture_sold VALUES('1', 1, 23, 130000);
 INSERT INTO furniture_sold VALUES('1', 2, 10, 130000);
 INSERT INTO furniture_sold VALUES('2', 1, 5, 130000);
+
+/*pruebas*/
+INSERT INTO employee VALUES('2', 'Jaime', 'Sede0', 'Jefe de Taller', 1234567, '1234567', true);
+INSERT INTO login VALUES('2', '123');
+INSERT INTO employee VALUES('3', 'Emily', 'Sede0', 'Jefe de Taller', 2345678, '2345678', true);
+INSERT INTO login VALUES('3', '123');
+INSERT INTO employee VALUES('4', 'Luis', 'Sede0', 'Vendedor', 3456789, '3456789', true);
+INSERT INTO login VALUES('4', '123');
+INSERT INTO employee VALUES('5', 'Camilo', 'Sede0', 'Vendedor', 4567890, '4567890', true);
+INSERT INTO login VALUES('5', '123');
+INSERT INTO employee VALUES('6', 'Jose', 'Sede0', 'Gerente', 9876543, '9876543', true);
+INSERT INTO login VALUES('6', '123');
+INSERT INTO employee VALUES('7', 'Juan', 'Sede0', 'Gerente', 8765432, '8765432', true);
+INSERT INTO login VALUES('7', '123');

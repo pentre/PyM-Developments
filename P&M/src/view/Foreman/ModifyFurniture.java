@@ -238,10 +238,10 @@ public class ModifyFurniture extends javax.swing.JFrame {
     }//GEN-LAST:event_idTextFieldActionPerformed
     
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        if(nameTextField.getText().trim().isEmpty() || colorTextField.getText().trim().isEmpty() || materialTextField.getText().trim().isEmpty() || priceTextField.getText().trim().isEmpty() || weightTextField.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Asegurese de ingresar todos los campos", "Atención", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+      if(nameTextField.getText().trim().isEmpty() || colorTextField.getText().trim().isEmpty() || materialTextField.getText().trim().isEmpty() || priceTextField.getText().trim().isEmpty() || weightTextField.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Por favor ingrese todos los campos", "Atención", JOptionPane.WARNING_MESSAGE);
+        return;
+      }
         try {
             int id = Integer.parseInt(idTextField.getText());
             String name = nameTextField.getText();

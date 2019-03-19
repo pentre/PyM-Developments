@@ -57,6 +57,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setBorder(null);
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +72,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 103, 190, 30));
 
         nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        nameTextField.setForeground(new java.awt.Color(255, 255, 255));
         nameTextField.setBorder(null);
         nameTextField.setEnabled(false);
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +88,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 240, 30));
 
         salaryTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        salaryTextField.setForeground(new java.awt.Color(255, 255, 255));
         salaryTextField.setBorder(null);
         salaryTextField.setEnabled(false);
         salaryTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -96,6 +99,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.add(salaryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 325, 80, 20));
 
         phoneNumberTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        phoneNumberTextField.setForeground(new java.awt.Color(255, 255, 255));
         phoneNumberTextField.setBorder(null);
         phoneNumberTextField.setEnabled(false);
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +114,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         });
         jPanel1.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 230, 20));
 
+        chargeCombo.setForeground(new java.awt.Color(255, 255, 255));
         chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Gerente", "Jefe de Taller", "Vendedor" }));
         chargeCombo.setEnabled(false);
         chargeCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +125,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 255, 250, 30));
 
         branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        branchTextField.setForeground(new java.awt.Color(255, 255, 255));
         branchTextField.setBorder(null);
         branchTextField.setEnabled(false);
         branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {

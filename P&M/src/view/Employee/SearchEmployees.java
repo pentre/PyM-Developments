@@ -36,129 +36,65 @@ public class SearchEmployees extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        searchPanel = new javax.swing.JPanel();
-        idLabel = new javax.swing.JLabel();
+        dataPanel = new javax.swing.JPanel();
         idTextField = new javax.swing.JTextField();
-        searchButton = new javax.swing.JButton();
-        nameLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         branchTextField = new javax.swing.JTextField();
-        chargeLabel = new javax.swing.JLabel();
-        branchLabel = new javax.swing.JLabel();
         chargeComboBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         activeComboBox = new javax.swing.JComboBox<>();
-        cancelButton = new javax.swing.JButton();
-        dataPanel = new javax.swing.JPanel();
         dataScrollPane = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
+        searchButton = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
+        UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        idLabel.setText("ID:");
+        dataPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(dataPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 819, -1));
 
+        idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         idTextField.setColumns(5);
+        idTextField.setForeground(new java.awt.Color(51, 51, 51));
         idTextField.setToolTipText("");
+        idTextField.setBorder(null);
         idTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 idTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 150, 20));
 
-        searchButton.setText("Buscar");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
-
-        nameLabel.setText("Nombre:");
-
+        nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         nameTextField.setColumns(5);
+        nameTextField.setForeground(new java.awt.Color(51, 51, 51));
+        nameTextField.setBorder(null);
         nameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nameTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 150, 20));
 
+        branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         branchTextField.setColumns(5);
+        branchTextField.setForeground(new java.awt.Color(51, 51, 51));
+        branchTextField.setBorder(null);
         branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 branchTextFieldKeyTyped(evt);
             }
         });
-
-        chargeLabel.setText("Cargo:");
-
-        branchLabel.setText("Sede:");
+        getContentPane().add(branchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 150, 20));
 
         chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Gerente", "Vendedor", "Jefe de Taller" }));
         chargeComboBox.setToolTipText("");
-
-        jLabel1.setText("Estado:");
+        getContentPane().add(chargeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 170, -1));
 
         activeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Ambos" }));
-
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
-        searchPanel.setLayout(searchPanelLayout);
-        searchPanelLayout.setHorizontalGroup(
-            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(branchLabel)
-                    .addComponent(idLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                    .addComponent(branchTextField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel)
-                    .addComponent(chargeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nameTextField)
-                    .addComponent(chargeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(activeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(searchButton)
-                .addGap(18, 18, 18)
-                .addComponent(cancelButton)
-                .addGap(45, 45, 45))
-        );
-        searchPanelLayout.setVerticalGroup(
-            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchPanelLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel)
-                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(activeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton)
-                    .addComponent(cancelButton))
-                .addGap(24, 24, 24)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(branchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chargeLabel)
-                    .addComponent(branchLabel)
-                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        getContentPane().add(activeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 160, -1));
 
         dataScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -181,93 +117,27 @@ public class SearchEmployees extends javax.swing.JFrame {
         dataTable.setRowSelectionAllowed(false);
         dataScrollPane.setViewportView(dataTable);
 
-        javax.swing.GroupLayout dataPanelLayout = new javax.swing.GroupLayout(dataPanel);
-        dataPanel.setLayout(dataPanelLayout);
-        dataPanelLayout.setHorizontalGroup(
-            dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dataPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dataScrollPane)
-                .addContainerGap())
-        );
-        dataPanelLayout.setVerticalGroup(
-            dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dataScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(dataScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 760, 250));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(dataPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dataPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButtonMouseClicked(evt);
+            }
+        });
+        getContentPane().add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 150, 180, 50));
+
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
+        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 0, 80, 40));
+
+        UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Search Employee Menu.png"))); // NOI18N
+        getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        // TODO add your handling code here:
-        String id = idTextField.getText();
-        String name = nameTextField.getText();
-        String branch = branchTextField.getText();
-        String charge =  chargeComboBox.getSelectedItem().toString();
-        String active =  activeComboBox.getSelectedItem().toString();
-        
-        if(charge.equals("Todos")) {
-            charge = "";
-        }
-        
-        List<Map<String, String>> results = controller_.searchEmployees(id, name, branch, charge, active);
-        
-        Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono", "Estado" };
-        DefaultTableModel model = new DefaultTableModel(columnNames,0);
-        
-        if(results.isEmpty()) {
-            dataTable.setModel(model);
-            JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);            
-            return;
-        }        
-        
-        for(int i=0; i<results.size(); i++) {
-            Object[] row = {
-                results.get(i).get("id"),
-                results.get(i).get("name"),
-                results.get(i).get("branch"),
-                results.get(i).get("charge"),
-                results.get(i).get("salary"),
-                results.get(i).get("phone_number"),
-                results.get(i).get("active")                  
-            };
-            model.addRow(row);
-        }
-        dataTable.setModel(model);
-    }//GEN-LAST:event_searchButtonActionPerformed
-
-    private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_idTextFieldKeyTyped
-
-    private void nameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTextFieldKeyTyped
-        char c = evt.getKeyChar();
-        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_nameTextFieldKeyTyped
 
     private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
         // TODO add your handling code here:
@@ -277,27 +147,73 @@ public class SearchEmployees extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_branchTextFieldKeyTyped
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void nameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nameTextFieldKeyTyped
+
+    private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_idTextFieldKeyTyped
+
+    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
+        String id = idTextField.getText();
+        String name = nameTextField.getText();
+        String branch = branchTextField.getText();
+        String charge =  chargeComboBox.getSelectedItem().toString();
+        String active =  activeComboBox.getSelectedItem().toString();
+
+        if(charge.equals("Todos")) {
+            charge = "";
+        }
+
+        List<Map<String, String>> results = controller_.searchEmployees(id, name, branch, charge, active);
+
+        Object[] columnNames = { "ID", "Nombre", "Sede", "Cargo", "Salario", "Teléfono", "Estado" };
+        DefaultTableModel model = new DefaultTableModel(columnNames,0);
+
+        if(results.isEmpty()) {
+            dataTable.setModel(model);
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados", "Administrador", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        for(int i=0; i<results.size(); i++) {
+            Object[] row = {
+                results.get(i).get("id"),
+                results.get(i).get("name"),
+                results.get(i).get("branch"),
+                results.get(i).get("charge"),
+                results.get(i).get("salary"),
+                results.get(i).get("phone_number"),
+                results.get(i).get("active")
+            };
+            model.addRow(row);
+        }
+        dataTable.setModel(model);
+    }//GEN-LAST:event_searchButtonMouseClicked
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
         this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_exitButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UI;
     private javax.swing.JComboBox<String> activeComboBox;
-    private javax.swing.JLabel branchLabel;
     private javax.swing.JTextField branchTextField;
-    private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<String> chargeComboBox;
-    private javax.swing.JLabel chargeLabel;
     private javax.swing.JPanel dataPanel;
     private javax.swing.JScrollPane dataScrollPane;
     private javax.swing.JTable dataTable;
-    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel exitButton;
     private javax.swing.JTextField idTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JPanel searchPanel;
+    private javax.swing.JLabel searchButton;
     // End of variables declaration//GEN-END:variables
 }

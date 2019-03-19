@@ -6,27 +6,33 @@
 package view.Employee;
 
 import controller.Controller;
+import java.util.List;
 import javax.swing.JOptionPane;
 import java.util.Map;
+
 /**
  *
  * @author lalil
  */
 public class ModifyEmployee extends javax.swing.JFrame {
+
     private Controller controller_;
     private String userType_;
+
     /**
      * Creates new form ModifyManager
      */
-    public ModifyEmployee(Controller controller,String userType) {
+    public ModifyEmployee(Controller controller, String userType) {
         controller_ = controller;
         userType_ = userType;
-        
+
         initComponents();
-        if(userType_.equals("Administrador")){
+        if (userType_.equals("Administrador")) {
             chargeCombo.addItem("Gerente");
         }
         chargeCombo.setSelectedIndex(-1);
+
+        this.getBranches();
     }
 
     /**
@@ -44,10 +50,10 @@ public class ModifyEmployee extends javax.swing.JFrame {
         salaryTextField = new javax.swing.JTextField();
         phoneNumberTextField = new javax.swing.JTextField();
         chargeCombo = new javax.swing.JComboBox<>();
-        branchTextField = new javax.swing.JTextField();
         modifyButton = new javax.swing.JLabel();
         searchButton = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
+        branchComboBox = new javax.swing.JComboBox<>();
         UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,7 +63,6 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
-        idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setBorder(null);
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,17 +129,6 @@ public class ModifyEmployee extends javax.swing.JFrame {
         });
         jPanel1.add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 255, 250, 30));
 
-        branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
-        branchTextField.setForeground(new java.awt.Color(255, 255, 255));
-        branchTextField.setBorder(null);
-        branchTextField.setEnabled(false);
-        branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                branchTextFieldKeyTyped(evt);
-            }
-        });
-        jPanel1.add(branchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 325, 123, 20));
-
         modifyButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 modifyButtonMouseClicked(evt);
@@ -156,6 +150,8 @@ public class ModifyEmployee extends javax.swing.JFrame {
         });
         jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
 
+        jPanel1.add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 120, 30));
+
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Modify Employee Menu.png"))); // NOI18N
         UI.setText("jLabel1");
         jPanel1.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 540));
@@ -165,37 +161,43 @@ public class ModifyEmployee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void disable(){
+    public void disable() {
         modifyButton.setEnabled(false);
         idTextField.setEnabled(false);
         chargeCombo.setEnabled(false);
         salaryTextField.setEnabled(false);
         phoneNumberTextField.setEnabled(false);
-        branchTextField.setEnabled(false);
+        branchComboBox.setEnabled(false);
         nameTextField.setText("");
         salaryTextField.setText("");
         phoneNumberTextField.setText("");
-        branchTextField.setText("");
         idTextField.setText("");
         idTextField.setEnabled(true);
         searchButton.setEnabled(true);
     }
-    
-    public void enable(){
+
+    public void enable() {
         nameTextField.setEnabled(true);
         chargeCombo.setEnabled(true);
         salaryTextField.setEnabled(true);
         phoneNumberTextField.setEnabled(true);
         modifyButton.setEnabled(true);
-        branchTextField.setEnabled(true);
+        branchComboBox.setEnabled(true);
         idTextField.setEnabled(false);
         searchButton.setEnabled(false);
     }
-    
+
+    private void getBranches() {
+        List<String> branches = controller_.listBranches();
+        for (String branch : branches) {
+            this.branchComboBox.addItem(branch);
+        }
+    }
+
     private void idTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
-        if(!(Character.isDigit(inputChar))){
+        if (!(Character.isDigit(inputChar))) {
             evt.consume();
         }
     }//GEN-LAST:event_idTextFieldKeyTyped
@@ -203,7 +205,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
     private void salaryTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salaryTextFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
-        if(!(Character.isDigit(inputChar))){
+        if (!(Character.isDigit(inputChar))) {
             evt.consume();
         }
     }//GEN-LAST:event_salaryTextFieldKeyTyped
@@ -227,7 +229,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
     private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
         // TODO add your handling code here:
         char inputChar = evt.getKeyChar();
-        if(!(Character.isDigit(inputChar))){
+        if (!(Character.isDigit(inputChar))) {
             evt.consume();
         }
     }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
@@ -240,40 +242,36 @@ public class ModifyEmployee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chargeComboActionPerformed
 
-    private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isLetter(c) && !Character.isWhitespace(c) && !Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_branchTextFieldKeyTyped
-
     private void modifyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyButtonMouseClicked
-        String id = idTextField.getText();
-        String name = nameTextField.getText();
-        String branch = branchTextField.getText();
-        String charge =  chargeCombo.getSelectedItem().toString();
-        Float salary = Float.valueOf(salaryTextField.getText());
-        String phoneNumber = phoneNumberTextField.getText();
-        String message = controller_.updateEmployee(id, name, branch, charge, salary, phoneNumber, userType_);
-        JOptionPane.showMessageDialog(this, message);
-        disable();
-        idTextField.setEditable(true);
-        clearFields();
+        if (idTextField.getText().trim().isEmpty() || nameTextField.getText().trim().isEmpty() || salaryTextField.getText().trim().isEmpty() || phoneNumberTextField.getText().trim().isEmpty() || chargeCombo.getSelectedItem().toString().trim().equals("-")) {
+            JOptionPane.showMessageDialog(this, "Error: asegurese de llenar todos los campos", "Alerta", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+            String id = idTextField.getText();
+            String name = nameTextField.getText();
+            String branch = branchComboBox.getSelectedItem().toString();
+            String charge = chargeCombo.getSelectedItem().toString();
+            Float salary = Float.valueOf(salaryTextField.getText());
+            String phoneNumber = phoneNumberTextField.getText();
+            String message = controller_.updateEmployee(id, name, branch, charge, salary, phoneNumber, userType_);
+            JOptionPane.showMessageDialog(this, message);
+            disable();
+            idTextField.setEditable(true);
+            clearFields();
+        
     }//GEN-LAST:event_modifyButtonMouseClicked
 
     private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
-        if(idTextField.getText().isEmpty()){
+        if (idTextField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor insertar un ID");
             return;
         }
         String id = idTextField.getText();
-        
-        Map <String, String>infoEmployee = controller_.getEmployeeInfo(id);
-        
-        
-        if (infoEmployee.isEmpty()){
-            JOptionPane.showMessageDialog(this,"No existe empleado con esa id");
+
+        Map<String, String> infoEmployee = controller_.getEmployeeInfo(id);
+
+        if (infoEmployee.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No existe empleado con esa id");
             disable();
             return;
         }
@@ -281,27 +279,27 @@ public class ModifyEmployee extends javax.swing.JFrame {
         idTextField.setEditable(false);
         nameTextField.setText(infoEmployee.get("name"));
         chargeCombo.setSelectedItem(infoEmployee.get("charge"));
-        salaryTextField.setText(infoEmployee.get("salary"));  
+        salaryTextField.setText(infoEmployee.get("salary"));
         phoneNumberTextField.setText(infoEmployee.get("phoneNumber"));
-        branchTextField.setText(infoEmployee.get("branch"));
+        branchComboBox.setSelectedItem(infoEmployee.get("branch"));
     }//GEN-LAST:event_searchButtonMouseClicked
 
     private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
         this.dispose();
     }//GEN-LAST:event_exitButtonMouseClicked
 
-    private void clearFields(){
+    private void clearFields() {
         this.idTextField.setText("");
         this.nameTextField.setText("");
-        this.branchTextField.setText("");
+        this.branchComboBox.setSelectedItem(0);
         this.phoneNumberTextField.setText("");
         this.salaryTextField.setText("");
         this.chargeCombo.setSelectedIndex(0);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UI;
-    private javax.swing.JTextField branchTextField;
+    private javax.swing.JComboBox<String> branchComboBox;
     private javax.swing.JComboBox<String> chargeCombo;
     private javax.swing.JLabel exitButton;
     private javax.swing.JTextField idTextField;

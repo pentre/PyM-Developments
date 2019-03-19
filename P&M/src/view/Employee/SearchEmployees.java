@@ -25,6 +25,7 @@ public class SearchEmployees extends javax.swing.JFrame {
     public SearchEmployees(Controller controller) {
         controller_ = controller;
         initComponents();
+        this.dataTable.setEnabled(false);
     }
 
     /**

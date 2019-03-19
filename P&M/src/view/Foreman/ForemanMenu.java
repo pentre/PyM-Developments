@@ -92,7 +92,7 @@ public class ForemanMenu extends javax.swing.JFrame {
         commissionBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Commissions.png"))); // NOI18N
         commissionOptionPanel.add(commissionBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
-        getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
+        getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
 
         furnitureOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -153,9 +153,9 @@ public class ForemanMenu extends javax.swing.JFrame {
         furnitureOptionPanel.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 15, 50, 60));
 
         furnitureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Furniture.png"))); // NOI18N
-        furnitureOptionPanel.add(furnitureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        furnitureOptionPanel.add(furnitureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
 
-        getContentPane().add(furnitureOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(furnitureOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

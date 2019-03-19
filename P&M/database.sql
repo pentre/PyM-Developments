@@ -56,7 +56,7 @@ CREATE TABLE furniture_sold
 (
     sale_id VARCHAR(36) NOT NULL,
     furniture_id INTEGER NOT NULL,
-    quantity VARCHAR(20) NOT NULL,
+    quantity INTEGER NOT NULL,
     value FLOAT(30) NOT NULL,
     PRIMARY KEY (sale_id, furniture_id),
     FOREIGN KEY (sale_id) REFERENCES sale (sale_id),
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS inventory CASCADE;
 CREATE TABLE inventory
 (    
     furniture_id INTEGER NOT NULL,
-    quantity VARCHAR(20) NOT NULL,
+    quantity INTEGER NOT NULL,
     branch VARCHAR(20) NOT NULL,
     PRIMARY KEY (furniture_id, branch),    
     FOREIGN KEY (branch) REFERENCES   branch (name),
@@ -94,3 +94,10 @@ INSERT INTO catalog VALUES(DEFAULT, 'silla', 100, 'madera', 10, 'cafe', true);
 INSERT INTO catalog VALUES(DEFAULT, 'sofa', 200, 'aire', 20, 'rojo', true);
 INSERT INTO inventory VALUES(1, 5, 'Sede0');
 INSERT INTO inventory VALUES(2, 3, 'Sede0');
+
+
+INSERT INTO sale VALUES('1', 'Sede0', '1', '2019-03-08');
+INSERT INTO sale VALUES('2', 'Sede0', '1', '2019-03-08');
+INSERT INTO furniture_sold VALUES('1', 1, 23, 130000);
+INSERT INTO furniture_sold VALUES('1', 2, 10, 130000);
+INSERT INTO furniture_sold VALUES('2', 1, 5, 130000);

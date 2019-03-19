@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.time.LocalDate;
 import java.util.Map;
 import model.Commission;
 import model.Inventory;
@@ -58,5 +59,10 @@ public interface SaleController {
         }
         
         return saleResult;
+    }
+    
+    default public Map<String, Integer> getGeneralReportByDay(LocalDate startDate, LocalDate endDate) {
+        Sale sale = new Sale("", "");
+        return sale.getGeneralReportByDay(Controller.database, startDate, endDate);
     }
 }

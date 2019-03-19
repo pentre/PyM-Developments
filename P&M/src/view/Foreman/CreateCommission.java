@@ -147,8 +147,8 @@ public class CreateCommission extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        if (quantityTextField.getText().isEmpty() || (quantityTextField.getText().equals("0"))){
-            JOptionPane.showMessageDialog(this, "Porfavor ingrese la cantidad", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+        if (quantityTextField.getText().isEmpty() || (quantityTextField.getText().equals("0")) || furnitureComboBox.getSelectedItem().toString().trim().equals("-") || branchComboBox.getSelectedItem().toString().trim().equals("-")){
+            JOptionPane.showMessageDialog(this, "Asegurese de ingresar los campos correctamente", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
         String furniture = furnitureComboBox.getSelectedItem().toString();

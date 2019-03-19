@@ -111,7 +111,7 @@ public class Branch {
 
             stmt.setString(1, city_);
             stmt.setString(2, address_);
-            stmt.setString(4, name_);
+            stmt.setString(3, name_);
 
             int result = stmt.executeUpdate();
 

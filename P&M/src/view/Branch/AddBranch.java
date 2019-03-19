@@ -23,6 +23,12 @@ public class AddBranch extends javax.swing.JFrame {
         controller_ = controller;
         initComponents();
     }
+    
+    private void clearFields(){
+        this.cityField.setText("");
+        this.addressField.setText("");
+        this.nameField.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,9 +43,9 @@ public class AddBranch extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        cityField = new javax.swing.JTextField();
+        addressField = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
@@ -52,24 +58,24 @@ public class AddBranch extends javax.swing.JFrame {
 
         jLabel3.setText("Dirección:");
 
-        jTextField1.setColumns(6);
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        cityField.setColumns(6);
+        cityField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                cityFieldKeyTyped(evt);
             }
         });
 
-        jTextField2.setColumns(6);
+        addressField.setColumns(6);
 
-        jTextField3.setColumns(6);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        nameField.setColumns(6);
+        nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                nameFieldActionPerformed(evt);
             }
         });
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        nameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                nameFieldKeyTyped(evt);
             }
         });
 
@@ -100,12 +106,12 @@ public class AddBranch extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
@@ -123,16 +129,16 @@ public class AddBranch extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel1))
-                            .addComponent(jTextField3))
+                            .addComponent(nameField))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(37, 37, 37))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(78, 78, 78)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -157,9 +163,9 @@ public class AddBranch extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String name = jTextField3.getText();
-        String city = jTextField1.getText();
-        String address = jTextField2.getText();
+        String name = nameField.getText().trim();
+        String city = cityField.getText().trim();
+        String address = addressField.getText().trim();
         
         if(name.equals("") || city.equals("") || address.equals("")) {
             JOptionPane.showMessageDialog(null, "Se deben llenar todos los campos", "Sede", JOptionPane.INFORMATION_MESSAGE);
@@ -167,42 +173,43 @@ public class AddBranch extends javax.swing.JFrame {
         }
         
         String message = controller_.createBranch(name, city, address);
-        JOptionPane.showMessageDialog(null, message, "Branch", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, message, "Branch", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_nameFieldActionPerformed
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void nameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameFieldKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField3KeyTyped
+    }//GEN-LAST:event_nameFieldKeyTyped
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void cityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityFieldKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_cityFieldKeyTyped
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addressField;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JTextField cityField;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField nameField;
     // End of variables declaration//GEN-END:variables
 }

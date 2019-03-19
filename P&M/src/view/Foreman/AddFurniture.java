@@ -200,7 +200,8 @@ public class AddFurniture extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         if (nameField.getText().isEmpty() || priceField.getText().isEmpty() || materialField.getText().isEmpty() || weightField.getText().isEmpty() || colorField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Porfavor llene todos los campos", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor llene todos los campos", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            return;
         }
 
         String name = nameField.getText();

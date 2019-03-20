@@ -154,8 +154,8 @@ public class FurnitureReport extends javax.swing.JFrame {
     private void ShowReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowReportButtonActionPerformed
         LocalDate initialDate = this.InitialDatePicker.getDate();
         LocalDate endDate = this.EndDatePicker.getDate();
-        if (initialDate == null || endDate == null) {
-            JOptionPane.showMessageDialog(this, "Error: debe seleccionar el rango de fechas a buscar", "Error", JOptionPane.ERROR_MESSAGE);
+        if (initialDate == null || endDate == null || initialDate.compareTo(endDate) > 0) {
+            JOptionPane.showMessageDialog(this, "Error: debe seleccionar un rango de fechas valido", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         } 
             
@@ -163,7 +163,7 @@ public class FurnitureReport extends javax.swing.JFrame {
         CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Muebles vs. Ventas").xAxisTitle("Muebles").yAxisTitle("Cantidad de ventas").theme(Styler.ChartTheme.GGPlot2).build();
 
         if(data.isEmpty()){
-            JOptionPane.showMessageDialog(this, "No hubu ninguna venta en las fechas dadas", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hubo ninguna venta en las fechas dadas", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
         

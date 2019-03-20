@@ -86,28 +86,28 @@ CREATE TABLE commission
     FOREIGN KEY (furniture_id) REFERENCES catalog (furniture_id)
 );
 
-
+/*ramas*/
 INSERT INTO branch VALUES('Sede0','cali','Cra 84A #14-115',true);
 INSERT INTO branch VALUES('Sede1','Bogota','Cra 106D #14-15',true);
-INSERT INTO employee VALUES('1', 'soph', 'Sede0', 'Administrador', 1234567, '12345678', true);
-INSERT INTO login VALUES('1', '123');
+
+/*catalog*/
 INSERT INTO catalog VALUES(DEFAULT, 'silla', 100, 'madera', 10, 'cafe', true);
 INSERT INTO catalog VALUES(DEFAULT, 'sofa', 100, 'sintetico', 20, 'rojo', true);
 INSERT INTO catalog VALUES (DEFAULT, 'armario', 100 , 'madera', 34, 'negro', true);
+
+/*inventory*/
 INSERT INTO inventory VALUES(1, 5, 'Sede0');
 INSERT INTO inventory VALUES(2, 3, 'Sede0');
+INSERT INTO inventory VALUES(3, 2,'Sede0');
 
-/*
-INSERT INTO sale VALUES('1', 'Sede0', '1', '2019-03-08');
-INSERT INTO sale VALUES('2', 'Sede0', '1', '2019-03-08');
+/*commission*/
+INSERT INTO commission VALUES(DEFAULT, false, 1, 10, 'Sede0');
+INSERT INTO commission VALUES(DEFAULT, true, 2, 10, 'Sede0');
 
-INSERT INTO furniture_sold VALUES('1', 1, 23, 130000);
-INSERT INTO furniture_sold VALUES('1', 2, 10, 130000);
-INSERT INTO furniture_sold VALUES('2', 1, 5, 130000);
-*/
-/*pruebas*/
 
 /*Usuarios*/
+INSERT INTO employee VALUES('1', 'soph', 'Sede0', 'Administrador', 1234567, '12345678', true);
+INSERT INTO login VALUES('1', '123');
 INSERT INTO employee VALUES('2', 'Jaime', 'Sede0', 'Jefe de Taller', 1234567, '1234567', true);
 INSERT INTO login VALUES('2', '123');
 INSERT INTO employee VALUES('3', 'Emily', 'Sede0', 'Jefe de Taller', 2345678, '2345678', true);
@@ -121,60 +121,57 @@ INSERT INTO login VALUES('6', '123');
 INSERT INTO employee VALUES('7', 'Juan', 'Sede0', 'Gerente', 8765432, '8765432', true);
 INSERT INTO login VALUES('7', '123');
 
-
-
-/*Ventas between 2018-01-01 and 2019-03-19 */
-insert into sale (sale_id, branch, employee, date) values (1, 'Sede1', 5, '2018-07-23');
-insert into sale (sale_id, branch, employee, date) values (2, 'Sede1', 4, '2018-08-10');
-insert into sale (sale_id, branch, employee, date) values (3, 'Sede0', 5, '2018-01-21');
-insert into sale (sale_id, branch, employee, date) values (4, 'Sede0', 4, '2018-08-20');
-insert into sale (sale_id, branch, employee, date) values (5, 'Sede1', 5, '2018-06-06');
-insert into sale (sale_id, branch, employee, date) values (6, 'Sede1', 4, '2018-04-21');
-insert into sale (sale_id, branch, employee, date) values (7, 'Sede1', 5, '2018-04-26');
-insert into sale (sale_id, branch, employee, date) values (8, 'Sede1', 4, '2018-11-02');
-insert into sale (sale_id, branch, employee, date) values (9, 'Sede0', 5, '2018-03-25');
-insert into sale (sale_id, branch, employee, date) values (10, 'Sede0', 4, '2019-01-24');
-insert into sale (sale_id, branch, employee, date) values (11, 'Sede0', 5, '2018-11-22');
-insert into sale (sale_id, branch, employee, date) values (12, 'Sede0', 4, '2018-02-28');
-insert into sale (sale_id, branch, employee, date) values (13, 'Sede1', 5, '2018-09-21');
-insert into sale (sale_id, branch, employee, date) values (14, 'Sede0', 5, '2019-02-16');
-insert into sale (sale_id, branch, employee, date) values (15, 'Sede1', 5, '2018-04-06');
-insert into sale (sale_id, branch, employee, date) values (16, 'Sede0', 5, '2018-11-08');
-insert into sale (sale_id, branch, employee, date) values (17, 'Sede1', 4, '2018-09-14');
-insert into sale (sale_id, branch, employee, date) values (18, 'Sede0', 5, '2018-09-11');
-insert into sale (sale_id, branch, employee, date) values (19, 'Sede0', 4, '2018-01-13');
-insert into sale (sale_id, branch, employee, date) values (20, 'Sede0', 5, '2018-04-03');
-insert into sale (sale_id, branch, employee, date) values (21, 'Sede0', 4, '2019-03-02');
-insert into sale (sale_id, branch, employee, date) values (22, 'Sede1', 4, '2018-08-17');
-insert into sale (sale_id, branch, employee, date) values (23, 'Sede1', 4, '2018-11-04');
-insert into sale (sale_id, branch, employee, date) values (24, 'Sede0', 4, '2018-01-21');
-insert into sale (sale_id, branch, employee, date) values (25, 'Sede1', 5, '2018-12-22');
-insert into sale (sale_id, branch, employee, date) values (26, 'Sede1', 5, '2019-03-17');
-insert into sale (sale_id, branch, employee, date) values (27, 'Sede0', 4, '2019-02-13');
-insert into sale (sale_id, branch, employee, date) values (28, 'Sede1', 4, '2018-06-03');
-insert into sale (sale_id, branch, employee, date) values (29, 'Sede1', 5, '2018-10-24');
-insert into sale (sale_id, branch, employee, date) values (30, 'Sede1', 5, '2019-01-30');
-insert into sale (sale_id, branch, employee, date) values (31, 'Sede1', 4, '2018-09-14');
-insert into sale (sale_id, branch, employee, date) values (32, 'Sede1', 4, '2018-04-12');
-insert into sale (sale_id, branch, employee, date) values (33, 'Sede0', 5, '2018-11-12');
-insert into sale (sale_id, branch, employee, date) values (34, 'Sede0', 5, '2019-01-10');
-insert into sale (sale_id, branch, employee, date) values (35, 'Sede0', 5, '2019-01-21');
-insert into sale (sale_id, branch, employee, date) values (36, 'Sede0', 5, '2018-09-12');
-insert into sale (sale_id, branch, employee, date) values (37, 'Sede0', 4, '2019-02-03');
-insert into sale (sale_id, branch, employee, date) values (38, 'Sede0', 4, '2018-06-10');
-insert into sale (sale_id, branch, employee, date) values (39, 'Sede0', 5, '2019-01-12');
-insert into sale (sale_id, branch, employee, date) values (40, 'Sede0', 5, '2018-02-17');
-insert into sale (sale_id, branch, employee, date) values (41, 'Sede1', 5, '2018-12-28');
-insert into sale (sale_id, branch, employee, date) values (42, 'Sede0', 4, '2018-09-21');
-insert into sale (sale_id, branch, employee, date) values (43, 'Sede0', 5, '2018-05-11');
-insert into sale (sale_id, branch, employee, date) values (44, 'Sede1', 5, '2019-01-23');
-insert into sale (sale_id, branch, employee, date) values (45, 'Sede1', 5, '2019-01-09');
-insert into sale (sale_id, branch, employee, date) values (46, 'Sede1', 5, '2019-02-01');
-insert into sale (sale_id, branch, employee, date) values (47, 'Sede1', 4, '2018-01-16');
-insert into sale (sale_id, branch, employee, date) values (48, 'Sede0', 4, '2018-11-30');
-insert into sale (sale_id, branch, employee, date) values (49, 'Sede0', 4, '2018-07-28');
-insert into sale (sale_id, branch, employee, date) values (50, 'Sede1', 4, '2018-09-16');
-
+/*Ventas between 2019-02-01 and 2019-03-19 */
+insert into sale (sale_id, branch, employee, date) values (1, 'Sede0', 4, '2019-02-04');
+insert into sale (sale_id, branch, employee, date) values (2, 'Sede1', 4, '2019-03-17');
+insert into sale (sale_id, branch, employee, date) values (3, 'Sede1', 4, '2019-03-02');
+insert into sale (sale_id, branch, employee, date) values (4, 'Sede1', 4, '2019-03-06');
+insert into sale (sale_id, branch, employee, date) values (5, 'Sede0', 4, '2019-02-23');
+insert into sale (sale_id, branch, employee, date) values (6, 'Sede0', 4, '2019-03-10');
+insert into sale (sale_id, branch, employee, date) values (7, 'Sede0', 5, '2019-03-10');
+insert into sale (sale_id, branch, employee, date) values (8, 'Sede1', 4, '2019-03-13');
+insert into sale (sale_id, branch, employee, date) values (9, 'Sede0', 4, '2019-03-14');
+insert into sale (sale_id, branch, employee, date) values (10, 'Sede1', 4, '2019-03-13');
+insert into sale (sale_id, branch, employee, date) values (11, 'Sede0', 4, '2019-03-11');
+insert into sale (sale_id, branch, employee, date) values (12, 'Sede0', 5, '2019-02-22');
+insert into sale (sale_id, branch, employee, date) values (13, 'Sede1', 5, '2019-03-01');
+insert into sale (sale_id, branch, employee, date) values (14, 'Sede1', 5, '2019-03-14');
+insert into sale (sale_id, branch, employee, date) values (15, 'Sede0', 4, '2019-02-20');
+insert into sale (sale_id, branch, employee, date) values (16, 'Sede1', 5, '2019-03-15');
+insert into sale (sale_id, branch, employee, date) values (17, 'Sede0', 5, '2019-02-12');
+insert into sale (sale_id, branch, employee, date) values (18, 'Sede0', 4, '2019-02-20');
+insert into sale (sale_id, branch, employee, date) values (19, 'Sede1', 4, '2019-02-02');
+insert into sale (sale_id, branch, employee, date) values (20, 'Sede1', 5, '2019-02-02');
+insert into sale (sale_id, branch, employee, date) values (21, 'Sede0', 5, '2019-02-14');
+insert into sale (sale_id, branch, employee, date) values (22, 'Sede0', 4, '2019-02-21');
+insert into sale (sale_id, branch, employee, date) values (23, 'Sede1', 4, '2019-03-18');
+insert into sale (sale_id, branch, employee, date) values (24, 'Sede1', 4, '2019-03-07');
+insert into sale (sale_id, branch, employee, date) values (25, 'Sede1', 4, '2019-03-02');
+insert into sale (sale_id, branch, employee, date) values (26, 'Sede0', 4, '2019-03-13');
+insert into sale (sale_id, branch, employee, date) values (27, 'Sede0', 4, '2019-03-04');
+insert into sale (sale_id, branch, employee, date) values (28, 'Sede0', 5, '2019-02-24');
+insert into sale (sale_id, branch, employee, date) values (29, 'Sede0', 5, '2019-02-05');
+insert into sale (sale_id, branch, employee, date) values (30, 'Sede0', 4, '2019-02-02');
+insert into sale (sale_id, branch, employee, date) values (31, 'Sede0', 4, '2019-03-08');
+insert into sale (sale_id, branch, employee, date) values (32, 'Sede0', 5, '2019-02-26');
+insert into sale (sale_id, branch, employee, date) values (33, 'Sede1', 4, '2019-03-15');
+insert into sale (sale_id, branch, employee, date) values (34, 'Sede1', 4, '2019-03-14');
+insert into sale (sale_id, branch, employee, date) values (35, 'Sede1', 4, '2019-02-25');
+insert into sale (sale_id, branch, employee, date) values (36, 'Sede0', 4, '2019-03-05');
+insert into sale (sale_id, branch, employee, date) values (37, 'Sede1', 4, '2019-02-01');
+insert into sale (sale_id, branch, employee, date) values (38, 'Sede1', 5, '2019-03-06');
+insert into sale (sale_id, branch, employee, date) values (39, 'Sede0', 4, '2019-02-03');
+insert into sale (sale_id, branch, employee, date) values (40, 'Sede0', 4, '2019-02-28');
+insert into sale (sale_id, branch, employee, date) values (41, 'Sede0', 4, '2019-02-11');
+insert into sale (sale_id, branch, employee, date) values (42, 'Sede0', 4, '2019-02-27');
+insert into sale (sale_id, branch, employee, date) values (43, 'Sede1', 4, '2019-03-15');
+insert into sale (sale_id, branch, employee, date) values (44, 'Sede1', 5, '2019-02-19');
+insert into sale (sale_id, branch, employee, date) values (45, 'Sede0', 4, '2019-03-17');
+insert into sale (sale_id, branch, employee, date) values (46, 'Sede0', 4, '2019-02-24');
+insert into sale (sale_id, branch, employee, date) values (47, 'Sede0', 4, '2019-02-14');
+insert into sale (sale_id, branch, employee, date) values (48, 'Sede1', 5, '2019-02-26');
+insert into sale (sale_id, branch, employee, date) values (49, 'Sede1', 4, '2019-02-01');
+insert into sale (sale_id, branch, employee, date) values (50, 'Sede1', 4, '2019-03-07');
 /*furniture_sold*/
 insert into furniture_sold (sale_id, furniture_id, quantity, value) values (1, 1, 5, 500);
 insert into furniture_sold (sale_id, furniture_id, quantity, value) values (2, 1, 4, 400);

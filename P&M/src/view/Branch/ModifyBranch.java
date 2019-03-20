@@ -234,6 +234,10 @@ public class ModifyBranch extends javax.swing.JFrame {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
+        if ( this.cityInputField.getText().trim().isEmpty() || this.addressTextField.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Error: asegurese de llenar todos los campos", "Alerta", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         String name = this.branchNameInputField.getText();
         String city = this.cityInputField.getText();
         String address = this.addressTextField.getText();

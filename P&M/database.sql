@@ -100,11 +100,6 @@ INSERT INTO inventory VALUES(1, 5, 'Sede0');
 INSERT INTO inventory VALUES(2, 3, 'Sede0');
 INSERT INTO inventory VALUES(3, 2,'Sede0');
 
-/*commission*/
-INSERT INTO commission VALUES(DEFAULT, false, 1, 10, 'Sede0');
-INSERT INTO commission VALUES(DEFAULT, true, 2, 10, 'Sede0');
-
-
 /*Usuarios*/
 INSERT INTO employee VALUES('1', 'soph', 'Sede0', 'Administrador', 1234567, '12345678', true);
 INSERT INTO login VALUES('1', '123');
@@ -223,3 +218,8 @@ insert into furniture_sold (sale_id, furniture_id, quantity, value) values (47, 
 insert into furniture_sold (sale_id, furniture_id, quantity, value) values (48, 2, 2, 200);
 insert into furniture_sold (sale_id, furniture_id, quantity, value) values (49, 1, 2, 200);
 insert into furniture_sold (sale_id, furniture_id, quantity, value) values (50, 2, 5, 500);
+
+/*commission*/
+INSERT INTO commission VALUES(DEFAULT, false, 1, 10, 'Sede0');
+INSERT INTO commission VALUES(DEFAULT, true, 2, 10, 'Sede0');
+

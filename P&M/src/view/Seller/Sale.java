@@ -45,6 +45,8 @@ public class Sale extends javax.swing.JFrame {
         idComboBox = new javax.swing.JComboBox<>();
         quantityTextField = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
+        CatalogLabel = new javax.swing.JLabel();
+        QuantityLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
@@ -61,6 +63,16 @@ public class Sale extends javax.swing.JFrame {
 
         quantityTextField.setToolTipText("");
         quantityTextField.setPreferredSize(new java.awt.Dimension(73, 23));
+        quantityTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityTextFieldActionPerformed(evt);
+            }
+        });
+        quantityTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantityTextFieldKeyTyped(evt);
+            }
+        });
 
         addButton.setText("Agregar");
         addButton.setToolTipText("");
@@ -70,18 +82,26 @@ public class Sale extends javax.swing.JFrame {
             }
         });
 
+        CatalogLabel.setText("Id Mueble:");
+
+        QuantityLabel.setText("Cantidad:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(34, 34, 34)
+                .addComponent(CatalogLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117)
+                .addGap(40, 40, 40)
+                .addComponent(QuantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(146, 146, 146)
                 .addComponent(addButton)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +110,9 @@ public class Sale extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addButton))
+                    .addComponent(addButton)
+                    .addComponent(CatalogLabel)
+                    .addComponent(QuantityLabel))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
@@ -102,6 +124,7 @@ public class Sale extends javax.swing.JFrame {
                 "Mueble", "Cantidad", "Disponibles", "Valor individual"
             }
         ));
+        dataTable.setEnabled(false);
         dataTable.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(dataTable);
 
@@ -118,7 +141,7 @@ public class Sale extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 222, Short.MAX_VALUE)
+            .addGap(0, 234, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -126,6 +149,7 @@ public class Sale extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
+        totalTextField.setEnabled(false);
         totalTextField.setPreferredSize(new java.awt.Dimension(150, 23));
         totalTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +259,15 @@ public class Sale extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTextFieldActionPerformed
+
+    private void quantityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTextFieldKeyTyped
+        // TODO add your handling code here:
+        validateNumber(evt);
+    }//GEN-LAST:event_quantityTextFieldKeyTyped
     
     private void updateTable(List<Map<String, Float>> results) {
         Object[] columnNames = { "Mueble", "Cantidad", "Disponibles", "Valor individual" };
@@ -256,8 +289,17 @@ public class Sale extends javax.swing.JFrame {
         totalTextField.setText(Float.toString(totalPrice));
         //dataTable.setDefaultRenderer(columnClass, renderer);
     }
-
+    
+    private void validateNumber(java.awt.event.KeyEvent evt) {
+        char inputChar = evt.getKeyChar();
+        if (!(Character.isDigit(inputChar))) {
+            evt.consume();
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CatalogLabel;
+    private javax.swing.JLabel QuantityLabel;
     private javax.swing.JButton addButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JTable dataTable;

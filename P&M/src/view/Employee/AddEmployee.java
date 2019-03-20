@@ -145,7 +145,7 @@ public class AddEmployee extends javax.swing.JFrame {
         getContentPane().add(BranchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 130, 30));
 
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Add Employee Menu.png"))); // NOI18N
-        getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

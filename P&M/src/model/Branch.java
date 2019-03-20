@@ -119,7 +119,7 @@ public class Branch {
                 return "Error: sede no encontrada";
             }
 
-            return "La sede fue modifcada correctamente";
+            return "La sede fue modificada correctamente";
         } catch (SQLException e) {
             e.printStackTrace();
             return "Error: no fue posible modificar la sede";

@@ -139,7 +139,11 @@ public class TotalSalesReport extends javax.swing.JFrame {
         } else {
 
             Map<String, List> data = controller_.getSalesInfo(initialDate, endDate);
-
+            
+            
+            if (this.getChart(data) == null){
+                return;
+            }
             JPanel chartPanelArea = new XChartPanel(this.getChart(data));
             ChartPanel.removeAll();
             ChartPanel.revalidate();
@@ -153,7 +157,12 @@ public class TotalSalesReport extends javax.swing.JFrame {
     private CategoryChart getChart(Map<String, List> data) {
         List<String> branches = data.get("branches");
         List<Integer> values = data.get("values");
-
+        
+        if(branches.isEmpty() && values.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No hubo ninguna venta en las fechas dadas", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        
         CategoryChart chart = new CategoryChartBuilder().width(400).height(600).title("Total ventas por sede").xAxisTitle("Sedes").yAxisTitle("Ventas").build();
         chart.addSeries("Ventas", branches, values);
         chart.getStyler().setHasAnnotations(true);

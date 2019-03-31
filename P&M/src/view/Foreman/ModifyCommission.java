@@ -25,7 +25,7 @@ public class ModifyCommission extends javax.swing.JFrame {
         controller_ = controller;
         initComponents();
         this.StatusComboBox.setEnabled(false);
-        this.UpdateOrderButton.setEnabled(false);
+        this.loadLabel.setEnabled(false);
         this.BranchTextField.setEditable(false);
         this.QuantityTextField.setEditable(false);
         this.FurnitureIdTextField.setEditable(false);
@@ -42,196 +42,86 @@ public class ModifyCommission extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        InfoLoadPanel = new javax.swing.JPanel();
-        OrderIdLabel = new javax.swing.JLabel();
         OrderIdTextField = new javax.swing.JTextField();
-        LoadOrderInfoButton = new javax.swing.JButton();
-        InfoUpdatePanel = new javax.swing.JPanel();
-        StatusLabel = new javax.swing.JLabel();
-        StatusComboBox = new javax.swing.JComboBox<>();
-        UpdateOrderButton = new javax.swing.JButton();
-        FurnitureIdLabel = new javax.swing.JLabel();
-        QuantityLabel = new javax.swing.JLabel();
-        BranchLabel = new javax.swing.JLabel();
         FurnitureIdTextField = new javax.swing.JTextField();
         QuantityTextField = new javax.swing.JTextField();
         BranchTextField = new javax.swing.JTextField();
-        cancelButton = new javax.swing.JButton();
+        StatusComboBox = new javax.swing.JComboBox<>();
+        modifyLabel = new javax.swing.JLabel();
+        exitLabel = new javax.swing.JLabel();
+        loadLabel = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        InfoLoadPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-        OrderIdLabel.setText("Numero de orden");
-
+        OrderIdTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        OrderIdTextField.setBorder(null);
         OrderIdTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 OrderIdTextFieldKeyTyped(evt);
             }
         });
+        getContentPane().add(OrderIdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 103, 190, 30));
 
-        LoadOrderInfoButton.setText("Cargar datos");
-        LoadOrderInfoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoadOrderInfoButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout InfoLoadPanelLayout = new javax.swing.GroupLayout(InfoLoadPanel);
-        InfoLoadPanel.setLayout(InfoLoadPanelLayout);
-        InfoLoadPanelLayout.setHorizontalGroup(
-            InfoLoadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoLoadPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(InfoLoadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OrderIdLabel)
-                    .addComponent(LoadOrderInfoButton)
-                    .addComponent(OrderIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
-        InfoLoadPanelLayout.setVerticalGroup(
-            InfoLoadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoLoadPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(OrderIdLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OrderIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LoadOrderInfoButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        InfoUpdatePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-        StatusLabel.setText("Estado");
-
-        StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terminado", "En proceso" }));
-
-        UpdateOrderButton.setText("Actualizar");
-        UpdateOrderButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateOrderButtonActionPerformed(evt);
-            }
-        });
-
-        FurnitureIdLabel.setText("Codigo mueble");
-
-        QuantityLabel.setText("Cantidad");
-
-        BranchLabel.setText("Sede");
-
+        FurnitureIdTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        FurnitureIdTextField.setBorder(null);
         FurnitureIdTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FurnitureIdTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(FurnitureIdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 250, 20));
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+        QuantityTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        QuantityTextField.setBorder(null);
+        getContentPane().add(QuantityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 250, 20));
+
+        BranchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        BranchTextField.setBorder(null);
+        getContentPane().add(BranchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 250, 20));
+
+        StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terminado", "En proceso" }));
+        StatusComboBox.setBorder(null);
+        getContentPane().add(StatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 270, -1));
+
+        modifyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyLabelMouseClicked(evt);
             }
         });
+        getContentPane().add(modifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 450, 200, 40));
 
-        javax.swing.GroupLayout InfoUpdatePanelLayout = new javax.swing.GroupLayout(InfoUpdatePanel);
-        InfoUpdatePanel.setLayout(InfoUpdatePanelLayout);
-        InfoUpdatePanelLayout.setHorizontalGroup(
-            InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoUpdatePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BranchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                        .addComponent(QuantityTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(StatusLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
-                        .addComponent(FurnitureIdLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(QuantityLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(BranchLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(InfoUpdatePanelLayout.createSequentialGroup()
-                        .addComponent(UpdateOrderButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cancelButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        InfoUpdatePanelLayout.setVerticalGroup(
-            InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoUpdatePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(FurnitureIdLabel)
-                .addGap(3, 3, 3)
-                .addComponent(FurnitureIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(QuantityLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(QuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BranchLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BranchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(StatusLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(InfoUpdatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpdateOrderButton)
-                    .addComponent(cancelButton))
-                .addContainerGap())
-        );
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InfoLoadPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InfoUpdatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(InfoLoadPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(InfoUpdatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        loadLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loadLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(loadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 60, 30));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Modify Orden.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoadOrderInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadOrderInfoButtonActionPerformed
-        if (OrderIdTextField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Error: ingrese el numero de orden sin modificar que desea modificar", "Atención", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            String order_id = OrderIdTextField.getText();
-            Map<String, String> commissionInfo = controller_.getCommissionInfo(order_id);
-            if (commissionInfo == null) {
-                JOptionPane.showMessageDialog(this, "Error: el numero de orden sin terminar ingresado es incorrecto", "Error", JOptionPane.WARNING_MESSAGE);
+    private void OrderIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OrderIdTextFieldKeyTyped
+        validateNumber(evt);
+    }//GEN-LAST:event_OrderIdTextFieldKeyTyped
 
-            } else {
-                this.StatusComboBox.setEnabled(true);
-                this.UpdateOrderButton.setEnabled(true);
-                this.LoadOrderInfoButton.setEnabled(false);
-                this.OrderIdTextField.setEnabled(false);
+    private void FurnitureIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FurnitureIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FurnitureIdTextFieldActionPerformed
 
-                this.FurnitureIdTextField.setText(commissionInfo.get("furniture_id"));
-                this.BranchTextField.setText(commissionInfo.get("branch"));
-                this.QuantityTextField.setText(commissionInfo.get("quantity"));
-                
-               
-            }
-        }
-
-    }//GEN-LAST:event_LoadOrderInfoButtonActionPerformed
-
-    private void UpdateOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateOrderButtonActionPerformed
+    private void modifyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyLabelMouseClicked
         String status = (String) this.StatusComboBox.getSelectedItem();
         String order_id = this.OrderIdTextField.getText();
 
@@ -242,8 +132,8 @@ public class ModifyCommission extends javax.swing.JFrame {
             
 
             this.StatusComboBox.setEnabled(false);
-            this.UpdateOrderButton.setEnabled(false);
-            this.LoadOrderInfoButton.setEnabled(true);
+            this.modifyLabel.setEnabled(false);
+            this.loadLabel.setEnabled(true);
             this.OrderIdTextField.setEnabled(true);
             this.BranchTextField.setText("");
             this.QuantityTextField.setText("");
@@ -251,19 +141,36 @@ public class ModifyCommission extends javax.swing.JFrame {
             
 
         } 
-    }//GEN-LAST:event_UpdateOrderButtonActionPerformed
+    }//GEN-LAST:event_modifyLabelMouseClicked
 
-    private void OrderIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_OrderIdTextFieldKeyTyped
-        validateNumber(evt);
-    }//GEN-LAST:event_OrderIdTextFieldKeyTyped
-
-    private void FurnitureIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FurnitureIdTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FurnitureIdTextFieldActionPerformed
-
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
         this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_exitLabelMouseClicked
+
+    private void loadLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadLabelMouseClicked
+        if (OrderIdTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Error: ingrese el numero de orden sin modificar que desea modificar", "Atención", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String order_id = OrderIdTextField.getText();
+            Map<String, String> commissionInfo = controller_.getCommissionInfo(order_id);
+            if (commissionInfo == null) {
+                JOptionPane.showMessageDialog(this, "Error: el numero de orden sin terminar ingresado es incorrecto", "Error", JOptionPane.WARNING_MESSAGE);
+
+            } else {
+                this.StatusComboBox.setEnabled(true);
+                this.modifyLabel.setEnabled(true);
+                this.loadLabel.setEnabled(false);
+                this.OrderIdTextField.setEnabled(false);
+
+                this.FurnitureIdTextField.setText(commissionInfo.get("furniture_id"));
+                this.BranchTextField.setText(commissionInfo.get("branch"));
+                this.QuantityTextField.setText(commissionInfo.get("quantity"));
+                
+               
+            }
+        }
+
+    }//GEN-LAST:event_loadLabelMouseClicked
 
     //This function validates that all typed keys are numbers
     private void validateNumber(java.awt.event.KeyEvent evt) {
@@ -274,20 +181,14 @@ public class ModifyCommission extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BranchLabel;
     private javax.swing.JTextField BranchTextField;
-    private javax.swing.JLabel FurnitureIdLabel;
     private javax.swing.JTextField FurnitureIdTextField;
-    private javax.swing.JPanel InfoLoadPanel;
-    private javax.swing.JPanel InfoUpdatePanel;
-    private javax.swing.JButton LoadOrderInfoButton;
-    private javax.swing.JLabel OrderIdLabel;
     private javax.swing.JTextField OrderIdTextField;
-    private javax.swing.JLabel QuantityLabel;
     private javax.swing.JTextField QuantityTextField;
     private javax.swing.JComboBox<String> StatusComboBox;
-    private javax.swing.JLabel StatusLabel;
-    private javax.swing.JButton UpdateOrderButton;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel exitLabel;
+    private javax.swing.JLabel loadLabel;
+    private javax.swing.JLabel modifyLabel;
     // End of variables declaration//GEN-END:variables
 }

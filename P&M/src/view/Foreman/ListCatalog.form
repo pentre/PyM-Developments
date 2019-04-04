@@ -123,7 +123,7 @@
     <Component class="javax.swing.JLabel" name="background">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/ui_resources/Search Furniture.png"/>
+          <Image iconType="3" name="/ui_resources/List Catalog.png"/>
         </Property>
       </Properties>
       <Constraints>

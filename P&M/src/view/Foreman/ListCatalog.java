@@ -116,7 +116,7 @@ public class ListCatalog extends javax.swing.JFrame {
         });
         getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 5, 80, 40));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Search Furniture.png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/List Catalog.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
 
         pack();

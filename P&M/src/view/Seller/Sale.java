@@ -41,27 +41,26 @@ public class Sale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         idComboBox = new javax.swing.JComboBox<>();
         quantityTextField = new javax.swing.JTextField();
-        addButton = new javax.swing.JButton();
-        CatalogLabel = new javax.swing.JLabel();
-        QuantityLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
         totalTextField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        saleButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        exitLabel = new javax.swing.JLabel();
+        AddLabel = new javax.swing.JLabel();
+        okLabel = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(idComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 170, 30));
 
+        quantityTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         quantityTextField.setToolTipText("");
+        quantityTextField.setBorder(null);
         quantityTextField.setPreferredSize(new java.awt.Dimension(73, 23));
         quantityTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,48 +72,7 @@ public class Sale extends javax.swing.JFrame {
                 quantityTextFieldKeyTyped(evt);
             }
         });
-
-        addButton.setText("Agregar");
-        addButton.setToolTipText("");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
-            }
-        });
-
-        CatalogLabel.setText("Id Mueble:");
-
-        QuantityLabel.setText("Cantidad:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(CatalogLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(QuantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146)
-                .addComponent(addButton)
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addButton)
-                    .addComponent(CatalogLabel)
-                    .addComponent(QuantityLabel))
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
+        getContentPane().add(quantityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 150, 30));
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,27 +86,9 @@ public class Sale extends javax.swing.JFrame {
         dataTable.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(dataTable);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 234, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 202, 780, 250));
 
+        totalTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         totalTextField.setEnabled(false);
         totalTextField.setPreferredSize(new java.awt.Dimension(150, 23));
         totalTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -156,68 +96,32 @@ public class Sale extends javax.swing.JFrame {
                 totalTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(totalTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
 
-        jLabel1.setText("Valor total");
-
-        saleButton.setText("Aceptar");
-        saleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saleButtonActionPerformed(evt);
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitLabelMouseClicked(evt);
             }
         });
+        getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 0, 80, 40));
 
-        cancelButton.setText("Cancelar");
-        cancelButton.setToolTipText("");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+        AddLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddLabelMouseClicked(evt);
             }
         });
+        getContentPane().add(AddLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 110, 180, 50));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(saleButton)
-                .addGap(36, 36, 36)
-                .addComponent(cancelButton)
-                .addGap(43, 43, 43))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saleButton)
-                    .addComponent(cancelButton))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        okLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                okLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(okLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 465, 170, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Sales.png"))); // NOI18N
+        background.setText("jLabel2");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -226,14 +130,16 @@ public class Sale extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_totalTextFieldActionPerformed
 
-    private void saleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saleButtonActionPerformed
-        int ok = JOptionPane.showConfirmDialog(this, "Desea realizar la venta", "Venta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (ok == 0) {
-            controller_.sale(currentIDs_);
-        }
-    }//GEN-LAST:event_saleButtonActionPerformed
+    private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTextFieldActionPerformed
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void quantityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTextFieldKeyTyped
+        // TODO add your handling code here:
+        validateNumber(evt);
+    }//GEN-LAST:event_quantityTextFieldKeyTyped
+
+    private void AddLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddLabelMouseClicked
         try {
             int quantity = Integer.parseInt(quantityTextField.getText());
             int id = Integer.parseInt(idComboBox.getSelectedItem().toString());
@@ -254,20 +160,18 @@ public class Sale extends javax.swing.JFrame {
         catch(NumberFormatException e) {
             
         }
-    }//GEN-LAST:event_addButtonActionPerformed
+    }//GEN-LAST:event_AddLabelMouseClicked
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void okLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okLabelMouseClicked
+        int ok = JOptionPane.showConfirmDialog(this, "Desea realizar la venta", "Venta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (ok == 0) {
+            controller_.sale(currentIDs_);
+        }
+    }//GEN-LAST:event_okLabelMouseClicked
+
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
         this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
-
-    private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantityTextFieldActionPerformed
-
-    private void quantityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTextFieldKeyTyped
-        // TODO add your handling code here:
-        validateNumber(evt);
-    }//GEN-LAST:event_quantityTextFieldKeyTyped
+    }//GEN-LAST:event_exitLabelMouseClicked
     
     private void updateTable(List<Map<String, Float>> results) {
         Object[] columnNames = { "Mueble", "Cantidad", "Disponibles", "Valor individual" };
@@ -298,19 +202,14 @@ public class Sale extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CatalogLabel;
-    private javax.swing.JLabel QuantityLabel;
-    private javax.swing.JButton addButton;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel AddLabel;
+    private javax.swing.JLabel background;
     private javax.swing.JTable dataTable;
+    private javax.swing.JLabel exitLabel;
     private javax.swing.JComboBox<String> idComboBox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel okLabel;
     private javax.swing.JTextField quantityTextField;
-    private javax.swing.JButton saleButton;
     private javax.swing.JTextField totalTextField;
     // End of variables declaration//GEN-END:variables
 }

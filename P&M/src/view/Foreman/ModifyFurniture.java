@@ -137,6 +137,12 @@ public class ModifyFurniture extends javax.swing.JFrame {
             }
         });
         getContentPane().add(modifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 200, 50));
+
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitLabelMouseClicked(evt);
+            }
+        });
         getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
 
         loadLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -225,6 +231,11 @@ public class ModifyFurniture extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Digite un valor numérico para el peso");              
         }  
     }//GEN-LAST:event_modifyLabelMouseClicked
+
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exitLabelMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;

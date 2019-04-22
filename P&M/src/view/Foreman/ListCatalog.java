@@ -38,35 +38,36 @@ public class ListCatalog extends javax.swing.JFrame {
         listButtonGroup = new javax.swing.ButtonGroup();
         activeRadioButton = new javax.swing.JRadioButton();
         inactiveRadioButton = new javax.swing.JRadioButton();
-        listButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         catalogTable = new javax.swing.JTable();
+        searchLabel = new javax.swing.JLabel();
+        exitLabel = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        activeRadioButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         listButtonGroup.add(activeRadioButton);
         activeRadioButton.setSelected(true);
-        activeRadioButton.setText("Modelos disponibles");
+        activeRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activeRadioButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(activeRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 30, 40));
 
+        inactiveRadioButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         listButtonGroup.add(inactiveRadioButton);
-        inactiveRadioButton.setText("Modelos descontinuados");
-
-        listButton.setText("Listar");
-        listButton.addActionListener(new java.awt.event.ActionListener() {
+        inactiveRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listButtonActionPerformed(evt);
+                inactiveRadioButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(inactiveRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-
+        jScrollPane1.setBorder(null);
         jScrollPane1.setEnabled(false);
 
         catalogTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,52 +100,37 @@ public class ListCatalog extends javax.swing.JFrame {
         catalogTable.setEnabled(false);
         jScrollPane1.setViewportView(catalogTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inactiveRadioButton)
-                    .addComponent(activeRadioButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
-                .addComponent(listButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cancelButton)
-                .addGap(8, 8, 8))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(37, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(activeRadioButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(inactiveRadioButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(listButton)
-                            .addComponent(cancelButton))))
-                .addContainerGap(317, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(129, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(16, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 253, 740, 250));
+
+        searchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(searchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 320, 50));
+
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 5, 80, 40));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/List Catalog.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listButtonActionPerformed
+    private void activeRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_activeRadioButtonActionPerformed
+
+    private void inactiveRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inactiveRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inactiveRadioButtonActionPerformed
+
+    private void searchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchLabelMouseClicked
         List<Map<String, String>> results = new ArrayList<>();
         if(activeRadioButton.isSelected()){
             results = controller_.listCatalog(true);
@@ -174,20 +160,21 @@ public class ListCatalog extends javax.swing.JFrame {
             model.addRow(row);
         }
         catalogTable.setModel(model);
-    }//GEN-LAST:event_listButtonActionPerformed
+    }//GEN-LAST:event_searchLabelMouseClicked
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
         this.dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_exitLabelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton activeRadioButton;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JLabel background;
     private javax.swing.JTable catalogTable;
+    private javax.swing.JLabel exitLabel;
     private javax.swing.JRadioButton inactiveRadioButton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton listButton;
     private javax.swing.ButtonGroup listButtonGroup;
+    private javax.swing.JLabel searchLabel;
     // End of variables declaration//GEN-END:variables
 }

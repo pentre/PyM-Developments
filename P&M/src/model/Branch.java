@@ -111,7 +111,7 @@ public class Branch {
 
             stmt.setString(1, city_);
             stmt.setString(2, address_);
-            stmt.setString(4, name_);
+            stmt.setString(3, name_);
 
             int result = stmt.executeUpdate();
 
@@ -119,7 +119,7 @@ public class Branch {
                 return "Error: sede no encontrada";
             }
 
-            return "La sede fue modifcada correctamente";
+            return "La sede fue modificada correctamente";
         } catch (SQLException e) {
             e.printStackTrace();
             return "Error: no fue posible modificar la sede";

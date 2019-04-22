@@ -30,7 +30,6 @@ public class SellerMenu extends javax.swing.JFrame {
 
         salesPanel = new javax.swing.JPanel();
         salesLabel = new javax.swing.JLabel();
-        inventoryLabel = new javax.swing.JLabel();
         catalogLabel = new javax.swing.JLabel();
         closeLabel = new javax.swing.JLabel();
         backgroundLabel = new javax.swing.JLabel();
@@ -46,13 +45,6 @@ public class SellerMenu extends javax.swing.JFrame {
             }
         });
         salesPanel.add(salesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 540, 190));
-
-        inventoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                inventoryLabelMouseClicked(evt);
-            }
-        });
-        salesPanel.add(inventoryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 270, 200));
 
         catalogLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,10 +83,6 @@ public class SellerMenu extends javax.swing.JFrame {
         sale.setVisible(true);
     }//GEN-LAST:event_salesLabelMouseClicked
 
-    private void inventoryLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryLabelMouseClicked
-        
-    }//GEN-LAST:event_inventoryLabelMouseClicked
-
     private void catalogLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogLabelMouseClicked
        ListCatalog catalog = new ListCatalog(controller_);
        catalog.setLocationRelativeTo(null);
@@ -110,7 +98,6 @@ public class SellerMenu extends javax.swing.JFrame {
     private javax.swing.JLabel backgroundLabel;
     private javax.swing.JLabel catalogLabel;
     private javax.swing.JLabel closeLabel;
-    private javax.swing.JLabel inventoryLabel;
     private javax.swing.JLabel salesLabel;
     private javax.swing.JPanel salesPanel;
     // End of variables declaration//GEN-END:variables

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.Employee;
+package view.Seller;
 
+import view.Employee.*;
 import controller.Controller;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -23,14 +24,14 @@ import org.knowm.xchart.style.Styler;
  *
  * @author Luis
  */
-public class FurnitureReport extends javax.swing.JFrame {
+public class ReportSellers extends javax.swing.JFrame {
 
     Controller controller_;
 
     /**
      * Creates new form SalesVsBranchReport
      */
-    public FurnitureReport(Controller controller) {
+    public ReportSellers(Controller controller) {
         controller_ = controller;
         initComponents();
         List<String> branches = controller.listBranches();
@@ -121,7 +122,7 @@ public class FurnitureReport extends javax.swing.JFrame {
                                     .addComponent(branchLabel))
                                 .addGap(6, 6, 6)
                                 .addComponent(EndDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -157,20 +158,19 @@ public class FurnitureReport extends javax.swing.JFrame {
         if (initialDate == null || endDate == null || initialDate.compareTo(endDate) > 0) {
             JOptionPane.showMessageDialog(this, "Error: debe seleccionar un rango de fechas valido", "Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } 
-            
-        List<Map<String, String>> data = controller_.getFurnitureSalesInfo(initialDate, endDate, (String) this.branchComboBox.getSelectedItem());
-        CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Muebles vs. Ventas").xAxisTitle("Muebles").yAxisTitle("Cantidad de ventas").theme(Styler.ChartTheme.GGPlot2).build();
-
+        }
+        List<Map<String, String>> data = controller_.getSellersReport(initialDate, endDate, (String) this.branchComboBox.getSelectedItem());
+        CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Ventas vs Vendedor").xAxisTitle("Vendedor").yAxisTitle("Ventas Individuales").theme(Styler.ChartTheme.GGPlot2).build();
+        System.out.println(data);
         if(data.isEmpty()){
             JOptionPane.showMessageDialog(this, "No hubo ninguna venta en las fechas dadas", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
         
         for(Map<String, String> furniture: data){
-            chart.addSeries(furniture.get("id_name_furniture"), 
+            chart.addSeries(furniture.get("code_employee"), 
                     Arrays.asList(new String[] {(String)this.branchComboBox.getSelectedItem()}), 
-                    Arrays.asList(new Number[] {Integer.valueOf(furniture.get("total_quantity"))}));
+                    Arrays.asList(new Number[] {Integer.valueOf(furniture.get("acum"))}));
         }
         JPanel chartPanelArea = new XChartPanel(chart);
         ChartPanel.removeAll();
@@ -208,7 +208,7 @@ public class FurnitureReport extends javax.swing.JFrame {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FurnitureReport(new Controller()).setVisible(true);
+                new ReportSellers(new Controller()).setVisible(true);
             }
         });
     }

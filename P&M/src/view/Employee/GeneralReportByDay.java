@@ -120,7 +120,10 @@ public class GeneralReportByDay extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe escoger dos fechas", "Reporte", JOptionPane.INFORMATION_MESSAGE);            
             return;
         }
-        
+        if (startDate == null || endDate == null || startDate.compareTo(endDate) > 0) {
+            JOptionPane.showMessageDialog(this, "Error: debe seleccionar un rango de fechas valido", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         Instant startInstant = startDate.toInstant();
         LocalDate startLocalDate = startInstant.atZone(ZoneId.systemDefault()).toLocalDate();
         

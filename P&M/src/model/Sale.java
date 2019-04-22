@@ -11,10 +11,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import static java.util.Map.Entry.comparingByKey;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toMap;
 import java.util.stream.IntStream;
@@ -147,5 +152,37 @@ public class Sale {
             e.printStackTrace();
             return null;
         }    
+    }
+    
+    public List<Map<String, String>> getSellersReport(Database database, LocalDate startDate, LocalDate endDate, String branch){
+        try{
+            PreparedStatement stmt;
+            if(branch.compareTo("Todas las sedes") == 0){
+                stmt = database.getStatement("SELECT 'Cod:'||' '||employee AS code_employee, sum(value) AS acum FROM sale NATURAL JOIN furniture_sold WHERE date BETWEEN ? AND ? GROUP BY employee;");
+                stmt.setDate(1, Date.valueOf(startDate));
+                stmt.setDate(2, Date.valueOf(endDate));
+                System.out.println(stmt.toString());
+            }
+            else{ stmt = database.getStatement("SELECT 'Cod:'||' '||employee AS code_employee, sum(value) AS acum FROM sale NATURAL JOIN furniture_sold WHERE branch=? AND date BETWEEN ? AND ? GROUP BY employee, branch;");
+                stmt.setString(1, branch);
+                stmt.setDate(2,  Date.valueOf(startDate));
+                stmt.setDate(3,  Date.valueOf(endDate));
+            }
+            ResultSet rs = stmt.executeQuery();
+            
+            List<Map<String, String>> results = new ArrayList<>();  
+            
+            while(rs.next()) {
+                Map<String,String> result = new HashMap<>();
+                result.put("code_employee", rs.getString("code_employee"));
+                result.put("acum", rs.getString("acum"));
+                results.add(result);
+            }
+            return results;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TotalSalesReport.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 }

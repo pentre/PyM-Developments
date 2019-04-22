@@ -30,15 +30,7 @@ public class ForemanMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        commissionOptionPanel = new javax.swing.JPanel();
-        furnitureCommissionLabel = new javax.swing.JLabel();
-        addCommissionLabel = new javax.swing.JLabel();
-        searchCommissionLabel = new javax.swing.JLabel();
-        modifyCommissionLabel = new javax.swing.JLabel();
-        closeCommission = new javax.swing.JLabel();
-        commissionBackground = new javax.swing.JLabel();
         furnitureOptionPanel = new javax.swing.JPanel();
-        inventoryLabel = new javax.swing.JLabel();
         catalogLabel = new javax.swing.JLabel();
         addLabel = new javax.swing.JLabel();
         searchLabel = new javax.swing.JLabel();
@@ -47,61 +39,19 @@ public class ForemanMenu extends javax.swing.JFrame {
         commissionLabel = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
         furnitureLabel = new javax.swing.JLabel();
+        commissionOptionPanel = new javax.swing.JPanel();
+        furnitureCommissionLabel = new javax.swing.JLabel();
+        addCommissionLabel = new javax.swing.JLabel();
+        searchCommissionLabel = new javax.swing.JLabel();
+        modifyCommissionLabel = new javax.swing.JLabel();
+        closeCommission = new javax.swing.JLabel();
+        commissionBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        commissionOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        furnitureCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                furnitureCommissionLabelMouseClicked(evt);
-            }
-        });
-        commissionOptionPanel.add(furnitureCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 70, 40));
-
-        addCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addCommissionLabelMouseClicked(evt);
-            }
-        });
-        commissionOptionPanel.add(addCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 270, 190));
-
-        searchCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchCommissionLabelMouseClicked(evt);
-            }
-        });
-        commissionOptionPanel.add(searchCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 270, 190));
-
-        modifyCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifyCommissionLabelMouseClicked(evt);
-            }
-        });
-        commissionOptionPanel.add(modifyCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 270, 200));
-
-        closeCommission.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeCommissionMouseClicked(evt);
-            }
-        });
-        commissionOptionPanel.add(closeCommission, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 50, 60));
-
-        commissionBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Commissions.png"))); // NOI18N
-        commissionOptionPanel.add(commissionBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
-
-        getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
-
         furnitureOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        inventoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                inventoryLabelMouseClicked(evt);
-            }
-        });
-        furnitureOptionPanel.add(inventoryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 150, 190));
 
         catalogLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -153,9 +103,51 @@ public class ForemanMenu extends javax.swing.JFrame {
         furnitureOptionPanel.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 15, 50, 60));
 
         furnitureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Furniture.png"))); // NOI18N
-        furnitureOptionPanel.add(furnitureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
+        furnitureOptionPanel.add(furnitureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
-        getContentPane().add(furnitureOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
+        getContentPane().add(furnitureOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
+
+        commissionOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        furnitureCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                furnitureCommissionLabelMouseClicked(evt);
+            }
+        });
+        commissionOptionPanel.add(furnitureCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 70, 40));
+
+        addCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addCommissionLabelMouseClicked(evt);
+            }
+        });
+        commissionOptionPanel.add(addCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 270, 190));
+
+        searchCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchCommissionLabelMouseClicked(evt);
+            }
+        });
+        commissionOptionPanel.add(searchCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 270, 190));
+
+        modifyCommissionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyCommissionLabelMouseClicked(evt);
+            }
+        });
+        commissionOptionPanel.add(modifyCommissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 270, 200));
+
+        closeCommission.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeCommissionMouseClicked(evt);
+            }
+        });
+        commissionOptionPanel.add(closeCommission, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 50, 60));
+
+        commissionBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Commissions.png"))); // NOI18N
+        commissionOptionPanel.add(commissionBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
+
+        getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,10 +214,6 @@ public class ForemanMenu extends javax.swing.JFrame {
         catalog.setVisible(true);
     }//GEN-LAST:event_catalogLabelMouseClicked
 
-    private void inventoryLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inventoryLabelMouseClicked
-
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         this.dispose();
     }//GEN-LAST:event_exitMouseClicked
@@ -244,7 +232,6 @@ public class ForemanMenu extends javax.swing.JFrame {
     private javax.swing.JLabel furnitureCommissionLabel;
     private javax.swing.JLabel furnitureLabel;
     private javax.swing.JPanel furnitureOptionPanel;
-    private javax.swing.JLabel inventoryLabel;
     private javax.swing.JLabel modifyCommissionLabel;
     private javax.swing.JLabel modifyLabel;
     private javax.swing.JLabel searchCommissionLabel;

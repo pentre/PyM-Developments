@@ -71,4 +71,9 @@ public interface SaleController {
         Sale sale = new Sale("", "");
         return sale.getGeneralReportByDay(Controller.database, startDate, endDate);
     }
+
+    default public List<Map<String, String>> getSellersReport(LocalDate initialDate, LocalDate endDate, String branch){
+        Sale sale = new Sale("","");
+        return sale.getSellersReport(Controller.database, initialDate, endDate, branch);
+    }    
 }

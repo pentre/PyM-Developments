@@ -6,6 +6,7 @@
 package view.Seller;
 
 import controller.Controller;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -130,6 +131,33 @@ public class Sale extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_totalTextFieldActionPerformed
 
+    private void saleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saleButtonActionPerformed
+        int ok = JOptionPane.showConfirmDialog(this, "Desea realizar la venta", "Venta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        List<Integer> results = new ArrayList<>();
+        if (ok == 0) {
+            results = controller_.sale(currentIDs_);
+        }
+        
+        if (results == null) {
+            JOptionPane.showMessageDialog(null, "Error", "Venta", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        updateTable(new ArrayList<>());
+        
+        if (results.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Venta exitosa", "Venta", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        String result = "";
+        for (int id : results) {
+            if (result.isEmpty()) {
+                result = result.concat(", ");
+            }
+            result = result.concat(Integer.toString(id));
+        }
+        JOptionPane.showMessageDialog(null, "Venta exitosa, se crearon ordenas para: " + result, "Venta", JOptionPane.INFORMATION_MESSAGE);        
+    }//GEN-LAST:event_saleButtonActionPerformed
     private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityTextFieldActionPerformed
@@ -158,7 +186,7 @@ public class Sale extends javax.swing.JFrame {
             updateTable(results);
         }
         catch(NumberFormatException e) {
-            
+            e.printStackTrace();
         }
     }//GEN-LAST:event_AddLabelMouseClicked
 

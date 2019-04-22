@@ -6,6 +6,7 @@
 package controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import model.Commission;
@@ -20,46 +21,50 @@ import model.Furniture;
  */
 public interface SaleController {
     
-    default public String sale(Map<Integer, Integer> products) {
+    default public List<Integer> sale(Map<Integer, Integer> products) {
         Sale sale = new Sale(Controller.employee.getId(), Controller.employee.getBranch());
         String saleResult = sale.store(Controller.database);
         if (saleResult.contains("Error")) {
-            return saleResult;
+            return null;
         }
         
         Inventory inventory = new Inventory(0, 0, "");
         Furniture furniture = new Furniture(0, "", 0, "", 0, "");
+        List<Integer> results = new ArrayList<>();
+        
         for (Map.Entry<Integer, Integer> product : products.entrySet()) {
-            boolean ok = inventory.search(Controller.database, product.getKey(), "Sede0");//Controller.employee.getBranch());
+            boolean ok = inventory.search(Controller.database, product.getKey(), Controller.employee.getBranch());
             if (!ok) {
-                return "Error: no se pudo realizar la venta";
+                return null;
             }
             
             furniture.setId(product.getKey());
-            ok = furniture.searchActive(Controller.database);
+            ok = furniture.search(Controller.database, product.getKey());
             if (!ok) {
-                return "Error: no se pudo realizar la venta";
+                return null;
             }
             
             int missingQuantity = inventory.decrease(Controller.database, product.getValue());
             if (missingQuantity == -1) {
-                return "Error: no se pudo realizar la venta";
+                return null;
             }
             
             FurnitureSold sold = new FurnitureSold(sale.getId(), product.getKey(), product.getValue() - missingQuantity, furniture.getPrice());
             sold.store(Controller.database);
             
-            if (missingQuantity == 0) {
+            if (!furniture.isActive() || missingQuantity == 0) {
                 continue;
             }
-            Commission commission = new Commission(false, product.getKey(), missingQuantity, "Sede0");//Controller.employee.getBranch());
+            Commission commission = new Commission(false, product.getKey(), missingQuantity, Controller.employee.getBranch());
             String err = commission.store(Controller.database);
             if (err.contains("Error")) {
-                return "Error: no se pudieron crear las órdenes de trabajo";
+                return null;
             }
+            
+            results.add(product.getKey());
         }
         
-        return saleResult;
+        return results;
     }
     
     default public Map<String, Integer> getGeneralReportByDay(LocalDate startDate, LocalDate endDate) {

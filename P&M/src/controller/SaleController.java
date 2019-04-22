@@ -22,9 +22,10 @@ import model.Furniture;
 public interface SaleController {
     
     default public List<Integer> sale(Map<Integer, Integer> products) {
-        Sale sale = new Sale(Controller.employee.getId(), Controller.employee.getBranch());
+        Sale sale = new Sale(Controller.employee.getBranch(), Controller.employee.getId());
         String saleResult = sale.store(Controller.database);
         if (saleResult.contains("Error")) {
+            System.out.println(1);
             return null;
         }
         
@@ -35,17 +36,20 @@ public interface SaleController {
         for (Map.Entry<Integer, Integer> product : products.entrySet()) {
             boolean ok = inventory.search(Controller.database, product.getKey(), Controller.employee.getBranch());
             if (!ok) {
+                System.out.println(2);
                 return null;
             }
             
             furniture.setId(product.getKey());
             ok = furniture.search(Controller.database, product.getKey());
             if (!ok) {
+                System.out.println(3);
                 return null;
             }
             
             int missingQuantity = inventory.decrease(Controller.database, product.getValue());
             if (missingQuantity == -1) {
+                System.out.println(4);
                 return null;
             }
             
@@ -58,6 +62,7 @@ public interface SaleController {
             Commission commission = new Commission(false, product.getKey(), missingQuantity, Controller.employee.getBranch());
             String err = commission.store(Controller.database);
             if (err.contains("Error")) {
+                System.out.println(5);
                 return null;
             }
             

@@ -134,6 +134,7 @@ public class Sale extends javax.swing.JFrame {
     private void saleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saleButtonActionPerformed
         int ok = JOptionPane.showConfirmDialog(this, "Desea realizar la venta", "Venta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         List<Integer> results = new ArrayList<>();
+        System.out.println(ok);
         if (ok == 0) {
             results = controller_.sale(currentIDs_);
         }
@@ -192,9 +193,40 @@ public class Sale extends javax.swing.JFrame {
 
     private void okLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okLabelMouseClicked
         int ok = JOptionPane.showConfirmDialog(this, "Desea realizar la venta", "Venta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        List<Integer> results = new ArrayList<>();
+        
         if (ok == 0) {
-            controller_.sale(currentIDs_);
+            results = controller_.sale(currentIDs_);
+        } else {
+            return;
         }
+        
+        if (results == null) {
+            JOptionPane.showMessageDialog(null, "Error", "Venta", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        updateTable(new ArrayList<>());
+        
+        if (results.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Venta exitosa", "Venta", JOptionPane.INFORMATION_MESSAGE);
+            return
+        }
+        
+        String result = "";
+        String m = "Venta exitosa";
+        for (int id : results) {
+            if (result.isEmpty()) {
+                result = result.concat(", ");
+            }
+            result = result.concat(Integer.toString(id));
+        }
+        if (!result.isEmpty()) {
+            m += ", ordenes creadas";
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, m, "Venta", JOptionPane.INFORMATION_MESSAGE); 
     }//GEN-LAST:event_okLabelMouseClicked
 
     private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked

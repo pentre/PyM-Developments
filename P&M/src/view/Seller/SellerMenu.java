@@ -7,6 +7,7 @@ package view.Seller;
 
 import controller.*;
 import view.Foreman.ListCatalog;
+import view.Employee.SearchInventory;
 /**
  *
  * @author jose
@@ -32,6 +33,7 @@ public class SellerMenu extends javax.swing.JFrame {
         salesLabel = new javax.swing.JLabel();
         catalogLabel = new javax.swing.JLabel();
         closeLabel = new javax.swing.JLabel();
+        inventoryButton = new javax.swing.JLabel();
         backgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +61,13 @@ public class SellerMenu extends javax.swing.JFrame {
             }
         });
         salesPanel.add(closeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 15, 50, 50));
+
+        inventoryButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventoryButtonMouseClicked(evt);
+            }
+        });
+        salesPanel.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 270, 200));
 
         backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Seller Menu.png"))); // NOI18N
         salesPanel.add(backgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -93,11 +102,18 @@ public class SellerMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_closeLabelMouseClicked
 
+    private void inventoryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryButtonMouseClicked
+        SearchInventory inventory = new SearchInventory(controller_);
+        inventory.setLocationRelativeTo(null);
+        inventory.setVisible(true);
+    }//GEN-LAST:event_inventoryButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundLabel;
     private javax.swing.JLabel catalogLabel;
     private javax.swing.JLabel closeLabel;
+    private javax.swing.JLabel inventoryButton;
     private javax.swing.JLabel salesLabel;
     private javax.swing.JPanel salesPanel;
     // End of variables declaration//GEN-END:variables

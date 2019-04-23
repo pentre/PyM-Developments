@@ -44,92 +44,44 @@ public class TotalSalesReport extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        DatesPanel = new javax.swing.JPanel();
-        InitialDatePicker = new com.github.lgooddatepicker.components.DatePicker();
-        InitialDateLabel = new javax.swing.JLabel();
-        EndDatePicker = new com.github.lgooddatepicker.components.DatePicker();
-        EndDateLabel = new javax.swing.JLabel();
-        ShowReportButton = new javax.swing.JButton();
         ChartPanel = new javax.swing.JPanel();
+        InitialDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        EndDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        generateReport = new javax.swing.JLabel();
+        exit = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        DatesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        DatesPanel.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
-        DatesPanel.add(InitialDatePicker, gridBagConstraints);
-
-        InitialDateLabel.setText("Fecha inicial");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
-        DatesPanel.add(InitialDateLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 18, 0, 0);
-        DatesPanel.add(EndDatePicker, gridBagConstraints);
-
-        EndDateLabel.setText("Fecha final");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 18, 0, 0);
-        DatesPanel.add(EndDateLabel, gridBagConstraints);
-
-        ShowReportButton.setText("Mostrar reporte");
-        ShowReportButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowReportButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 32, 12, 28);
-        DatesPanel.add(ShowReportButton, gridBagConstraints);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         ChartPanel.setLayout(new javax.swing.BoxLayout(ChartPanel, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(ChartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 980, 470));
+        getContentPane().add(InitialDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 270, 40));
+        getContentPane().add(EndDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 270, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DatesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DatesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        generateReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generateReportMouseClicked(evt);
+            }
+        });
+        getContentPane().add(generateReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 100, 230, 70));
+
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 90, 40));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Total Reports.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ShowReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowReportButtonActionPerformed
+    private void generateReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generateReportMouseClicked
         LocalDate initialDate = this.InitialDatePicker.getDate();
         LocalDate endDate = this.EndDatePicker.getDate();
         
@@ -152,7 +104,11 @@ public class TotalSalesReport extends javax.swing.JFrame {
             ChartPanel.validate();
 
         }
-    }//GEN-LAST:event_ShowReportButtonActionPerformed
+    }//GEN-LAST:event_generateReportMouseClicked
+
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_exitMouseClicked
 
     private CategoryChart getChart(Map<String, List> data) {
         List<String> branches = data.get("branches");
@@ -174,12 +130,11 @@ public class TotalSalesReport extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ChartPanel;
-    private javax.swing.JPanel DatesPanel;
-    private javax.swing.JLabel EndDateLabel;
     private com.github.lgooddatepicker.components.DatePicker EndDatePicker;
-    private javax.swing.JLabel InitialDateLabel;
     private com.github.lgooddatepicker.components.DatePicker InitialDatePicker;
-    private javax.swing.JButton ShowReportButton;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel exit;
+    private javax.swing.JLabel generateReport;
     // End of variables declaration//GEN-END:variables
 
     public static void main(String[] args) {

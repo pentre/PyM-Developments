@@ -192,6 +192,11 @@ public class Sale extends javax.swing.JFrame {
     }//GEN-LAST:event_AddLabelMouseClicked
 
     private void okLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okLabelMouseClicked
+        if (currentIDs_.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay productos seleccionados", "Venta", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
         int ok = JOptionPane.showConfirmDialog(this, "Desea realizar la venta", "Venta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         List<Integer> results = new ArrayList<>();
         

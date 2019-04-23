@@ -212,7 +212,6 @@ public class Sale extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Venta exitosa", "Venta", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        
         String result = "";
         String m = "Venta exitosa";
         for (int id : results) {

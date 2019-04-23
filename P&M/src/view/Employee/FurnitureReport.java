@@ -60,7 +60,7 @@ public class FurnitureReport extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        ChartPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ChartPanel.setLayout(new javax.swing.BoxLayout(ChartPanel, javax.swing.BoxLayout.LINE_AXIS));
         getContentPane().add(ChartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 980, 400));
         getContentPane().add(InitialDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 270, 40));
         getContentPane().add(EndDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 260, 40));

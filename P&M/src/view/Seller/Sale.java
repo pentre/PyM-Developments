@@ -210,7 +210,7 @@ public class Sale extends javax.swing.JFrame {
         
         if (results.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Venta exitosa", "Venta", JOptionPane.INFORMATION_MESSAGE);
-            return
+            return;
         }
         
         String result = "";

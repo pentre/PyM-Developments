@@ -95,6 +95,7 @@ public class Sale {
 
             return "Error: no se pudo registrar la venta";
         } catch (SQLException e) {
+            e.printStackTrace();
             return "Error: no se pudo registrar la venta";
         } catch (Exception e) {
             e.printStackTrace();

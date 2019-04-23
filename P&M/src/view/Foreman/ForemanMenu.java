@@ -6,6 +6,7 @@
 package view.Foreman;
 
 import controller.*;
+import view.Employee.SearchInventory;
 
 /**
  *
@@ -38,6 +39,7 @@ public class ForemanMenu extends javax.swing.JFrame {
         deleteLabel = new javax.swing.JLabel();
         commissionLabel = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
+        inventoryButton = new javax.swing.JLabel();
         furnitureLabel = new javax.swing.JLabel();
         commissionOptionPanel = new javax.swing.JPanel();
         furnitureCommissionLabel = new javax.swing.JLabel();
@@ -101,6 +103,13 @@ public class ForemanMenu extends javax.swing.JFrame {
             }
         });
         furnitureOptionPanel.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 15, 50, 60));
+
+        inventoryButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventoryButtonMouseClicked(evt);
+            }
+        });
+        furnitureOptionPanel.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 150, 190));
 
         furnitureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Furniture.png"))); // NOI18N
         furnitureOptionPanel.add(furnitureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
@@ -218,6 +227,12 @@ public class ForemanMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_exitMouseClicked
 
+    private void inventoryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryButtonMouseClicked
+        SearchInventory inventory = new SearchInventory(controller_);
+        inventory.setLocationRelativeTo(null);
+        inventory.setVisible(true);
+    }//GEN-LAST:event_inventoryButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addCommissionLabel;
@@ -232,6 +247,7 @@ public class ForemanMenu extends javax.swing.JFrame {
     private javax.swing.JLabel furnitureCommissionLabel;
     private javax.swing.JLabel furnitureLabel;
     private javax.swing.JPanel furnitureOptionPanel;
+    private javax.swing.JLabel inventoryButton;
     private javax.swing.JLabel modifyCommissionLabel;
     private javax.swing.JLabel modifyLabel;
     private javax.swing.JLabel searchCommissionLabel;

@@ -48,110 +48,41 @@ public class FurnitureReport extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DatesPanel = new javax.swing.JPanel();
-        InitialDatePicker = new com.github.lgooddatepicker.components.DatePicker();
-        InitialDateLabel = new javax.swing.JLabel();
-        EndDatePicker = new com.github.lgooddatepicker.components.DatePicker();
-        EndDateLabel = new javax.swing.JLabel();
-        ShowReportButton = new javax.swing.JButton();
-        branchLabel = new javax.swing.JLabel();
-        branchComboBox = new javax.swing.JComboBox<>();
         ChartPanel = new javax.swing.JPanel();
+        InitialDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        EndDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        branchComboBox = new javax.swing.JComboBox<>();
+        generateReport = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        DatesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-        InitialDateLabel.setText("Fecha inicial");
-
-        EndDateLabel.setText("Fecha final");
-
-        ShowReportButton.setText("Mostrar reporte");
-        ShowReportButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowReportButtonActionPerformed(evt);
-            }
-        });
-
-        branchLabel.setText("Sede");
-
-        branchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las sedes" }));
-
-        javax.swing.GroupLayout DatesPanelLayout = new javax.swing.GroupLayout(DatesPanel);
-        DatesPanel.setLayout(DatesPanelLayout);
-        DatesPanelLayout.setHorizontalGroup(
-            DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DatesPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InitialDateLabel)
-                    .addComponent(InitialDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EndDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EndDateLabel))
-                .addGap(26, 26, 26)
-                .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(branchComboBox, 0, 106, Short.MAX_VALUE)
-                    .addGroup(DatesPanelLayout.createSequentialGroup()
-                        .addComponent(branchLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(ShowReportButton)
-                .addGap(83, 83, 83))
-        );
-        DatesPanelLayout.setVerticalGroup(
-            DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DatesPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DatesPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(branchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(ShowReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DatesPanelLayout.createSequentialGroup()
-                                .addComponent(InitialDateLabel)
-                                .addGap(6, 6, 6)
-                                .addComponent(InitialDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DatesPanelLayout.createSequentialGroup()
-                                .addGroup(DatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(EndDateLabel)
-                                    .addComponent(branchLabel))
-                                .addGap(6, 6, 6)
-                                .addComponent(EndDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ChartPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        ChartPanel.setLayout(new javax.swing.BoxLayout(ChartPanel, javax.swing.BoxLayout.LINE_AXIS));
+        ChartPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(ChartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 980, 400));
+        getContentPane().add(InitialDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 270, 40));
+        getContentPane().add(EndDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 260, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DatesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DatesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        branchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las sedes" }));
+        getContentPane().add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 270, 40));
+
+        generateReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generateReportMouseClicked(evt);
+            }
+        });
+        getContentPane().add(generateReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 380, 70));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Report bt Furniture.png"))); // NOI18N
+        background.setText("jLabel1");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ShowReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowReportButtonActionPerformed
+    private void generateReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generateReportMouseClicked
         LocalDate initialDate = this.InitialDatePicker.getDate();
         LocalDate endDate = this.EndDatePicker.getDate();
         if (initialDate == null || endDate == null || initialDate.compareTo(endDate) > 0) {
@@ -178,8 +109,7 @@ public class FurnitureReport extends javax.swing.JFrame {
         ChartPanel.repaint();
         ChartPanel.add(chartPanelArea);
         ChartPanel.validate();
-        
-    }//GEN-LAST:event_ShowReportButtonActionPerformed
+    }//GEN-LAST:event_generateReportMouseClicked
 
     private CategoryChart getChart(Map<String, List> data) {
         List<String> branches = data.get("branches");
@@ -195,14 +125,11 @@ public class FurnitureReport extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ChartPanel;
-    private javax.swing.JPanel DatesPanel;
-    private javax.swing.JLabel EndDateLabel;
     private com.github.lgooddatepicker.components.DatePicker EndDatePicker;
-    private javax.swing.JLabel InitialDateLabel;
     private com.github.lgooddatepicker.components.DatePicker InitialDatePicker;
-    private javax.swing.JButton ShowReportButton;
+    private javax.swing.JLabel background;
     private javax.swing.JComboBox<String> branchComboBox;
-    private javax.swing.JLabel branchLabel;
+    private javax.swing.JLabel generateReport;
     // End of variables declaration//GEN-END:variables
 
     public static void main(String[] args) {

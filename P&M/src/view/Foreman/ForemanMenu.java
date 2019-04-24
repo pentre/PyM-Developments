@@ -7,6 +7,7 @@ package view.Foreman;
 
 import controller.*;
 import view.Employee.SearchInventory;
+import view.Login;
 
 /**
  *
@@ -185,7 +186,9 @@ public class ForemanMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_modifyCommissionLabelMouseClicked
 
     private void closeCommissionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeCommissionMouseClicked
-       this.dispose();
+       this.dispose();      
+       Login login = new Login();                
+       login.setVisible(true);
     }//GEN-LAST:event_closeCommissionMouseClicked
 
     private void commissionLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_commissionLabelMouseClicked
@@ -224,7 +227,9 @@ public class ForemanMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_catalogLabelMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        this.dispose();
+        this.dispose();   
+        Login login = new Login();                
+        login.setVisible(true);
     }//GEN-LAST:event_exitMouseClicked
 
     private void inventoryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryButtonMouseClicked

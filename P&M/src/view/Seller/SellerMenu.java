@@ -8,6 +8,7 @@ package view.Seller;
 import controller.*;
 import view.Foreman.ListCatalog;
 import view.Employee.SearchInventory;
+import view.Login;
 /**
  *
  * @author jose
@@ -100,6 +101,8 @@ public class SellerMenu extends javax.swing.JFrame {
 
     private void closeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeLabelMouseClicked
         this.dispose();
+        Login login = new Login();                
+        login.setVisible(true);
     }//GEN-LAST:event_closeLabelMouseClicked
 
     private void inventoryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryButtonMouseClicked

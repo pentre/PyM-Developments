@@ -10,6 +10,7 @@ import view.Branch.ModifyBranch;
 import view.Branch.AddBranch;
 import view.Seller.ReportSellers;
 import controller.*;
+import view.Login;
 /**
  *
  * @author jose
@@ -257,6 +258,8 @@ public class ManagerMenu extends javax.swing.JFrame {
 
     private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
         this.dispose();
+        Login login = new Login();                
+        login.setVisible(true);
     }//GEN-LAST:event_exitLabelMouseClicked
 
     private void addBranchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBranchLabelMouseClicked
@@ -279,6 +282,8 @@ public class ManagerMenu extends javax.swing.JFrame {
 
     private void exitBranchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBranchMouseClicked
         this.dispose();
+        Login login = new Login();                
+        login.setVisible(true);
     }//GEN-LAST:event_exitBranchMouseClicked
 
     private void branchLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_branchLabelMouseClicked
@@ -303,6 +308,8 @@ public class ManagerMenu extends javax.swing.JFrame {
 
     private void exitBranch1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBranch1MouseClicked
         this.dispose();
+        Login login = new Login();                
+        login.setVisible(true);
     }//GEN-LAST:event_exitBranch1MouseClicked
 
     private void reportDayLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportDayLabelMouseClicked

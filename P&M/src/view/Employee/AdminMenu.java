@@ -6,6 +6,7 @@
 package view.Employee;
 
 import controller.*;
+import view.Login;
 
 /**
  *
@@ -87,6 +88,8 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
         this.dispose();
+        Login login = new Login();                
+        login.setVisible(true);              
     }//GEN-LAST:event_exitLabelMouseClicked
 
     private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked

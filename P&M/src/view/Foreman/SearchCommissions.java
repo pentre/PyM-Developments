@@ -61,7 +61,6 @@ public class SearchCommissions extends javax.swing.JFrame {
         pendingCommission.setBackground(new java.awt.Color(255, 255, 255, 0));
         getContentPane().add(pendingCommission, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, 30));
 
-        dataTable.setForeground(new java.awt.Color(255, 255, 255));
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

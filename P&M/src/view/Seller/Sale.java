@@ -76,7 +76,6 @@ public class Sale extends javax.swing.JFrame {
         });
         getContentPane().add(quantityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 150, 30));
 
-        dataTable.setForeground(new java.awt.Color(255, 255, 255));
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
@@ -86,6 +85,7 @@ public class Sale extends javax.swing.JFrame {
             }
         ));
         dataTable.setEnabled(false);
+        dataTable.setForeground(new java.awt.Color(5, 0, 0));
         dataTable.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(dataTable);
 

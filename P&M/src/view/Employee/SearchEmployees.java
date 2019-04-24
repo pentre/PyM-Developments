@@ -26,6 +26,7 @@ public class SearchEmployees extends javax.swing.JFrame {
         controller_ = controller;
         initComponents();
         List<String> branches = controller.listBranches();
+        this.branchComboBox.addItem("Todas");
         for(String branch: branches){
             this.branchComboBox.addItem(branch);
         }
@@ -127,7 +128,6 @@ public class SearchEmployees extends javax.swing.JFrame {
         });
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 0, 80, 40));
 
-        branchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas" }));
         branchComboBox.setPreferredSize(new java.awt.Dimension(92, 29));
         branchComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

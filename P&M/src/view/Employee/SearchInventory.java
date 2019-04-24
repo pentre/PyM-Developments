@@ -49,6 +49,7 @@ public class SearchInventory extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        inventoryTable.setForeground(new java.awt.Color(255, 255, 255));
         inventoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

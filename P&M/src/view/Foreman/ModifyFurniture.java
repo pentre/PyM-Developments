@@ -81,6 +81,7 @@ public class ModifyFurniture extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setBorder(null);
         idTextField.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
@@ -99,13 +100,15 @@ public class ModifyFurniture extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 180, 20));
+        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 40));
 
         nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        nameTextField.setForeground(new java.awt.Color(255, 255, 255));
         nameTextField.setBorder(null);
         getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 240, 30));
 
         priceTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        priceTextField.setForeground(new java.awt.Color(255, 255, 255));
         priceTextField.setBorder(null);
         priceTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -115,10 +118,12 @@ public class ModifyFurniture extends javax.swing.JFrame {
         getContentPane().add(priceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 240, 30));
 
         materialTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        materialTextField.setForeground(new java.awt.Color(255, 255, 255));
         materialTextField.setBorder(null);
         getContentPane().add(materialTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 240, 30));
 
         weightTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        weightTextField.setForeground(new java.awt.Color(255, 255, 255));
         weightTextField.setBorder(null);
         weightTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -128,6 +133,7 @@ public class ModifyFurniture extends javax.swing.JFrame {
         getContentPane().add(weightTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 240, 30));
 
         colorTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        colorTextField.setForeground(new java.awt.Color(255, 255, 255));
         colorTextField.setBorder(null);
         getContentPane().add(colorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 240, 30));
 

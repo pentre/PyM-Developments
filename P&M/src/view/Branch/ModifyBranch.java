@@ -47,6 +47,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         branchNameInputField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        branchNameInputField.setForeground(new java.awt.Color(0, 0, 0));
         branchNameInputField.setBorder(null);
         branchNameInputField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -56,6 +57,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         getContentPane().add(branchNameInputField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 190, 30));
 
         cityInputField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        cityInputField.setForeground(new java.awt.Color(255, 255, 255));
         cityInputField.setBorder(null);
         cityInputField.setEnabled(false);
         cityInputField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -66,6 +68,7 @@ public class ModifyBranch extends javax.swing.JFrame {
         getContentPane().add(cityInputField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 173, 250, 30));
 
         addressTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        addressTextField.setForeground(new java.awt.Color(255, 255, 255));
         addressTextField.setBorder(null);
         addressTextField.setEnabled(false);
         getContentPane().add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 250, 30));

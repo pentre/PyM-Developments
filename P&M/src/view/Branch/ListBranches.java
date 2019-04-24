@@ -55,6 +55,7 @@ public class ListBranches extends javax.swing.JFrame {
         getContentPane().add(activeRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
         getContentPane().add(inactiveRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
+        dataTable.setForeground(new java.awt.Color(255, 255, 255));
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

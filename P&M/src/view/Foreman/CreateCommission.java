@@ -56,6 +56,7 @@ public class CreateCommission extends javax.swing.JFrame {
         getContentPane().add(furnitureComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 260, 40));
 
         quantityTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        quantityTextField.setForeground(new java.awt.Color(255, 255, 255));
         quantityTextField.setBorder(null);
         quantityTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

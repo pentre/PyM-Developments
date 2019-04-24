@@ -60,6 +60,7 @@ public class Sale extends javax.swing.JFrame {
         getContentPane().add(idComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 170, 30));
 
         quantityTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        quantityTextField.setForeground(new java.awt.Color(0, 0, 0));
         quantityTextField.setToolTipText("");
         quantityTextField.setBorder(null);
         quantityTextField.setPreferredSize(new java.awt.Dimension(73, 23));
@@ -75,6 +76,7 @@ public class Sale extends javax.swing.JFrame {
         });
         getContentPane().add(quantityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 150, 30));
 
+        dataTable.setForeground(new java.awt.Color(255, 255, 255));
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
@@ -90,6 +92,7 @@ public class Sale extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 202, 780, 250));
 
         totalTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        totalTextField.setForeground(new java.awt.Color(0, 0, 0));
         totalTextField.setEnabled(false);
         totalTextField.setPreferredSize(new java.awt.Dimension(150, 23));
         totalTextField.addActionListener(new java.awt.event.ActionListener() {

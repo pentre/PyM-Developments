@@ -84,7 +84,7 @@ public class User {
             stmt.setString(2,password_);  
 
             if(stmt.executeUpdate()==1){
-                return "El usuario es el número de cédula";
+                return "Usuario creado exitosamente.\nUsername: " + username_;
             }
             
             return "Error: el usuario no pudo ser adicionado";

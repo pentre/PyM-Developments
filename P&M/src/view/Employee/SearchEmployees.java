@@ -25,6 +25,10 @@ public class SearchEmployees extends javax.swing.JFrame {
     public SearchEmployees(Controller controller) {
         controller_ = controller;
         initComponents();
+        List<String> branches = controller.listBranches();
+        for(String branch: branches){
+            this.branchComboBox.addItem(branch);
+        }
         this.dataTable.setEnabled(false);
     }
 
@@ -40,13 +44,13 @@ public class SearchEmployees extends javax.swing.JFrame {
         dataPanel = new javax.swing.JPanel();
         idTextField = new javax.swing.JTextField();
         nameTextField = new javax.swing.JTextField();
-        branchTextField = new javax.swing.JTextField();
         chargeComboBox = new javax.swing.JComboBox<>();
         activeComboBox = new javax.swing.JComboBox<>();
         dataScrollPane = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
         searchButton = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
+        branchComboBox = new javax.swing.JComboBox<>();
         UI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +70,7 @@ public class SearchEmployees extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 150, 20));
+        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 160, 20));
 
         nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         nameTextField.setColumns(5);
@@ -78,17 +82,6 @@ public class SearchEmployees extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 150, 20));
-
-        branchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
-        branchTextField.setColumns(5);
-        branchTextField.setForeground(new java.awt.Color(51, 51, 51));
-        branchTextField.setBorder(null);
-        branchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                branchTextFieldKeyTyped(evt);
-            }
-        });
-        getContentPane().add(branchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 150, 20));
 
         chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Gerente", "Vendedor", "Jefe de Taller" }));
         chargeComboBox.setToolTipText("");
@@ -134,19 +127,20 @@ public class SearchEmployees extends javax.swing.JFrame {
         });
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 0, 80, 40));
 
+        branchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas" }));
+        branchComboBox.setPreferredSize(new java.awt.Dimension(92, 29));
+        branchComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchComboBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 170, 30));
+
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Search Employee Menu.png"))); // NOI18N
         getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void branchTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_branchTextFieldKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isLetter(c) && !Character.isWhitespace(c) && !Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_branchTextFieldKeyTyped
 
     private void nameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTextFieldKeyTyped
         char c = evt.getKeyChar();
@@ -164,13 +158,17 @@ public class SearchEmployees extends javax.swing.JFrame {
 
     private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
         String id = idTextField.getText();
-        String name = nameTextField.getText();
-        String branch = branchTextField.getText();
+        String name = nameTextField.getText();        
         String charge =  chargeComboBox.getSelectedItem().toString();
         String active =  activeComboBox.getSelectedItem().toString();
-
+        String branch =  branchComboBox.getSelectedItem().toString();
+        
         if(charge.equals("Todos")) {
             charge = "";
+        }       
+        
+        if(branch.equals("Todas")) {
+            branch = "";
         }
 
         List<Map<String, String>> results = controller_.searchEmployees(id, name, branch, charge, active);
@@ -203,11 +201,15 @@ public class SearchEmployees extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_exitButtonMouseClicked
 
+    private void branchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_branchComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UI;
     private javax.swing.JComboBox<String> activeComboBox;
-    private javax.swing.JTextField branchTextField;
+    private javax.swing.JComboBox<String> branchComboBox;
     private javax.swing.JComboBox<String> chargeComboBox;
     private javax.swing.JPanel dataPanel;
     private javax.swing.JScrollPane dataScrollPane;

@@ -71,7 +71,7 @@ public class AddEmployee extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, 30));
+        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, 30));
 
         nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         nameTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,12 +86,12 @@ public class AddEmployee extends javax.swing.JFrame {
                 nameTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 240, 30));
+        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 230, 30));
 
         chargeCombo.setForeground(new java.awt.Color(44, 47, 51));
         chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Vendedor", "Jefe de Taller" }));
         chargeCombo.setBorder(null);
-        getContentPane().add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 240, 30));
+        getContentPane().add(chargeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 230, 30));
 
         salaryTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         salaryTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,12 +121,12 @@ public class AddEmployee extends javax.swing.JFrame {
                 phoneNumberTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 240, 30));
+        getContentPane().add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 240, 30));
 
         passwordField.setBackground(new java.awt.Color(255, 255, 255, 0));
         passwordField.setForeground(new java.awt.Color(255, 255, 255));
         passwordField.setBorder(null);
-        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 240, 30));
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 240, 30));
 
         addButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,7 +142,7 @@ public class AddEmployee extends javax.swing.JFrame {
         });
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 50, 40));
 
-        getContentPane().add(BranchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 130, 30));
+        getContentPane().add(BranchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 130, 30));
 
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Add Employee Menu.png"))); // NOI18N
         getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

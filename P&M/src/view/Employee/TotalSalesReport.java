@@ -137,11 +137,4 @@ public class TotalSalesReport extends javax.swing.JFrame {
     private javax.swing.JLabel generateReport;
     // End of variables declaration//GEN-END:variables
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TotalSalesReport(new Controller()).setVisible(true);
-            }
-        });
-    }
 }

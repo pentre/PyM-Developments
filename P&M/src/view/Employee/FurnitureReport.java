@@ -53,6 +53,7 @@ public class FurnitureReport extends javax.swing.JFrame {
         EndDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         branchComboBox = new javax.swing.JComboBox<>();
         generateReport = new javax.swing.JLabel();
+        exit = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,6 +75,13 @@ public class FurnitureReport extends javax.swing.JFrame {
             }
         });
         getContentPane().add(generateReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 380, 70));
+
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(931, -5, 110, 50));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Report bt Furniture.png"))); // NOI18N
         background.setText("jLabel1");
@@ -111,6 +119,10 @@ public class FurnitureReport extends javax.swing.JFrame {
         ChartPanel.validate();
     }//GEN-LAST:event_generateReportMouseClicked
 
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_exitMouseClicked
+
     private CategoryChart getChart(Map<String, List> data) {
         List<String> branches = data.get("branches");
         List<Integer> values = data.get("values");
@@ -129,14 +141,8 @@ public class FurnitureReport extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker InitialDatePicker;
     private javax.swing.JLabel background;
     private javax.swing.JComboBox<String> branchComboBox;
+    private javax.swing.JLabel exit;
     private javax.swing.JLabel generateReport;
     // End of variables declaration//GEN-END:variables
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FurnitureReport(new Controller()).setVisible(true);
-            }
-        });
-    }
 }

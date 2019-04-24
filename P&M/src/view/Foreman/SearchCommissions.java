@@ -79,7 +79,7 @@ public class SearchCommissions extends javax.swing.JFrame {
             dataTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        getContentPane().add(dataScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 740, 250));
+        getContentPane().add(dataScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 760, 250));
 
         searchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -63,6 +63,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setBorder(null);
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +75,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
-        jPanel1.add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 103, 190, 30));
+        jPanel1.add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 190, 30));
 
         nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         nameTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +91,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 nameTextFieldKeyTyped(evt);
             }
         });
-        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 240, 30));
+        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 230, 30));
 
         salaryTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         salaryTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +102,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 salaryTextFieldKeyTyped(evt);
             }
         });
-        jPanel1.add(salaryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 325, 80, 20));
+        jPanel1.add(salaryTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 315, 80, 30));
 
         phoneNumberTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         phoneNumberTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,7 +118,7 @@ public class ModifyEmployee extends javax.swing.JFrame {
                 phoneNumberTextFieldKeyTyped(evt);
             }
         });
-        jPanel1.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 230, 20));
+        jPanel1.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 230, 30));
 
         chargeCombo.setForeground(new java.awt.Color(255, 255, 255));
         chargeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Gerente", "Jefe de Taller", "Vendedor" }));
@@ -150,11 +151,11 @@ public class ModifyEmployee extends javax.swing.JFrame {
         });
         jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
 
-        jPanel1.add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 120, 30));
+        jPanel1.add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 140, 40));
 
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Modify Employee Menu.png"))); // NOI18N
         UI.setText("jLabel1");
-        jPanel1.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 540));
+        jPanel1.add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 530));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, -1));
 

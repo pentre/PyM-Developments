@@ -84,12 +84,14 @@ public class SearchEmployees extends javax.swing.JFrame {
         });
         getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 150, 30));
 
+        chargeComboBox.setForeground(new java.awt.Color(255, 255, 255));
         chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Gerente", "Vendedor", "Jefe de Taller" }));
         chargeComboBox.setToolTipText("");
-        getContentPane().add(chargeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 170, -1));
+        getContentPane().add(chargeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 170, 30));
 
+        activeComboBox.setForeground(new java.awt.Color(255, 255, 255));
         activeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Ambos" }));
-        getContentPane().add(activeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 160, -1));
+        getContentPane().add(activeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 170, 30));
 
         dataScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -112,7 +114,7 @@ public class SearchEmployees extends javax.swing.JFrame {
         dataTable.setRowSelectionAllowed(false);
         dataScrollPane.setViewportView(dataTable);
 
-        getContentPane().add(dataScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 760, 250));
+        getContentPane().add(dataScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 760, 260));
 
         searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,6 +130,8 @@ public class SearchEmployees extends javax.swing.JFrame {
         });
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 0, 80, 40));
 
+        branchComboBox.setBackground(new java.awt.Color(255, 255, 255, 0));
+        branchComboBox.setForeground(new java.awt.Color(255, 255, 255));
         branchComboBox.setPreferredSize(new java.awt.Dimension(92, 29));
         branchComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

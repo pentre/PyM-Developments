@@ -47,6 +47,7 @@ public class AddFurniture extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nameField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
         nameField.setBorder(null);
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +62,7 @@ public class AddFurniture extends javax.swing.JFrame {
         getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 220, 20));
 
         priceField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        priceField.setForeground(new java.awt.Color(255, 255, 255));
         priceField.setBorder(null);
         priceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +77,7 @@ public class AddFurniture extends javax.swing.JFrame {
         getContentPane().add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 175, 220, 20));
 
         materialField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        materialField.setForeground(new java.awt.Color(255, 255, 255));
         materialField.setBorder(null);
         materialField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -84,6 +87,7 @@ public class AddFurniture extends javax.swing.JFrame {
         getContentPane().add(materialField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 220, 20));
 
         weightField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        weightField.setForeground(new java.awt.Color(255, 255, 255));
         weightField.setBorder(null);
         weightField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -93,6 +97,7 @@ public class AddFurniture extends javax.swing.JFrame {
         getContentPane().add(weightField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 70, 20));
 
         colorField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        colorField.setForeground(new java.awt.Color(255, 255, 255));
         colorField.setBorder(null);
         colorField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

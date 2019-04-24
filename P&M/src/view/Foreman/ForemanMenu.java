@@ -156,7 +156,7 @@ public class ForemanMenu extends javax.swing.JFrame {
         commissionBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Foreman Menu - Commissions.png"))); // NOI18N
         commissionOptionPanel.add(commissionBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
-        getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
+        getContentPane().add(commissionOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

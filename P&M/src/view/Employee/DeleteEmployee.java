@@ -66,6 +66,7 @@ public class DeleteEmployee extends javax.swing.JFrame {
         backgroundPanel.add(idLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, -1, -1));
 
         idTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.setBorder(null);
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

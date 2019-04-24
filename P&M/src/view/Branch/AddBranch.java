@@ -56,6 +56,7 @@ public class AddBranch extends javax.swing.JFrame {
 
         cityField.setBackground(new java.awt.Color(255, 255, 255, 0));
         cityField.setColumns(6);
+        cityField.setForeground(new java.awt.Color(255, 255, 255));
         cityField.setBorder(null);
         cityField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -66,11 +67,13 @@ public class AddBranch extends javax.swing.JFrame {
 
         addressField.setBackground(new java.awt.Color(255, 255, 255, 0));
         addressField.setColumns(6);
+        addressField.setForeground(new java.awt.Color(255, 255, 255));
         addressField.setBorder(null);
         getContentPane().add(addressField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 130, 30));
 
         nameField.setBackground(new java.awt.Color(255, 255, 255, 0));
         nameField.setColumns(6);
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
         nameField.setBorder(null);
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

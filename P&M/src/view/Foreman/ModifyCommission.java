@@ -57,6 +57,7 @@ public class ModifyCommission extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         OrderIdTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        OrderIdTextField.setForeground(new java.awt.Color(0, 0, 0));
         OrderIdTextField.setBorder(null);
         OrderIdTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -66,6 +67,7 @@ public class ModifyCommission extends javax.swing.JFrame {
         getContentPane().add(OrderIdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 103, 190, 30));
 
         FurnitureIdTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        FurnitureIdTextField.setForeground(new java.awt.Color(255, 255, 255));
         FurnitureIdTextField.setBorder(null);
         FurnitureIdTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,10 +77,12 @@ public class ModifyCommission extends javax.swing.JFrame {
         getContentPane().add(FurnitureIdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 250, 20));
 
         QuantityTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        QuantityTextField.setForeground(new java.awt.Color(255, 255, 255));
         QuantityTextField.setBorder(null);
         getContentPane().add(QuantityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 250, 20));
 
         BranchTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
+        BranchTextField.setForeground(new java.awt.Color(255, 255, 255));
         BranchTextField.setBorder(null);
         getContentPane().add(BranchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 250, 20));
 

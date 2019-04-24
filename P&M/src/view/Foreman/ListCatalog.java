@@ -69,6 +69,7 @@ public class ListCatalog extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setEnabled(false);
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         catalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,7 +101,7 @@ public class ListCatalog extends javax.swing.JFrame {
         catalogTable.setEnabled(false);
         jScrollPane1.setViewportView(catalogTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 253, 740, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 253, 760, 250));
 
         searchLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

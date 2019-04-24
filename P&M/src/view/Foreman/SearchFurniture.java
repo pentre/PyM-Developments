@@ -54,6 +54,7 @@ public class SearchFurniture extends javax.swing.JFrame {
 
         infoTextArea.setEditable(false);
         infoTextArea.setColumns(20);
+        infoTextArea.setForeground(new java.awt.Color(255, 255, 255));
         infoTextArea.setRows(5);
         infoTextArea.setBorder(null);
         jScrollPane1.setViewportView(infoTextArea);

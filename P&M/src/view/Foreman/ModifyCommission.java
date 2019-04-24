@@ -84,7 +84,7 @@ public class ModifyCommission extends javax.swing.JFrame {
 
         StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terminado", "En proceso" }));
         StatusComboBox.setBorder(null);
-        getContentPane().add(StatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 270, -1));
+        getContentPane().add(StatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 385, 270, 30));
 
         modifyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

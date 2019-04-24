@@ -53,7 +53,7 @@ public class CreateCommission extends javax.swing.JFrame {
 
         furnitureComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         furnitureComboBox.setBorder(null);
-        getContentPane().add(furnitureComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, 30));
+        getContentPane().add(furnitureComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 260, 40));
 
         quantityTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         quantityTextField.setBorder(null);
@@ -71,7 +71,7 @@ public class CreateCommission extends javax.swing.JFrame {
 
         branchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         branchComboBox.setBorder(null);
-        getContentPane().add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 175, 130, 20));
+        getContentPane().add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 175, 150, 30));
 
         addCommission.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

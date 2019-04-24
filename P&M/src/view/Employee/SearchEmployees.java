@@ -71,7 +71,7 @@ public class SearchEmployees extends javax.swing.JFrame {
                 idTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 160, 20));
+        getContentPane().add(idTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 150, 30));
 
         nameTextField.setBackground(new java.awt.Color(255, 255, 255, 0));
         nameTextField.setColumns(5);
@@ -82,7 +82,7 @@ public class SearchEmployees extends javax.swing.JFrame {
                 nameTextFieldKeyTyped(evt);
             }
         });
-        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 150, 20));
+        getContentPane().add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 150, 30));
 
         chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Gerente", "Vendedor", "Jefe de Taller" }));
         chargeComboBox.setToolTipText("");
@@ -134,10 +134,10 @@ public class SearchEmployees extends javax.swing.JFrame {
                 branchComboBoxActionPerformed(evt);
             }
         });
-        getContentPane().add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 170, 30));
+        getContentPane().add(branchComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 170, 30));
 
         UI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Search Employee Menu.png"))); // NOI18N
-        getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
+        getContentPane().add(UI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

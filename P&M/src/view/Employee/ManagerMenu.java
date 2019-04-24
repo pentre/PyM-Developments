@@ -8,6 +8,7 @@ package view.Employee;
 import view.Branch.ListBranches;
 import view.Branch.ModifyBranch;
 import view.Branch.AddBranch;
+import view.Seller.ReportSellers;
 import controller.*;
 /**
  *
@@ -34,6 +35,15 @@ public class ManagerMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        reportOptionPanel = new javax.swing.JPanel();
+        reportDayLabel = new javax.swing.JLabel();
+        furnitureReportLabel = new javax.swing.JLabel();
+        totalReportLabel = new javax.swing.JLabel();
+        userLabel1 = new javax.swing.JLabel();
+        branchLabel1 = new javax.swing.JLabel();
+        exitBranch1 = new javax.swing.JLabel();
+        sellerReport = new javax.swing.JLabel();
+        reportBackground = new javax.swing.JLabel();
         userOptionPanel = new javax.swing.JPanel();
         addLabel = new javax.swing.JLabel();
         searchLabel = new javax.swing.JLabel();
@@ -43,14 +53,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         branchLabel = new javax.swing.JLabel();
         reportLabel = new javax.swing.JLabel();
         userBackground = new javax.swing.JLabel();
-        reportOptionPanel = new javax.swing.JPanel();
-        reportDayLabel = new javax.swing.JLabel();
-        furnitureReportLabel = new javax.swing.JLabel();
-        totalReportLabel = new javax.swing.JLabel();
-        userLabel1 = new javax.swing.JLabel();
-        branchLabel1 = new javax.swing.JLabel();
-        exitBranch1 = new javax.swing.JLabel();
-        reportBackground = new javax.swing.JLabel();
         branchOptionPanel = new javax.swing.JPanel();
         addBranchLabel = new javax.swing.JLabel();
         searchBranchLabel = new javax.swing.JLabel();
@@ -63,6 +65,62 @@ public class ManagerMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        reportOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        reportDayLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reportDayLabelMouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(reportDayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 70, 330, 200));
+
+        furnitureReportLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                furnitureReportLabelMouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(furnitureReportLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 330, 200));
+
+        totalReportLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                totalReportLabelMouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(totalReportLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 330, 200));
+
+        userLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userLabel1MouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 60, 80));
+
+        branchLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                branchLabel1MouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(branchLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 60, 80));
+
+        exitBranch1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitBranch1MouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(exitBranch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 50, 50));
+
+        sellerReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sellerReportMouseClicked(evt);
+            }
+        });
+        reportOptionPanel.add(sellerReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 330, 200));
+
+        reportBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Manager Menu - Reports.png"))); // NOI18N
+        reportOptionPanel.add(reportBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
+
+        getContentPane().add(reportOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         userOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -119,55 +177,6 @@ public class ManagerMenu extends javax.swing.JFrame {
         userOptionPanel.add(userBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(userOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        reportOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        reportDayLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reportDayLabelMouseClicked(evt);
-            }
-        });
-        reportOptionPanel.add(reportDayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 70, 330, 200));
-
-        furnitureReportLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                furnitureReportLabelMouseClicked(evt);
-            }
-        });
-        reportOptionPanel.add(furnitureReportLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 330, 200));
-
-        totalReportLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                totalReportLabelMouseClicked(evt);
-            }
-        });
-        reportOptionPanel.add(totalReportLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 660, 200));
-
-        userLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userLabel1MouseClicked(evt);
-            }
-        });
-        reportOptionPanel.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 60, 80));
-
-        branchLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                branchLabel1MouseClicked(evt);
-            }
-        });
-        reportOptionPanel.add(branchLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 60, 80));
-
-        exitBranch1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitBranch1MouseClicked(evt);
-            }
-        });
-        reportOptionPanel.add(exitBranch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 50, 50));
-
-        reportBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui_resources/Manager Menu - Reports.png"))); // NOI18N
-        reportOptionPanel.add(reportBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
-
-        getContentPane().add(reportOptionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         branchOptionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -324,6 +333,12 @@ public class ManagerMenu extends javax.swing.JFrame {
         this.reportOptionPanel.setVisible(true);
     }//GEN-LAST:event_reportBranchLabelMouseClicked
 
+    private void sellerReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sellerReportMouseClicked
+        ReportSellers report = new ReportSellers(controller_);
+        report.setLocationRelativeTo(null);
+        report.setVisible(true);
+    }//GEN-LAST:event_sellerReportMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addBranchLabel;
@@ -346,6 +361,7 @@ public class ManagerMenu extends javax.swing.JFrame {
     private javax.swing.JPanel reportOptionPanel;
     private javax.swing.JLabel searchBranchLabel;
     private javax.swing.JLabel searchLabel;
+    private javax.swing.JLabel sellerReport;
     private javax.swing.JLabel totalReportLabel;
     private javax.swing.JLabel userBackground;
     private javax.swing.JLabel userLabel;

@@ -95,7 +95,6 @@ public class SearchEmployees extends javax.swing.JFrame {
 
         dataScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        dataTable.setForeground(new java.awt.Color(255, 255, 255));
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, ""}
